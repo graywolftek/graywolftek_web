@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build && cp -r assets dist/",
+    "preview": "vite preview"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.22",

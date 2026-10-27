@@ -9,9 +9,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Load Vanilla Tilt for 3D Effects -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <!-- SplitFlapText Mechanical Departure Board Stylesheet -->
+    <link rel="stylesheet" href="assets/css/SplitFlapText.css">
+    <!-- GooeyNav Liquid Navigation Stylesheet -->
+    <link rel="stylesheet" href="assets/css/GooeyNav.css">
     <!-- Use Inter font family -->
     <style type="text/tailwindcss">
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section[id], footer[id] {
+            scroll-margin-top: 5.5rem;
+        }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -337,35 +349,33 @@
             <div class="flex justify-between items-center h-20">
 
                 <!-- Company Logo and Name -->
-                <a href="#" class="flex items-center space-x-2">
+                <a href="#" class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
                     <!-- LOGO PATH: assets/images/logo.png -->
-                    <img src="assets/images/logo.png" alt="Graywolftek Main Logo" class="h-12 w-auto" />
-                    <span class="text-xl font-extrabold tracking-wider text-white hidden sm:block">
+                    <img src="assets/images/logo.png" alt="Graywolftek Main Logo"
+                        class="h-10 sm:h-12 w-auto flex-shrink-0" />
+                    <span class="text-lg sm:text-xl font-extrabold tracking-wider text-white whitespace-nowrap">
                         <span class="text-primary-accent text-glow">GRAY</span>WOLFTEK
                     </span>
                 </a>
 
-                <!-- Desktop Navigation -->
-                <nav class="hidden md:flex space-x-8 items-center">
-                    <a href="#"
-                        class="text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">Home</a>
-                    <a href="projects.html"
-                        class="text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">Projects</a>
-                    <a href="#blog"
-                        class="text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">Blog</a>
-                    <a href="#about"
-                        class="text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">About
-                        Us</a>
-                    <!-- CTA kept separate from primary navigation links - Use Accent Color -->
-                    <a href="#contact"
-                        class="px-5 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-primary-accent hover:opacity-90 transition duration-150 cta-button ml-8">
-                        Get Started
-                    </a>
-                </nav>
+                <!-- Desktop Navigation with GooeyNav UI -->
+                <div id="desktop-nav-container" class="hidden md:flex items-center">
+                    <nav class="hidden md:flex space-x-6 items-center">
+                        <a href="#" class="text-sm font-medium text-gray-200 hover:text-primary-accent">Home</a>
+                        <a href="#projects"
+                            class="text-sm font-medium text-gray-200 hover:text-primary-accent">Projects</a>
+                        <a href="#blog" class="text-sm font-medium text-gray-200 hover:text-primary-accent">Blog</a>
+                        <a href="#about" class="text-sm font-medium text-gray-200 hover:text-primary-accent">About
+                            Us</a>
+                        <a href="#contact"
+                            class="px-5 py-2 text-sm font-medium rounded-lg text-white bg-primary-accent">Get
+                            Started</a>
+                    </nav>
+                </div>
 
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-button"
-                    class="md:hidden text-gray-200 hover:text-primary-accent transition duration-150 p-2 rounded-lg"
+                    class="md:hidden text-gray-200 hover:text-primary-accent transition duration-150 p-2 rounded-lg flex-shrink-0"
                     aria-label="Toggle menu">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
@@ -377,7 +387,7 @@
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
                 <a href="#"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Home</a>
-                <a href="projects.html"
+                <a href="#projects"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Projects</a>
                 <a href="#blog"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Blog</a>
@@ -395,11 +405,13 @@
     <!-- Hero Section -->
     <section class="relative pt-20 pb-28 text-center overflow-hidden">
 
-        <div class="max-w-4xl mx-auto px-4 relative z-20">
-            <!-- Enhanced 3D Text Shadow Applied Here -->
-            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight text-shadow-3d">
-                <span class="block text-white text-glow">Forge Your</span>
-                <span class="text-primary-accent block text-glow">High-Performing Remote Team</span>
+        <div class="max-w-5xl mx-auto px-4 relative z-20">
+            <!-- Split-Flap Headline: Both 'FORGE YOUR' and cycling phrases animated with SplitFlap motion, completely merged into background with NO UI border -->
+            <h1 class="my-6 flex flex-col items-center justify-center gap-3 sm:gap-4 max-w-full">
+                <!-- Line 1: Forge Your with SplitFlap motion -->
+                <div id="hero-split-flap-line1" class="flex justify-center items-center"></div>
+                <!-- Line 2: Value proposition with SplitFlap motion -->
+                <div id="hero-split-flap-line2" class="flex justify-center items-center"></div>
             </h1>
             <p class="mt-6 text-xl text-gray-300 max-w-2xl mx-auto">
                 Graywolftek is the strategic partner for building, setting up, and managing elite remote engineering
@@ -419,6 +431,138 @@
 
 
 
+    <!-- Projects Section (Innovation Lab) -->
+    <section id="projects" class="py-24 section-separator">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span
+                class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-accent bg-primary-accent/10 rounded-full mb-3 border border-primary-accent/20">Innovation
+                Lab</span>
+            <h2 class="text-4xl font-bold text-white mb-4 text-shadow-3d text-glow">Featured Projects</h2>
+            <p class="text-lg text-gray-400 max-w-3xl mx-auto mb-16">
+                Explore our internal innovation projects where we develop cutting-edge solutions and push the boundaries
+                of technology.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 text-left">
+                <!-- Project 1: Contactcard -->
+                <div class="card-3d-effect p-6 glass-panel rounded-2xl flex flex-col justify-between" data-tilt
+                    data-tilt-max="5" data-tilt-speed="400">
+                    <div>
+                        <div
+                            class="rounded-xl overflow-hidden bg-gray-800/50 mb-5 flex items-center justify-center p-2 h-48">
+                            <img src="assets/projects/Contactcard.gif" alt="Contactcard App Demo"
+                                class="max-h-full w-auto object-contain rounded-lg">
+                        </div>
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-white">Contactcard</h3>
+                            <span
+                                class="px-2 py-0.5 text-xs font-semibold bg-green-500/20 text-green-400 rounded-full border border-green-500/30">Completed</span>
+                        </div>
+                        <p class="text-xs text-gray-400 mb-3">May 2023 - Jan 2024</p>
+                        <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                            A mobile app that lets users quickly share contact information through QR codes with digital
+                            business cards and offline access.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            <span
+                                class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">iOS</span>
+                            <span
+                                class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">Swift</span>
+                            <span
+                                class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">SwiftUI</span>
+                        </div>
+                        <a href="projects.html"
+                            class="inline-flex items-center text-xs font-medium text-primary-accent hover:opacity-80 transition">
+                            View Project Details <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: KAI AI Browser -->
+                <div class="card-3d-effect p-6 glass-panel rounded-2xl flex flex-col justify-between" data-tilt
+                    data-tilt-max="5" data-tilt-speed="400">
+                    <div>
+                        <div
+                            class="rounded-xl overflow-hidden bg-gray-800/50 mb-5 flex items-center justify-center p-2 h-48">
+                            <img src="assets/projects/KAI.gif" alt="KAI AI Browser Demo"
+                                class="max-h-full w-auto object-contain rounded-lg">
+                        </div>
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-white">KAI AI Browser</h3>
+                            <span
+                                class="px-2 py-0.5 text-xs font-semibold bg-yellow-500/20 text-yellow-400 rounded-full border border-yellow-500/30">In
+                                Progress</span>
+                        </div>
+                        <p class="text-xs text-gray-400 mb-3">Nov 2024 - Present</p>
+                        <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                            An AI-powered browsing assistant that enhances productivity with personalized news, notes,
+                            voice interaction, and multi-language support.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            <span
+                                class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">Electron.js</span>
+                            <span
+                                class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">React.js</span>
+                            <span
+                                class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">Python</span>
+                        </div>
+                        <a href="projects.html"
+                            class="inline-flex items-center text-xs font-medium text-primary-accent hover:opacity-80 transition">
+                            View Project Details <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Shelfly -->
+                <div class="card-3d-effect p-6 glass-panel rounded-2xl flex flex-col justify-between" data-tilt
+                    data-tilt-max="5" data-tilt-speed="400">
+                    <div>
+                        <div
+                            class="rounded-xl overflow-hidden bg-gray-800/50 mb-5 flex items-center justify-center p-2 h-48">
+                            <img src="assets/projects/shelfly.gif" alt="Shelfly Demo"
+                                class="max-h-full w-auto object-contain rounded-lg">
+                        </div>
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-white">Shelfly</h3>
+                            <span
+                                class="px-2 py-0.5 text-xs font-semibold bg-green-500/20 text-green-400 rounded-full border border-green-500/30">Completed</span>
+                        </div>
+                        <p class="text-xs text-gray-400 mb-3">Launched Jun 2026</p>
+                        <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                            A community-driven book exchange and donation platform making learning resources accessible,
+                            promoting book reuse and sharing.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            <span
+                                class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">TypeScript</span>
+                            <span
+                                class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">PostgreSQL</span>
+                            <span
+                                class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">React</span>
+                        </div>
+                        <a href="projects.html"
+                            class="inline-flex items-center text-xs font-medium text-primary-accent hover:opacity-80 transition">
+                            View Project Details <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="projects.html"
+                    class="inline-flex items-center px-6 py-3 rounded-lg text-sm font-medium text-white bg-white/10 border border-white/20 hover:bg-white/20 transition duration-150">
+                    Explore Dedicated Innovation Lab Page <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Blog Section -->
     <section id="blog" class="py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center section-separator">
@@ -435,9 +579,11 @@
                 <!-- Blog Post 1 - Remote Teams -->
                 <div class="book">
                     <div class="cover">
-                        <img src="assets/images/remoteteam.gif" alt="Remote Team Strategy" class="w-16 h-16 mx-auto mb-4 object-contain">
+                        <img src="assets/images/remoteteam.gif" alt="Remote Team Strategy"
+                            class="w-16 h-16 mx-auto mb-4 object-contain">
                         <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Remote Teams</span>
-                        <h3 class="text-lg font-bold text-white mt-3 text-center leading-snug">5 Keys to Scaling Engineering Teams in India</h3>
+                        <h3 class="text-lg font-bold text-white mt-3 text-center leading-snug">5 Keys to Scaling
+                            Engineering Teams in India</h3>
 
                     </div>
                     <div class="w-full text-left">
@@ -446,7 +592,8 @@
                             Discover the essential strategies for successful talent sourcing, cultural integration, and
                             infrastructure setup when building your remote presence.
                         </p>
-                        <a href="blog-remote-teams.html" class="inline-flex items-center text-primary-accent hover:opacity-80 font-medium text-sm mt-2">
+                        <a href="blog-remote-teams.html"
+                            class="inline-flex items-center text-primary-accent hover:opacity-80 font-medium text-sm mt-2">
                             Read More <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
                         </a>
                     </div>
@@ -455,18 +602,22 @@
                 <!-- Blog Post 2 - Infrastructure -->
                 <div class="book">
                     <div class="cover">
-                        <img src="assets/images/devopsteam.png" alt="DevOps and Infrastructure" class="w-16 h-16 mx-auto mb-4 object-contain">
+                        <img src="assets/images/devopsteam.png" alt="DevOps and Infrastructure"
+                            class="w-16 h-16 mx-auto mb-4 object-contain">
                         <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Infrastructure</span>
-                        <h3 class="text-lg font-bold text-white mt-3 text-center leading-snug">The Future of Data Center Infrastructure</h3>
+                        <h3 class="text-lg font-bold text-white mt-3 text-center leading-snug">The Future of Data Center
+                            Infrastructure</h3>
 
                     </div>
                     <div class="w-full text-left">
-                        <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">Infrastructure</h4>
+                        <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">Infrastructure
+                        </h4>
                         <p class="text-gray-300 text-sm leading-relaxed mb-4">
                             An analysis of turnkey deployment models, cloud integration, and the role of technologies
                             like Red Hat CloudForms and Satellite in modernizing infrastructure.
                         </p>
-                        <a href="blog-infrastructure.html" class="inline-flex items-center text-primary-accent hover:opacity-80 font-medium text-sm mt-2">
+                        <a href="blog-infrastructure.html"
+                            class="inline-flex items-center text-primary-accent hover:opacity-80 font-medium text-sm mt-2">
                             Read More <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
                         </a>
                     </div>
@@ -475,18 +626,23 @@
                 <!-- Blog Post 3 - HR Management -->
                 <div class="book">
                     <div class="cover">
-                        <img src="assets/images/agilehr.gif" alt="Agile HR Management" class="w-16 h-16 mx-auto mb-4 object-contain">
-                        <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">HR & Management</span>
-                        <h3 class="text-lg font-bold text-white mt-3 text-center leading-snug">Simplifying HR for Global Remote Teams</h3>
+                        <img src="assets/images/agilehr.gif" alt="Agile HR Management"
+                            class="w-16 h-16 mx-auto mb-4 object-contain">
+                        <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">HR &
+                            Management</span>
+                        <h3 class="text-lg font-bold text-white mt-3 text-center leading-snug">Simplifying HR for Global
+                            Remote Teams</h3>
 
                     </div>
                     <div class="w-full text-left">
-                        <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">HR & Management</h4>
+                        <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">HR & Management
+                        </h4>
                         <p class="text-gray-300 text-sm leading-relaxed mb-4">
                             How to handle compliance, payroll, and benefits efficiently across borders to keep your
                             remote staff focused and productive.
                         </p>
-                        <a href="blog-hr-management.html" class="inline-flex items-center text-primary-accent hover:opacity-80 font-medium text-sm mt-2">
+                        <a href="blog-hr-management.html"
+                            class="inline-flex items-center text-primary-accent hover:opacity-80 font-medium text-sm mt-2">
                             Read More <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
                         </a>
                     </div>
@@ -512,18 +668,22 @@
                 <div class="book">
                     <div class="cover">
                         <!-- GIF Icon PATH: assets/images/datacenter.gif -->
-                        <img src="assets/images/datacenter.gif" alt="Data Center Infrastructure Icon" class="w-16 h-16 mx-auto mb-4 object-contain">
-                        <h3 class="text-xl font-bold text-white text-center leading-snug">Data Center Infrastructure</h3>
+                        <img src="assets/images/datacenter.gif" alt="Data Center Infrastructure Icon"
+                            class="w-16 h-16 mx-auto mb-4 object-contain">
+                        <h3 class="text-xl font-bold text-white text-center leading-snug">Data Center Infrastructure
+                        </h3>
 
                     </div>
                     <div class="w-full text-left">
-                        <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">Infrastructure</h4>
+                        <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">Infrastructure
+                        </h4>
                         <p class="text-gray-300 text-sm leading-relaxed mb-4">
                             GrayWolfTek delivers complete data center infrastructure solutions—from planning to
                             execution—with a focus on performance, reliability, and scalability. We specialize in
                             turnkey deployments using advanced technologies like Red Hat CloudForms and Satellite.
                         </p>
-                        <a href="datacenter.html" class="inline-flex items-center text-sm font-medium text-white px-4 py-2 rounded-lg cta-button">
+                        <a href="datacenter.html"
+                            class="inline-flex items-center text-sm font-medium text-white px-4 py-2 rounded-lg cta-button">
                             LEARN MORE
                         </a>
                     </div>
@@ -533,18 +693,21 @@
                 <div class="book">
                     <div class="cover">
                         <!-- GIF Icon PATH: assets/images/leadership.gif -->
-                        <img src="assets/images/leadership.gif" alt="Staffing and Leadership Icon" class="w-16 h-16 mx-auto mb-4 object-contain">
+                        <img src="assets/images/leadership.gif" alt="Staffing and Leadership Icon"
+                            class="w-16 h-16 mx-auto mb-4 object-contain">
                         <h3 class="text-xl font-bold text-white text-center leading-snug">Staffing Firm</h3>
 
                     </div>
                     <div class="w-full text-left">
-                        <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">Staffing Solutions</h4>
+                        <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">Staffing Solutions
+                        </h4>
                         <p class="text-gray-300 text-sm leading-relaxed mb-4">
                             GrayWolftek Staffing Firm is your strategic partner in building high-performing teams and
                             managing recruitment from start to finish. We empower startups with tailored staffing
                             solutions, helping them scale quickly and efficiently.
                         </p>
-                        <a href="staffing.html" class="inline-flex items-center text-sm font-medium text-white px-4 py-2 rounded-lg cta-button">
+                        <a href="staffing.html"
+                            class="inline-flex items-center text-sm font-medium text-white px-4 py-2 rounded-lg cta-button">
                             LEARN MORE
                         </a>
                     </div>
@@ -554,8 +717,10 @@
                 <div class="book">
                     <div class="cover">
                         <!-- GIF Icon PATH: assets/images/software.gif -->
-                        <img src="assets/images/software.gif" alt="Software Development Icon" class="w-16 h-16 mx-auto mb-4 object-contain">
-                        <h3 class="text-xl font-bold text-white text-center leading-snug">Software & App Development</h3>
+                        <img src="assets/images/software.gif" alt="Software Development Icon"
+                            class="w-16 h-16 mx-auto mb-4 object-contain">
+                        <h3 class="text-xl font-bold text-white text-center leading-snug">Software & App Development
+                        </h3>
 
                     </div>
                     <div class="w-full text-left">
@@ -565,7 +730,8 @@
                             ideas into scalable, high-quality digital solutions. From concept to deployment, we guide
                             you through a seamless and collaborative development journey.
                         </p>
-                        <a href="software.html" class="inline-flex items-center text-sm font-medium text-white px-4 py-2 rounded-lg cta-button">
+                        <a href="software.html"
+                            class="inline-flex items-center text-sm font-medium text-white px-4 py-2 rounded-lg cta-button">
                             LEARN MORE
                         </a>
                     </div>
@@ -687,14 +853,16 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span class="text-sm font-semibold uppercase text-primary-accent">Leadership</span>
             <!-- Enhanced 3D Text Shadow Applied Here -->
-            <h2 class="text-4xl font-bold text-white mb-10 text-shadow-3d text-glow">Alpha — Senior Leadership / Core Decision Makers</h2>
+            <h2 class="text-4xl font-bold text-white mb-10 text-shadow-3d text-glow">Alpha — Senior Leadership / Core
+                Decision Makers</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <!-- Team Member 1: Vishal Maurya -->
                 <div class="flip-card card-alpha">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="assets/team/vishal.png" alt="Vishal Maurya - Founder and CEO" class="w-full h-full object-cover"
+                            <img src="assets/team/vishal.png" alt="Vishal Maurya - Founder and CEO"
+                                class="w-full h-full object-cover"
                                 onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Vishal+Placeholder'" />
                         </div>
                         <div class="flip-card-back">
@@ -704,14 +872,34 @@
                             <!-- Social Links -->
                             <div class="flex space-x-3 mt-4">
                                 <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <path
+                                            d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                                        </path>
+                                    </svg>
                                 </span>
                                 <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
                                 </span>
                                 <a href="https://www.linkedin.com/in/vishal-maurya-aba607243/" target="_blank"
                                     class="social-icon-btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <path
+                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                        </path>
+                                        <rect x="2" y="9" width="4" height="12"></rect>
+                                        <circle cx="4" cy="4" r="2"></circle>
+                                    </svg>
                                 </a>
                             </div>
                         </div>
@@ -726,7 +914,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span class="text-sm font-semibold uppercase text-purple-400">Management &amp; Expertise</span>
             <!-- Enhanced 3D Text Shadow Applied Here -->
-            <h2 class="text-4xl font-bold text-white mb-10 text-shadow-3d text-glow">Beta — Mid-Level Managers / Experienced Professionals</h2>
+            <h2 class="text-4xl font-bold text-white mb-10 text-shadow-3d text-glow">Beta — Mid-Level Managers /
+                Experienced Professionals</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
 
@@ -734,7 +923,8 @@
                 <div class="flip-card card-beta">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="assets/team/akshay.JPG" alt="Akshay Nandanwar - Senior DevOps Consultant" class="w-full h-full object-cover"
+                            <img src="assets/team/akshay.JPG" alt="Akshay Nandanwar - Senior DevOps Consultant"
+                                class="w-full h-full object-cover"
                                 onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Akshay+Placeholder'" />
                         </div>
                         <div class="flip-card-back">
@@ -744,14 +934,34 @@
                             <!-- Social Links -->
                             <div class="flex space-x-3 mt-4">
                                 <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <path
+                                            d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                                        </path>
+                                    </svg>
                                 </span>
                                 <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
                                 </span>
                                 <a href="https://www.linkedin.com/in/akshay-nandanwar-29ba8255/" target="_blank"
                                     class="social-icon-btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <path
+                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                        </path>
+                                        <rect x="2" y="9" width="4" height="12"></rect>
+                                        <circle cx="4" cy="4" r="2"></circle>
+                                    </svg>
                                 </a>
                             </div>
                         </div>
@@ -762,7 +972,8 @@
                 <div class="flip-card card-beta">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="assets/team/anudeep.JPG" alt="Anudeep Kankipati - Data Center Expert" class="w-full h-full object-cover"
+                            <img src="assets/team/anudeep.JPG" alt="Anudeep Kankipati - Data Center Expert"
+                                class="w-full h-full object-cover"
                                 onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Anudeep+Placeholder'" />
                         </div>
                         <div class="flip-card-back">
@@ -772,13 +983,34 @@
                             <!-- Social Links -->
                             <div class="flex space-x-3 mt-4">
                                 <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <path
+                                            d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                                        </path>
+                                    </svg>
                                 </span>
                                 <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
                                 </span>
-                                <a href="https://www.linkedin.com/in/anudeep29ak/" target="_blank" class="social-icon-btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                <a href="https://www.linkedin.com/in/anudeep29ak/" target="_blank"
+                                    class="social-icon-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <path
+                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                        </path>
+                                        <rect x="2" y="9" width="4" height="12"></rect>
+                                        <circle cx="4" cy="4" r="2"></circle>
+                                    </svg>
                                 </a>
                             </div>
                         </div>
@@ -793,7 +1025,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span class="text-sm font-semibold uppercase text-blue-400">Skilled Contributors</span>
             <!-- Enhanced 3D Text Shadow Applied Here -->
-            <h2 class="text-4xl font-bold text-white mb-10 text-shadow-3d text-glow">DELTA — Skilled Contributors / Regular Team Members</h2>
+            <h2 class="text-4xl font-bold text-white mb-10 text-shadow-3d text-glow">DELTA — Skilled Contributors /
+                Regular Team Members</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
 
@@ -801,7 +1034,8 @@
                 <div class="flip-card card-delta">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="assets/team/utkarsh.png" alt="Utkarsh Maurya - Developer" class="w-full h-full object-cover"
+                            <img src="assets/team/utkarsh.png" alt="Utkarsh Maurya - Developer"
+                                class="w-full h-full object-cover"
                                 onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Utkarsh+Placeholder'" />
                         </div>
                         <div class="flip-card-back">
@@ -811,14 +1045,34 @@
                             <!-- Social Links -->
                             <div class="flex space-x-3 mt-4">
                                 <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <path
+                                            d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                                        </path>
+                                    </svg>
                                 </span>
                                 <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
                                 </span>
                                 <a href="https://linkedin.com/in/utkarsh-maurya-822a3832a" target="_blank"
                                     class="social-icon-btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <path
+                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                        </path>
+                                        <rect x="2" y="9" width="4" height="12"></rect>
+                                        <circle cx="4" cy="4" r="2"></circle>
+                                    </svg>
                                 </a>
                             </div>
                         </div>
@@ -833,7 +1087,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span class="text-sm font-semibold uppercase text-purple-400">New Talent</span>
             <!-- Enhanced 3D Text Shadow Applied Here -->
-            <h2 class="text-4xl font-bold text-white mb-10 text-shadow-3d text-glow">OMEGA — Junior Members / New Talent</h2>
+            <h2 class="text-4xl font-bold text-white mb-10 text-shadow-3d text-glow">OMEGA — Junior Members / New Talent
+            </h2>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
 
@@ -841,7 +1096,8 @@
                 <div class="flip-card card-omega">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="assets/team/Aakash Maurya.jpg" alt="Aakash Maurya - Junior Marketing Executive" class="w-full h-full object-cover"
+                            <img src="assets/team/Aakash Maurya.jpg" alt="Aakash Maurya - Junior Marketing Executive"
+                                class="w-full h-full object-cover"
                                 onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Aakash+Placeholder'" />
                         </div>
                         <div class="flip-card-back">
@@ -851,14 +1107,34 @@
                             <!-- Social Links -->
                             <div class="flex space-x-3 mt-4">
                                 <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <path
+                                            d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                                        </path>
+                                    </svg>
                                 </span>
                                 <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
                                 </span>
                                 <a href="https://www.linkedin.com/in/aakash-maurya-36a544278/" target="_blank"
                                     class="social-icon-btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <path
+                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                        </path>
+                                        <rect x="2" y="9" width="4" height="12"></rect>
+                                        <circle cx="4" cy="4" r="2"></circle>
+                                    </svg>
                                 </a>
                             </div>
                         </div>
@@ -869,7 +1145,8 @@
                 <div class="flip-card card-omega">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="assets/team/Aryan Maurya.jpg" alt="Aryan Maurya - Developer" class="w-full h-full object-cover"
+                            <img src="assets/team/Aryan Maurya.jpg" alt="Aryan Maurya - Developer"
+                                class="w-full h-full object-cover"
                                 onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Aryan+Placeholder'" />
                         </div>
                         <div class="flip-card-back">
@@ -879,14 +1156,34 @@
                             <!-- Social Links -->
                             <div class="flex space-x-3 mt-4">
                                 <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <path
+                                            d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                                        </path>
+                                    </svg>
                                 </span>
                                 <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
                                 </span>
                                 <a href="https://www.linkedin.com/in/aryan-maurya-0b68a732a/" target="_blank"
                                     class="social-icon-btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <path
+                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                        </path>
+                                        <rect x="2" y="9" width="4" height="12"></rect>
+                                        <circle cx="4" cy="4" r="2"></circle>
+                                    </svg>
                                 </a>
                             </div>
                         </div>
@@ -897,7 +1194,8 @@
                 <div class="flip-card card-omega">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="assets/team/Shreyansh Yadav.jpg" alt="Shreyansh Yadav - Developer" class="w-full h-full object-cover"
+                            <img src="assets/team/Shreyansh Yadav.jpg" alt="Shreyansh Yadav - Developer"
+                                class="w-full h-full object-cover"
                                 onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Shreyansh+Placeholder'" />
                         </div>
                         <div class="flip-card-back">
@@ -907,14 +1205,34 @@
                             <!-- Social Links -->
                             <div class="flex space-x-3 mt-4">
                                 <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <path
+                                            d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                                        </path>
+                                    </svg>
                                 </span>
                                 <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
                                 </span>
                                 <a href="https://www.linkedin.com/in/shreyansh-yadav-a9b72b384/" target="_blank"
                                     class="social-icon-btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <path
+                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                        </path>
+                                        <rect x="2" y="9" width="4" height="12"></rect>
+                                        <circle cx="4" cy="4" r="2"></circle>
+                                    </svg>
                                 </a>
                             </div>
                         </div>
@@ -968,9 +1286,11 @@
 
                         </div>
                         <div class="w-full text-left">
-                            <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">Innovation</h4>
+                            <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">Innovation
+                            </h4>
                             <p class="text-gray-300 text-sm leading-relaxed">
-                                Leveraging cutting-edge technologies and agile methodologies to deliver solutions that keep
+                                Leveraging cutting-edge technologies and agile methodologies to deliver solutions that
+                                keep
                                 you ahead of the competition.
                             </p>
                         </div>
@@ -1084,18 +1404,42 @@
                     <!-- Social Media Links -->
                     <div class="flex items-center justify-center md:justify-end space-x-3 mt-4">
                         <span class="social-icon-btn cursor-default" aria-label="Twitter">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <path
+                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                                </path>
+                            </svg>
                         </span>
                         <a href="https://www.linkedin.com/company/graywolftek/posts/?feedView=all" target="_blank"
                             class="social-icon-btn" aria-label="LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
                         </a>
                         <a href="https://www.instagram.com/graywolftek/" target="_blank" class="social-icon-btn"
                             aria-label="Instagram">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
                         </a>
                         <span class="social-icon-btn cursor-default" aria-label="Facebook">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-gray-300"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
                         </span>
                     </div>
 
@@ -1156,6 +1500,124 @@
         window.addEventListener('scroll', revealOnScroll);
         // Trigger once on load
         revealOnScroll();
+    </script>
+    <!-- SplitFlapText Component Script & Initialization -->
+    <script src="assets/js/SplitFlapText.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.SplitFlapText) {
+                // Line 1: FORGE YOUR with same mechanical flip motion
+                if (document.getElementById('hero-split-flap-line1')) {
+                    new SplitFlapText({
+                        target: '#hero-split-flap-line1',
+                        words: ['FORGE YOUR'],
+                        tileColor: '#0f172a',
+                        textColor: '#ffffff',
+                        tileRadius: 8,
+                        gap: 6,
+                        fontSize: 48,
+                        padTo: 0,
+                        align: 'center',
+                        intro: true,
+                        glare: 0.35,
+                        depth: 0.6,
+                        order: 'left',
+                        loop: false
+                    });
+                }
+
+                // Line 2: Value propositions with same mechanical flip motion
+                if (document.getElementById('hero-split-flap-line2')) {
+                    new SplitFlapText({
+                        target: '#hero-split-flap-line2',
+                        words: ['HIGH-PERFORMING', 'REMOTE TEAM', 'ELITE TALENT', 'GLOBAL SQUADS'],
+                        cycleDelay: 2400,
+                        flipDuration: 0.12,
+                        stagger: 0.05,
+                        flipsPerChar: 6,
+                        tileColor: '#0f172a',
+                        textColor: '#818cf8',
+                        tileRadius: 8,
+                        gap: 6,
+                        fontSize: 48,
+                        padTo: 0,
+                        align: 'center',
+                        intro: true,
+                        glare: 0.35,
+                        depth: 0.6,
+                        order: 'left',
+                        loop: true
+                    });
+                }
+            }
+        });
+    </script>
+    <!-- GooeyNav Component Script & Initialization -->
+    <script src="assets/js/GooeyNav.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (document.getElementById('desktop-nav-container') && window.GooeyNav) {
+                const hash = window.location.hash;
+                let initialIdx = 0;
+                if (hash === '#projects') initialIdx = 1;
+                else if (hash === '#blog') initialIdx = 2;
+                else if (hash === '#about') initialIdx = 3;
+                else if (hash === '#contact') initialIdx = 4;
+
+                const nav = new GooeyNav({
+                    target: '#desktop-nav-container',
+                    theme: 'dark',
+                    color: '#818cf8',
+                    activeTextColor: '#ffffff',
+                    colors: ['#818cf8', '#a855f7', '#c084fc'],
+                    size: 'md',
+                    frame: false,
+                    initialActiveIndex: initialIdx,
+                    items: [
+                        { label: 'Home', href: '#' },
+                        { label: 'Projects', href: '#projects' },
+                        { label: 'Blog', href: '#blog' },
+                        { label: 'About Us', href: '#about' },
+                        { label: 'Get Started', href: '#contact' }
+                    ]
+                });
+
+                // Scroll spy to smoothly track active section as user scrolls
+                let isClicking = false;
+                const sections = [
+                    { id: '', index: 0 },
+                    { id: 'projects', index: 1 },
+                    { id: 'blog', index: 2 },
+                    { id: 'about', index: 3 },
+                    { id: 'contact', index: 4 }
+                ];
+
+                document.getElementById('desktop-nav-container')?.addEventListener('click', () => {
+                    isClicking = true;
+                    setTimeout(() => { isClicking = false; }, 900);
+                });
+
+                let scrollTimeout;
+                window.addEventListener('scroll', () => {
+                    if (isClicking) return;
+                    clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(() => {
+                        const scrollY = window.scrollY;
+                        if (scrollY < 260) {
+                            nav.select(0);
+                            return;
+                        }
+                        for (let i = sections.length - 1; i >= 1; i--) {
+                            const el = document.getElementById(sections[i].id);
+                            if (el && el.getBoundingClientRect().top <= 180) {
+                                nav.select(sections[i].index);
+                                return;
+                            }
+                        }
+                    }, 50);
+                }, { passive: true });
+            }
+        });
     </script>
 </body>
 
