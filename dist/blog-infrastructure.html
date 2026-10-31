@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Future of Data Center Infrastructure | Graywolftek Blog</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Vanilla Tilt for 3D Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Use Inter font family -->
+    <style type="text/tailwindcss">
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f172a;
+            background-image: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+                radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+            background-attachment: fixed;
+            color: #f3f4f6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --color-primary-accent: #818cf8;
+            --color-secondary-accent: #c084fc;
+            --color-dark-text: #f3f4f6;
+            --color-glass-border: rgba(255, 255, 255, 0.1);
+            --color-glass-bg: rgba(255, 255, 255, 0.03);
+        }
+
+        .glass-panel {
+            background: var(--color-glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--color-glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(129, 140, 248, 0.5), 0 0 40px rgba(129, 140, 248, 0.3);
+        }
+
+        .cta-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 0 30px rgba(124, 58, 237, 0.6);
+        }
+
+        .social-icon-btn {
+            transition: all 0.3s ease;
+        }
+
+        .social-icon-btn:hover {
+            box-shadow: 0 0 20px rgba(129, 140, 248, 0.6), 0 0 30px rgba(129, 140, 248, 0.4);
+            border-color: var(--color-primary-accent);
+            transform: translateY(-2px);
+        }
+
+        .social-icon-btn:hover i {
+            color: var(--color-primary-accent) !important;
+        }
+
+        .blog-content h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #fff;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-content p {
+            margin-bottom: 1.25rem;
+            line-height: 1.75;
+            color: #d1d5db;
+        }
+
+        .blog-content table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+        }
+
+        .blog-content th,
+        .blog-content td {
+            padding: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .blog-content th {
+            background: rgba(129, 140, 248, 0.1);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .blog-content td {
+            color: #d1d5db;
+        }
+
+        .blog-content strong {
+            color: #fff;
+            font-weight: 600;
+        }
+    
+        /* From Uiverse.io by Saad3092003 */ 
+        .obj {
+          position: relative;
+          width: 200px;
+          height: 200px;
+            /* background-color: rgb(96, 96, 232); */
+          transform-style: preserve-3d;
+          transition: 0.5s all;
+          transform: rotateX(-25deg) rotateY(20deg);
+        }
+
+        .objchild {
+          animation: rotate 10s infinite linear;
+          transform-style: preserve-3d;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+            /* background:linear-gradient( to top,rgb(11, 11, 102),rgb(96, 96, 232) ) ; */
+        }
+
+        .objchild::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          filter: blur(20px);
+          box-shadow: 0 0 70px 15px rgba(255, 255, 255, 0.45);
+          transform: rotateX(90deg) scale(1.1) translateZ(-120px);
+          pointer-events: none;
+        }
+
+        .logo-3d-shadow {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          filter: brightness(0) blur(4px) drop-shadow(0 0 12px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.45));
+          opacity: 0.75;
+          transform: rotateX(90deg) scale(0.95) translateZ(-120px);
+          animation: shadowPulse 5s infinite ease-in-out;
+          pointer-events: none;
+        }
+
+        @keyframes shadowPulse {
+          0%, 100% {
+            transform: rotateX(90deg) scale(1.05) translateZ(-120px);
+            opacity: 0.65;
+            filter: brightness(0) blur(5px) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
+          }
+
+          20%, 35% {
+            transform: rotateX(90deg) scale(1.05) translateZ(-120px);
+            opacity: 0.65;
+            filter: brightness(0) blur(5px) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
+          }
+
+          65%, 75% {
+            transform: rotateX(90deg) scale(0.85) translateZ(-120px);
+            opacity: 0.85;
+            filter: brightness(0) blur(3px) drop-shadow(0 0 10px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.55));
+          }
+        }
+
+        .inn6 {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: transparent;
+          transform: translateY(10px) rotateX(20deg) translateZ(80px);
+          animation: updown 5s infinite ease-in-out;
+          transform-style: preserve-3d;
+          backface-visibility: visible;
+        }
+
+        @keyframes rotate {
+          0% {
+            transform: rotate3d(0,1,0,0deg);
+          }
+
+          100% {
+            transform: rotate3d(0,1,0,360deg);
+          }
+        }
+
+        @keyframes updown {
+          0%, 100% {
+            /* Upward: changes direction to the front so everyone clearly sees the logo */
+            transform: translateY(10px) rotateX(20deg) translateZ(80px) scale(1.1);
+          }
+
+          20%, 35% {
+            /* Pauses upright facing the front at the top */
+            transform: translateY(10px) rotateX(20deg) translateZ(80px) scale(1.1);
+          }
+
+          65%, 75% {
+            /* Downward: tilts back into the horizontal plane */
+            transform: translateY(135px) rotateX(85deg) translateZ(80px) scale(0.9);
+          }
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="sticky top-0 z-50 glass-panel">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="index.html" class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+                    <img src="assets/images/logo.png" alt="Graywolftek Logo" class="h-10 sm:h-12 w-auto flex-shrink-0">
+                    <span class="text-lg sm:text-xl font-extrabold tracking-wider whitespace-nowrap">
+                        <span class="text-primary-accent text-glow">GRAY</span><span class="text-white">WOLFTEK</span>
+                    </span>
+                </a>
+
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-200 hover:text-primary-accent transition">Home</a>
+                    <a href="product.html" class="text-gray-200 hover:text-primary-accent transition">Product</a>
+                    <a href="projects.html" class="text-gray-200 hover:text-primary-accent transition">Projects</a>
+                    <a href="index.html#blog" class="text-gray-200 hover:text-primary-accent transition">Blog</a>
+                    <a href="index.html#about" class="text-gray-200 hover:text-primary-accent transition">About Us</a>
+                </nav>
+
+                <a href="index.html#contact"
+                    class="hidden md:inline-block px-6 py-2 text-white rounded-full cta-button">
+                    Get Started
+                </a>
+
+                <button id="mobile-menu-toggle" class="md:hidden text-white flex-shrink-0 p-2" aria-label="Toggle menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="index.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Home</a>
+                <a href="product.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Product</a>
+                <a href="projects.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Projects</a>
+                <a href="index.html#blog"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Blog</a>
+                <a href="index.html#about"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">About
+                    Us</a>
+                <a href="index.html#contact"
+                    class="block w-full px-3 py-2 rounded-md text-base font-medium text-white bg-primary-accent hover:opacity-90 mt-2 cta-button">Get
+                    Started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Blog Article Content -->
+    <main class="py-16">
+        <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Blog Header -->
+            <div class="mb-12">
+                <a href="index.html#blog" class="inline-flex items-center text-primary-accent hover:opacity-80 mb-6">
+                    <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
+                    Back to Blog
+                </a>
+                <span class="text-sm font-semibold uppercase text-primary-accent">Infrastructure</span>
+                <h1 class="text-5xl font-extrabold text-white mt-4 mb-6 text-glow">
+                    INFRASTRUCTURE: The Future of Data Center Infrastructure
+                </h1>
+                <p class="text-xl text-gray-300 mb-8">
+                    An analysis of turnkey deployment models, cloud integration, and the critical role of management
+                    platforms in modernizing hybrid IT.
+                </p>
+                <!-- Hero image removed -->
+            </div>
+
+            <!-- Blog Content -->
+            <div class="blog-content glass-panel p-8 rounded-2xl">
+                <p>The traditional, on-premises data center (DC) is not dead—it has simply evolved. Driven by the
+                    explosion of AI-powered workloads, Edge Computing, and rigorous data sovereignty laws, the modern
+                    data center landscape is a complex tapestry of on-prem, public cloud, and co-location facilities.
+                </p>
+
+                <p>Modernization is no longer about migrating to the cloud; it's about seamlessly integrating your core
+                    DC with multiple cloud environments. This article explores the evolving deployment models and the
+                    essential automation tools required to succeed in this new hybrid reality.</p>
+
+                <h2>1. The Deployment Divide: Turnkey vs. Cloud Integration</h2>
+                <p>The core strategy for building out capacity has split into two primary, yet often complementary,
+                    approaches:</p>
+
+                <h3>A. The Turnkey (Co-location) Model</h3>
+                <p>A Turnkey Data Center is a ready-to-use facility where the provider supplies the physical space,
+                    power (often billed per kW), cooling, and physical security. The enterprise simply "turns the key"
+                    and racks their own servers and networking gear.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Advantage</th>
+                            <th>Modern Relevance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Speed & Capital Cost</td>
+                            <td>Rapid deployment for high-density AI/HPC clusters without huge capital expenditure on
+                                facility construction.</td>
+                        </tr>
+                        <tr>
+                            <td>High Density</td>
+                            <td>Modern turnkey facilities are built to support the 40+ kW per rack densities required by
+                                new GPU hardware and liquid cooling.</td>
+                        </tr>
+                        <tr>
+                            <td>Control</td>
+                            <td>The enterprise retains full control over the specific operating systems, virtualization
+                                layer, and hypervisor.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>B. The Cloud Integration (Hybrid/Multi-Cloud) Model</h3>
+                <p>This model views the traditional data center as just one component of a larger, dynamic pool of
+                    compute resources that includes AWS, Azure, GCP, and specialized Edge locations.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Advantage</th>
+                            <th>Modern Relevance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Agility & Elasticity</td>
+                            <td>Allows workloads to burst into the public cloud for seasonal demand (e.g., e-commerce)
+                                or quickly spin up new environments for DevOps/testing.</td>
+                        </tr>
+                        <tr>
+                            <td>Access to AI/PaaS</td>
+                            <td>Provides immediate access to proprietary cloud services like managed databases,
+                                serverless functions, and high-end AI/ML platforms.</td>
+                        </tr>
+                        <tr>
+                            <td>Edge Alignment</td>
+                            <td>The ability to deploy containerized services on public clouds and on-prem Edge
+                                micro-sites from a common platform drastically reduces latency for users.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Conclusion:</strong> The future is not one or the other. Enterprises are leveraging turnkey
+                    facilities to host their dense, high-performance, and compliance-sensitive core systems, while using
+                    cloud integration for general-purpose computing, elasticity, and application development.</p>
+
+                <h2>2. AI-Driven Trends Reshaping the Physical DC</h2>
+                <p>The demands of high-performance computing (HPC) and Generative AI are creating new physical
+                    requirements that traditional DCs can no longer meet:</p>
+
+                <h3>💧 Liquid Cooling Goes Mainstream</h3>
+                <p>GPU-intensive servers generate significantly more heat than CPUs. Air cooling systems can no longer
+                    keep up with rack densities exceeding 20kW.</p>
+
+                <p><strong>Direct-to-Chip (DTC) Cooling:</strong> Circulating liquid directly onto the components (like
+                    GPUs) is rapidly becoming the standard for new facilities and retrofits.</p>
+
+                <p><strong>Immersion Cooling:</strong> Submerging servers entirely into a non-conductive fluid is
+                    gaining traction for ultra-high-density AI deployments, offering superior energy efficiency
+                    (PUE→1.05).</p>
+
+                <h3>⚡ Power and Sustainability</h3>
+                <p>The massive energy consumption of AI is driving a search for new power sources. Data center operators
+                    are increasingly turning to:</p>
+
+                <p><strong>Renewable Energy Procurement:</strong> Aggressive power purchasing agreements (PPAs) to meet
+                    24/7 carbon-free goals.</p>
+
+                <p><strong>Small Modular Reactors (SMRs):</strong> Though still emerging, nuclear power in the form of
+                    smaller, standardized reactors is being explored as a reliable, carbon-neutral power solution for
+                    massive future hyperscale facilities.</p>
+
+                <h2>3. The Automation Imperative: Red Hat's Role in Modernizing</h2>
+                <p>In a hybrid world, complexity is the enemy. An integrated management and automation layer is
+                    essential to govern resources across the local DC, private cloud, and public cloud providers. This
+                    is where platforms like Red Hat CloudForms and Red Hat Satellite shine.</p>
+
+                <h3>A. Red Hat CloudForms (Hybrid Cloud Management)</h3>
+                <p>While Red Hat has evolved its portfolio toward OpenShift for container-native application management,
+                    CloudForms traditionally solved the crucial problem of governance and control across multiple
+                    virtual environments.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Function</th>
+                            <th>Contribution to Modernization</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Unified Visibility</td>
+                            <td>Provides a single pane of glass to discover, monitor, and manage VMs and resources
+                                across VMware, Hyper-V, Red Hat Virtualization, and public clouds (AWS/Azure).</td>
+                        </tr>
+                        <tr>
+                            <td>Self-Service & Catalog</td>
+                            <td>Allows users to provision complete application stacks via a service catalog, automating
+                                approval workflows and ensuring compliance before deployment.</td>
+                        </tr>
+                        <tr>
+                            <td>Policy and Compliance</td>
+                            <td>Enforces consistent policies (e.g., security hardening, patch baselines, capacity
+                                quotas) across hybrid environments, preventing configuration drift.</td>
+                        </tr>
+                        <tr>
+                            <td>Chargeback</td>
+                            <td>Offers transparent usage and cost metering for cloud services and internal private cloud
+                                resources, enabling accurate departmental billing (FinOps).</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>B. Red Hat Satellite (Lifecycle Management & Security)</h3>
+                <p>Red Hat Satellite is the indispensable tool for managing the lifecycle of the underlying operating
+                    system—specifically Red Hat Enterprise Linux (RHEL)—whether it's running on a physical server in a
+                    turnkey DC, a VM in a private cloud, or a virtual machine in AWS.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Function</th>
+                            <th>Contribution to Modernization</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Centralized Content Management</td>
+                            <td>Synchronizes and manages all content (RPMs, patches, security errata) from a single
+                                source, ensuring consistency and security across thousands of endpoints.</td>
+                        </tr>
+                        <tr>
+                            <td>SOE (Standard Operating Environment)</td>
+                            <td>Allows organizations to define a standardized build template for all systems, automating
+                                provisioning (Bare-Metal, VM, Cloud) to ensure every server is compliant from day one.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Security & Compliance</td>
+                            <td>Integrates with tools like OpenSCAP to perform continuous security compliance scanning,
+                                report on vulnerabilities, and automate remediation through Ansible/Puppet.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Conclusion: The Path Forward</h2>
+                <p>The future of data center infrastructure is an ecosystem, not a location. It requires blending the
+                    density and control of turnkey facilities with the elasticity of cloud integration.</p>
+
+                <p>Success hinges on an automation layer that manages all these diverse components as one. Platforms
+                    like Red Hat Satellite and the governance principles of CloudForms (now often fulfilled by OpenShift
+                    and Ansible) are essential for transforming complex, multi-vendor infrastructure into a seamless,
+                    agile, and policy-driven hybrid environment.</p>
+            </div>
+
+            <!-- Back to Blog Link -->
+            <div class="mt-12 text-center">
+                <a href="index.html#blog" class="inline-flex items-center px-6 py-3 text-white rounded-full cta-button">
+                    <i data-lucide="arrow-left" class="w-5 h-5 mr-2"></i>
+                    Back to All Articles
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Call to Action / Contact Footer -->
+    <footer id="contact" class="py-20 bg-gray-900/50 border-t border-gray-800 backdrop-blur-sm relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="relative mb-12">
+                <!-- 3D Animated Logo on Top Left Blank Space -->
+                <div class="flex justify-center lg:justify-start lg:absolute lg:-left-16 xl:-left-28 2xl:-left-36 lg:-top-6 xl:-top-10 mb-8 lg:mb-0 z-10 pointer-events-none" style="perspective: 1000px;">
+                    <div class="obj">
+                        <div class="objchild">
+                            <!-- Exact Silhouette Shadow of the Logo on the floor -->
+                            <img src="assets/images/logo.png" alt="" aria-hidden="true" class="logo-3d-shadow pointer-events-none select-none">
+                            <!-- Floating 3D Logo -->
+                            <img src="assets/images/logo.png" alt="Graywolftek Logo" class="inn6 object-contain pointer-events-none select-none drop-shadow-[0_0_20px_rgba(255,255,255,0.7)]">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <h2 class="text-4xl font-extrabold text-white mb-4 text-glow">Ready to Build Your Elite Team?</h2>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                        Let Graywolftek be the alpha in streamlining your business processes. Schedule your free consulting
+                        call today.
+                    </p>
+                    <div class="mt-8">
+                        <a href="mailto:graywolftek@gmail.com"
+                            class="px-10 py-4 text-lg font-medium rounded-lg text-white cta-button">
+                            Start the Conversation
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-gray-800 pt-10 text-center md:text-left reveal">
+
+                <!-- Contact Info -->
+                <div class="space-y-4">
+                    <h4 class="text-xl font-semibold text-white">Connect with Us</h4>
+                    <div class="flex items-center justify-center md:justify-start text-gray-400">
+                        <i data-lucide="mail" class="w-5 h-5 mr-3 text-primary-accent"></i>
+                        <a href="mailto:graywolftek@gmail.com"
+                            class="hover:text-primary-accent transition">graywolftek@gmail.com</a>
+                    </div>
+                    <div class="flex items-center justify-center md:justify-start text-gray-400">
+                        <i data-lucide="phone" class="w-5 h-5 mr-3 text-primary-accent"></i>
+                        <a href="tel:+917559185780" class="hover:text-primary-accent transition">+91-7559185780</a>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="space-y-4">
+                    <h4 class="text-xl font-semibold text-white">Visit Our Office</h4>
+                    <p class="text-gray-400">
+                        Usmanpur, Jalalpur Ambedkar Nagar <br>
+                        224149, India
+                    </p>
+                </div>
+
+                <!-- Logo & Copyright -->
+                <div class="space-y-4 md:text-right">
+                    <!-- Logo in footer for consistency -->
+                    <a href="index.html" class="flex items-center justify-center md:justify-end space-x-2">
+                        <!-- LOGO PATH: assets/images/logo.png -->
+                        <img src="assets/images/logo.png" alt="Graywolftek Main Logo" class="h-8 w-auto" />
+                        <span class="text-xl font-extrabold tracking-wider text-white">
+                            <span class="text-primary-accent text-glow">GRAY</span>WOLFTEK
+                        </span>
+                    </a>
+
+                    <!-- Social Media Links -->
+                    <div class="flex items-center justify-center md:justify-end space-x-3 mt-4">
+                        <span class="social-icon-btn cursor-default" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <path
+                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                                </path>
+                            </svg>
+                        </span>
+                        <a href="https://www.linkedin.com/company/graywolftek/posts/?feedView=all" target="_blank"
+                            class="social-icon-btn" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/graywolftek/" target="_blank" class="social-icon-btn"
+                            aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <span class="social-icon-btn cursor-default" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </span>
+                    </div>
+
+                    <p class="text-sm text-gray-500">&copy; 2024 Graywolftek. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>

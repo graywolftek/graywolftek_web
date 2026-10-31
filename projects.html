@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graywolftek | Projects</title>
+    <title>Graywolftek | Projects & Innovation Lab</title>
+    <meta name="description"
+        content="Explore Graywolftek's internal Innovation Lab projects including Contactcard, KAI AI Browser, and Shelfly. Discover cutting-edge mobile, AI, and cloud software engineering.">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Load Vanilla Tilt for 3D Effects -->
@@ -13,6 +17,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- GooeyNav Liquid Navigation Stylesheet -->
     <link rel="stylesheet" href="assets/css/GooeyNav.css">
+
     <!-- Use Inter font family -->
     <style type="text/tailwindcss">
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
@@ -33,7 +38,6 @@
                 radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
                 radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
             background-attachment: fixed;
-            /* Parallax-like background */
             color: #f3f4f6;
             min-height: 100vh;
             overflow-x: hidden;
@@ -42,11 +46,8 @@
         /* ORBAI-Style Variables */
         :root {
             --color-primary-accent: #818cf8;
-            /* Lighter Indigo for dark mode */
             --color-secondary-accent: #c084fc;
-            /* Purple */
             --color-dark-text: #f3f4f6;
-            /* Light text for dark mode */
             --color-glass-border: rgba(255, 255, 255, 0.1);
             --color-glass-bg: rgba(255, 255, 255, 0.03);
         }
@@ -71,7 +72,7 @@
             width: 100px;
             height: 3px;
             background: linear-gradient(90deg, var(--color-primary-accent), var(--color-secondary-accent));
-            margin: 1rem auto 3rem;
+            margin: 1.5rem auto 3rem;
             border-radius: 9999px;
             box-shadow: 0 0 10px var(--color-primary-accent);
         }
@@ -84,7 +85,7 @@
         }
 
         .cta-button:hover {
-            transform: translateY(-2px) scale(1.05);
+            transform: translateY(-2px) scale(1.03);
             box-shadow: 0 0 30px rgba(124, 58, 237, 0.6);
         }
 
@@ -92,41 +93,27 @@
         .card-3d-effect {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 1.5rem;
-            transform-style: preserve-3d;
-            transform: perspective(1000px);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .card-3d-effect:hover {
+            border-color: rgba(129, 140, 248, 0.35);
+            box-shadow: 0 12px 40px 0 rgba(79, 70, 229, 0.2);
         }
 
         /* Scroll Reveal Animation Classes */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+            transform: translateY(25px);
+            transition: all 0.7s cubic-bezier(0.5, 0, 0, 1);
         }
 
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
-        }
-
-        /* Floating Animation */
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
-        }
-
-        .floating {
-            animation: float 6s ease-in-out infinite;
         }
 
         /* Style for the small social icons */
@@ -135,48 +122,143 @@
             transition: all 0.3s ease;
         }
 
-        /* Custom style for team card names/titles to mimic the reference image */
-        .team-name {
-            @apply text-xl font-semibold text-gray-900;
+        /* Filter Pills */
+        .filter-btn {
+            transition: all 0.25s ease;
+        }
+        .filter-btn.active {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 16px rgba(129, 140, 248, 0.4);
         }
 
-        .team-title {
-            @apply text-sm text-gray-500 font-normal mt-1;
+        /* Pulse Beacon */
+        @keyframes beacon {
+            0% { transform: scale(0.95); opacity: 0.9; }
+            50% { transform: scale(1.3); opacity: 0.4; }
+            100% { transform: scale(0.95); opacity: 0.9; }
+        }
+        .beacon-pulse {
+            animation: beacon 2s infinite ease-in-out;
+        }
+    
+        /* From Uiverse.io by Saad3092003 */ 
+        .obj {
+          position: relative;
+          width: 200px;
+          height: 200px;
+            /* background-color: rgb(96, 96, 232); */
+          transform-style: preserve-3d;
+          transition: 0.5s all;
+          transform: rotateX(-25deg) rotateY(20deg);
         }
 
-        /* --- THE NEW FIX FOR IMAGE SIZING --- */
-        .team-image-container {
-            width: 100%;
-            padding-bottom: 100%;
-            position: relative;
-            overflow: hidden;
-            border-radius: 1.5rem;
+        .objchild {
+          animation: rotate 10s infinite linear;
+          transform-style: preserve-3d;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+            /* background:linear-gradient( to top,rgb(11, 11, 102),rgb(96, 96, 232) ) ; */
         }
 
-        .team-image-fit {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .objchild::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          filter: blur(20px);
+          box-shadow: 0 0 70px 15px rgba(255, 255, 255, 0.45);
+          transform: rotateX(90deg) scale(1.1) translateZ(-120px);
+          pointer-events: none;
         }
+
+        .logo-3d-shadow {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          filter: brightness(0) blur(4px) drop-shadow(0 0 12px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.45));
+          opacity: 0.75;
+          transform: rotateX(90deg) scale(0.95) translateZ(-120px);
+          animation: shadowPulse 5s infinite ease-in-out;
+          pointer-events: none;
+        }
+
+        @keyframes shadowPulse {
+          0%, 100% {
+            transform: rotateX(90deg) scale(1.05) translateZ(-120px);
+            opacity: 0.65;
+            filter: brightness(0) blur(5px) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
+          }
+
+          20%, 35% {
+            transform: rotateX(90deg) scale(1.05) translateZ(-120px);
+            opacity: 0.65;
+            filter: brightness(0) blur(5px) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
+          }
+
+          65%, 75% {
+            transform: rotateX(90deg) scale(0.85) translateZ(-120px);
+            opacity: 0.85;
+            filter: brightness(0) blur(3px) drop-shadow(0 0 10px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.55));
+          }
+        }
+
+        .inn6 {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: transparent;
+          transform: translateY(10px) rotateX(20deg) translateZ(80px);
+          animation: updown 5s infinite ease-in-out;
+          transform-style: preserve-3d;
+          backface-visibility: visible;
+        }
+
+        @keyframes rotate {
+          0% {
+            transform: rotate3d(0,1,0,0deg);
+          }
+
+          100% {
+            transform: rotate3d(0,1,0,360deg);
+          }
+        }
+
+        @keyframes updown {
+          0%, 100% {
+            /* Upward: changes direction to the front so everyone clearly sees the logo */
+            transform: translateY(10px) rotateX(20deg) translateZ(80px) scale(1.1);
+          }
+
+          20%, 35% {
+            /* Pauses upright facing the front at the top */
+            transform: translateY(10px) rotateX(20deg) translateZ(80px) scale(1.1);
+          }
+
+          65%, 75% {
+            /* Downward: tilts back into the horizontal plane */
+            transform: translateY(135px) rotateX(85deg) translateZ(80px) scale(0.9);
+          }
+        }
+
     </style>
 </head>
 
 <body class="antialiased">
 
     <!-- Header & Navigation -->
-    <!-- Navbar -->
     <header class="sticky top-0 z-50 glass-panel shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
 
                 <!-- Company Logo and Name -->
-                <a href="index.html" class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
-                    <!-- LOGO PATH: assets/images/logo.png -->
+                <a href="index.html" class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0 group">
                     <img src="assets/images/logo.png" alt="Graywolftek Main Logo"
-                        class="h-10 sm:h-12 w-auto flex-shrink-0" />
+                        class="h-10 sm:h-12 w-auto flex-shrink-0 group-hover:scale-105 transition duration-300" />
                     <span class="text-lg sm:text-xl font-extrabold tracking-wider text-white whitespace-nowrap">
                         <span class="text-primary-accent text-glow">GRAY</span>WOLFTEK
                     </span>
@@ -186,14 +268,17 @@
                 <div id="desktop-nav-container" class="hidden md:flex items-center">
                     <nav class="hidden md:flex space-x-6 items-center">
                         <a href="index.html"
-                            class="text-sm font-medium text-gray-200 hover:text-primary-accent">Home</a>
-                        <a href="projects.html" class="text-sm font-medium text-primary-accent font-bold">Projects</a>
+                            class="text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">Home</a>
+                        <a href="product.html"
+                            class="text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">Product</a>
+                        <a href="projects.html"
+                            class="text-sm font-medium text-primary-accent font-bold">Projects</a>
                         <a href="index.html#blog"
-                            class="text-sm font-medium text-gray-200 hover:text-primary-accent">Blog</a>
+                            class="text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">Blog</a>
                         <a href="index.html#about"
-                            class="text-sm font-medium text-gray-200 hover:text-primary-accent">About Us</a>
+                            class="text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">About Us</a>
                         <a href="#contact"
-                            class="px-5 py-2 text-sm font-medium rounded-lg text-white bg-primary-accent">Get
+                            class="px-5 py-2 text-sm font-medium rounded-lg text-white bg-primary-accent cta-button">Get
                             Started</a>
                     </nav>
                 </div>
@@ -209,237 +294,325 @@
 
         <!-- Mobile Menu (Hidden by default) -->
         <div id="mobile-menu" class="hidden md:hidden glass-panel shadow-lg border-t border-gray-700">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+            <div class="px-3 pt-3 pb-4 space-y-1 sm:px-3 text-center">
                 <a href="index.html"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Home</a>
+                    class="block px-3 py-2.5 rounded-lg text-base font-medium text-gray-200 hover:bg-white/10 transition">Home</a>
+                <a href="product.html"
+                    class="block px-3 py-2.5 rounded-lg text-base font-medium text-gray-200 hover:bg-white/10 transition">Product</a>
                 <a href="projects.html"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-primary-accent font-bold bg-white/10">Projects</a>
+                    class="block px-3 py-2.5 rounded-lg text-base font-medium text-primary-accent font-bold bg-white/10 border border-primary-accent/20">Projects</a>
                 <a href="index.html#blog"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Blog</a>
+                    class="block px-3 py-2.5 rounded-lg text-base font-medium text-gray-200 hover:bg-white/10 transition">Blog</a>
                 <a href="index.html#about"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">About
+                    class="block px-3 py-2.5 rounded-lg text-base font-medium text-gray-200 hover:bg-white/10 transition">About
                     Us</a>
                 <a href="#contact"
-                    class="block w-full px-3 py-2 rounded-md text-base font-medium text-white bg-primary-accent hover:opacity-90 mt-2 cta-button">Get
+                    class="block w-full px-4 py-2.5 rounded-lg text-base font-medium text-white bg-primary-accent hover:opacity-90 mt-2 cta-button">Get
                     Started</a>
             </div>
         </div>
     </header>
 
-    <main class="py-16">
+    <main class="py-12 sm:py-16">
+        <!-- Breadcrumb & Status Bar -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+            <div class="flex items-center text-xs font-medium text-gray-400 space-x-2">
+                <a href="index.html" class="hover:text-primary-accent transition flex items-center">
+                    <i data-lucide="home" class="w-3.5 h-3.5 mr-1"></i> Home
+                </a>
+                <span>/</span>
+                <span class="text-primary-accent">Innovation Lab & Projects</span>
+            </div>
+        </div>
+
         <!-- Hero Section -->
-        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
             <span
-                class="inline-block px-3 py-1 text-sm font-semibold text-indigo-600 bg-indigo-100 rounded-full mb-3">Innovation
-                Lab</span>
+                class="inline-flex items-center space-x-2 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary-accent bg-primary-accent/10 rounded-full mb-5 border border-primary-accent/20 backdrop-blur-md shadow-sm">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-primary-accent"></i>
+                <span>Graywolftek Innovation Lab</span>
+            </span>
+
             <h1
-                class="text-5xl font-extrabold tracking-tight text-white sm:text-6xl section-title-shadow mb-4 text-glow reveal">
-                Our Projects
+                class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 text-glow reveal">
+                Our Projects & <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">R&D Showcase</span>
             </h1>
-            <p class="mt-4 text-xl text-gray-300 reveal">
-                Explore our internal innovation projects where we develop cutting-edge solutions and push the boundaries
-                of technology.
+
+            <p class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed reveal">
+                Explore our internal innovation projects where our engineering squads architect cutting-edge solutions,
+                experiment with autonomous AI architectures, and build production-grade platforms.
             </p>
+
+            <!-- Metrics Strip -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-4xl mx-auto reveal">
+                <div class="glass-panel p-4 rounded-xl border border-white/10 text-center">
+                    <div class="text-3xl font-extrabold text-white text-glow">2</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-wider mt-1">Active Labs</div>
+                </div>
+                <div class="glass-panel p-4 rounded-xl border border-white/10 text-center">
+                    <div class="text-3xl font-extrabold text-primary-accent">100%</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-wider mt-1">In-House R&D</div>
+                </div>
+                <div class="glass-panel p-4 rounded-xl border border-white/10 text-center">
+                    <div class="text-3xl font-extrabold text-secondary-accent">Multi-Platform</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-wider mt-1">iOS • AI Desktop</div>
+                </div>
+                <div class="glass-panel p-4 rounded-xl border border-white/10 text-center">
+                    <div class="text-3xl font-extrabold text-green-400">Experimental</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-wider mt-1">Active Sprints</div>
+                </div>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-10 reveal" id="project-filters">
+                <button type="button" data-filter="all"
+                    class="filter-btn active px-4 py-2 rounded-lg text-xs sm:text-sm font-medium bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10">
+                    All Projects (2)
+                </button>
+                <button type="button" data-filter="mobile"
+                    class="filter-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-medium bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10">
+                    <i data-lucide="smartphone" class="w-3.5 h-3.5 inline mr-1"></i> Mobile (1)
+                </button>
+                <button type="button" data-filter="ai"
+                    class="filter-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-medium bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10">
+                    <i data-lucide="bot" class="w-3.5 h-3.5 inline mr-1"></i> AI & Desktop (1)
+                </button>
+            </div>
         </section>
 
         <!-- Projects Showcase Section -->
-        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-            <div class="space-y-8">
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+            <!-- Dedicated Product Callout Banner -->
+            <div class="mb-10 p-5 rounded-2xl glass-panel border border-primary-accent/30 bg-gradient-to-r from-primary-accent/10 via-purple-500/10 to-transparent flex flex-col sm:flex-row items-center justify-between gap-4 reveal">
+                <div class="flex items-center space-x-3.5">
+                    <div class="w-10 h-10 rounded-xl bg-primary-accent/20 border border-primary-accent/30 flex items-center justify-center text-primary-accent flex-shrink-0">
+                        <i data-lucide="package" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-sm sm:text-base font-bold text-white">Looking for our Live Production Product?</h3>
+                        <p class="text-xs text-gray-300">Shelfly (Community Book Exchange Platform) has been moved to our dedicated Product page.</p>
+                    </div>
+                </div>
+                <a href="product.html" class="px-5 py-2.5 text-xs font-semibold rounded-lg text-white bg-primary-accent hover:opacity-90 transition flex-shrink-0 flex items-center shadow-md">
+                    <span>Explore Shelfly Product</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-1.5"></i>
+                </a>
+            </div>
+
+            <div class="space-y-12" id="projects-container">
 
                 <!-- Project 1: Contactcard -->
-                <div class="card-3d-effect p-6 reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare
-                    data-tilt-max-glare="0.2">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                        <!-- Project GIF/Demo -->
-                        <div class="rounded-xl overflow-hidden bg-gray-800/50 max-w-xs mx-auto">
-                            <img src="assets/projects/Contactcard.gif" alt="Contactcard App Demo" class="w-full h-auto">
+                <div class="project-item card-3d-effect p-6 sm:p-8 reveal" data-category="mobile" data-tilt
+                    data-tilt-max="4" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <!-- Project Demo Mockup -->
+                        <div class="lg:col-span-5 flex justify-center">
+                            <div class="relative w-full max-w-xs sm:max-w-sm rounded-2xl p-3 bg-gradient-to-b from-gray-700/40 to-gray-900/60 border border-white/15 shadow-2xl backdrop-blur-md">
+                                <!-- Phone Header bar -->
+                                <div class="flex items-center justify-between px-3 py-1 mb-2 text-gray-400 text-[10px]">
+                                    <span class="font-mono">Contactcard iOS</span>
+                                    <div class="flex items-center space-x-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-green-400 beacon-pulse"></span>
+                                        <span>Native Swift</span>
+                                    </div>
+                                </div>
+                                <!-- GIF Container -->
+                                <div class="rounded-xl overflow-hidden bg-gray-950 flex items-center justify-center p-2 min-h-[300px]">
+                                    <img src="assets/projects/Contactcard.gif" alt="Contactcard iOS App Demo"
+                                        class="w-full h-auto object-contain rounded-lg max-h-96">
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Project Content -->
-                        <div class="flex flex-col">
-                            <!-- Project Header -->
-                            <div class="flex items-start justify-between mb-3">
-                                <div>
-                                    <h3 class="text-2xl font-bold text-white mb-1">Contactcard</h3>
-                                    <p class="text-xs text-gray-400">May 2023 - Jan 2024</p>
-                                </div>
-                                <span
-                                    class="px-2 py-1 text-xs font-semibold bg-green-500/20 text-green-400 rounded-full border border-green-500/30">
-                                    Completed
-                                </span>
-                            </div>
-
-                            <!-- Project Description -->
-                            <p class="text-gray-300 text-sm mb-4 leading-relaxed">
-                                A mobile app that lets users quickly share contact information through QR codes.
-                                Supports digital business cards, offline QR access, and easy sharing via messaging or
-                                email.
-                            </p>
-
-                            <!-- Tech Stack -->
-                            <div class="mb-4">
-                                <h4 class="text-xs font-semibold text-white mb-2 flex items-center">
-                                    <i data-lucide="code" class="w-3 h-3 mr-1 text-primary-accent"></i>
-                                    Tech Stack
-                                </h4>
-                                <div class="flex flex-wrap gap-1.5">
-                                    <span
-                                        class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">iOS</span>
-                                    <span
-                                        class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">Swift</span>
-                                    <span
-                                        class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">SwiftUI</span>
-                                    <span
-                                        class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">CoreImage</span>
-                                    <span
-                                        class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">AVFoundation</span>
-                                    <span
-                                        class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">CoreData</span>
-                                </div>
-                            </div>
-
-                            <!-- Project Link -->
+                        <div class="lg:col-span-7 flex flex-col justify-between">
                             <div>
+                                <!-- Header & Badges -->
+                                <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                                    <div class="flex items-center space-x-3">
+                                        <span class="w-3 h-3 rounded-full bg-green-400 beacon-pulse"></span>
+                                        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Contactcard</h2>
+                                    </div>
+                                    <span
+                                        class="inline-flex items-center px-3 py-1 text-xs font-semibold bg-green-500/20 text-green-400 rounded-full border border-green-500/30">
+                                        <i data-lucide="check-circle" class="w-3.5 h-3.5 mr-1.5"></i> Completed
+                                    </span>
+                                </div>
+
+                                <div class="flex items-center text-xs text-gray-400 mb-4 space-x-4">
+                                    <span class="flex items-center"><i data-lucide="calendar" class="w-3.5 h-3.5 mr-1 text-primary-accent"></i> May 2023 - Jan 2024</span>
+                                    <span class="flex items-center"><i data-lucide="layers" class="w-3.5 h-3.5 mr-1 text-primary-accent"></i> Native iOS App</span>
+                                </div>
+
+                                <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+                                    A mobile app engineered with Swift and SwiftUI that reimagines how professionals and individuals share contact credentials. Contactcard generates dynamic offline QR codes, supports bespoke digital business cards, and exports directly to Apple Contacts with zero friction.
+                                </p>
+
+                                <!-- Key Feature Highlights -->
+                                <div class="mb-6">
+                                    <h3 class="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-3 flex items-center">
+                                        <i data-lucide="sparkles" class="w-3.5 h-3.5 mr-1.5 text-primary-accent"></i>
+                                        Engineering & UX Highlights
+                                    </h3>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                                        <div class="flex items-start space-x-2 text-xs text-gray-300 bg-white/5 p-2.5 rounded-lg border border-white/10">
+                                            <i data-lucide="check" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5"></i>
+                                            <span><strong>Offline-First QR:</strong> Generate and read contact codes anywhere without internet connection.</span>
+                                        </div>
+                                        <div class="flex items-start space-x-2 text-xs text-gray-300 bg-white/5 p-2.5 rounded-lg border border-white/10">
+                                            <i data-lucide="check" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5"></i>
+                                            <span><strong>Instant vCard Export:</strong> 1-tap direct integration with Apple Contacts & vCard standards.</span>
+                                        </div>
+                                        <div class="flex items-start space-x-2 text-xs text-gray-300 bg-white/5 p-2.5 rounded-lg border border-white/10">
+                                            <i data-lucide="check" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5"></i>
+                                            <span><strong>Custom Card Studio:</strong> Personalized themes, logos, and dual-profile personal/work cards.</span>
+                                        </div>
+                                        <div class="flex items-start space-x-2 text-xs text-gray-300 bg-white/5 p-2.5 rounded-lg border border-white/10">
+                                            <i data-lucide="check" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5"></i>
+                                            <span><strong>Privacy-First Storage:</strong> Secure on-device CoreData with zero third-party telemetry.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Tech Stack -->
+                                <div class="mb-6">
+                                    <h3 class="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2.5 flex items-center">
+                                        <i data-lucide="code-2" class="w-3.5 h-3.5 mr-1.5 text-primary-accent"></i>
+                                        Tech Stack
+                                    </h3>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-2.5 py-1 text-xs bg-indigo-500/10 text-indigo-300 rounded-md border border-indigo-500/20 font-medium">iOS 16+</span>
+                                        <span class="px-2.5 py-1 text-xs bg-indigo-500/10 text-indigo-300 rounded-md border border-indigo-500/20 font-medium">Swift</span>
+                                        <span class="px-2.5 py-1 text-xs bg-indigo-500/10 text-indigo-300 rounded-md border border-indigo-500/20 font-medium">SwiftUI</span>
+                                        <span class="px-2.5 py-1 text-xs bg-white/5 text-gray-300 rounded-md border border-white/10">CoreImage</span>
+                                        <span class="px-2.5 py-1 text-xs bg-white/5 text-gray-300 rounded-md border border-white/10">AVFoundation</span>
+                                        <span class="px-2.5 py-1 text-xs bg-white/5 text-gray-300 rounded-md border border-white/10">CoreData</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Action Links -->
+                            <div class="pt-4 border-t border-white/10 flex flex-wrap items-center gap-3">
                                 <a href="https://www.linkedin.com/posts/activity-7080990465394638848-rxA-?utm_source=share&utm_medium=member_desktop"
-                                    target="_blank"
-                                    class="inline-flex items-center px-3 py-1.5 text-xs font-medium text-white bg-primary-accent/20 border border-primary-accent/30 rounded-lg hover:bg-primary-accent/30 transition">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    target="_blank" rel="noopener noreferrer"
+                                    class="inline-flex items-center px-4 py-2 text-xs font-medium text-white bg-primary-accent/20 border border-primary-accent/30 rounded-lg hover:bg-primary-accent/30 transition shadow-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <path
-                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                        </path>
+                                        stroke-linejoin="round" class="w-3.5 h-3.5 mr-2 text-primary-accent">
+                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                                         <rect x="2" y="9" width="4" height="12"></rect>
                                         <circle cx="4" cy="4" r="2"></circle>
                                     </svg>
-                                    View on LinkedIn
+                                    View Project on LinkedIn
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5 ml-1.5 opacity-80"></i>
                                 </a>
+                                <span class="text-xs text-gray-400 italic">Developed by Graywolftek R&D Squad</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 2: KAI AI Browser -->
-                <div class="card-3d-effect p-6 reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare
-                    data-tilt-max-glare="0.2">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                        <!-- Project GIF/Demo -->
-                        <div class="rounded-xl overflow-hidden bg-gray-800/50">
-                            <img src="assets/projects/KAI.gif" alt="KAI AI Browser Demo" class="w-full h-auto">
+                <div class="project-item card-3d-effect p-6 sm:p-8 reveal" data-category="ai" data-tilt
+                    data-tilt-max="4" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <!-- Project Demo Mockup -->
+                        <div class="lg:col-span-5 flex justify-center">
+                            <div class="w-full rounded-2xl p-3 bg-gradient-to-b from-gray-700/40 to-gray-900/60 border border-white/15 shadow-2xl backdrop-blur-md">
+                                <!-- Desktop Browser Window Frame Header -->
+                                <div class="flex items-center justify-between px-3 py-1 mb-2">
+                                    <div class="flex space-x-1.5">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                                        <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                                        <span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                                    </div>
+                                    <span class="font-mono text-[10px] text-gray-400">kai-browser://assistant</span>
+                                    <span class="w-2.5 h-2.5"></span>
+                                </div>
+                                <!-- GIF Container -->
+                                <div class="rounded-xl overflow-hidden bg-gray-950 flex items-center justify-center p-2 min-h-[260px]">
+                                    <img src="assets/projects/KAI.gif" alt="KAI AI Browser Demo"
+                                        class="w-full h-auto object-contain rounded-lg max-h-96">
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Project Content -->
-                        <div class="flex flex-col">
-                            <!-- Project Header -->
-                            <div class="flex items-start justify-between mb-3">
-                                <div>
-                                    <h3 class="text-2xl font-bold text-white mb-1">KAI AI Browser</h3>
-                                    <p class="text-xs text-gray-400">Nov 2024 - Present</p>
-                                </div>
-                                <span
-                                    class="px-2 py-1 text-xs font-semibold bg-yellow-500/20 text-yellow-400 rounded-full border border-yellow-500/30">
-                                    In Progress
-                                </span>
-                            </div>
-
-                            <!-- Project Description -->
-                            <p class="text-gray-300 text-sm mb-4 leading-relaxed">
-                                An AI-powered browsing assistant that enhances productivity with built-in web browsing,
-                                personalized news, notes, reminders, and real-time stock/crypto tracking. Features voice
-                                interaction and multi-language support.
-                            </p>
-
-                            <!-- Tech Stack -->
-                            <div class="mb-4">
-                                <h4 class="text-xs font-semibold text-white mb-2 flex items-center">
-                                    <i data-lucide="code" class="w-3 h-3 mr-1 text-primary-accent"></i>
-                                    Tech Stack
-                                </h4>
-                                <div class="flex flex-wrap gap-1.5">
-                                    <span
-                                        class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">Electron.js</span>
-                                    <span
-                                        class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">React.js</span>
-                                    <span
-                                        class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">Node.js</span>
-                                    <span
-                                        class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">Python</span>
-                                    <span
-                                        class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">OpenAI</span>
-                                    <span
-                                        class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">SQLite</span>
-                                </div>
-                            </div>
-
-                            <!-- Project Status Note -->
-                            <div
-                                class="flex items-start space-x-2 p-3 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
-                                <i data-lucide="info" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-0.5"></i>
-                                <p class="text-xs text-gray-300">
-                                    Currently under active development. More details coming soon.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3: Shelfly -->
-                <div class="card-3d-effect p-6 reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare
-                    data-tilt-max-glare="0.2">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                        <!-- Project GIF/Demo -->
-                        <div class="rounded-xl overflow-hidden bg-gray-800/50">
-                            <img src="assets/projects/shelfly.gif" alt="Shelfly Demo" class="w-full h-auto">
-                        </div>
-
-                        <!-- Project Content -->
-                        <div class="flex flex-col">
-                            <!-- Project Header -->
-                            <div class="flex items-start justify-between mb-3">
-                                <div>
-                                    <h3 class="text-2xl font-bold text-white mb-1">Shelfly</h3>
-                                    <p class="text-xs text-gray-400">Jun 2026 Launched</p>
-                                </div>
-                                <span
-                                    class="px-2 py-1 text-xs font-semibold bg-green-500/20 text-green-400 rounded-full border border-green-500/30">
-                                    Completed
-                                </span>
-                            </div>
-
-                            <!-- Project Description -->
-                            <p class="text-gray-300 text-sm mb-4 leading-relaxed">
-                                <strong>Shelfly</strong> is a community-driven book exchange and donation platform
-                                designed to make learning resources more accessible to students. It helps people give
-                                unused books a second life by connecting those who have books with those who need them.
-                                The platform promotes affordable learning, book reuse, and a culture of sharing within
-                                communities.
-                            </p>
-
-                            <!-- Tech Stack -->
-                            <div class="mb-4">
-                                <h4 class="text-xs font-semibold text-white mb-2 flex items-center">
-                                    <i data-lucide="code" class="w-3 h-3 mr-1 text-primary-accent"></i>
-                                    Tech Stack
-                                </h4>
-                                <div class="flex flex-wrap gap-1.5">
-                                    <span
-                                        class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">TypeScript</span>
-                                    <span
-                                        class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">PLpgSQL</span>
-                                    <span
-                                        class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">CSS</span>
-                                    <span
-                                        class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">JavaScript</span>
-                                </div>
-                            </div>
-
-                            <!-- Project Link -->
+                        <div class="lg:col-span-7 flex flex-col justify-between">
                             <div>
-                                <a href="https://shelfly.in" target="_blank"
-                                    class="inline-flex items-center px-3 py-1.5 text-xs font-medium text-white bg-primary-accent/20 border border-primary-accent/30 rounded-lg hover:bg-primary-accent/30 transition">
-                                    <i data-lucide="external-link" class="w-4 h-4 mr-2"></i>
-                                    Visit Website
-                                </a>
+                                <!-- Header & Badges -->
+                                <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                                    <div class="flex items-center space-x-3">
+                                        <span class="w-3 h-3 rounded-full bg-yellow-400 beacon-pulse"></span>
+                                        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">KAI AI Browser</h2>
+                                    </div>
+                                    <span
+                                        class="inline-flex items-center px-3 py-1 text-xs font-semibold bg-yellow-500/20 text-yellow-400 rounded-full border border-yellow-500/30">
+                                        <i data-lucide="loader" class="w-3.5 h-3.5 mr-1.5 animate-spin"></i> In Progress
+                                    </span>
+                                </div>
+
+                                <div class="flex items-center text-xs text-gray-400 mb-4 space-x-4">
+                                    <span class="flex items-center"><i data-lucide="calendar" class="w-3.5 h-3.5 mr-1 text-primary-accent"></i> Nov 2024 - Present</span>
+                                    <span class="flex items-center"><i data-lucide="cpu" class="w-3.5 h-3.5 mr-1 text-primary-accent"></i> Desktop AI Assistant</span>
+                                </div>
+
+                                <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+                                    An AI-augmented browsing assistant built with Electron and React.js designed to transform productivity. KAI integrates generative AI directly into the browser viewport with live web synthesis, contextual notes, voice commands, and real-time market data tickers.
+                                </p>
+
+                                <!-- Key Feature Highlights -->
+                                <div class="mb-6">
+                                    <h3 class="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-3 flex items-center">
+                                        <i data-lucide="sparkles" class="w-3.5 h-3.5 mr-1.5 text-primary-accent"></i>
+                                        Engineering & UX Highlights
+                                    </h3>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                                        <div class="flex items-start space-x-2 text-xs text-gray-300 bg-white/5 p-2.5 rounded-lg border border-white/10">
+                                            <i data-lucide="check" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-0.5"></i>
+                                            <span><strong>Real-Time AI Web Summarizer:</strong> Instant distilled insights from dense articles and research.</span>
+                                        </div>
+                                        <div class="flex items-start space-x-2 text-xs text-gray-300 bg-white/5 p-2.5 rounded-lg border border-white/10">
+                                            <i data-lucide="check" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-0.5"></i>
+                                            <span><strong>Voice Interaction:</strong> Hands-free browsing with natural multilingual voice synthesis.</span>
+                                        </div>
+                                        <div class="flex items-start space-x-2 text-xs text-gray-300 bg-white/5 p-2.5 rounded-lg border border-white/10">
+                                            <i data-lucide="check" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-0.5"></i>
+                                            <span><strong>Productivity Hub:</strong> Unified notes, reminders, and contextual markdown scratchpad.</span>
+                                        </div>
+                                        <div class="flex items-start space-x-2 text-xs text-gray-300 bg-white/5 p-2.5 rounded-lg border border-white/10">
+                                            <i data-lucide="check" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-0.5"></i>
+                                            <span><strong>Market Tickers:</strong> Live stock & cryptocurrency streaming prices embedded in sidebar.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Tech Stack -->
+                                <div class="mb-6">
+                                    <h3 class="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2.5 flex items-center">
+                                        <i data-lucide="code-2" class="w-3.5 h-3.5 mr-1.5 text-primary-accent"></i>
+                                        Tech Stack
+                                    </h3>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-2.5 py-1 text-xs bg-yellow-500/10 text-yellow-300 rounded-md border border-yellow-500/20 font-medium">Electron.js</span>
+                                        <span class="px-2.5 py-1 text-xs bg-yellow-500/10 text-yellow-300 rounded-md border border-yellow-500/20 font-medium">React.js</span>
+                                        <span class="px-2.5 py-1 text-xs bg-yellow-500/10 text-yellow-300 rounded-md border border-yellow-500/20 font-medium">Node.js</span>
+                                        <span class="px-2.5 py-1 text-xs bg-white/5 text-gray-300 rounded-md border border-white/10">Python</span>
+                                        <span class="px-2.5 py-1 text-xs bg-white/5 text-gray-300 rounded-md border border-white/10">OpenAI API</span>
+                                        <span class="px-2.5 py-1 text-xs bg-white/5 text-gray-300 rounded-md border border-white/10">SQLite</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Development Status Note -->
+                            <div class="pt-4 border-t border-white/10 flex items-start space-x-3 p-3 bg-yellow-500/10 border border-yellow-500/20 rounded-xl">
+                                <i data-lucide="info" class="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5"></i>
+                                <div>
+                                    <h4 class="text-xs font-semibold text-yellow-300 mb-0.5">Active R&D Sprint</h4>
+                                    <p class="text-xs text-gray-300">
+                                        Currently undergoing internal dogfooding and private alpha testing at Graywolftek Lab. Architecture preview and beta release scheduled soon.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -448,23 +621,85 @@
             </div>
         </section>
 
+        <!-- Innovation Philosophy / Engineering Lifecycle -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 section-separator">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-semibold uppercase tracking-wider text-primary-accent">Our R&D Methodology</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2 mb-4 text-glow">How We Innovate at Graywolftek</h2>
+                <p class="text-gray-400 text-sm sm:text-base">
+                    Every project in our Innovation Lab goes through a disciplined product lifecycle, turning speculative technical concepts into reliable, production-ready systems.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="card-3d-effect p-6 glass-panel rounded-2xl reveal">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-primary-accent mb-5">
+                        <i data-lucide="lightbulb" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-xs font-mono font-semibold text-primary-accent">PHASE 01</span>
+                    <h3 class="text-xl font-bold text-white mt-1 mb-2">Discovery & Incubation</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        We identify bottlenecks in consumer software and emerging AI paradigms, formulating clear problem statements and UX benchmarks.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="card-3d-effect p-6 glass-panel rounded-2xl reveal">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-secondary-accent mb-5">
+                        <i data-lucide="code" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-xs font-mono font-semibold text-secondary-accent">PHASE 02</span>
+                    <h3 class="text-xl font-bold text-white mt-1 mb-2">Rapid Prototyping</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Using modern frameworks like Swift, Electron, and TypeScript, our squads rapidly ship working alphas to validate ergonomics and performance.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="card-3d-effect p-6 glass-panel rounded-2xl reveal">
+                    <div class="w-12 h-12 rounded-xl bg-green-500/20 border border-green-500/30 flex items-center justify-center text-green-400 mb-5">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-xs font-mono font-semibold text-green-400">PHASE 03</span>
+                    <h3 class="text-xl font-bold text-white mt-1 mb-2">Hardening & Deployment</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        We battle-test offline resilience, query throughput, security standards, and telemetry before rolling out platforms to global users.
+                    </p>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Footer -->
     <!-- Call to Action / Contact Footer -->
-    <footer id="contact" class="py-20 bg-gray-900/50 border-t border-gray-800 backdrop-blur-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-extrabold text-white mb-4 text-glow">Ready to Start Your Project?</h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-                    Let Graywolftek help you bring your vision to life. Schedule your free consulting
-                    call today.
-                </p>
-                <div class="mt-8">
-                    <a href="mailto:graywolftek@gmail.com"
-                        class="px-10 py-4 text-lg font-medium rounded-lg text-white cta-button">
-                        Start the Conversation
-                    </a>
+    <footer id="contact" class="py-20 bg-gray-900/50 border-t border-gray-800 backdrop-blur-sm relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="relative mb-12">
+                <!-- 3D Animated Logo on Top Left Blank Space -->
+                <div class="flex justify-center lg:justify-start lg:absolute lg:-left-16 xl:-left-28 2xl:-left-36 lg:-top-6 xl:-top-10 mb-8 lg:mb-0 z-10 pointer-events-none" style="perspective: 1000px;">
+                    <div class="obj">
+                        <div class="objchild">
+                            <!-- Exact Silhouette Shadow of the Logo on the floor -->
+                            <img src="assets/images/logo.png" alt="" aria-hidden="true" class="logo-3d-shadow pointer-events-none select-none">
+                            <!-- Floating 3D Logo -->
+                            <img src="assets/images/logo.png" alt="Graywolftek Logo" class="inn6 object-contain pointer-events-none select-none drop-shadow-[0_0_20px_rgba(255,255,255,0.7)]">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <h2 class="text-4xl font-extrabold text-white mb-4 text-glow">Ready to Build Your Elite Team?</h2>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                        Let Graywolftek be the alpha in streamlining your business processes. Schedule your free consulting
+                        call today.
+                    </p>
+                    <div class="mt-8">
+                        <a href="mailto:graywolftek@gmail.com"
+                            class="px-10 py-4 text-lg font-medium rounded-lg text-white cta-button">
+                            Start the Conversation
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -497,7 +732,7 @@
                 <!-- Logo & Copyright -->
                 <div class="space-y-4 md:text-right">
                     <!-- Logo in footer for consistency -->
-                    <a href="#" class="flex items-center justify-center md:justify-end space-x-2">
+                    <a href="index.html" class="flex items-center justify-center md:justify-end space-x-2">
                         <!-- LOGO PATH: assets/images/logo.png -->
                         <img src="assets/images/logo.png" alt="Graywolftek Main Logo" class="h-8 w-auto" />
                         <span class="text-xl font-extrabold tracking-wider text-white">
@@ -553,7 +788,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu Toggle and Lucide Icons -->
+    <!-- JavaScript for Mobile Menu, Lucide Icons, and Interactive Filter -->
     <script>
         // Initialize Lucide Icons
         lucide.createIcons();
@@ -562,36 +797,65 @@
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        mobileMenuButton.addEventListener('click', () => {
-            const isExpanded = mobileMenu.classList.contains('hidden');
-            if (isExpanded) {
-                mobileMenu.classList.remove('hidden');
-                mobileMenuButton.innerHTML = '<i data-lucide="x" class="w-6 h-6"></i>';
-                lucide.createIcons();
-            } else {
-                mobileMenu.classList.add('hidden');
-                mobileMenuButton.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
-                lucide.createIcons();
-            }
-        });
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                const isExpanded = !mobileMenu.classList.contains('hidden');
+                if (isExpanded) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+                    lucide.createIcons();
+                } else {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenuButton.innerHTML = '<i data-lucide="x" class="w-6 h-6"></i>';
+                    lucide.createIcons();
+                }
+            });
 
-        // Hide mobile menu when a link is clicked
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenuButton.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
-                lucide.createIcons();
+            // Hide mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+                    lucide.createIcons();
+                });
+            });
+        }
+
+        // Project Category Filter
+        const filterButtons = document.querySelectorAll('#project-filters .filter-btn');
+        const projectItems = document.querySelectorAll('#projects-container .project-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                projectItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 20);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(15px)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 200);
+                    }
+                });
             });
         });
 
-    </script>
-    <script>
         // Scroll Reveal Animation
         const revealElements = document.querySelectorAll('.reveal');
-
         const revealOnScroll = () => {
             const windowHeight = window.innerHeight;
-            const elementVisible = 150;
+            const elementVisible = 120;
 
             revealElements.forEach((reveal) => {
                 const elementTop = reveal.getBoundingClientRect().top;
@@ -602,9 +866,9 @@
         };
 
         window.addEventListener('scroll', revealOnScroll);
-        // Trigger once on load
         revealOnScroll();
     </script>
+
     <!-- GooeyNav Component Script & Initialization -->
     <script src="assets/js/GooeyNav.js"></script>
     <script>
@@ -618,9 +882,10 @@
                     colors: ['#818cf8', '#a855f7', '#c084fc'],
                     size: 'md',
                     frame: false,
-                    initialActiveIndex: 1,
+                    initialActiveIndex: 2,
                     items: [
                         { label: 'Home', href: 'index.html' },
+                        { label: 'Product', href: 'product.html' },
                         { label: 'Projects', href: '#' },
                         { label: 'Blog', href: 'index.html#blog' },
                         { label: 'About Us', href: 'index.html#about' },

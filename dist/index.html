@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Graywolftek | Leading IT & Remote Engineering Solutions</title>
+    <link rel="icon" type="image/png" href="/assets/logo-CFY-FBGN.png">
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Load Vanilla Tilt for 3D Effects -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
     <!-- SplitFlapText Mechanical Departure Board Stylesheet -->
     <!-- GooeyNav Liquid Navigation Stylesheet -->
-    <!-- Folder 3D Component Stylesheet -->
     <!-- Use Inter font family -->
     <style type="text/tailwindcss">
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
@@ -350,10 +350,114 @@
             /* Fills the container, cropping the edges if the source image aspect ratio is different */
             object-fit: cover;
         }
+
+        /* From Uiverse.io by Saad3092003 */
+
+        .obj {
+          position: relative;
+          width: 200px;
+          height: 200px;
+            /* background-color: rgb(96, 96, 232); */
+          transform-style: preserve-3d;
+          transition: 0.5s all;
+          transform: rotateX(-25deg) rotateY(20deg);
+        }
+
+        .objchild {
+          animation: rotate 10s infinite linear;
+          transform-style: preserve-3d;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+            /* background:linear-gradient( to top,rgb(11, 11, 102),rgb(96, 96, 232) ) ; */
+        }
+
+        .objchild::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          filter: blur(20px);
+          box-shadow: 0 0 70px 15px rgba(255, 255, 255, 0.45);
+          transform: rotateX(90deg) scale(1.1) translateZ(-120px);
+          pointer-events: none;
+        }
+
+        .logo-3d-shadow {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          filter: brightness(0) blur(4px) drop-shadow(0 0 12px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.45));
+          opacity: 0.75;
+          transform: rotateX(90deg) scale(0.95) translateZ(-120px);
+          animation: shadowPulse 5s infinite ease-in-out;
+          pointer-events: none;
+        }
+
+        @keyframes shadowPulse {
+          0%, 100% {
+            transform: rotateX(90deg) scale(1.05) translateZ(-120px);
+            opacity: 0.65;
+            filter: brightness(0) blur(5px) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
+          }
+
+          20%, 35% {
+            transform: rotateX(90deg) scale(1.05) translateZ(-120px);
+            opacity: 0.65;
+            filter: brightness(0) blur(5px) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
+          }
+
+          65%, 75% {
+            transform: rotateX(90deg) scale(0.85) translateZ(-120px);
+            opacity: 0.85;
+            filter: brightness(0) blur(3px) drop-shadow(0 0 10px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.55));
+          }
+        }
+
+        .inn6 {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: transparent;
+          transform: translateY(10px) rotateX(20deg) translateZ(80px);
+          animation: updown 5s infinite ease-in-out;
+          transform-style: preserve-3d;
+          backface-visibility: visible;
+        }
+
+        @keyframes rotate {
+          0% {
+            transform: rotate3d(0,1,0,0deg);
+          }
+
+          100% {
+            transform: rotate3d(0,1,0,360deg);
+          }
+        }
+
+        @keyframes updown {
+          0%, 100% {
+            /* Upward: changes direction to the front so everyone clearly sees the logo */
+            transform: translateY(10px) rotateX(20deg) translateZ(80px) scale(1.1);
+          }
+
+          20%, 35% {
+            /* Pauses upright facing the front at the top */
+            transform: translateY(10px) rotateX(20deg) translateZ(80px) scale(1.1);
+          }
+
+          65%, 75% {
+            /* Downward: tilts back into the horizontal plane */
+            transform: translateY(135px) rotateX(85deg) translateZ(80px) scale(0.9);
+          }
+        }
+
     </style>
     <!-- Lucide icons for a modern look -->
     <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-C5vYB1PG.css">
+  <link rel="stylesheet" crossorigin href="/assets/index-CTwURWsr.css">
 </head>
 
 <body class="antialiased">
@@ -377,7 +481,9 @@
                 <div id="desktop-nav-container" class="hidden md:flex items-center">
                     <nav class="hidden md:flex space-x-6 items-center">
                         <a href="#" class="text-sm font-medium text-gray-200 hover:text-primary-accent">Home</a>
-                        <a href="#projects"
+                        <a href="product.html"
+                            class="text-sm font-medium text-gray-200 hover:text-primary-accent">Product</a>
+                        <a href="projects.html"
                             class="text-sm font-medium text-gray-200 hover:text-primary-accent">Projects</a>
                         <a href="#blog" class="text-sm font-medium text-gray-200 hover:text-primary-accent">Blog</a>
                         <a href="#about" class="text-sm font-medium text-gray-200 hover:text-primary-accent">About
@@ -402,7 +508,9 @@
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
                 <a href="#"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Home</a>
-                <a href="#projects"
+                <a href="product.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Product</a>
+                <a href="projects.html"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Projects</a>
                 <a href="#blog"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Blog</a>
@@ -444,139 +552,6 @@
         </div>
     </section>
 
-
-
-    <!-- Projects Section (Innovation Lab) -->
-    <section id="projects" class="py-24 section-separator">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span
-                class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-accent bg-primary-accent/10 rounded-full mb-3 border border-primary-accent/20">Innovation
-                Lab</span>
-            <h2 class="text-4xl font-bold text-white mb-4 text-shadow-3d text-glow">Featured Projects</h2>
-            <p class="text-lg text-gray-400 max-w-3xl mx-auto mb-16">
-                Explore our internal innovation projects where we develop cutting-edge solutions and push the boundaries
-                of technology.
-            </p>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 text-left">
-                <!-- Project 1: Contactcard -->
-                <div class="card-3d-effect p-6 glass-panel rounded-2xl flex flex-col justify-between" data-tilt
-                    data-tilt-max="5" data-tilt-speed="400">
-                    <div>
-                        <div
-                            class="rounded-xl overflow-hidden bg-gray-800/50 mb-5 flex items-center justify-center p-2 h-48">
-                            <img src="/assets/Contactcard-DS_iFXqI.gif" alt="Contactcard App Demo"
-                                class="max-h-full w-auto object-contain rounded-lg">
-                        </div>
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="text-xl font-bold text-white">Contactcard</h3>
-                            <span
-                                class="px-2 py-0.5 text-xs font-semibold bg-green-500/20 text-green-400 rounded-full border border-green-500/30">Completed</span>
-                        </div>
-                        <p class="text-xs text-gray-400 mb-3">May 2023 - Jan 2024</p>
-                        <p class="text-gray-300 text-sm mb-4 leading-relaxed">
-                            A mobile app that lets users quickly share contact information through QR codes with digital
-                            business cards and offline access.
-                        </p>
-                    </div>
-                    <div>
-                        <div class="flex flex-wrap gap-1.5 mb-4">
-                            <span
-                                class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">iOS</span>
-                            <span
-                                class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">Swift</span>
-                            <span
-                                class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">SwiftUI</span>
-                        </div>
-                        <a href="projects.html"
-                            class="inline-flex items-center text-xs font-medium text-primary-accent hover:opacity-80 transition">
-                            View Project Details <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 2: KAI AI Browser -->
-                <div class="card-3d-effect p-6 glass-panel rounded-2xl flex flex-col justify-between" data-tilt
-                    data-tilt-max="5" data-tilt-speed="400">
-                    <div>
-                        <div
-                            class="rounded-xl overflow-hidden bg-gray-800/50 mb-5 flex items-center justify-center p-2 h-48">
-                            <img src="/assets/KAI-DmZgvmn7.gif" alt="KAI AI Browser Demo"
-                                class="max-h-full w-auto object-contain rounded-lg">
-                        </div>
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="text-xl font-bold text-white">KAI AI Browser</h3>
-                            <span
-                                class="px-2 py-0.5 text-xs font-semibold bg-yellow-500/20 text-yellow-400 rounded-full border border-yellow-500/30">In
-                                Progress</span>
-                        </div>
-                        <p class="text-xs text-gray-400 mb-3">Nov 2024 - Present</p>
-                        <p class="text-gray-300 text-sm mb-4 leading-relaxed">
-                            An AI-powered browsing assistant that enhances productivity with personalized news, notes,
-                            voice interaction, and multi-language support.
-                        </p>
-                    </div>
-                    <div>
-                        <div class="flex flex-wrap gap-1.5 mb-4">
-                            <span
-                                class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">Electron.js</span>
-                            <span
-                                class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">React.js</span>
-                            <span
-                                class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">Python</span>
-                        </div>
-                        <a href="projects.html"
-                            class="inline-flex items-center text-xs font-medium text-primary-accent hover:opacity-80 transition">
-                            View Project Details <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 3: Shelfly -->
-                <div class="card-3d-effect p-6 glass-panel rounded-2xl flex flex-col justify-between" data-tilt
-                    data-tilt-max="5" data-tilt-speed="400">
-                    <div>
-                        <div
-                            class="rounded-xl overflow-hidden bg-gray-800/50 mb-5 flex items-center justify-center p-2 h-48">
-                            <img src="/assets/shelfly-CxFDXGVY.gif" alt="Shelfly Demo"
-                                class="max-h-full w-auto object-contain rounded-lg">
-                        </div>
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="text-xl font-bold text-white">Shelfly</h3>
-                            <span
-                                class="px-2 py-0.5 text-xs font-semibold bg-green-500/20 text-green-400 rounded-full border border-green-500/30">Completed</span>
-                        </div>
-                        <p class="text-xs text-gray-400 mb-3">Launched Jun 2026</p>
-                        <p class="text-gray-300 text-sm mb-4 leading-relaxed">
-                            A community-driven book exchange and donation platform making learning resources accessible,
-                            promoting book reuse and sharing.
-                        </p>
-                    </div>
-                    <div>
-                        <div class="flex flex-wrap gap-1.5 mb-4">
-                            <span
-                                class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">TypeScript</span>
-                            <span
-                                class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">PostgreSQL</span>
-                            <span
-                                class="px-2 py-0.5 text-xs bg-white/5 text-gray-300 rounded border border-white/10">React</span>
-                        </div>
-                        <a href="projects.html"
-                            class="inline-flex items-center text-xs font-medium text-primary-accent hover:opacity-80 transition">
-                            View Project Details <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-12 text-center">
-                <a href="projects.html"
-                    class="inline-flex items-center px-6 py-3 rounded-lg text-sm font-medium text-white bg-white/10 border border-white/20 hover:bg-white/20 transition duration-150">
-                    Explore Dedicated Innovation Lab Page <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-                </a>
-            </div>
-        </div>
-    </section>
 
     <!-- Blog Section -->
     <section id="blog" class="py-24">
@@ -1100,55 +1075,156 @@
     <!-- OMEGA Section (Junior Team Members) -->
     <section id="omega-team" class="py-24 section-separator">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="text-sm font-semibold uppercase text-purple-400 tracking-wider">New Talent</span>
+            <span class="text-sm font-semibold uppercase text-purple-400">New Talent</span>
             <!-- Enhanced 3D Text Shadow Applied Here -->
-            <h2 class="text-4xl font-bold text-white mb-3 text-shadow-3d text-glow">OMEGA — Junior Members / New Talent</h2>
-            <p class="text-sm text-gray-400 max-w-2xl mx-auto mb-12">
-                Interactive talent dossier folders. Click any folder to spread and inspect credentials, view photos, or drag profile documents.
-            </p>
+            <h2 class="text-4xl font-bold text-white mb-10 text-shadow-3d text-glow">OMEGA — Junior Members / New Talent
+            </h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
                 <!-- Team Member 1: Aakash Maurya -->
-                <div class="omega-folder-card">
-                    <div id="omega-folder-aakash" class="flex items-center justify-center min-h-[250px] w-full"></div>
-                    <div class="mt-4 text-center w-full">
-                        <h3 class="text-xl font-bold text-white tracking-wide">Aakash Maurya</h3>
-                        <p class="text-xs font-semibold text-purple-400 uppercase tracking-wider mt-1">Junior Marketing Executive</p>
-                        <div class="flex items-center justify-center gap-2 mt-3">
-                            <span class="text-[11px] text-purple-300 bg-purple-500/10 border border-purple-500/20 px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
-                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                                Click folder to view dossier
-                            </span>
+                <div class="flip-card card-omega">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="/assets/Aakash%20Maurya-BG_HOH51.jpg" alt="Aakash Maurya - Junior Marketing Executive"
+                                class="w-full h-full object-cover"
+                                onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Aakash+Placeholder'" />
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="team-name">Aakash Maurya</h3>
+                            <p class="team-title">JUNIOR MARKETING EXECUTIVE</p>
+
+                            <!-- Social Links -->
+                            <div class="flex space-x-3 mt-4">
+                                <span class="social-icon-btn cursor-default">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <path
+                                            d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                                        </path>
+                                    </svg>
+                                </span>
+                                <span class="social-icon-btn cursor-default">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
+                                </span>
+                                <a href="https://www.linkedin.com/in/aakash-maurya-36a544278/" target="_blank"
+                                    class="social-icon-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <path
+                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                        </path>
+                                        <rect x="2" y="9" width="4" height="12"></rect>
+                                        <circle cx="4" cy="4" r="2"></circle>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Team Member 2: Aryan Maurya -->
-                <div class="omega-folder-card">
-                    <div id="omega-folder-aryan" class="flex items-center justify-center min-h-[250px] w-full"></div>
-                    <div class="mt-4 text-center w-full">
-                        <h3 class="text-xl font-bold text-white tracking-wide">Aryan Maurya</h3>
-                        <p class="text-xs font-semibold text-indigo-400 uppercase tracking-wider mt-1">Developer</p>
-                        <div class="flex items-center justify-center gap-2 mt-3">
-                            <span class="text-[11px] text-indigo-300 bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
-                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                                Click folder to view dossier
-                            </span>
+                <div class="flip-card card-omega">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="/assets/Aryan%20Maurya-CZ6X7FuB.jpg" alt="Aryan Maurya - Developer"
+                                class="w-full h-full object-cover"
+                                onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Aryan+Placeholder'" />
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="team-name">Aryan Maurya</h3>
+                            <p class="team-title">DEVELOPER</p>
+
+                            <!-- Social Links -->
+                            <div class="flex space-x-3 mt-4">
+                                <span class="social-icon-btn cursor-default">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <path
+                                            d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                                        </path>
+                                    </svg>
+                                </span>
+                                <span class="social-icon-btn cursor-default">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
+                                </span>
+                                <a href="https://www.linkedin.com/in/aryan-maurya-0b68a732a/" target="_blank"
+                                    class="social-icon-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <path
+                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                        </path>
+                                        <rect x="2" y="9" width="4" height="12"></rect>
+                                        <circle cx="4" cy="4" r="2"></circle>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Team Member 3: Shreyansh Yadav -->
-                <div class="omega-folder-card">
-                    <div id="omega-folder-shreyansh" class="flex items-center justify-center min-h-[250px] w-full"></div>
-                    <div class="mt-4 text-center w-full">
-                        <h3 class="text-xl font-bold text-white tracking-wide">Shreyansh Yadav</h3>
-                        <p class="text-xs font-semibold text-sky-400 uppercase tracking-wider mt-1">Developer</p>
-                        <div class="flex items-center justify-center gap-2 mt-3">
-                            <span class="text-[11px] text-sky-300 bg-sky-500/10 border border-sky-500/20 px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
-                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                                Click folder to view dossier
-                            </span>
+                <div class="flip-card card-omega">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="/assets/Shreyansh%20Yadav-30LNW9zu.jpg" alt="Shreyansh Yadav - Developer"
+                                class="w-full h-full object-cover"
+                                onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Shreyansh+Placeholder'" />
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="team-name">Shreyansh Yadav</h3>
+                            <p class="team-title">DEVELOPER</p>
+
+                            <!-- Social Links -->
+                            <div class="flex space-x-3 mt-4">
+                                <span class="social-icon-btn cursor-default">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <path
+                                            d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                                        </path>
+                                    </svg>
+                                </span>
+                                <span class="social-icon-btn cursor-default">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
+                                </span>
+                                <a href="https://www.linkedin.com/in/shreyansh-yadav-a9b72b384/" target="_blank"
+                                    class="social-icon-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                        <path
+                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                        </path>
+                                        <rect x="2" y="9" width="4" height="12"></rect>
+                                        <circle cx="4" cy="4" r="2"></circle>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1262,19 +1338,33 @@
     </section>
 
     <!-- Call to Action / Contact Footer -->
-    <footer id="contact" class="py-20 bg-gray-900/50 border-t border-gray-800 backdrop-blur-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-extrabold text-white mb-4 text-glow">Ready to Build Your Elite Team?</h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-                    Let Graywolftek be the alpha in streamlining your business processes. Schedule your free consulting
-                    call today.
-                </p>
-                <div class="mt-8">
-                    <a href="mailto:graywolftek@gmail.com"
-                        class="px-10 py-4 text-lg font-medium rounded-lg text-white cta-button">
-                        Start the Conversation
-                    </a>
+    <footer id="contact" class="py-20 bg-gray-900/50 border-t border-gray-800 backdrop-blur-sm relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="relative mb-12">
+                <!-- 3D Animated Logo on Top Left Blank Space -->
+                <div class="flex justify-center lg:justify-start lg:absolute lg:-left-16 xl:-left-28 2xl:-left-36 lg:-top-6 xl:-top-10 mb-8 lg:mb-0 z-10 pointer-events-none" style="perspective: 1000px;">
+                    <div class="obj">
+                        <div class="objchild">
+                            <!-- Exact Silhouette Shadow of the Logo on the floor -->
+                            <img src="/assets/logo-CFY-FBGN.png" alt="" aria-hidden="true" class="logo-3d-shadow pointer-events-none select-none">
+                            <!-- Floating 3D Logo -->
+                            <img src="/assets/logo-CFY-FBGN.png" alt="Graywolftek Logo" class="inn6 object-contain pointer-events-none select-none drop-shadow-[0_0_20px_rgba(255,255,255,0.7)]">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <h2 class="text-4xl font-extrabold text-white mb-4 text-glow">Ready to Build Your Elite Team?</h2>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                        Let Graywolftek be the alpha in streamlining your business processes. Schedule your free consulting
+                        call today.
+                    </p>
+                    <div class="mt-8">
+                        <a href="mailto:graywolftek@gmail.com"
+                            class="px-10 py-4 text-lg font-medium rounded-lg text-white cta-button">
+                            Start the Conversation
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -1307,7 +1397,7 @@
                 <!-- Logo & Copyright -->
                 <div class="space-y-4 md:text-right">
                     <!-- Logo in footer for consistency -->
-                    <a href="#" class="flex items-center justify-center md:justify-end space-x-2">
+                    <a href="index.html" class="flex items-center justify-center md:justify-end space-x-2">
                         <!-- LOGO PATH: assets/images/logo.png -->
                         <img src="/assets/logo-CFY-FBGN.png" alt="Graywolftek Main Logo" class="h-8 w-auto" />
                         <span class="text-xl font-extrabold tracking-wider text-white">
@@ -1473,10 +1563,9 @@
             if (document.getElementById('desktop-nav-container') && window.GooeyNav) {
                 const hash = window.location.hash;
                 let initialIdx = 0;
-                if (hash === '#projects') initialIdx = 1;
-                else if (hash === '#blog') initialIdx = 2;
-                else if (hash === '#about') initialIdx = 3;
-                else if (hash === '#contact') initialIdx = 4;
+                if (hash === '#blog') initialIdx = 3;
+                else if (hash === '#about') initialIdx = 4;
+                else if (hash === '#contact') initialIdx = 5;
 
                 const nav = new GooeyNav({
                     target: '#desktop-nav-container',
@@ -1489,7 +1578,8 @@
                     initialActiveIndex: initialIdx,
                     items: [
                         { label: 'Home', href: '#' },
-                        { label: 'Projects', href: '#projects' },
+                        { label: 'Product', href: 'product.html' },
+                        { label: 'Projects', href: 'projects.html' },
                         { label: 'Blog', href: '#blog' },
                         { label: 'About Us', href: '#about' },
                         { label: 'Get Started', href: '#contact' }
@@ -1500,10 +1590,9 @@
                 let isClicking = false;
                 const sections = [
                     { id: '', index: 0 },
-                    { id: 'projects', index: 1 },
-                    { id: 'blog', index: 2 },
-                    { id: 'about', index: 3 },
-                    { id: 'contact', index: 4 }
+                    { id: 'blog', index: 3 },
+                    { id: 'about', index: 4 },
+                    { id: 'contact', index: 5 }
                 ];
 
                 document.getElementById('desktop-nav-container')?.addEventListener('click', () => {
@@ -1530,163 +1619,6 @@
                         }
                     }, 50);
                 }, { passive: true });
-            }
-        });
-    </script>
-
-    <!-- Load Folder 3D Interactive Component -->
-    <script src="assets/js/Folder.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            if (window.Folder) {
-                // Folder 1: Aakash Maurya
-                new window.Folder('#omega-folder-aakash', {
-                    label: 'Aakash M.',
-                    color: '#7c3aed',
-                    tabPosition: 'left',
-                    layout: 'spread',
-                    size: 1.15,
-                    items: [
-                        {
-                            image: 'assets/team/Aakash Maurya.jpg',
-                            alt: 'Aakash Maurya',
-                            name: 'Aakash Maurya',
-                            role: 'Junior Marketing Executive'
-                        },
-                        {
-                            html: `
-                                <div class="folder-dossier-card">
-                                    <div>
-                                        <div class="folder-dossier-top">
-                                            <span class="folder-dossier-tag">OMEGA TALENT</span>
-                                            <span class="folder-dossier-status"><span class="folder-dossier-dot"></span>ACTIVE</span>
-                                        </div>
-                                        <div class="folder-dossier-name">Aakash Maurya</div>
-                                        <div class="folder-dossier-role">Junior Marketing Executive</div>
-                                        <div class="folder-dossier-desc">Spearheads market research, digital brand growth, lead nurturing, and client engagement strategies across remote engineering sectors.</div>
-                                        <div class="folder-dossier-skills">
-                                            <span class="folder-skill-pill">Growth Strategy</span>
-                                            <span class="folder-skill-pill">Lead Gen</span>
-                                            <span class="folder-skill-pill">Digital Outreach</span>
-                                            <span class="folder-skill-pill">Analytics</span>
-                                        </div>
-                                    </div>
-                                    <div class="folder-dossier-footer">
-                                        <span class="text-[8px] text-gray-400">Graywolftek Team</span>
-                                        <a href="https://www.linkedin.com/in/aakash-maurya-36a544278/" target="_blank" rel="noopener noreferrer" class="folder-dossier-btn">
-                                            <svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                                            LinkedIn
-                                        </a>
-                                    </div>
-                                </div>
-                            `
-                        },
-                        {
-                            title: 'Marketing Highlights',
-                            description: 'Campaign optimization & ROI-focused enterprise acquisition pipelines.'
-                        }
-                    ]
-                });
-
-                // Folder 2: Aryan Maurya
-                new window.Folder('#omega-folder-aryan', {
-                    label: 'Aryan M.',
-                    color: '#4f46e5',
-                    tabPosition: 'center',
-                    layout: 'spread',
-                    size: 1.15,
-                    items: [
-                        {
-                            image: 'assets/team/Aryan Maurya.jpg',
-                            alt: 'Aryan Maurya',
-                            name: 'Aryan Maurya',
-                            role: 'Software Developer'
-                        },
-                        {
-                            html: `
-                                <div class="folder-dossier-card">
-                                    <div>
-                                        <div class="folder-dossier-top">
-                                            <span class="folder-dossier-tag">OMEGA TALENT</span>
-                                            <span class="folder-dossier-status"><span class="folder-dossier-dot"></span>ACTIVE</span>
-                                        </div>
-                                        <div class="folder-dossier-name">Aryan Maurya</div>
-                                        <div class="folder-dossier-role">Software Developer</div>
-                                        <div class="folder-dossier-desc">Develops full-stack applications, scalable backend REST endpoints, database schemas, and robust cloud services with high efficiency.</div>
-                                        <div class="folder-dossier-skills">
-                                            <span class="folder-skill-pill">Full-Stack</span>
-                                            <span class="folder-skill-pill">JavaScript</span>
-                                            <span class="folder-skill-pill">Node.js</span>
-                                            <span class="folder-skill-pill">REST APIs</span>
-                                            <span class="folder-skill-pill">SQL</span>
-                                        </div>
-                                    </div>
-                                    <div class="folder-dossier-footer">
-                                        <span class="text-[8px] text-gray-400">Graywolftek Team</span>
-                                        <a href="https://www.linkedin.com/in/aryan-maurya-0b68a732a/" target="_blank" rel="noopener noreferrer" class="folder-dossier-btn">
-                                            <svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                                            LinkedIn
-                                        </a>
-                                    </div>
-                                </div>
-                            `
-                        },
-                        {
-                            title: 'Technical Highlights',
-                            description: 'Modern backend architecture, secure authentication, and database optimization.'
-                        }
-                    ]
-                });
-
-                // Folder 3: Shreyansh Yadav
-                new window.Folder('#omega-folder-shreyansh', {
-                    label: 'Shreyansh Y.',
-                    color: '#0284c7',
-                    tabPosition: 'right',
-                    layout: 'spread',
-                    size: 1.15,
-                    items: [
-                        {
-                            image: 'assets/team/Shreyansh Yadav.jpg',
-                            alt: 'Shreyansh Yadav',
-                            name: 'Shreyansh Yadav',
-                            role: 'Frontend Developer'
-                        },
-                        {
-                            html: `
-                                <div class="folder-dossier-card">
-                                    <div>
-                                        <div class="folder-dossier-top">
-                                            <span class="folder-dossier-tag">OMEGA TALENT</span>
-                                            <span class="folder-dossier-status"><span class="folder-dossier-dot"></span>ACTIVE</span>
-                                        </div>
-                                        <div class="folder-dossier-name">Shreyansh Yadav</div>
-                                        <div class="folder-dossier-role">Frontend Developer</div>
-                                        <div class="folder-dossier-desc">Designs modern responsive UI interfaces, dynamic client interactions, micro-animations, and fluid application workflows.</div>
-                                        <div class="folder-dossier-skills">
-                                            <span class="folder-skill-pill">Frontend</span>
-                                            <span class="folder-skill-pill">UI/UX</span>
-                                            <span class="folder-skill-pill">TailwindCSS</span>
-                                            <span class="folder-skill-pill">Modern JS</span>
-                                            <span class="folder-skill-pill">3D Motion</span>
-                                        </div>
-                                    </div>
-                                    <div class="folder-dossier-footer">
-                                        <span class="text-[8px] text-gray-400">Graywolftek Team</span>
-                                        <a href="https://www.linkedin.com/in/shreyansh-yadav-a9b72b384/" target="_blank" rel="noopener noreferrer" class="folder-dossier-btn">
-                                            <svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                                            LinkedIn
-                                        </a>
-                                    </div>
-                                </div>
-                            `
-                        },
-                        {
-                            title: 'Frontend Highlights',
-                            description: 'High-performance interactive web components & responsive design systems.'
-                        }
-                    ]
-                });
             }
         });
     </script>

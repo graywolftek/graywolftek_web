@@ -122,6 +122,109 @@
             color: #fff;
             font-weight: 600;
         }
+    
+        /* From Uiverse.io by Saad3092003 */ 
+        .obj {
+          position: relative;
+          width: 200px;
+          height: 200px;
+            /* background-color: rgb(96, 96, 232); */
+          transform-style: preserve-3d;
+          transition: 0.5s all;
+          transform: rotateX(-25deg) rotateY(20deg);
+        }
+
+        .objchild {
+          animation: rotate 10s infinite linear;
+          transform-style: preserve-3d;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+            /* background:linear-gradient( to top,rgb(11, 11, 102),rgb(96, 96, 232) ) ; */
+        }
+
+        .objchild::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          filter: blur(20px);
+          box-shadow: 0 0 70px 15px rgba(255, 255, 255, 0.45);
+          transform: rotateX(90deg) scale(1.1) translateZ(-120px);
+          pointer-events: none;
+        }
+
+        .logo-3d-shadow {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          filter: brightness(0) blur(4px) drop-shadow(0 0 12px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.45));
+          opacity: 0.75;
+          transform: rotateX(90deg) scale(0.95) translateZ(-120px);
+          animation: shadowPulse 5s infinite ease-in-out;
+          pointer-events: none;
+        }
+
+        @keyframes shadowPulse {
+          0%, 100% {
+            transform: rotateX(90deg) scale(1.05) translateZ(-120px);
+            opacity: 0.65;
+            filter: brightness(0) blur(5px) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
+          }
+
+          20%, 35% {
+            transform: rotateX(90deg) scale(1.05) translateZ(-120px);
+            opacity: 0.65;
+            filter: brightness(0) blur(5px) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
+          }
+
+          65%, 75% {
+            transform: rotateX(90deg) scale(0.85) translateZ(-120px);
+            opacity: 0.85;
+            filter: brightness(0) blur(3px) drop-shadow(0 0 10px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.55));
+          }
+        }
+
+        .inn6 {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: transparent;
+          transform: translateY(10px) rotateX(20deg) translateZ(80px);
+          animation: updown 5s infinite ease-in-out;
+          transform-style: preserve-3d;
+          backface-visibility: visible;
+        }
+
+        @keyframes rotate {
+          0% {
+            transform: rotate3d(0,1,0,0deg);
+          }
+
+          100% {
+            transform: rotate3d(0,1,0,360deg);
+          }
+        }
+
+        @keyframes updown {
+          0%, 100% {
+            /* Upward: changes direction to the front so everyone clearly sees the logo */
+            transform: translateY(10px) rotateX(20deg) translateZ(80px) scale(1.1);
+          }
+
+          20%, 35% {
+            /* Pauses upright facing the front at the top */
+            transform: translateY(10px) rotateX(20deg) translateZ(80px) scale(1.1);
+          }
+
+          65%, 75% {
+            /* Downward: tilts back into the horizontal plane */
+            transform: translateY(135px) rotateX(85deg) translateZ(80px) scale(0.9);
+          }
+        }
+
     </style>
 </head>
 
@@ -139,6 +242,7 @@
 
                 <nav class="hidden md:flex space-x-8">
                     <a href="index.html" class="text-gray-200 hover:text-primary-accent transition">Home</a>
+                    <a href="product.html" class="text-gray-200 hover:text-primary-accent transition">Product</a>
                     <a href="projects.html" class="text-gray-200 hover:text-primary-accent transition">Projects</a>
                     <a href="index.html#blog" class="text-gray-200 hover:text-primary-accent transition">Blog</a>
                     <a href="index.html#about" class="text-gray-200 hover:text-primary-accent transition">About Us</a>
@@ -157,6 +261,8 @@
             <div id="mobile-menu" class="hidden md:hidden pb-4">
                 <a href="index.html"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Home</a>
+                <a href="product.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Product</a>
                 <a href="projects.html"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Projects</a>
                 <a href="index.html#blog"
@@ -390,21 +496,34 @@
         </article>
     </main>
 
-    <!-- Footer -->
     <!-- Call to Action / Contact Footer -->
-    <footer id="contact" class="py-20 bg-gray-900/50 border-t border-gray-800 backdrop-blur-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-extrabold text-white mb-4 text-glow">Ready to Build Your Elite Team?</h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-                    Let Graywolftek be the alpha in streamlining your business processes. Schedule your free consulting
-                    call today.
-                </p>
-                <div class="mt-8">
-                    <a href="mailto:graywolftek@gmail.com"
-                        class="px-10 py-4 text-lg font-medium rounded-lg text-white cta-button">
-                        Start the Conversation
-                    </a>
+    <footer id="contact" class="py-20 bg-gray-900/50 border-t border-gray-800 backdrop-blur-sm relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="relative mb-12">
+                <!-- 3D Animated Logo on Top Left Blank Space -->
+                <div class="flex justify-center lg:justify-start lg:absolute lg:-left-16 xl:-left-28 2xl:-left-36 lg:-top-6 xl:-top-10 mb-8 lg:mb-0 z-10 pointer-events-none" style="perspective: 1000px;">
+                    <div class="obj">
+                        <div class="objchild">
+                            <!-- Exact Silhouette Shadow of the Logo on the floor -->
+                            <img src="assets/images/logo.png" alt="" aria-hidden="true" class="logo-3d-shadow pointer-events-none select-none">
+                            <!-- Floating 3D Logo -->
+                            <img src="assets/images/logo.png" alt="Graywolftek Logo" class="inn6 object-contain pointer-events-none select-none drop-shadow-[0_0_20px_rgba(255,255,255,0.7)]">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <h2 class="text-4xl font-extrabold text-white mb-4 text-glow">Ready to Build Your Elite Team?</h2>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                        Let Graywolftek be the alpha in streamlining your business processes. Schedule your free consulting
+                        call today.
+                    </p>
+                    <div class="mt-8">
+                        <a href="mailto:graywolftek@gmail.com"
+                            class="px-10 py-4 text-lg font-medium rounded-lg text-white cta-button">
+                            Start the Conversation
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -437,7 +556,7 @@
                 <!-- Logo & Copyright -->
                 <div class="space-y-4 md:text-right">
                     <!-- Logo in footer for consistency -->
-                    <a href="#" class="flex items-center justify-center md:justify-end space-x-2">
+                    <a href="index.html" class="flex items-center justify-center md:justify-end space-x-2">
                         <!-- LOGO PATH: assets/images/logo.png -->
                         <img src="assets/images/logo.png" alt="Graywolftek Main Logo" class="h-8 w-auto" />
                         <span class="text-xl font-extrabold tracking-wider text-white">

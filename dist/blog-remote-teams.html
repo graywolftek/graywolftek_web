@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Keys to Scaling Engineering Teams in India | Graywolftek Blog</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Vanilla Tilt for 3D Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Use Inter font family -->
+    <style type="text/tailwindcss">
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f172a;
+            background-image: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+                radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+            background-attachment: fixed;
+            color: #f3f4f6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --color-primary-accent: #818cf8;
+            --color-secondary-accent: #c084fc;
+            --color-dark-text: #f3f4f6;
+            --color-glass-border: rgba(255, 255, 255, 0.1);
+            --color-glass-bg: rgba(255, 255, 255, 0.03);
+        }
+
+        .glass-panel {
+            background: var(--color-glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--color-glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(129, 140, 248, 0.5), 0 0 40px rgba(129, 140, 248, 0.3);
+        }
+
+        .cta-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 0 30px rgba(124, 58, 237, 0.6);
+        }
+
+        .social-icon-btn {
+            transition: all 0.3s ease;
+        }
+
+        .social-icon-btn:hover {
+            box-shadow: 0 0 20px rgba(129, 140, 248, 0.6), 0 0 30px rgba(129, 140, 248, 0.4);
+            border-color: var(--color-primary-accent);
+            transform: translateY(-2px);
+        }
+
+        .social-icon-btn:hover i {
+            color: var(--color-primary-accent) !important;
+        }
+
+        .blog-content h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #fff;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-content p {
+            margin-bottom: 1.25rem;
+            line-height: 1.75;
+            color: #d1d5db;
+        }
+
+        .blog-content ul,
+        .blog-content ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.5rem;
+            color: #d1d5db;
+        }
+
+        .blog-content strong {
+            color: #fff;
+            font-weight: 600;
+        }
+    
+        /* From Uiverse.io by Saad3092003 */ 
+        .obj {
+          position: relative;
+          width: 200px;
+          height: 200px;
+            /* background-color: rgb(96, 96, 232); */
+          transform-style: preserve-3d;
+          transition: 0.5s all;
+          transform: rotateX(-25deg) rotateY(20deg);
+        }
+
+        .objchild {
+          animation: rotate 10s infinite linear;
+          transform-style: preserve-3d;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+            /* background:linear-gradient( to top,rgb(11, 11, 102),rgb(96, 96, 232) ) ; */
+        }
+
+        .objchild::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          filter: blur(20px);
+          box-shadow: 0 0 70px 15px rgba(255, 255, 255, 0.45);
+          transform: rotateX(90deg) scale(1.1) translateZ(-120px);
+          pointer-events: none;
+        }
+
+        .logo-3d-shadow {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          filter: brightness(0) blur(4px) drop-shadow(0 0 12px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.45));
+          opacity: 0.75;
+          transform: rotateX(90deg) scale(0.95) translateZ(-120px);
+          animation: shadowPulse 5s infinite ease-in-out;
+          pointer-events: none;
+        }
+
+        @keyframes shadowPulse {
+          0%, 100% {
+            transform: rotateX(90deg) scale(1.05) translateZ(-120px);
+            opacity: 0.65;
+            filter: brightness(0) blur(5px) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
+          }
+
+          20%, 35% {
+            transform: rotateX(90deg) scale(1.05) translateZ(-120px);
+            opacity: 0.65;
+            filter: brightness(0) blur(5px) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
+          }
+
+          65%, 75% {
+            transform: rotateX(90deg) scale(0.85) translateZ(-120px);
+            opacity: 0.85;
+            filter: brightness(0) blur(3px) drop-shadow(0 0 10px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.55));
+          }
+        }
+
+        .inn6 {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: transparent;
+          transform: translateY(10px) rotateX(20deg) translateZ(80px);
+          animation: updown 5s infinite ease-in-out;
+          transform-style: preserve-3d;
+          backface-visibility: visible;
+        }
+
+        @keyframes rotate {
+          0% {
+            transform: rotate3d(0,1,0,0deg);
+          }
+
+          100% {
+            transform: rotate3d(0,1,0,360deg);
+          }
+        }
+
+        @keyframes updown {
+          0%, 100% {
+            /* Upward: changes direction to the front so everyone clearly sees the logo */
+            transform: translateY(10px) rotateX(20deg) translateZ(80px) scale(1.1);
+          }
+
+          20%, 35% {
+            /* Pauses upright facing the front at the top */
+            transform: translateY(10px) rotateX(20deg) translateZ(80px) scale(1.1);
+          }
+
+          65%, 75% {
+            /* Downward: tilts back into the horizontal plane */
+            transform: translateY(135px) rotateX(85deg) translateZ(80px) scale(0.9);
+          }
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Header (same as other pages) -->
+    <header class="sticky top-0 z-50 glass-panel">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="index.html" class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+                    <img src="assets/images/logo.png" alt="Graywolftek Logo" class="h-10 sm:h-12 w-auto flex-shrink-0">
+                    <span class="text-lg sm:text-xl font-extrabold tracking-wider whitespace-nowrap">
+                        <span class="text-primary-accent text-glow">GRAY</span><span class="text-white">WOLFTEK</span>
+                    </span>
+                </a>
+
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-200 hover:text-primary-accent transition">Home</a>
+                    <a href="product.html" class="text-gray-200 hover:text-primary-accent transition">Product</a>
+                    <a href="projects.html" class="text-gray-200 hover:text-primary-accent transition">Projects</a>
+                    <a href="index.html#blog" class="text-gray-200 hover:text-primary-accent transition">Blog</a>
+                    <a href="index.html#about" class="text-gray-200 hover:text-primary-accent transition">About Us</a>
+                </nav>
+
+                <a href="index.html#contact"
+                    class="hidden md:inline-block px-6 py-2 text-white rounded-full cta-button">
+                    Get Started
+                </a>
+
+                <button id="mobile-menu-toggle" class="md:hidden text-white flex-shrink-0 p-2" aria-label="Toggle menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="index.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Home</a>
+                <a href="product.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Product</a>
+                <a href="projects.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Projects</a>
+                <a href="index.html#blog"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Blog</a>
+                <a href="index.html#about"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">About
+                    Us</a>
+                <a href="index.html#contact"
+                    class="block w-full px-3 py-2 rounded-md text-base font-medium text-white bg-primary-accent hover:opacity-90 mt-2 cta-button">Get
+                    Started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Blog Article Content -->
+    <main class="py-16">
+        <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Blog Header -->
+            <div class="mb-12">
+                <a href="index.html#blog" class="inline-flex items-center text-primary-accent hover:opacity-80 mb-6">
+                    <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
+                    Back to Blog
+                </a>
+                <span class="text-sm font-semibold uppercase text-primary-accent">Remote Teams</span>
+                <h1 class="text-5xl font-extrabold text-white mt-4 mb-6 text-glow">
+                    REMOTE TEAMS: 5 Keys to Scaling Engineering Teams in India
+                </h1>
+                <p class="text-xl text-gray-300 mb-8">
+                    Discover the essential strategies for successful talent sourcing, cultural integration, and
+                    infrastructure setup when building your remote powerhouse.
+                </p>
+                <!-- Hero image removed -->
+            </div>
+
+            <!-- Blog Content -->
+            <div class="blog-content glass-panel p-8 rounded-2xl">
+                <p>India continues to be the world's premier destination for building high-quality, cost-effective
+                    remote engineering teams. However, simply hiring engineers is not the same as scaling them
+                    successfully. The modern landscape, defined by rapid AI adoption, shifting employee expectations,
+                    and the need for robust remote-first infrastructure, requires a deliberate, strategic approach.</p>
+
+                <p>Here are the five essential keys to sustainably scaling your remote engineering team in India today.
+                </p>
+
+                <h2>Key 1: Strategic Talent Sourcing Beyond the Metros</h2>
+                <p>The Indian talent pool is vast, but the best developers are no longer concentrated in just Bengaluru,
+                    Hyderabad, or Delhi. Effective scaling requires a wider net and a refined hiring process.</p>
+
+                <h3>🔑 Latest Trends in Talent Sourcing:</h3>
+
+                <p><strong>Tier 2 & Tier 3 Cities:</strong> The "Digital India" initiative has dramatically improved
+                    connectivity in non-metro areas, creating a huge, untapped pool of skilled, loyal, and often more
+                    cost-efficient engineers. Sourcing from these regions maximizes your cost-benefit while broadening
+                    your talent base.</p>
+
+                <p><strong>Hiring for Mindset (Growth & Adaptability):</strong> In an age where new AI tools are
+                    automating repetitive coding tasks (Source: PwC Global Workforce Hopes and Fears Survey 2025 notes
+                    GenAI's growing impact), the most valuable engineers are those with curiosity, problem-solving
+                    skills, and a high learning agility. Hire for this mindset over narrow, rigid technical fit.</p>
+
+                <p><strong>The EOR/PEO Advantage:</strong> Partnering with an Employer of Record (EOR) or Professional
+                    Employment Organization (PEO) in India is increasingly common for global companies. They handle
+                    local compliance, taxes, and labor laws, allowing your leadership to focus purely on engineering and
+                    culture.</p>
+
+                <h2>Key 2: Cultivating a Remote-First Culture of Trust</h2>
+                <p>Cultural alignment is the bedrock of a scalable team. Without a physical office, trust, transparency,
+                    and intentional communication become your primary organizational tools.</p>
+
+                <h3>🔑 Latest Trends in Cultural Integration:</h3>
+
+                <p><strong>Asynchronous-First Communication:</strong> Over-reliance on real-time video calls across
+                    significant time zone differences leads to burnout and inefficiency. Adopt a documentation-first
+                    (async) culture using tools like Slack, Notion, or project management software. Document all
+                    decisions, processes, and technical standards so anyone can catch up on their own schedule.</p>
+
+                <p><strong>Intentional Team Building:</strong> Remote work requires structured efforts to replace 'water
+                    cooler' moments. Schedule virtual coffee chats, organize non-work-related Slack channels (e.g., for
+                    hobbies, pets), and conduct virtual or occasional in-person (when feasible) team activities to
+                    foster personal connections and empathy.</p>
+
+                <p><strong>Work-Life Balance as a Policy:</strong> To combat burnout—a major retention risk—leaders must
+                    actively promote flexible working hours and set boundaries. Encourage realistic work schedules and
+                    model this behavior from the top down. A happy, rested engineer is a productive engineer.</p>
+
+                <h2>Key 3: Future-Proofing with Scalable Infrastructure</h2>
+                <p>Your tools and processes must scale faster than your team size. A modern remote engineering team
+                    needs a secure, cloud-native stack that supports high-velocity delivery.</p>
+
+                <h3>🔑 Latest Trends in Infrastructure Setup:</h3>
+
+                <p><strong>Cloud-Native & Automated Toolchain:</strong> Leverage the best cloud-based tools for
+                    communication (Slack/Teams), project management (Jira/Asana), code hosting (GitHub/GitLab), and
+                    CI/CD pipelines. Automate everything from code deployment to quality checks to minimize human error
+                    and dependency.</p>
+
+                <p><strong>Security-First Remote Endpoints:</strong> With employees in different locations, endpoint
+                    security is critical. Implement VPNs, two-factor authentication (2FA), and Identity and Access
+                    Management (IAM) solutions to ensure role-based access control. Providing power backups (UPS) and
+                    reliable hardware for employees can also mitigate local power/connectivity risks.</p>
+
+                <p><strong>Standardized Development Practices:</strong> Scaling quickly without losing code quality is
+                    difficult. Establish clear, documented coding standards, style guides, and robust code review
+                    processes. Tools that enforce these standards automatically in your CI/CD pipeline ensure
+                    consistency across a growing, distributed team.</p>
+
+                <h2>Key 4: Dedicated Investment in Learning & Development</h2>
+                <p>Retaining top engineering talent in India means showing a clear, supported path for their career
+                    growth. Your scaling strategy must be as focused on internal development as it is on external
+                    hiring.</p>
+
+                <h3>🔑 Latest Trends in L&D and Retention:</h3>
+
+                <p><strong>AI Upskilling:</strong> The rise of Generative AI is creating an immediate need for skills in
+                    prompt engineering, RAG (Retrieval-Augmented Generation), and AI governance. Investing in these
+                    specializations will future-proof your team and increase their efficiency (Source:
+                    Simplilearn/Purdue 2026 Tech Trends).</p>
+
+                <p><strong>Mentorship and Onboarding:</strong> Implement a structured onboarding path with dedicated
+                    mentors for every new hire. This provides crucial context, accelerates cultural integration, and
+                    allows new team members to gain deep insight into your company's structure and values.</p>
+
+                <p><strong>Internal Mobility:</strong> Ambitious engineers thrive on new challenges. Create clear
+                    internal paths for growth, such as transitioning senior engineers into Engineering Manager roles or
+                    cross-functional specialization. Promoting from within retains institutional knowledge and motivates
+                    the entire team.</p>
+
+                <h2>Key 5: Leadership That Balances Autonomy and Alignment</h2>
+                <p>As teams grow, the organizational structure must evolve from a flat start-up model to a more scalable
+                    framework. Leadership's role shifts from dictating tasks to setting clear direction and empowering
+                    ownership.</p>
+
+                <h3>🔑 Latest Trends in Team Structure:</h3>
+
+                <p><strong>Team Autonomy with Clear Boundaries:</strong> Adopt principles like Domain-Driven Design
+                    (DDD) and Microservices architecture to allow smaller sub-teams to own specific domains end-to-end.
+                    This grants them autonomy over their codebase and processes, which boosts velocity and ownership.
+                </p>
+
+                <p><strong>Clear, Outcome-Focused Metrics:</strong> Shift away from micromanagement and task-based
+                    tracking. Define success by Key Performance Indicators (KPIs) focused on business outcomes, such as
+                    time-to-market, customer impact, and reduction in critical bugs.</p>
+
+                <p><strong>The "Two-Pizza Team" Model:</strong> Keep functional teams small (5-10 engineers). When a
+                    team's complexity or size starts slowing it down, split it into two independent, mission-aligned
+                    teams. This preserves agility and allows each unit to function as a nimble, focused unit (Source:
+                    Remotebase 2025 Scaling Strategies).</p>
+
+                <h2>Conclusion: Building a Scalable Future</h2>
+                <p>Scaling a remote engineering team in India is a continuous journey of refinement. By adopting these
+                    five modern keys—sourcing widely, trusting deeply, securing robustly, investing in growth, and
+                    empowering autonomy—you can move beyond simply hiring staff to building a sustainable,
+                    high-performing powerhouse that delivers world-class results.</p>
+            </div>
+
+            <!-- Back to Blog Link -->
+            <div class="mt-12 text-center">
+                <a href="index.html#blog" class="inline-flex items-center px-6 py-3 text-white rounded-full cta-button">
+                    <i data-lucide="arrow-left" class="w-5 h-5 mr-2"></i>
+                    Back to All Articles
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Call to Action / Contact Footer -->
+    <footer id="contact" class="py-20 bg-gray-900/50 border-t border-gray-800 backdrop-blur-sm relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="relative mb-12">
+                <!-- 3D Animated Logo on Top Left Blank Space -->
+                <div class="flex justify-center lg:justify-start lg:absolute lg:-left-16 xl:-left-28 2xl:-left-36 lg:-top-6 xl:-top-10 mb-8 lg:mb-0 z-10 pointer-events-none" style="perspective: 1000px;">
+                    <div class="obj">
+                        <div class="objchild">
+                            <!-- Exact Silhouette Shadow of the Logo on the floor -->
+                            <img src="assets/images/logo.png" alt="" aria-hidden="true" class="logo-3d-shadow pointer-events-none select-none">
+                            <!-- Floating 3D Logo -->
+                            <img src="assets/images/logo.png" alt="Graywolftek Logo" class="inn6 object-contain pointer-events-none select-none drop-shadow-[0_0_20px_rgba(255,255,255,0.7)]">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <h2 class="text-4xl font-extrabold text-white mb-4 text-glow">Ready to Build Your Elite Team?</h2>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                        Let Graywolftek be the alpha in streamlining your business processes. Schedule your free consulting
+                        call today.
+                    </p>
+                    <div class="mt-8">
+                        <a href="mailto:graywolftek@gmail.com"
+                            class="px-10 py-4 text-lg font-medium rounded-lg text-white cta-button">
+                            Start the Conversation
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-gray-800 pt-10 text-center md:text-left reveal">
+
+                <!-- Contact Info -->
+                <div class="space-y-4">
+                    <h4 class="text-xl font-semibold text-white">Connect with Us</h4>
+                    <div class="flex items-center justify-center md:justify-start text-gray-400">
+                        <i data-lucide="mail" class="w-5 h-5 mr-3 text-primary-accent"></i>
+                        <a href="mailto:graywolftek@gmail.com"
+                            class="hover:text-primary-accent transition">graywolftek@gmail.com</a>
+                    </div>
+                    <div class="flex items-center justify-center md:justify-start text-gray-400">
+                        <i data-lucide="phone" class="w-5 h-5 mr-3 text-primary-accent"></i>
+                        <a href="tel:+917559185780" class="hover:text-primary-accent transition">+91-7559185780</a>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="space-y-4">
+                    <h4 class="text-xl font-semibold text-white">Visit Our Office</h4>
+                    <p class="text-gray-400">
+                        Usmanpur, Jalalpur Ambedkar Nagar <br>
+                        224149, India
+                    </p>
+                </div>
+
+                <!-- Logo & Copyright -->
+                <div class="space-y-4 md:text-right">
+                    <!-- Logo in footer for consistency -->
+                    <a href="index.html" class="flex items-center justify-center md:justify-end space-x-2">
+                        <!-- LOGO PATH: assets/images/logo.png -->
+                        <img src="assets/images/logo.png" alt="Graywolftek Main Logo" class="h-8 w-auto" />
+                        <span class="text-xl font-extrabold tracking-wider text-white">
+                            <span class="text-primary-accent text-glow">GRAY</span>WOLFTEK
+                        </span>
+                    </a>
+
+                    <!-- Social Media Links -->
+                    <div class="flex items-center justify-center md:justify-end space-x-3 mt-4">
+                        <span class="social-icon-btn cursor-default" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <path
+                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                                </path>
+                            </svg>
+                        </span>
+                        <a href="https://www.linkedin.com/company/graywolftek/posts/?feedView=all" target="_blank"
+                            class="social-icon-btn" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/graywolftek/" target="_blank" class="social-icon-btn"
+                            aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <span class="social-icon-btn cursor-default" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </span>
+                    </div>
+
+                    <p class="text-sm text-gray-500">&copy; 2024 Graywolftek. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>
