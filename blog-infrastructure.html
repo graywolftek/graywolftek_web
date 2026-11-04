@@ -56,6 +56,16 @@
             --color-glass-bg: rgba(27, 58, 75, 0.22);
         }
 
+        
+        .menu-dropdown-panel {
+            background: #0b141d !important;
+            background: linear-gradient(165deg, rgba(11, 20, 29, 0.98) 0%, rgba(18, 38, 52, 0.98) 55%, rgba(35, 25, 48, 0.98) 100%) !important;
+            backdrop-filter: blur(28px) !important;
+            -webkit-backdrop-filter: blur(28px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.16) !important;
+            box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.92), 0 0 35px rgba(0, 100, 102, 0.25) !important;
+        }
+
         .glass-panel {
             background: rgba(27, 58, 75, 0.22);
             backdrop-filter: blur(12px);
@@ -149,51 +159,223 @@
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="sticky top-0 z-50 glass-panel">
+    <!-- Header Navigation with Dropdowns -->
+            <header class="sticky top-0 z-50 glass-panel shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
-                <a href="index.html" class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
-                    <img src="assets/images/logo.png" alt="Graywolftek Logo" class="h-10 sm:h-12 w-auto flex-shrink-0">
-                    <span class="text-lg sm:text-xl font-extrabold tracking-wider whitespace-nowrap">
-                        <span class="text-primary-accent text-glow">GRAY</span><span class="text-white">WOLFTEK</span>
-                    </span>
-                </a>
+            <div class="flex items-center justify-between h-20">
 
-                <nav class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-gray-200 hover:text-primary-accent transition">Home</a>
-                    <a href="product.html" class="text-gray-200 hover:text-primary-accent transition">Product</a>
-                    <a href="projects.html" class="text-gray-200 hover:text-primary-accent transition">Projects</a>
-                    <a href="founder/" class="text-gray-200 hover:text-primary-accent transition">Founder</a>
-                    <a href="index.html#blog" class="text-gray-200 hover:text-primary-accent transition">Blog</a>
-                    <a href="index.html#about" class="text-gray-200 hover:text-primary-accent transition">About Us</a>
+                <!-- Company Logo and Name (Left) -->
+                <div class="flex items-center flex-1 justify-start">
+                    <a href="index.html" class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0 group">
+                        <img src="assets/images/logo.png" alt="Graywolftek Main Logo"
+                            class="h-10 sm:h-12 w-auto flex-shrink-0 group-hover:scale-105 transition duration-300" />
+                        <span class="text-lg sm:text-xl font-extrabold tracking-wider text-white whitespace-nowrap">
+                            <span class="text-primary-accent text-glow">GRAY</span>WOLFTEK
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation: Home, R&D, Services, Story (Centered in Header) -->
+                <nav class="hidden md:flex space-x-6 lg:space-x-8 items-center justify-center flex-shrink-0" aria-label="Main Navigation">
+                    <!-- 1. Home -->
+                    <a href="index.html"
+                        class="nav-link text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">
+                        Home
+                    </a>
+
+                    <!-- 2. R&D Dropdown -->
+                    <div class="nav-dropdown-item relative">
+                        <button type="button"
+                            class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
+                            aria-expanded="false" aria-haspopup="true">
+                            <span>R&D</span>
+                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 nav-chevron opacity-70 transition-transform duration-200"></i>
+                        </button>
+                        <div class="nav-dropdown-menu hidden absolute left-0 mt-3 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                            <a href="projects.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="code-2" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Project</div>
+                                    <div class="text-[11px] text-gray-400">Innovation Lab & Prototypes</div>
+                                </div>
+                            </a>
+                            <a href="product.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="box" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Product</div>
+                                    <div class="text-[11px] text-gray-400">Shelfly & Platforms</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 3. Services Dropdown -->
+                    <div class="nav-dropdown-item relative">
+                        <button type="button"
+                            class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
+                            aria-expanded="false" aria-haspopup="true">
+                            <span>Services</span>
+                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 nav-chevron opacity-70 transition-transform duration-200"></i>
+                        </button>
+                        <div class="nav-dropdown-menu hidden absolute left-0 mt-3 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                            <a href="insights.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="trending-up" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Insights</div>
+                                    <div class="text-[11px] text-gray-400">Industry Research & Analysis</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 4. Story Dropdown -->
+                    <div class="nav-dropdown-item relative">
+                        <button type="button"
+                            class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
+                            aria-expanded="false" aria-haspopup="true">
+                            <span>Story</span>
+                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 nav-chevron opacity-70 transition-transform duration-200"></i>
+                        </button>
+                        <div class="nav-dropdown-menu hidden absolute right-0 md:left-0 lg:right-auto mt-3 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                            <a href="founder/"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="user" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Founder</div>
+                                    <div class="text-[11px] text-gray-400">Vishal Maurya – Founder & CEO</div>
+                                </div>
+                            </a>
+                            <a href="team.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="users" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Our Team</div>
+                                    <div class="text-[11px] text-gray-400">Beta, Delta & Omega Squads</div>
+                                </div>
+                            </a>
+                            <a href="index.html#blog"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="newspaper" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Blog</div>
+                                    <div class="text-[11px] text-gray-400">Articles & Perspectives</div>
+                                </div>
+                            </a>
+                            <a href="index.html#about"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="compass" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">About Us</div>
+                                    <div class="text-[11px] text-gray-400">Company Vision & Squads</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </nav>
 
-                <a href="index.html#contact"
-                    class="hidden md:inline-block px-6 py-2 text-white rounded-full cta-button">
-                    Get Started
-                </a>
+                <!-- Right Action: CTA & Mobile Button (Right) -->
+                <div class="flex items-center flex-1 justify-end space-x-4">
+                    <a href="index.html#contact"
+                        class="hidden sm:inline-flex items-center px-5 py-2.5 text-sm font-medium rounded-xl text-white cta-button shadow-sm">
+                        Get Started
+                    </a>
 
-                <button id="mobile-menu-toggle" class="md:hidden text-white flex-shrink-0 p-2" aria-label="Toggle menu">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
+                    <!-- Mobile Hamburger Button -->
+                    <button id="mobile-menu-btn" type="button"
+                        class="md:hidden inline-flex items-center justify-center p-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition focus:outline-none cursor-pointer"
+                        aria-expanded="false" aria-label="Toggle Navigation">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Drawer with Same Dropdowns/Accordions -->
+        <div id="mobile-nav-drawer" class="hidden md:hidden menu-dropdown-panel border-t border-white/10 px-4 pt-3 pb-6 space-y-2">
+            <!-- 1. Home -->
+            <a href="index.html"
+                class="flex items-center px-3.5 py-2.5 rounded-xl text-sm font-semibold text-white hover:bg-white/10 transition">
+                <i data-lucide="home" class="w-4 h-4 mr-2.5 text-primary-accent"></i>
+                Home
+            </a>
+
+            <!-- 2. R&D Mobile Accordion -->
+            <div class="border-t border-white/10 pt-1">
+                <button type="button"
+                    class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
+                    <span class="flex items-center">
+                        <i data-lucide="flask-conical" class="w-4 h-4 mr-2"></i> R&D
+                    </span>
+                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
                 </button>
+                <div class="pl-4 pr-1 py-1 space-y-1">
+                    <a href="projects.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="code-2" class="w-4 h-4 mr-2.5 text-gray-400"></i> Project
+                    </a>
+                    <a href="product.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="box" class="w-4 h-4 mr-2.5 text-gray-400"></i> Product
+                    </a>
+                </div>
             </div>
 
-            <div id="mobile-menu" class="hidden md:hidden pb-4">
-                <a href="index.html"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Home</a>
-                <a href="product.html"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Product</a>
-                <a href="projects.html"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Projects</a>
-                <a href="index.html#blog"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Blog</a>
-                <a href="index.html#about"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">About
-                    Us</a>
+            <!-- 3. Services Mobile Accordion -->
+            <div class="border-t border-white/10 pt-1">
+                <button type="button"
+                    class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
+                    <span class="flex items-center">
+                        <i data-lucide="briefcase" class="w-4 h-4 mr-2"></i> Services
+                    </span>
+                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
+                </button>
+                <div class="pl-4 pr-1 py-1 space-y-1">
+                    <a href="insights.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="trending-up" class="w-4 h-4 mr-2.5 text-gray-400"></i> Insights
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4. Story Mobile Accordion -->
+            <div class="border-t border-white/10 pt-1">
+                <button type="button"
+                    class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
+                    <span class="flex items-center">
+                        <i data-lucide="book-open" class="w-4 h-4 mr-2"></i> Story
+                    </span>
+                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
+                </button>
+                <div class="pl-4 pr-1 py-1 space-y-1">
+                    <a href="founder/"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="user" class="w-4 h-4 mr-2.5 text-gray-400"></i> Founder
+                    </a>
+                    <a href="team.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="users" class="w-4 h-4 mr-2.5 text-gray-400"></i> Our Team
+                    </a>
+                    <a href="index.html#blog"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="newspaper" class="w-4 h-4 mr-2.5 text-gray-400"></i> Blog
+                    </a>
+                    <a href="index.html#about"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="compass" class="w-4 h-4 mr-2.5 text-gray-400"></i> About Us
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile CTA -->
+            <div class="pt-3 border-t border-white/10">
                 <a href="index.html#contact"
-                    class="block w-full px-3 py-2 rounded-md text-base font-medium text-white bg-primary-accent hover:opacity-90 mt-2 cta-button">Get
-                    Started</a>
+                    class="flex items-center justify-center w-full px-4 py-2.5 rounded-xl text-xs font-semibold text-white cta-button tracking-wide">
+                    <i data-lucide="mail" class="w-3.5 h-3.5 mr-2"></i> Get Started
+                </a>
             </div>
         </div>
     </header>
@@ -530,6 +712,7 @@
             menu.classList.toggle('hidden');
         });
     </script>
+    <script src="assets/js/menu-dropdown.js"></script>
 </body>
 
 </html>

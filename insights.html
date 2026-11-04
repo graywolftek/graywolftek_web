@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graywolftek | Engineering Insights & Perspectives</title>
+    <meta name="description"
+        content="In-depth technical research, distributed engineering strategies, data center infrastructure architecture, and agile operations insights from Graywolftek.">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Vanilla Tilt for 3D Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Use Inter font family -->
+    <style type="text/tailwindcss">
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section[id], footer[id] {
+            scroll-margin-top: 5.5rem;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0b141d;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 100, 102, 0.45) 0, transparent 50%),
+                radial-gradient(at 50% 0%, rgba(27, 58, 75, 0.55) 0, transparent 55%),
+                radial-gradient(at 100% 0%, rgba(77, 25, 77, 0.45) 0, transparent 50%),
+                radial-gradient(at 85% 65%, rgba(62, 31, 71, 0.35) 0, transparent 50%),
+                radial-gradient(at 15% 85%, rgba(6, 90, 96, 0.35) 0, transparent 50%);
+            background-attachment: fixed;
+            color: #f3f4f6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --color-primary-accent: #2dd4bf;
+            --color-secondary-accent: #c084fc;
+            --color-dark-text: #f3f4f6;
+            --color-glass-border: rgba(255, 255, 255, 0.08);
+            --color-glass-bg: rgba(27, 58, 75, 0.22);
+        }
+
+        
+        .menu-dropdown-panel {
+            background: #0b141d !important;
+            background: linear-gradient(165deg, rgba(11, 20, 29, 0.98) 0%, rgba(18, 38, 52, 0.98) 55%, rgba(35, 25, 48, 0.98) 100%) !important;
+            backdrop-filter: blur(28px) !important;
+            -webkit-backdrop-filter: blur(28px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.16) !important;
+            box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.92), 0 0 35px rgba(0, 100, 102, 0.25) !important;
+        }
+
+        .glass-panel {
+            background: rgba(27, 58, 75, 0.22);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--color-glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(45, 212, 191, 0.5), 0 0 40px rgba(192, 132, 252, 0.35);
+        }
+
+        .section-separator::after {
+            content: '';
+            display: block;
+            width: 140px;
+            height: 3px;
+            background: linear-gradient(90deg, #006466 0%, #0b525b 25%, #1b3a4b 50%, #3e1f47 75%, #4d194d 100%);
+            margin: 1.5rem auto 3rem;
+            border-radius: 9999px;
+            box-shadow: 0 0 12px rgba(45, 212, 191, 0.5);
+        }
+
+        .cta-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 100, 102, 0.4);
+            background: linear-gradient(135deg, #006466 0%, #144552 35%, #272640 70%, #4d194d 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px) scale(1.03);
+            background: linear-gradient(135deg, #065a60 0%, #1b3a4b 35%, #312244 70%, #3e1f47 100%);
+            box-shadow: 0 6px 30px rgba(77, 25, 77, 0.6);
+        }
+
+        .card-3d-effect {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-3d-effect:hover {
+            border-color: rgba(45, 212, 191, 0.4);
+            box-shadow: 0 16px 40px -10px rgba(0, 100, 102, 0.35);
+            transform: translateY(-4px);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.7s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    
+        .social-icon-btn {
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(129, 140, 248, 0.6), 0 0 30px rgba(129, 140, 248, 0.4);
+            border-color: var(--color-primary-accent);
+            transform: translateY(-2px);
+        }
+
+        .social-icon-btn:hover i {
+            color: var(--color-primary-accent) !important;
+        }
+
+    </style>
+</head>
+
+<body class="antialiased">
+    <!-- Header Navigation with Dropdowns -->
+            <header class="sticky top-0 z-50 glass-panel shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Company Logo and Name (Left) -->
+                <div class="flex items-center flex-1 justify-start">
+                    <a href="index.html" class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0 group">
+                        <img src="assets/images/logo.png" alt="Graywolftek Main Logo"
+                            class="h-10 sm:h-12 w-auto flex-shrink-0 group-hover:scale-105 transition duration-300" />
+                        <span class="text-lg sm:text-xl font-extrabold tracking-wider text-white whitespace-nowrap">
+                            <span class="text-primary-accent text-glow">GRAY</span>WOLFTEK
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation: Home, R&D, Services, Story (Centered in Header) -->
+                <nav class="hidden md:flex space-x-6 lg:space-x-8 items-center justify-center flex-shrink-0" aria-label="Main Navigation">
+                    <!-- 1. Home -->
+                    <a href="index.html"
+                        class="nav-link text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">
+                        Home
+                    </a>
+
+                    <!-- 2. R&D Dropdown -->
+                    <div class="nav-dropdown-item relative">
+                        <button type="button"
+                            class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
+                            aria-expanded="false" aria-haspopup="true">
+                            <span>R&D</span>
+                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 nav-chevron opacity-70 transition-transform duration-200"></i>
+                        </button>
+                        <div class="nav-dropdown-menu hidden absolute left-0 mt-3 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                            <a href="projects.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="code-2" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Project</div>
+                                    <div class="text-[11px] text-gray-400">Innovation Lab & Prototypes</div>
+                                </div>
+                            </a>
+                            <a href="product.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="box" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Product</div>
+                                    <div class="text-[11px] text-gray-400">Shelfly & Platforms</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 3. Services Dropdown -->
+                    <div class="nav-dropdown-item relative">
+                        <button type="button"
+                            class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
+                            aria-expanded="false" aria-haspopup="true">
+                            <span>Services</span>
+                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 nav-chevron opacity-70 transition-transform duration-200"></i>
+                        </button>
+                        <div class="nav-dropdown-menu hidden absolute left-0 mt-3 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                            <a href="insights.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="trending-up" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Insights</div>
+                                    <div class="text-[11px] text-gray-400">Industry Research & Analysis</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 4. Story Dropdown -->
+                    <div class="nav-dropdown-item relative">
+                        <button type="button"
+                            class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
+                            aria-expanded="false" aria-haspopup="true">
+                            <span>Story</span>
+                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 nav-chevron opacity-70 transition-transform duration-200"></i>
+                        </button>
+                        <div class="nav-dropdown-menu hidden absolute right-0 md:left-0 lg:right-auto mt-3 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                            <a href="founder/"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="user" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Founder</div>
+                                    <div class="text-[11px] text-gray-400">Vishal Maurya – Founder & CEO</div>
+                                </div>
+                            </a>
+                            <a href="team.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="users" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Our Team</div>
+                                    <div class="text-[11px] text-gray-400">Beta, Delta & Omega Squads</div>
+                                </div>
+                            </a>
+                            <a href="index.html#blog"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="newspaper" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Blog</div>
+                                    <div class="text-[11px] text-gray-400">Articles & Perspectives</div>
+                                </div>
+                            </a>
+                            <a href="index.html#about"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="compass" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">About Us</div>
+                                    <div class="text-[11px] text-gray-400">Company Vision & Squads</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Right Action: CTA & Mobile Button (Right) -->
+                <div class="flex items-center flex-1 justify-end space-x-4">
+                    <a href="index.html#contact"
+                        class="hidden sm:inline-flex items-center px-5 py-2.5 text-sm font-medium rounded-xl text-white cta-button shadow-sm">
+                        Get Started
+                    </a>
+
+                    <!-- Mobile Hamburger Button -->
+                    <button id="mobile-menu-btn" type="button"
+                        class="md:hidden inline-flex items-center justify-center p-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition focus:outline-none cursor-pointer"
+                        aria-expanded="false" aria-label="Toggle Navigation">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Drawer with Same Dropdowns/Accordions -->
+        <div id="mobile-nav-drawer" class="hidden md:hidden menu-dropdown-panel border-t border-white/10 px-4 pt-3 pb-6 space-y-2">
+            <!-- 1. Home -->
+            <a href="index.html"
+                class="flex items-center px-3.5 py-2.5 rounded-xl text-sm font-semibold text-white hover:bg-white/10 transition">
+                <i data-lucide="home" class="w-4 h-4 mr-2.5 text-primary-accent"></i>
+                Home
+            </a>
+
+            <!-- 2. R&D Mobile Accordion -->
+            <div class="border-t border-white/10 pt-1">
+                <button type="button"
+                    class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
+                    <span class="flex items-center">
+                        <i data-lucide="flask-conical" class="w-4 h-4 mr-2"></i> R&D
+                    </span>
+                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
+                </button>
+                <div class="pl-4 pr-1 py-1 space-y-1">
+                    <a href="projects.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="code-2" class="w-4 h-4 mr-2.5 text-gray-400"></i> Project
+                    </a>
+                    <a href="product.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="box" class="w-4 h-4 mr-2.5 text-gray-400"></i> Product
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. Services Mobile Accordion -->
+            <div class="border-t border-white/10 pt-1">
+                <button type="button"
+                    class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
+                    <span class="flex items-center">
+                        <i data-lucide="briefcase" class="w-4 h-4 mr-2"></i> Services
+                    </span>
+                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
+                </button>
+                <div class="pl-4 pr-1 py-1 space-y-1">
+                    <a href="insights.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="trending-up" class="w-4 h-4 mr-2.5 text-gray-400"></i> Insights
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4. Story Mobile Accordion -->
+            <div class="border-t border-white/10 pt-1">
+                <button type="button"
+                    class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
+                    <span class="flex items-center">
+                        <i data-lucide="book-open" class="w-4 h-4 mr-2"></i> Story
+                    </span>
+                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
+                </button>
+                <div class="pl-4 pr-1 py-1 space-y-1">
+                    <a href="founder/"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="user" class="w-4 h-4 mr-2.5 text-gray-400"></i> Founder
+                    </a>
+                    <a href="team.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="users" class="w-4 h-4 mr-2.5 text-gray-400"></i> Our Team
+                    </a>
+                    <a href="index.html#blog"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="newspaper" class="w-4 h-4 mr-2.5 text-gray-400"></i> Blog
+                    </a>
+                    <a href="index.html#about"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="compass" class="w-4 h-4 mr-2.5 text-gray-400"></i> About Us
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile CTA -->
+            <div class="pt-3 border-t border-white/10">
+                <a href="index.html#contact"
+                    class="flex items-center justify-center w-full px-4 py-2.5 rounded-xl text-xs font-semibold text-white cta-button tracking-wide">
+                    <i data-lucide="mail" class="w-3.5 h-3.5 mr-2"></i> Get Started
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-12 sm:py-16">
+        <!-- Breadcrumb Navigation -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+            <div class="flex items-center text-xs font-medium text-gray-400 space-x-2">
+                <a href="index.html" class="hover:text-primary-accent transition flex items-center">
+                    <i data-lucide="home" class="w-3.5 h-3.5 mr-1"></i> Home
+                </a>
+                <span>/</span>
+                <span class="text-gray-400">Services</span>
+                <span>/</span>
+                <span class="text-primary-accent">Insights</span>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+            <span
+                class="inline-flex items-center space-x-2 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary-accent bg-primary-accent/10 rounded-full mb-5 border border-primary-accent/20 backdrop-blur-md shadow-sm">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-primary-accent"></i>
+                <span>Graywolftek Services & Intelligence</span>
+            </span>
+
+            <h1
+                class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 text-glow reveal">
+                Engineering Insights & <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 via-sky-400 to-pink-400">Strategic Perspectives</span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed reveal">
+                Deep-dive research, distributed engineering playbooks, cloud architecture strategies, and people operations paradigms formulated by Graywolftek's squads.
+            </p>
+        </section>
+
+        <!-- Benchmark Metric Highlights -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                <div class="p-6 rounded-2xl glass-panel card-3d-effect text-center reveal">
+                    <span class="text-3xl sm:text-4xl font-extrabold text-primary-accent block text-glow">40%</span>
+                    <span class="text-xs uppercase tracking-wider text-gray-300 mt-1 block">Accelerated Velocity</span>
+                    <p class="text-[11px] text-gray-400 mt-2">Sprint completion speed with specialized squads</p>
+                </div>
+                <div class="p-6 rounded-2xl glass-panel card-3d-effect text-center reveal">
+                    <span class="text-3xl sm:text-4xl font-extrabold text-sky-400 block text-glow">99.99%</span>
+                    <span class="text-xs uppercase tracking-wider text-gray-300 mt-1 block">Infrastructure Target</span>
+                    <p class="text-[11px] text-gray-400 mt-2">High-availability design standards in data center tiers</p>
+                </div>
+                <div class="p-6 rounded-2xl glass-panel card-3d-effect text-center reveal">
+                    <span class="text-3xl sm:text-4xl font-extrabold text-secondary-accent block text-glow">3.5x</span>
+                    <span class="text-xs uppercase tracking-wider text-gray-300 mt-1 block">Ramp-Up Efficiency</span>
+                    <p class="text-[11px] text-gray-400 mt-2">Faster developer productivity via Agile onboarding</p>
+                </div>
+                <div class="p-6 rounded-2xl glass-panel card-3d-effect text-center reveal">
+                    <span class="text-3xl sm:text-4xl font-extrabold text-green-400 block text-glow">Zero</span>
+                    <span class="text-xs uppercase tracking-wider text-gray-300 mt-1 block">Compliance Friction</span>
+                    <p class="text-[11px] text-gray-400 mt-2">End-to-end legal, payroll, and security governance</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Filters -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+            <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3" id="insight-filters">
+                <button type="button" data-filter="all"
+                    class="filter-btn active px-4 py-2 rounded-xl text-xs font-semibold bg-primary-accent text-gray-900 border border-primary-accent transition duration-150 shadow-md">
+                    All Insights (6)
+                </button>
+                <button type="button" data-filter="remote"
+                    class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10 hover:text-white transition duration-150">
+                    Remote Engineering
+                </button>
+                <button type="button" data-filter="infrastructure"
+                    class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10 hover:text-white transition duration-150">
+                    Cloud & Data Centers
+                </button>
+                <button type="button" data-filter="hr"
+                    class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10 hover:text-white transition duration-150">
+                    Agile & HR Ops
+                </button>
+                <button type="button" data-filter="software"
+                    class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10 hover:text-white transition duration-150">
+                    Software Architecture
+                </button>
+            </div>
+        </section>
+
+        <!-- Insights Grid -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="insights-container">
+
+                <!-- Insight 1: Remote Teams -->
+                <article class="insight-card card-3d-effect p-7 flex flex-col justify-between reveal" data-category="remote">
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
+                            <span class="px-3 py-1 rounded-full bg-teal-500/15 text-primary-accent font-semibold border border-teal-500/25">
+                                Remote Engineering
+                            </span>
+                            <span class="flex items-center">
+                                <i data-lucide="clock" class="w-3.5 h-3.5 mr-1 text-gray-400"></i> 6 min read
+                            </span>
+                        </div>
+
+                        <h2 class="text-xl font-bold text-white mb-3 hover:text-primary-accent transition leading-snug">
+                            <a href="blog-remote-teams.html">5 Keys to Scaling Engineering Teams in India</a>
+                        </h2>
+
+                        <p class="text-sm text-gray-300 leading-relaxed mb-6">
+                            Essential strategies for technical talent sourcing, cultural integration, asynchronous collaboration, and infrastructure setup when establishing a high-performing remote development squad.
+                        </p>
+                    </div>
+
+                    <div class="pt-5 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-xs text-gray-400 font-mono">Graywolftek Advisory</span>
+                        <a href="blog-remote-teams.html"
+                            class="inline-flex items-center text-xs font-semibold text-primary-accent hover:underline">
+                            Read Full Insight <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Insight 2: Data Center Infrastructure -->
+                <article class="insight-card card-3d-effect p-7 flex flex-col justify-between reveal" data-category="infrastructure">
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
+                            <span class="px-3 py-1 rounded-full bg-sky-500/15 text-sky-300 font-semibold border border-sky-500/25">
+                                Cloud & Infrastructure
+                            </span>
+                            <span class="flex items-center">
+                                <i data-lucide="clock" class="w-3.5 h-3.5 mr-1 text-gray-400"></i> 8 min read
+                            </span>
+                        </div>
+
+                        <h2 class="text-xl font-bold text-white mb-3 hover:text-primary-accent transition leading-snug">
+                            <a href="blog-infrastructure.html">The Future of Data Center Infrastructure: Scalability & Performance</a>
+                        </h2>
+
+                        <p class="text-sm text-gray-300 leading-relaxed mb-6">
+                            Analyzing the next decade of server density, liquid cooling efficiencies, power topologies, and distributed edge computing architectures designed for high-throughput enterprise workloads.
+                        </p>
+                    </div>
+
+                    <div class="pt-5 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-xs text-gray-400 font-mono">DevOps Team</span>
+                        <a href="blog-infrastructure.html"
+                            class="inline-flex items-center text-xs font-semibold text-primary-accent hover:underline">
+                            Read Full Insight <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Insight 3: HR & People Operations -->
+                <article class="insight-card card-3d-effect p-7 flex flex-col justify-between reveal" data-category="hr">
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
+                            <span class="px-3 py-1 rounded-full bg-purple-500/15 text-secondary-accent font-semibold border border-purple-500/25">
+                                Agile & HR Ops
+                            </span>
+                            <span class="flex items-center">
+                                <i data-lucide="clock" class="w-3.5 h-3.5 mr-1 text-gray-400"></i> 5 min read
+                            </span>
+                        </div>
+
+                        <h2 class="text-xl font-bold text-white mb-3 hover:text-primary-accent transition leading-snug">
+                            <a href="blog-hr-management.html">Modern HR for Remote Engineering: Retention & Productivity</a>
+                        </h2>
+
+                        <p class="text-sm text-gray-300 leading-relaxed mb-6">
+                            Why traditional corporate HR fails engineering squads. How structured performance feedback, cross-border benefits, and transparent compensation frameworks drive 90%+ annual engineer retention.
+                        </p>
+                    </div>
+
+                    <div class="pt-5 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-xs text-gray-400 font-mono">Operations Squad</span>
+                        <a href="blog-hr-management.html"
+                            class="inline-flex items-center text-xs font-semibold text-primary-accent hover:underline">
+                            Read Full Insight <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Insight 4: Software Architecture -->
+                <article class="insight-card card-3d-effect p-7 flex flex-col justify-between reveal" data-category="software">
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
+                            <span class="px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 font-semibold border border-emerald-500/25">
+                                Software Architecture
+                            </span>
+                            <span class="flex items-center">
+                                <i data-lucide="clock" class="w-3.5 h-3.5 mr-1 text-gray-400"></i> 7 min read
+                            </span>
+                        </div>
+
+                        <h2 class="text-xl font-bold text-white mb-3 hover:text-primary-accent transition leading-snug">
+                            <a href="software.html">Architecting Digital Platforms for High Concurrency</a>
+                        </h2>
+
+                        <p class="text-sm text-gray-300 leading-relaxed mb-6">
+                            Patterns for decoupling monolithic web layers into modular, event-driven services that handle spikes in user volume without sacrificing query latency or escalating infrastructure spend.
+                        </p>
+                    </div>
+
+                    <div class="pt-5 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-xs text-gray-400 font-mono">Architecture Lab</span>
+                        <a href="software.html"
+                            class="inline-flex items-center text-xs font-semibold text-primary-accent hover:underline">
+                            Explore Service <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Insight 5: Technical Staffing -->
+                <article class="insight-card card-3d-effect p-7 flex flex-col justify-between reveal" data-category="remote">
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
+                            <span class="px-3 py-1 rounded-full bg-yellow-500/15 text-yellow-300 font-semibold border border-yellow-500/25">
+                                Talent Strategy
+                            </span>
+                            <span class="flex items-center">
+                                <i data-lucide="clock" class="w-3.5 h-3.5 mr-1 text-gray-400"></i> 6 min read
+                            </span>
+                        </div>
+
+                        <h2 class="text-xl font-bold text-white mb-3 hover:text-primary-accent transition leading-snug">
+                            <a href="staffing.html">Solving the Senior Engineering Deficit for Startups</a>
+                        </h2>
+
+                        <p class="text-sm text-gray-300 leading-relaxed mb-6">
+                            How pre-vetted senior pods eliminate hiring latency. Balancing domain expertise, autonomous problem-solving, and time-zone overlap to keep release cycles on schedule.
+                        </p>
+                    </div>
+
+                    <div class="pt-5 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-xs text-gray-400 font-mono">Staffing Squad</span>
+                        <a href="staffing.html"
+                            class="inline-flex items-center text-xs font-semibold text-primary-accent hover:underline">
+                            Explore Staffing <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Insight 6: Cloud Economics -->
+                <article class="insight-card card-3d-effect p-7 flex flex-col justify-between reveal" data-category="infrastructure">
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
+                            <span class="px-3 py-1 rounded-full bg-indigo-500/15 text-indigo-300 font-semibold border border-indigo-500/25">
+                                Cloud Economics
+                            </span>
+                            <span class="flex items-center">
+                                <i data-lucide="clock" class="w-3.5 h-3.5 mr-1 text-gray-400"></i> 9 min read
+                            </span>
+                        </div>
+
+                        <h2 class="text-xl font-bold text-white mb-3 hover:text-primary-accent transition leading-snug">
+                            <a href="datacenter.html">Hybrid Cloud vs On-Premises: The Sovereign Compute Matrix</a>
+                        </h2>
+
+                        <p class="text-sm text-gray-300 leading-relaxed mb-6">
+                            Evaluating workload repatriation, localized data sovereignty mandates, and the true total cost of ownership across public cloud versus dedicated private colocation infrastructure.
+                        </p>
+                    </div>
+
+                    <div class="pt-5 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-xs text-gray-400 font-mono">Data Solutions</span>
+                        <a href="datacenter.html"
+                            class="inline-flex items-center text-xs font-semibold text-primary-accent hover:underline">
+                            Explore Infrastructure <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Services Ecosystem Bridge -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 section-separator">
+            <div class="glass-panel rounded-3xl p-8 sm:p-12 card-3d-effect">
+                <div class="text-center max-w-3xl mx-auto mb-10">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-primary-accent">Execution & Services</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4 text-glow">From Research to Real-World Production</h2>
+                    <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                        At Graywolftek, our insights aren't theoretical. Every framework is applied directly across our four primary engineering and management service offerings.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <a href="datacenter.html" class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary-accent/40 transition group">
+                        <div class="w-10 h-10 rounded-xl bg-teal-500/20 text-primary-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i data-lucide="server" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-white mb-2">Data Center Solutions</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">Design, deployment, and management of resilient server environments and cloud architectures.</p>
+                    </a>
+
+                    <a href="software.html" class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary-accent/40 transition group">
+                        <div class="w-10 h-10 rounded-xl bg-purple-500/20 text-secondary-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i data-lucide="code" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-white mb-2">Software Development</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">Full-cycle web, mobile, and enterprise application development with modern scalable architectures.</p>
+                    </a>
+
+                    <a href="staffing.html" class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary-accent/40 transition group">
+                        <div class="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i data-lucide="users" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-white mb-2">Technical Staffing</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">High-performing remote squads and dedicated engineering pods tailored to accelerate startup roadmaps.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Consultation CTA -->
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 text-center">
+            <div class="card-3d-effect p-8 sm:p-12 rounded-3xl reveal">
+                <span class="text-xs font-semibold uppercase tracking-wider text-secondary-accent">Strategic Consultation</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4 text-glow">
+                    Put These Engineering Insights to Work
+                </h2>
+                <p class="text-gray-300 text-base max-w-2xl mx-auto mb-8 leading-relaxed">
+                    Schedule an architectural advisory session with Graywolftek leadership to discuss your software, infrastructure, or remote team roadmap.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="index.html#contact"
+                        class="px-8 py-3.5 text-base font-medium rounded-xl text-white cta-button inline-flex items-center">
+                        <i data-lucide="calendar" class="w-4 h-4 mr-2"></i>
+                        Schedule an Advisory Call
+                    </a>
+                    <a href="index.html"
+                        class="px-8 py-3.5 text-base font-medium rounded-xl text-white bg-white/10 border border-white/20 hover:bg-white/20 transition inline-flex items-center">
+                        Return to Home
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <!-- Call to Action / Contact Footer -->
+    <footer id="contact"
+        class="py-20 bg-gray-900/50 border-t border-gray-800 backdrop-blur-sm relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="relative mb-12">
+
+                <div class="text-center">
+                    <h2 class="text-4xl font-extrabold text-white mb-4 text-glow">Ready to Build Your Elite Team?</h2>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                        Let Graywolftek be the alpha in streamlining your business processes. Schedule your free consulting call today.
+                    </p>
+                    <div class="mt-8">
+                        <a href="mailto:graywolftek@gmail.com"
+                            class="px-10 py-4 text-lg font-medium rounded-lg text-white cta-button">
+                            Start the Conversation
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-gray-800 pt-10 text-center md:text-left reveal">
+
+                <!-- Contact Info -->
+                <div class="space-y-4">
+                    <h4 class="text-xl font-semibold text-white">Connect with Us</h4>
+                    <div class="flex items-center justify-center md:justify-start text-gray-400">
+                        <i data-lucide="mail" class="w-5 h-5 mr-3 text-primary-accent"></i>
+                        <a href="mailto:graywolftek@gmail.com"
+                            class="hover:text-primary-accent transition">graywolftek@gmail.com</a>
+                    </div>
+                    <div class="flex items-center justify-center md:justify-start text-gray-400">
+                        <i data-lucide="phone" class="w-5 h-5 mr-3 text-primary-accent"></i>
+                        <a href="tel:+917559185780" class="hover:text-primary-accent transition">+91-7559185780</a>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="space-y-4">
+                    <h4 class="text-xl font-semibold text-white">Visit Our Office</h4>
+                    <p class="text-gray-400">
+                        Usmanpur, Jalalpur Ambedkar Nagar <br>
+                        224149, India
+                    </p>
+                </div>
+
+                <!-- Logo & Copyright -->
+                <div class="space-y-4 md:text-right">
+                    <!-- Logo in footer for consistency -->
+                    <a href="index.html" class="flex items-center justify-center md:justify-end space-x-2">
+                        <!-- LOGO PATH: assets/images/logo.png -->
+                        <img src="assets/images/logo.png" alt="Graywolftek Main Logo" class="h-8 w-auto" />
+                        <span class="text-xl font-extrabold tracking-wider text-white">
+                            <span class="text-primary-accent text-glow">GRAY</span>WOLFTEK
+                        </span>
+                    </a>
+
+                    <!-- Social Media Links -->
+                    <div class="flex items-center justify-center md:justify-end space-x-3 mt-4">
+                        <span class="social-icon-btn cursor-default" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <path
+                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                                </path>
+                            </svg>
+                        </span>
+                        <a href="https://www.linkedin.com/company/graywolftek/posts/?feedView=all" target="_blank"
+                            class="social-icon-btn" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/graywolftek/" target="_blank" class="social-icon-btn"
+                            aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <span class="social-icon-btn cursor-default" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </span>
+                    </div>
+
+                    <div class="flex items-center justify-center md:justify-end space-x-3 text-xs text-gray-400 mt-3">
+                        <a href="founder/" class="text-primary-accent hover:underline font-medium">Founder Profile</a>
+                        <span>&bull;</span>
+                        <a href="team.html" class="hover:text-primary-accent transition">Our Team</a>
+                        <span>&bull;</span>
+                        <a href="index.html#about" class="hover:text-primary-accent transition">About</a>
+                        <span>&bull;</span>
+                        <a href="product.html" class="hover:text-primary-accent transition">Product</a>
+                        <span>&bull;</span>
+                        <a href="projects.html" class="hover:text-primary-accent transition">Projects</a>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">&copy; 2024 Graywolftek. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dropdown Menu Script -->
+    <script src="assets/js/menu-dropdown.js"></script>
+
+    <!-- Page Interaction Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lucide Icons
+            if (window.lucide) lucide.createIcons();
+
+            // Filter functionality
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const insightCards = document.querySelectorAll('.insight-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active', 'bg-primary-accent', 'text-gray-900', 'border-primary-accent', 'shadow-md');
+                        b.classList.add('bg-white/5', 'text-gray-300', 'border-white/10');
+                    });
+                    btn.classList.add('active', 'bg-primary-accent', 'text-gray-900', 'border-primary-accent', 'shadow-md');
+                    btn.classList.remove('bg-white/5', 'text-gray-300', 'border-white/10');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    insightCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'flex';
+                            card.classList.add('active');
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Scroll reveal animation
+            const reveals = document.querySelectorAll('.reveal');
+            function reveal() {
+                reveals.forEach(el => {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = el.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 80) {
+                        el.classList.add('active');
+                    }
+                });
+            }
+            window.addEventListener('scroll', reveal);
+            reveal();
+        });
+    </script>
+</body>
+
+</html>
+

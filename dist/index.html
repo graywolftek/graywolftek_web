@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Graywolftek | Leading IT & Remote Engineering Solutions</title>
-    <meta name="description" content="Graywolftek is an IT and technology solutions company providing software development, cloud infrastructure, engineering, and remote talent solutions.">
+    <meta name="description"
+        content="Graywolftek is an IT and technology solutions company providing software development, cloud infrastructure, engineering, and remote talent solutions.">
     <link rel="canonical" href="https://graywolftek.com/">
     <link rel="icon" type="image/png" href="/assets/logo-CFY-FBGN.png">
 
@@ -100,6 +101,15 @@
         }
 
         /* Glassmorphism Utility */
+
+        .menu-dropdown-panel {
+            background: #0b141d !important;
+            background: linear-gradient(165deg, rgba(11, 20, 29, 0.98) 0%, rgba(18, 38, 52, 0.98) 55%, rgba(35, 25, 48, 0.98) 100%) !important;
+            backdrop-filter: blur(28px) !important;
+            -webkit-backdrop-filter: blur(28px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.16) !important;
+            box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.92), 0 0 35px rgba(0, 100, 102, 0.25) !important;
+        }
 
         .glass-panel {
             background: rgba(27, 58, 75, 0.22);
@@ -547,69 +557,241 @@
 </head>
 
 <body class="antialiased">
-
-    <!-- Navbar -->
+    <!-- Header Navigation with Dropdowns -->
     <header class="sticky top-0 z-50 glass-panel shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+            <div class="flex items-center justify-between h-20">
 
-                <!-- Company Logo and Name -->
-                <a href="#" class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
-                    <!-- LOGO PATH: assets/images/logo.png -->
-                    <img src="/assets/logo-CFY-FBGN.png" alt="Graywolftek Main Logo"
-                        class="h-10 sm:h-12 w-auto flex-shrink-0" />
-                    <span class="text-lg sm:text-xl font-extrabold tracking-wider text-white whitespace-nowrap">
-                        <span class="text-primary-accent text-glow">GRAY</span>WOLFTEK
-                    </span>
-                </a>
-
-                <!-- Desktop Navigation with GooeyNav UI -->
-                <div id="desktop-nav-container" class="hidden md:flex items-center">
-                    <nav class="hidden md:flex space-x-6 items-center">
-                        <a href="#" class="text-sm font-medium text-gray-200 hover:text-primary-accent">Home</a>
-                        <a href="product.html"
-                            class="text-sm font-medium text-gray-200 hover:text-primary-accent">Product</a>
-                        <a href="projects.html"
-                            class="text-sm font-medium text-gray-200 hover:text-primary-accent">Projects</a>
-                        <a href="founder/"
-                            class="text-sm font-medium text-gray-200 hover:text-primary-accent">Founder</a>
-                        <a href="#blog" class="text-sm font-medium text-gray-200 hover:text-primary-accent">Blog</a>
-                        <a href="#about" class="text-sm font-medium text-gray-200 hover:text-primary-accent">About
-                            Us</a>
-                        <a href="#contact"
-                            class="px-5 py-2 text-sm font-medium rounded-lg text-white bg-primary-accent">Get
-                            Started</a>
-                    </nav>
+                <!-- Company Logo and Name (Left) -->
+                <div class="flex items-center flex-1 justify-start">
+                    <a href="index.html" class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0 group">
+                        <img src="/assets/logo-CFY-FBGN.png" alt="Graywolftek Main Logo"
+                            class="h-10 sm:h-12 w-auto flex-shrink-0 group-hover:scale-105 transition duration-300" />
+                        <span class="text-lg sm:text-xl font-extrabold tracking-wider text-white whitespace-nowrap">
+                            <span class="text-primary-accent text-glow">GRAY</span>WOLFTEK
+                        </span>
+                    </a>
                 </div>
 
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button"
-                    class="md:hidden text-gray-200 hover:text-primary-accent transition duration-150 p-2 rounded-lg flex-shrink-0"
-                    aria-label="Toggle menu">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
+                <!-- Desktop Navigation: Home, R&D, Services, Story (Centered in Header) -->
+                <nav class="hidden md:flex space-x-6 lg:space-x-8 items-center justify-center flex-shrink-0"
+                    aria-label="Main Navigation">
+                    <!-- 1. Home -->
+                    <a href="index.html"
+                        class="nav-link text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">
+                        Home
+                    </a>
+
+                    <!-- 2. R&D Dropdown -->
+                    <div class="nav-dropdown-item relative">
+                        <button type="button"
+                            class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
+                            aria-expanded="false" aria-haspopup="true">
+                            <span>R&D</span>
+                            <i data-lucide="chevron-down"
+                                class="w-3.5 h-3.5 nav-chevron opacity-70 transition-transform duration-200"></i>
+                        </button>
+                        <div
+                            class="nav-dropdown-menu hidden absolute left-0 mt-3 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                            <a href="projects.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="code-2"
+                                    class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Project</div>
+                                    <div class="text-[11px] text-gray-400">Innovation Lab & Prototypes</div>
+                                </div>
+                            </a>
+                            <a href="product.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="box"
+                                    class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Product</div>
+                                    <div class="text-[11px] text-gray-400">Shelfly & Platforms</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 3. Services Dropdown -->
+                    <div class="nav-dropdown-item relative">
+                        <button type="button"
+                            class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
+                            aria-expanded="false" aria-haspopup="true">
+                            <span>Services</span>
+                            <i data-lucide="chevron-down"
+                                class="w-3.5 h-3.5 nav-chevron opacity-70 transition-transform duration-200"></i>
+                        </button>
+                        <div
+                            class="nav-dropdown-menu hidden absolute left-0 mt-3 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                            <a href="insights.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="trending-up"
+                                    class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Insights</div>
+                                    <div class="text-[11px] text-gray-400">Industry Research & Analysis</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 4. Story Dropdown -->
+                    <div class="nav-dropdown-item relative">
+                        <button type="button"
+                            class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
+                            aria-expanded="false" aria-haspopup="true">
+                            <span>Story</span>
+                            <i data-lucide="chevron-down"
+                                class="w-3.5 h-3.5 nav-chevron opacity-70 transition-transform duration-200"></i>
+                        </button>
+                        <div
+                            class="nav-dropdown-menu hidden absolute right-0 md:left-0 lg:right-auto mt-3 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                            <a href="founder/"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="user"
+                                    class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Founder</div>
+                                    <div class="text-[11px] text-gray-400">Vishal Maurya – Founder & CEO</div>
+                                </div>
+                            </a>
+                            <a href="team.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="users"
+                                    class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Our Team</div>
+                                    <div class="text-[11px] text-gray-400">Beta, Delta & Omega Squads</div>
+                                </div>
+                            </a>
+                            <a href="index.html#blog"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="newspaper"
+                                    class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Blog</div>
+                                    <div class="text-[11px] text-gray-400">Articles & Perspectives</div>
+                                </div>
+                            </a>
+                            <a href="index.html#about"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="compass"
+                                    class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">About Us</div>
+                                    <div class="text-[11px] text-gray-400">Company Vision & Squads</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Right Action: CTA & Mobile Button (Right) -->
+                <div class="flex items-center flex-1 justify-end space-x-4">
+                    <a href="index.html#contact"
+                        class="hidden sm:inline-flex items-center px-5 py-2.5 text-sm font-medium rounded-xl text-white cta-button shadow-sm">
+                        Get Started
+                    </a>
+
+                    <!-- Mobile Hamburger Button -->
+                    <button id="mobile-menu-btn" type="button"
+                        class="md:hidden inline-flex items-center justify-center p-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition focus:outline-none cursor-pointer"
+                        aria-expanded="false" aria-label="Toggle Navigation">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+
             </div>
         </div>
 
-        <!-- Mobile Menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden glass-panel shadow-lg border-t border-gray-700">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
-                <a href="#"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Home</a>
-                <a href="product.html"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Product</a>
-                <a href="projects.html"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Projects</a>
-                <a href="founder/"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Founder</a>
-                <a href="#blog"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Blog</a>
-                <a href="#about"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">About
-                    Us</a>
-                <a href="#contact"
-                    class="block w-full px-3 py-2 rounded-md text-base font-medium text-white bg-primary-accent hover:opacity-90 mt-2 cta-button">Get
-                    Started</a>
+        <!-- Mobile Drawer with Same Dropdowns/Accordions -->
+        <div id="mobile-nav-drawer"
+            class="hidden md:hidden menu-dropdown-panel border-t border-white/10 px-4 pt-3 pb-6 space-y-2">
+            <!-- 1. Home -->
+            <a href="index.html"
+                class="flex items-center px-3.5 py-2.5 rounded-xl text-sm font-semibold text-white hover:bg-white/10 transition">
+                <i data-lucide="home" class="w-4 h-4 mr-2.5 text-primary-accent"></i>
+                Home
+            </a>
+
+            <!-- 2. R&D Mobile Accordion -->
+            <div class="border-t border-white/10 pt-1">
+                <button type="button"
+                    class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
+                    <span class="flex items-center">
+                        <i data-lucide="flask-conical" class="w-4 h-4 mr-2"></i> R&D
+                    </span>
+                    <i data-lucide="chevron-down"
+                        class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
+                </button>
+                <div class="pl-4 pr-1 py-1 space-y-1">
+                    <a href="projects.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="code-2" class="w-4 h-4 mr-2.5 text-gray-400"></i> Project
+                    </a>
+                    <a href="product.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="box" class="w-4 h-4 mr-2.5 text-gray-400"></i> Product
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. Services Mobile Accordion -->
+            <div class="border-t border-white/10 pt-1">
+                <button type="button"
+                    class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
+                    <span class="flex items-center">
+                        <i data-lucide="briefcase" class="w-4 h-4 mr-2"></i> Services
+                    </span>
+                    <i data-lucide="chevron-down"
+                        class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
+                </button>
+                <div class="pl-4 pr-1 py-1 space-y-1">
+                    <a href="insights.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="trending-up" class="w-4 h-4 mr-2.5 text-gray-400"></i> Insights
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4. Story Mobile Accordion -->
+            <div class="border-t border-white/10 pt-1">
+                <button type="button"
+                    class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
+                    <span class="flex items-center">
+                        <i data-lucide="book-open" class="w-4 h-4 mr-2"></i> Story
+                    </span>
+                    <i data-lucide="chevron-down"
+                        class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
+                </button>
+                <div class="pl-4 pr-1 py-1 space-y-1">
+                    <a href="founder/"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="user" class="w-4 h-4 mr-2.5 text-gray-400"></i> Founder
+                    </a>
+                    <a href="team.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="users" class="w-4 h-4 mr-2.5 text-gray-400"></i> Our Team
+                    </a>
+                    <a href="index.html#blog"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="newspaper" class="w-4 h-4 mr-2.5 text-gray-400"></i> Blog
+                    </a>
+                    <a href="index.html#about"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="compass" class="w-4 h-4 mr-2.5 text-gray-400"></i> About Us
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile CTA -->
+            <div class="pt-3 border-t border-white/10">
+                <a href="index.html#contact"
+                    class="flex items-center justify-center w-full px-4 py-2.5 rounded-xl text-xs font-semibold text-white cta-button tracking-wide">
+                    <i data-lucide="mail" class="w-3.5 h-3.5 mr-2"></i> Get Started
+                </a>
             </div>
         </div>
     </header>
@@ -830,277 +1012,38 @@
     <!-- HR & Management Solutions -->
     <section id="management" class="py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-separator">
-            <div class="lg:flex lg:items-center lg:space-x-12">
-
-                <div class="lg:w-1/2">
-                    <span class="text-sm font-semibold uppercase text-primary-accent">Streamline Operations</span>
-                    <!-- Enhanced 3D Text Shadow Applied Here -->
-                    <h2 class="text-4xl font-bold text-white mb-6 text-shadow-3d text-glow">Hassle-Free HR and Agile
-                        Management
-                    </h2>
-                    <p class="text-lg text-gray-400 mb-8">
-                        We handle the people, so you can focus on growth. Graywolftek takes the stress out of managing
-                        remote teams with end-to-end, streamlined solutions.
-                    </p>
-
-                    <div class="space-y-6">
-                        <!-- HR Management - NEW STYLING -->
-                        <div class="flex items-start p-4 rounded-3xl card-3d-effect">
-                            <i data-lucide="shield-check" class="w-6 h-6 text-primary-accent flex-shrink-0 mt-1"></i>
-                            <div class="ml-4">
-                                <h3 class="text-xl font-semibold text-white">End-to-End HR Management</h3>
-                                <p class="text-gray-400 text-sm mt-2">Payroll, benefits, compliance, engagement, and
-                                    performance tracking—all tailored for remote engineering teams.</p>
-                            </div>
-                        </div>
-
-                        <!-- Staff Management - NEW STYLING -->
-                        <div class="flex items-start p-4 rounded-3xl card-3d-effect">
-                            <i data-lucide="bar-chart-2" class="w-6 h-6 text-primary-accent flex-shrink-0 mt-1"></i>
-                            <div class="ml-4">
-                                <h3 class="text-xl font-semibold text-white">Agile & Staff Management</h3>
-                                <p class="text-gray-400 text-sm mt-2">Implementing Agile practices for flexibility and
-                                    efficiency, plus simplified recruitment, onboarding, and HR operations.</p>
-                            </div>
-                        </div>
-
-                        <!-- Online Portal - NEW STYLING -->
-                        <div class="flex items-start p-4 rounded-3xl card-3d-effect">
-                            <i data-lucide="layout-dashboard"
-                                class="w-6 h-6 text-primary-accent flex-shrink-0 mt-1"></i>
-                            <div class="ml-4">
-                                <h3 class="text-xl font-semibold text-white">Client Online Portal</h3>
-                                <p class="text-gray-400 text-sm mt-2">Real-time access to project updates, team
-                                    performance, and administrative tools in one intuitive place.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Visual Placeholder on Right -->
-                <div class="lg:w-1/2 mt-12 lg:mt-0 relative">
-                    <!-- Adjusted border/shadow on the image card wrapper -->
-                    <div class="p-10 rounded-3xl border border-white/10 card-3d-effect">
-                        <!-- Mock Portal UI -->
-                        <div class="bg-gray-800/50 h-96 rounded-xl p-6 border border-white/10">
-                            <div class="flex justify-between items-center mb-4">
-                                <span class="text-lg font-bold text-white">Dashboard Overview</span>
-                                <span class="text-xs text-gray-400">Last Updated: Just Now</span>
-                            </div>
-                            <div class="grid grid-cols-2 gap-4">
-                                <!-- Card style applied to internal dashboard elements for consistency -->
-                                <div
-                                    class="bg-white/5 p-3 rounded-xl border border-white/10 card-3d-effect hover:transform-none hover:shadow-sm">
-                                    <p class="text-sm text-gray-400">Active Engineers</p>
-                                    <p class="text-2xl font-bold text-white">42</p>
-                                </div>
-                                <div
-                                    class="bg-white/5 p-3 rounded-xl border border-white/10 card-3d-effect hover:transform-none hover:shadow-sm">
-                                    <p class="text-sm text-gray-400">Project Status</p>
-                                    <p class="text-2xl font-bold text-primary-accent">On Track</p>
-                                </div>
-                            </div>
-                            <div class="mt-4">
-                                <h4 class="text-md font-semibold text-gray-300 mb-2">Team Velocity</h4>
-                                <div class="w-full h-2 bg-gray-700 rounded-full">
-                                    <div class="h-full bg-primary-accent rounded-full" style="width: 85%;"></div>
-                                </div>
-                                <p class="text-xs text-gray-400 mt-1">85% of target capacity achieved.</p>
-                            </div>
-                            <div class="mt-6">
-                                <h4 class="text-md font-semibold text-gray-300 mb-2">Upcoming Milestones</h4>
-                                <ul class="space-y-2">
-                                    <li class="flex items-center text-gray-400 text-sm">
-                                        <i data-lucide="check-circle" class="w-4 h-4 text-primary-accent mr-2"></i>
-                                        Deploy v2.1 (Oct 25)
-                                    </li>
-                                    <li class="flex items-center text-gray-400 text-sm">
-                                        <i data-lucide="check-circle" class="w-4 h-4 text-primary-accent mr-2"></i> HR
-                                        Review Cycle (Nov 1)
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-sm font-semibold uppercase text-primary-accent">Streamline Operations</span>
+                <!-- Enhanced 3D Text Shadow Applied Here -->
+                <h2 class="text-4xl font-bold text-white mb-6 text-shadow-3d text-glow">Hassle-Free HR and Agile
+                    Management
+                </h2>
+                <p class="text-lg text-gray-400">
+                    We handle the people, so you can focus on growth. Graywolftek takes the stress out of managing
+                    remote teams with end-to-end, streamlined solutions.
+                </p>
             </div>
-        </div>
-    </section>
 
-    <!-- BETA Section (Mid-Level Managers / Experienced Professionals) -->
-    <section id="beta-team" class="py-24 section-separator">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="text-sm font-semibold uppercase text-purple-400">Management &amp; Expertise</span>
-            <!-- Enhanced 3D Text Shadow Applied Here -->
-            <h2 class="text-4xl font-bold text-white mb-10 text-shadow-3d text-glow">Beta — Mid-Level Managers /
-                Experienced Professionals</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-3xl mx-auto justify-items-center">
-
-                <!-- Team Member 1: Akshay Nandanwar -->
-                <div class="card card-beta">
-                    <div class="profile-pic">
-                        <img src="/assets/akshay-BNgmeBA2.JPG" alt="Akshay Nandanwar - Senior DevOps Consultant"
-                            onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Akshay+Placeholder'" />
-                    </div>
-                    <div class="bottom">
-                        <div class="content">
-                            <span class="name">Akshay Nandanwar</span>
-                            <span class="about-me">SENIOR DEVOPS CONSULTANT</span>
-                        </div>
-                        <div class="bottom-bottom">
-                            <div class="social-links-container">
-                                <a href="https://www.linkedin.com/in/akshay-nandanwar-29ba8255/" target="_blank" rel="noopener noreferrer" aria-label="Akshay Nandanwar LinkedIn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                                </a>
-                            </div>
-                            <a href="#contact" class="button">Contact Me</a>
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- HR Management - NEW STYLING -->
+                <div class="flex items-start p-6 rounded-3xl card-3d-effect">
+                    <i data-lucide="shield-check" class="w-6 h-6 text-primary-accent flex-shrink-0 mt-1"></i>
+                    <div class="ml-4">
+                        <h3 class="text-xl font-semibold text-white">End-to-End HR Management</h3>
+                        <p class="text-gray-400 text-sm mt-2">Payroll, benefits, compliance, engagement, and
+                            performance tracking—all tailored for remote engineering teams.</p>
                     </div>
                 </div>
 
-                <!-- Team Member 2: Anudeep Kankipati -->
-                <div class="card card-beta">
-                    <div class="profile-pic">
-                        <img src="/assets/anudeep-C6Po3a5G.JPG" alt="Anudeep Kankipati - Data Center Expert"
-                            onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Anudeep+Placeholder'" />
-                    </div>
-                    <div class="bottom">
-                        <div class="content">
-                            <span class="name">Anudeep Kankipati</span>
-                            <span class="about-me">DATA CENTER EXPERT</span>
-                        </div>
-                        <div class="bottom-bottom">
-                            <div class="social-links-container">
-                                <a href="https://www.linkedin.com/in/anudeep29ak/" target="_blank" rel="noopener noreferrer" aria-label="Anudeep Kankipati LinkedIn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                                </a>
-                            </div>
-                            <a href="#contact" class="button">Contact Me</a>
-                        </div>
+                <!-- Staff Management - NEW STYLING -->
+                <div class="flex items-start p-6 rounded-3xl card-3d-effect">
+                    <i data-lucide="bar-chart-2" class="w-6 h-6 text-primary-accent flex-shrink-0 mt-1"></i>
+                    <div class="ml-4">
+                        <h3 class="text-xl font-semibold text-white">Agile & Staff Management</h3>
+                        <p class="text-gray-400 text-sm mt-2">Implementing Agile practices for flexibility and
+                            efficiency, plus simplified recruitment, onboarding, and HR operations.</p>
                     </div>
                 </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- DELTA Section (Skilled Contributors) -->
-    <section id="delta-team" class="py-24 section-separator">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="text-sm font-semibold uppercase text-blue-400">Technical Execution</span>
-            <!-- Enhanced 3D Text Shadow Applied Here -->
-            <h2 class="text-4xl font-bold text-white mb-10 text-shadow-3d text-glow">Delta — Specialized Contributors /
-                Core Developers</h2>
-
-            <div class="flex justify-center">
-
-                <!-- Team Member 1: Utkarsh Maurya -->
-                <div class="card card-delta">
-                    <div class="profile-pic">
-                        <img src="/assets/utkarsh-VAGUptoL.png" alt="Utkarsh Maurya - Developer"
-                            onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Utkarsh+Placeholder'" />
-                    </div>
-                    <div class="bottom">
-                        <div class="content">
-                            <span class="name">Utkarsh Maurya</span>
-                            <span class="about-me">DEVELOPER</span>
-                        </div>
-                        <div class="bottom-bottom">
-                            <div class="social-links-container">
-                                <a href="https://linkedin.com/in/utkarsh-maurya-822a3832a" target="_blank" rel="noopener noreferrer" aria-label="Utkarsh Maurya LinkedIn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                                </a>
-                                <a href="https://github.com/buntuu-2" target="_blank" rel="noopener noreferrer" aria-label="Utkarsh Maurya GitHub">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                                </a>
-                            </div>
-                            <a href="#contact" class="button">Contact Me</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- OMEGA Section (Junior Team Members) -->
-    <section id="omega-team" class="py-24 section-separator">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="text-sm font-semibold uppercase text-purple-400">New Talent</span>
-            <!-- Enhanced 3D Text Shadow Applied Here -->
-            <h2 class="text-4xl font-bold text-white mb-10 text-shadow-3d text-glow">OMEGA — Junior Members / New Talent
-            </h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto justify-items-center">
-
-                <!-- Team Member 1: Aakash Maurya -->
-                <div class="card card-omega">
-                    <div class="profile-pic">
-                        <img src="/assets/Aakash%20Maurya-BG_HOH51.jpg" alt="Aakash Maurya - Junior Marketing Executive"
-                            onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Aakash+Placeholder'" />
-                    </div>
-                    <div class="bottom">
-                        <div class="content">
-                            <span class="name">Aakash Maurya</span>
-                            <span class="about-me">JUNIOR MARKETING EXECUTIVE</span>
-                        </div>
-                        <div class="bottom-bottom">
-                            <div class="social-links-container">
-                                <a href="https://www.linkedin.com/in/aakash-maurya-36a544278/" target="_blank" rel="noopener noreferrer" aria-label="Aakash Maurya LinkedIn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                                </a>
-                            </div>
-                            <a href="#contact" class="button">Contact Me</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Team Member 2: Aryan Maurya -->
-                <div class="card card-omega">
-                    <div class="profile-pic">
-                        <img src="/assets/Aryan%20Maurya-CZ6X7FuB.jpg" alt="Aryan Maurya - Developer"
-                            onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Aryan+Placeholder'" />
-                    </div>
-                    <div class="bottom">
-                        <div class="content">
-                            <span class="name">Aryan Maurya</span>
-                            <span class="about-me">DEVELOPER</span>
-                        </div>
-                        <div class="bottom-bottom">
-                            <div class="social-links-container">
-                                <a href="https://www.linkedin.com/in/aryan-maurya-0b68a732a/" target="_blank" rel="noopener noreferrer" aria-label="Aryan Maurya LinkedIn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                                </a>
-                            </div>
-                            <a href="#contact" class="button">Contact Me</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Team Member 3: Shreyansh Yadav -->
-                <div class="card card-omega">
-                    <div class="profile-pic">
-                        <img src="/assets/Shreyansh%20Yadav-30LNW9zu.jpg" alt="Shreyansh Yadav - Developer"
-                            onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Shreyansh+Placeholder'" />
-                    </div>
-                    <div class="bottom">
-                        <div class="content">
-                            <span class="name">Shreyansh Yadav</span>
-                            <span class="about-me">DEVELOPER</span>
-                        </div>
-                        <div class="bottom-bottom">
-                            <div class="social-links-container">
-                                <a href="https://www.linkedin.com/in/shreyansh-yadav-a9b72b384/" target="_blank" rel="noopener noreferrer" aria-label="Shreyansh Yadav LinkedIn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                                </a>
-                            </div>
-                            <a href="#contact" class="button">Contact Me</a>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
@@ -1118,11 +1061,13 @@
                 organizing and elevating your technology requirements.
             </p>
             <div class="mt-6 flex justify-center">
-                <a href="founder/" class="inline-flex items-center px-4 py-2 text-sm font-medium text-teal-200 bg-gradient-to-r from-[#006466]/40 via-[#1B3A4B]/40 to-[#4D194D]/40 border border-teal-500/30 rounded-full hover:border-teal-400 transition duration-200">
+                <a href="founder/"
+                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-teal-200 bg-gradient-to-r from-[#006466]/40 via-[#1B3A4B]/40 to-[#4D194D]/40 border border-teal-500/30 rounded-full hover:border-teal-400 transition duration-200">
                     <span class="w-2 h-2 rounded-full bg-emerald-400 mr-2.5 animate-pulse"></span>
                     Meet our Founder & CEO, Vishal Maurya
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 text-primary-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 text-primary-accent" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
                 </a>
             </div>
@@ -1220,14 +1165,16 @@
     </section>
 
     <!-- Call to Action / Contact Footer -->
-    <footer id="contact" class="py-20 bg-gray-900/50 border-t border-gray-800 backdrop-blur-sm relative overflow-hidden">
+    <footer id="contact"
+        class="py-20 bg-gray-900/50 border-t border-gray-800 backdrop-blur-sm relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="relative mb-12">
 
                 <div class="text-center">
                     <h2 class="text-4xl font-extrabold text-white mb-4 text-glow">Ready to Build Your Elite Team?</h2>
                     <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-                        Let Graywolftek be the alpha in streamlining your business processes. Schedule your free consulting
+                        Let Graywolftek be the alpha in streamlining your business processes. Schedule your free
+                        consulting
                         call today.
                     </p>
                     <div class="mt-8">
@@ -1436,73 +1383,8 @@
             }
         });
     </script>
-    <!-- GooeyNav Component Script & Initialization -->
-    <script src="assets/js/GooeyNav.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            if (document.getElementById('desktop-nav-container') && window.GooeyNav) {
-                const hash = window.location.hash;
-                let initialIdx = 0;
-                if (hash === '#blog') initialIdx = 4;
-                else if (hash === '#about') initialIdx = 5;
-                else if (hash === '#contact') initialIdx = 6;
-
-                const nav = new GooeyNav({
-                    target: '#desktop-nav-container',
-                    theme: 'dark',
-                    color: '#006466',
-                    activeTextColor: '#ffffff',
-                    colors: ['#006466', '#0B525B', '#1B3A4B', '#272640', '#3E1F47', '#4D194D'],
-                    size: 'md',
-                    frame: false,
-                    initialActiveIndex: initialIdx,
-                    items: [
-                        { label: 'Home', href: '#' },
-                        { label: 'Product', href: 'product.html' },
-                        { label: 'Projects', href: 'projects.html' },
-                        { label: 'Founder', href: 'founder/' },
-                        { label: 'Blog', href: '#blog' },
-                        { label: 'About Us', href: '#about' },
-                        { label: 'Get Started', href: '#contact' }
-                    ]
-                });
-
-                // Scroll spy to smoothly track active section as user scrolls
-                let isClicking = false;
-                const sections = [
-                    { id: '', index: 0 },
-                    { id: 'blog', index: 4 },
-                    { id: 'about', index: 5 },
-                    { id: 'contact', index: 6 }
-                ];
-
-                document.getElementById('desktop-nav-container')?.addEventListener('click', () => {
-                    isClicking = true;
-                    setTimeout(() => { isClicking = false; }, 900);
-                });
-
-                let scrollTimeout;
-                window.addEventListener('scroll', () => {
-                    if (isClicking) return;
-                    clearTimeout(scrollTimeout);
-                    scrollTimeout = setTimeout(() => {
-                        const scrollY = window.scrollY;
-                        if (scrollY < 260) {
-                            nav.select(0);
-                            return;
-                        }
-                        for (let i = sections.length - 1; i >= 1; i--) {
-                            const el = document.getElementById(sections[i].id);
-                            if (el && el.getBoundingClientRect().top <= 180) {
-                                nav.select(sections[i].index);
-                                return;
-                            }
-                        }
-                    }, 50);
-                }, { passive: true });
-            }
-        });
-    </script>
+    <!-- Dropdown Menu Script -->
+    <script src="assets/js/menu-dropdown.js"></script>
 </body>
 
 </html>
