@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishal Maurya – Founder & CEO of Graywolftek</title>
+    <meta name="description"
+        content="Meet Vishal Maurya, Founder and CEO of Graywolftek, an IT and technology solutions company focused on engineering, software, and technology-led business initiatives.">
+    <link rel="canonical" href="https://graywolftek.com/founder/">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://graywolftek.com/founder/">
+    <meta property="og:title" content="Vishal Maurya – Founder & CEO of Graywolftek">
+    <meta property="og:description"
+        content="Meet Vishal Maurya, Founder and CEO of Graywolftek, an IT and technology solutions company focused on engineering, software, and technology-led business initiatives.">
+    <meta property="og:image" content="https://graywolftek.com/assets/team/vishal.png">
+    <meta property="og:site_name" content="Graywolftek">
+    <meta property="profile:first_name" content="Vishal">
+    <meta property="profile:last_name" content="Maurya">
+    <meta property="profile:username" content="vishal-maurya">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://graywolftek.com/founder/">
+    <meta name="twitter:title" content="Vishal Maurya – Founder & CEO of Graywolftek">
+    <meta name="twitter:description"
+        content="Meet Vishal Maurya, Founder and CEO of Graywolftek, an IT and technology solutions company focused on engineering, software, and technology-led business initiatives.">
+    <meta name="twitter:image" content="https://graywolftek.com/assets/team/vishal.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Vanilla Tilt for 3D Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Use Inter font family -->
+    <style type="text/tailwindcss">
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section[id], footer[id] {
+            scroll-margin-top: 5.5rem;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0b141d;
+            /* Deep Ocean Blue multi-point radial gradient */
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 100, 102, 0.45) 0, transparent 50%),
+                radial-gradient(at 50% 0%, rgba(27, 58, 75, 0.55) 0, transparent 55%),
+                radial-gradient(at 100% 0%, rgba(77, 25, 77, 0.45) 0, transparent 50%),
+                radial-gradient(at 85% 65%, rgba(62, 31, 71, 0.35) 0, transparent 50%),
+                radial-gradient(at 15% 85%, rgba(6, 90, 96, 0.35) 0, transparent 50%);
+            background-attachment: fixed;
+            color: #f3f4f6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        :root {
+            /* Coolors Deep Ocean Blue Palette */
+            --c-006466: #006466;
+            --c-065a60: #065a60;
+            --c-0b525b: #0b525b;
+            --c-144552: #144552;
+            --c-1b3a4b: #1b3a4b;
+            --c-212f45: #212f45;
+            --c-272640: #272640;
+            --c-312244: #312244;
+            --c-3e1f47: #3e1f47;
+            --c-4d194d: #4d194d;
+
+            /* Continuous Deep Ocean Blue Gradients */
+            --gradient-ocean-full: linear-gradient(135deg, #006466 0%, #0b525b 22%, #1b3a4b 45%, #272640 68%, #4d194d 100%);
+            --gradient-ocean-horizontal: linear-gradient(90deg, #006466 0%, #0b525b 25%, #1b3a4b 50%, #3e1f47 75%, #4d194d 100%);
+            --gradient-ocean-accent: linear-gradient(135deg, #2dd4bf 0%, #38bdf8 50%, #c084fc 100%);
+
+            --color-primary-accent: #2dd4bf; /* Luminous Ocean Teal */
+            --color-secondary-accent: #c084fc; /* Orchid / Violet Accent */
+            --color-dark-text: #f3f4f6;
+            --color-glass-border: rgba(255, 255, 255, 0.08);
+            --color-glass-bg: rgba(27, 58, 75, 0.22);
+        }
+
+        .glass-panel {
+            background: rgba(27, 58, 75, 0.22);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--color-glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(45, 212, 191, 0.5), 0 0 40px rgba(192, 132, 252, 0.35);
+        }
+
+        .section-separator::after {
+            content: '';
+            display: block;
+            width: 140px;
+            height: 3px;
+            background: linear-gradient(90deg, #006466 0%, #0b525b 25%, #1b3a4b 50%, #3e1f47 75%, #4d194d 100%);
+            margin: 1.5rem auto 3rem;
+            border-radius: 9999px;
+            box-shadow: 0 0 12px rgba(45, 212, 191, 0.5);
+        }
+
+        .cta-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 100, 102, 0.4);
+            background: linear-gradient(135deg, #006466 0%, #144552 35%, #272640 70%, #4d194d 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px) scale(1.05);
+            background: linear-gradient(135deg, #065a60 0%, #1b3a4b 35%, #312244 70%, #3e1f47 100%);
+            box-shadow: 0 6px 30px rgba(77, 25, 77, 0.6);
+        }
+
+        .card-3d-effect {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-3d-effect:hover {
+            border-color: rgba(129, 140, 248, 0.35);
+            box-shadow: 0 12px 35px -10px rgba(99, 102, 241, 0.25);
+        }
+
+        .social-icon-btn {
+            width: 2.25rem;
+            height: 2.25rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 0.5rem;
+            transition: all 0.25s ease;
+        }
+
+        .social-icon-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--color-primary-accent);
+            transform: translateY(-2px);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.7s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+    <!-- Structured Data (JSON-LD) connecting Person Vishal Maurya with Organization Graywolftek -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfilePage",
+          "@id": "https://graywolftek.com/founder/#webpage",
+          "url": "https://graywolftek.com/founder/",
+          "name": "Vishal Maurya – Founder & CEO of Graywolftek",
+          "description": "Meet Vishal Maurya, Founder and CEO of Graywolftek, an IT and technology solutions company focused on engineering, software, and technology-led business initiatives.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://graywolftek.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Founder",
+                "item": "https://graywolftek.com/founder/"
+              }
+            ]
+          },
+          "mainEntity": {
+            "@type": "Person",
+            "@id": "https://graywolftek.com/founder/#vishal-maurya",
+            "name": "Vishal Maurya",
+            "jobTitle": "Founder and CEO",
+            "image": "https://graywolftek.com/assets/team/vishal.png",
+            "description": "Vishal Maurya is the Founder and Chief Executive Officer (CEO) of Graywolftek, an IT and technology solutions company. He leads the company’s direction, partnerships, and initiatives to help organizations work through technology, engineering, and digital solutions.",
+            "worksFor": {
+              "@type": "Organization",
+              "@id": "https://graywolftek.com/#organization",
+              "name": "Graywolftek",
+              "url": "https://graywolftek.com/"
+            },
+            "url": "https://graywolftek.com/founder/",
+            "sameAs": [
+              "https://www.linkedin.com/in/vishal-maurya-aba607243/"
+            ]
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://graywolftek.com/#organization",
+          "name": "Graywolftek",
+          "url": "https://graywolftek.com/",
+          "logo": "https://graywolftek.com/assets/images/logo.png",
+          "founder": {
+            "@type": "Person",
+            "@id": "https://graywolftek.com/founder/#vishal-maurya",
+            "name": "Vishal Maurya"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/company/graywolftek/posts/?feedView=all",
+            "https://www.instagram.com/graywolftek/"
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://graywolftek.com/founder/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Who is Vishal Maurya?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Vishal Maurya is the Founder and CEO of Graywolftek."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Who is the founder of Graywolftek?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Graywolftek was founded by Vishal Maurya, who serves as its Founder and CEO."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is Vishal Maurya’s role at Graywolftek?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Vishal Maurya leads Graywolftek as its Founder and Chief Executive Officer."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What does Graywolftek do?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Graywolftek is an IT and technology solutions company. See the official website for its current services and initiatives."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <!-- GooeyNav Liquid Navigation Stylesheet -->
+    <link rel="stylesheet" href="../assets/css/GooeyNav.css">
+</head>
+
+<body class="antialiased">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 glass-panel shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+
+                <!-- Company Logo and Name -->
+                <a href="../index.html" class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0" aria-label="Graywolftek Home">
+                    <img src="../assets/images/logo.png" alt="Graywolftek Main Logo"
+                        class="h-10 sm:h-12 w-auto flex-shrink-0" />
+                    <span class="text-lg sm:text-xl font-extrabold tracking-wider text-white whitespace-nowrap">
+                        <span class="text-primary-accent text-glow">GRAY</span>WOLFTEK
+                    </span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <!-- Desktop Navigation with GooeyNav UI -->
+                <div id="desktop-nav-container" class="hidden md:flex items-center">
+                    <nav class="hidden md:flex space-x-6 items-center" aria-label="Main Navigation">
+                        <a href="../index.html"
+                            class="text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">Home</a>
+                        <a href="../product.html"
+                            class="text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">Product</a>
+                        <a href="../projects.html"
+                            class="text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">Projects</a>
+                        <a href="../founder/"
+                            class="text-sm font-medium text-primary-accent font-bold" aria-current="page">Founder</a>
+                        <a href="../index.html#blog"
+                            class="text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">Blog</a>
+                        <a href="../index.html#about"
+                            class="text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">About Us</a>
+                        <a href="../index.html#contact"
+                            class="px-5 py-2 text-sm font-medium rounded-lg text-white bg-primary-accent cta-button">Get Started</a>
+                    </nav>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button"
+                    class="md:hidden text-gray-200 hover:text-primary-accent transition duration-150 p-2 rounded-lg flex-shrink-0"
+                    aria-label="Toggle menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel shadow-lg border-t border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="../index.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Home</a>
+                <a href="../product.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Product</a>
+                <a href="../projects.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Projects</a>
+                <a href="../founder/"
+                    class="block px-3 py-2 rounded-md text-base font-semibold text-primary-accent bg-white/5" aria-current="page">Founder</a>
+                <a href="../index.html#blog"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Blog</a>
+                <a href="../index.html#about"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">About Us</a>
+                <a href="../index.html#contact"
+                    class="block w-full px-3 py-2 rounded-md text-base font-medium text-white bg-primary-accent hover:opacity-90 mt-2 cta-button">Get
+                    Started</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-10 md:py-16">
+
+        <!-- Breadcrumb Navigation -->
+        <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-sm" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2 text-gray-400">
+                <li>
+                    <a href="../index.html" class="hover:text-primary-accent transition flex items-center">
+                        <i data-lucide="home" class="w-4 h-4 mr-1"></i>
+                        Home
+                    </a>
+                </li>
+                <li><i data-lucide="chevron-right" class="w-4 h-4 text-gray-600"></i></li>
+                <li>
+                    <a href="../index.html#teams" class="hover:text-primary-accent transition">
+                        Leadership
+                    </a>
+                </li>
+                <li><i data-lucide="chevron-right" class="w-4 h-4 text-gray-600"></i></li>
+                <li class="text-white font-medium" aria-current="page">Vishal Maurya</li>
+            </ol>
+        </nav>
+
+        <!-- Executive Hero Profile Section -->
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <div class="glass-panel rounded-3xl p-6 sm:p-10 md:p-12 border border-white/10 card-3d-effect">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+                    <!-- Profile Image Column (Left on Desktop) -->
+                    <div class="lg:col-span-5 flex flex-col items-center">
+                        <div class="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden border-2 border-teal-500/30 shadow-2xl bg-slate-900"
+                            data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
+                            <img src="../assets/team/vishal.png"
+                                alt="Vishal Maurya – Founder and CEO of Graywolftek"
+                                class="w-full h-full object-cover"
+                                onerror="this.onerror=null; this.src='https://placehold.co/600x600/0f172a/818cf8?text=Vishal+Maurya'" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+                            <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs text-gray-300">
+                                <span class="flex items-center font-semibold text-white">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>
+                                    Founder & CEO
+                                </span>
+                                <span class="text-gray-400 font-mono text-[11px]">Graywolftek</span>
+                            </div>
+                        </div>
+
+                        <!-- Verified Profiles Pill Box -->
+                        <div class="mt-6 w-full max-w-xs flex flex-col gap-2 text-center">
+                            <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Verified Professional Profile</span>
+                            <div class="flex items-center justify-center space-x-3">
+                                <a href="https://www.linkedin.com/in/vishal-maurya-aba607243/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center px-4 py-2 rounded-lg bg-[#006466]/30 hover:bg-[#006466]/45 border border-teal-400/30 text-white text-xs font-medium transition duration-200"
+                                    aria-label="Vishal Maurya's LinkedIn Profile">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="w-4 h-4 mr-2 text-teal-400">
+                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                        <rect x="2" y="9" width="4" height="12"></rect>
+                                        <circle cx="4" cy="4" r="2"></circle>
+                                    </svg>
+                                    LinkedIn Profile
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5 ml-1.5 text-gray-400"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Bio & Lead Column (Right on Desktop) -->
+                    <div class="lg:col-span-7">
+                        <div class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-teal-500/15 text-primary-accent border border-teal-500/30 mb-4">
+                            <i data-lucide="shield-check" class="w-3.5 h-3.5 mr-1.5 text-emerald-400"></i>
+                            Official Company Executive Profile
+                        </div>
+
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4 text-glow">
+                            Vishal Maurya – Founder & CEO of Graywolftek
+                        </h1>
+
+                        <p class="text-lg sm:text-xl text-gray-200 font-normal leading-relaxed mb-6">
+                            Vishal Maurya is the Founder and Chief Executive Officer (CEO) of Graywolftek, an IT and technology solutions company. He leads the company’s direction, partnerships, and initiatives to help organizations work through technology, engineering, and digital solutions.
+                        </p>
+
+                        <!-- Key Entity Facts Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-white/10">
+                            <div class="p-3.5 rounded-xl bg-white/[0.02] border border-white/5">
+                                <span class="text-xs uppercase font-medium text-gray-400 block mb-1">Current Role</span>
+                                <span class="text-white font-semibold text-base flex items-center">
+                                    <i data-lucide="briefcase" class="w-4 h-4 mr-2 text-primary-accent"></i>
+                                    Founder and CEO
+                                </span>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-white/[0.02] border border-white/5">
+                                <span class="text-xs uppercase font-medium text-gray-400 block mb-1">Organization</span>
+                                <span class="text-white font-semibold text-base flex items-center">
+                                    <i data-lucide="building-2" class="w-4 h-4 mr-2 text-secondary-accent"></i>
+                                    <a href="../index.html" class="hover:text-primary-accent transition">Graywolftek</a>
+                                </span>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-white/[0.02] border border-white/5">
+                                <span class="text-xs uppercase font-medium text-gray-400 block mb-1">Domain Focus</span>
+                                <span class="text-white font-semibold text-sm flex items-center">
+                                    <i data-lucide="cpu" class="w-4 h-4 mr-2 text-teal-400"></i>
+                                    IT, Engineering & Software
+                                </span>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-white/[0.02] border border-white/5">
+                                <span class="text-xs uppercase font-medium text-gray-400 block mb-1">Growth Initiative</span>
+                                <span class="text-white font-semibold text-sm flex items-center">
+                                    <i data-lucide="trending-up" class="w-4 h-4 mr-2 text-purple-400"></i>
+                                    Strategic Partner to SkitreAI
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Biography & Company Core Sections -->
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- About Vishal Maurya -->
+                <div class="card-3d-effect p-8 reveal" data-tilt data-tilt-max="3" data-tilt-speed="400">
+                    <div class="w-12 h-12 rounded-xl bg-teal-500/20 flex items-center justify-center mb-5 text-primary-accent">
+                        <i data-lucide="user-check" class="w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-4 text-glow">About Vishal Maurya</h2>
+                    <p class="text-gray-300 leading-relaxed text-base">
+                        As the founder of Graywolftek, Vishal Maurya focuses on building practical technology capabilities and collaborative partnerships. His approach emphasizes working alongside teams, understanding business needs, and developing solutions around real-world requirements.
+                    </p>
+                </div>
+
+                <!-- About Graywolftek -->
+                <div class="card-3d-effect p-8 reveal" data-tilt data-tilt-max="3" data-tilt-speed="400">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center mb-5 text-secondary-accent">
+                        <i data-lucide="layers" class="w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-4 text-glow">About Graywolftek</h2>
+                    <p class="text-gray-300 leading-relaxed text-base mb-4">
+                        Graywolftek is an IT and technology solutions company. Its work spans technology and engineering services and digital initiatives designed around business needs.
+                    </p>
+                    <p class="text-sm text-gray-400">
+                        For current services, infrastructure offerings, and company updates, visit the official website at <a href="../index.html" class="text-primary-accent hover:underline font-medium">https://graywolftek.com/</a>.
+                    </p>
+                </div>
+
+                <!-- Leadership and Vision -->
+                <div class="card-3d-effect p-8 reveal md:col-span-2" data-tilt data-tilt-max="2" data-tilt-speed="400">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-5 gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center text-pink-400">
+                            <i data-lucide="compass" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs uppercase font-semibold text-primary-accent tracking-wider bg-teal-500/10 px-3 py-1 rounded-full border border-teal-500/20">Executive Leadership</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-4 text-glow">Leadership and vision</h2>
+                    <p class="text-gray-300 leading-relaxed text-base sm:text-lg">
+                        Vishal’s role as Founder and CEO is to set the company’s direction, develop strategic relationships, and support collaborative execution. Graywolftek’s philosophy is to work together with clients and collaborators to understand challenges and build useful, practical solutions.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Strategic Partnership Section: Graywolftek and SkitreAI -->
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <div class="glass-panel rounded-3xl p-8 sm:p-10 card-3d-effect reveal">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+
+                    <!-- SkitreAI Brand Column -->
+                    <div class="flex-shrink-0 text-center md:text-left">
+                        <span class="text-xs font-semibold uppercase text-primary-accent tracking-wider block mb-3">Strategic Growth Partnership</span>
+                        <img src="../assets/images/skitreai.svg" alt="SkitreAI Logo - Growth Partner"
+                            class="h-12 md:h-14 w-auto mx-auto md:mx-0 opacity-95 hover:opacity-100 transition duration-300" />
+                        <span class="text-xs text-gray-400 block mt-2">SkitreAI &bull; Growth Partner</span>
+                    </div>
+
+                    <!-- Partnership Details -->
+                    <div class="md:border-l md:border-white/10 md:pl-8 text-center md:text-left">
+                        <h2 class="text-2xl font-bold text-white mb-3 text-glow">Graywolftek and SkitreAI</h2>
+                        <p class="text-gray-300 leading-relaxed text-base sm:text-lg">
+                            Graywolftek works with SkitreAI as a Growth Partner, supporting business strategy, business development, and education-related growth initiatives. The collaboration is intended to help build relevant institutional relationships and expand access to skills-development opportunities.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Official Source and Professional Profiles Section -->
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <div class="glass-panel rounded-3xl p-8 sm:p-10 card-3d-effect reveal">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400">
+                        <i data-lucide="check-circle" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-white text-glow">Official source and professional profiles</h2>
+                        <span class="text-xs text-gray-400">Authoritative Graywolftek Profile Reference</span>
+                    </div>
+                </div>
+
+                <p class="text-gray-300 leading-relaxed text-base mb-6">
+                    This page is published by Graywolftek as its official company profile for Vishal Maurya. For company information, visit <a href="../index.html" class="text-primary-accent hover:underline font-medium">https://graywolftek.com/</a>.
+                </p>
+
+                <!-- Profile Links Box -->
+                <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/10">
+                    <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-300 mb-4 flex items-center">
+                        <i data-lucide="link-2" class="w-4 h-4 mr-2 text-primary-accent"></i>
+                        Verified Public Profile Links
+                    </h3>
+
+                    <div class="flex flex-wrap gap-4 items-center">
+                        <!-- Verified LinkedIn -->
+                        <a href="https://www.linkedin.com/in/vishal-maurya-aba607243/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center px-4 py-2.5 rounded-xl bg-[#006466]/30 hover:bg-[#006466]/45 border border-teal-400/30 text-white text-sm font-medium transition duration-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 mr-2.5 text-teal-400">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                            LinkedIn: Vishal Maurya
+                            <i data-lucide="external-link" class="w-3.5 h-3.5 ml-2 text-gray-400"></i>
+                        </a>
+
+                        <!-- Official Website Entity URL -->
+                        <a href="../index.html"
+                            class="inline-flex items-center px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-gray-200 text-sm font-medium transition duration-200">
+                            <i data-lucide="globe" class="w-4 h-4 mr-2 text-primary-accent"></i>
+                            Official Website: graywolftek.com
+                        </a>
+                    </div>
+
+                    <p class="text-xs text-gray-400 mt-4 leading-relaxed">
+                        <strong class="text-gray-300 font-medium">Verification Note:</strong> This page only links verified, publicly accessible profiles that genuinely belong to Vishal Maurya. Additional official professional profiles (such as GitHub) will be verified and added here upon publication.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frequently Asked Questions (FAQ) Section -->
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+            <div class="text-center section-separator mb-10">
+                <span class="text-sm font-semibold uppercase text-primary-accent">Common Questions</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1 text-glow">Frequently asked questions</h2>
+                <p class="text-gray-400 text-sm sm:text-base mt-2">Key answers regarding Vishal Maurya and Graywolftek</p>
+            </div>
+
+            <div class="space-y-4">
+
+                <!-- FAQ 1 -->
+                <div class="card-3d-effect p-6 rounded-2xl reveal">
+                    <h3 class="text-lg font-semibold text-white mb-2 flex items-center">
+                        <i data-lucide="help-circle" class="w-5 h-5 mr-2.5 text-primary-accent flex-shrink-0"></i>
+                        Who is Vishal Maurya?
+                    </h3>
+                    <p class="text-gray-300 pl-7 text-base">
+                        Vishal Maurya is the Founder and CEO of Graywolftek.
+                    </p>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="card-3d-effect p-6 rounded-2xl reveal">
+                    <h3 class="text-lg font-semibold text-white mb-2 flex items-center">
+                        <i data-lucide="help-circle" class="w-5 h-5 mr-2.5 text-primary-accent flex-shrink-0"></i>
+                        Who is the founder of Graywolftek?
+                    </h3>
+                    <p class="text-gray-300 pl-7 text-base">
+                        Graywolftek was founded by Vishal Maurya, who serves as its Founder and CEO.
+                    </p>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="card-3d-effect p-6 rounded-2xl reveal">
+                    <h3 class="text-lg font-semibold text-white mb-2 flex items-center">
+                        <i data-lucide="help-circle" class="w-5 h-5 mr-2.5 text-primary-accent flex-shrink-0"></i>
+                        What is Vishal Maurya’s role at Graywolftek?
+                    </h3>
+                    <p class="text-gray-300 pl-7 text-base">
+                        Vishal Maurya leads Graywolftek as its Founder and Chief Executive Officer.
+                    </p>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="card-3d-effect p-6 rounded-2xl reveal">
+                    <h3 class="text-lg font-semibold text-white mb-2 flex items-center">
+                        <i data-lucide="help-circle" class="w-5 h-5 mr-2.5 text-primary-accent flex-shrink-0"></i>
+                        What does Graywolftek do?
+                    </h3>
+                    <p class="text-gray-300 pl-7 text-base">
+                        Graywolftek is an IT and technology solutions company. See the official website for its current services and initiatives.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Bottom CTA: Connect with Graywolftek -->
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
+            <div class="glass-panel rounded-3xl p-8 sm:p-12 card-3d-effect reveal">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4 text-glow">
+                    Partner with Graywolftek
+                </h2>
+                <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto mb-8">
+                    Discover how Graywolftek's engineering, technology capabilities, and collaborative solutions can support your business initiatives.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="../index.html#contact"
+                        class="px-8 py-3.5 text-base font-medium rounded-xl text-white cta-button inline-flex items-center">
+                        <i data-lucide="mail" class="w-4 h-4 mr-2"></i>
+                        Start a Conversation
+                    </a>
+                    <a href="../index.html"
+                        class="px-8 py-3.5 text-base font-medium rounded-xl text-gray-200 bg-white/5 hover:bg-white/10 border border-white/10 transition inline-flex items-center">
+                        <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
+                        Back to Graywolftek Home
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="py-16 bg-gray-900/60 border-t border-gray-800 backdrop-blur-sm relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+
+                <!-- Contact Info -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold text-white">Connect with Us</h4>
+                    <div class="flex items-center justify-center md:justify-start text-gray-400">
+                        <i data-lucide="mail" class="w-4 h-4 mr-3 text-primary-accent"></i>
+                        <a href="mailto:graywolftek@gmail.com"
+                            class="hover:text-primary-accent transition text-sm">graywolftek@gmail.com</a>
+                    </div>
+                    <div class="flex items-center justify-center md:justify-start text-gray-400">
+                        <i data-lucide="phone" class="w-4 h-4 mr-3 text-primary-accent"></i>
+                        <a href="tel:+917559185780" class="hover:text-primary-accent transition text-sm">+91-7559185780</a>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold text-white">Visit Our Office</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Usmanpur, Jalalpur Ambedkar Nagar <br>
+                        224149, India
+                    </p>
+                </div>
+
+                <!-- Logo & Copyright -->
+                <div class="space-y-4 md:text-right">
+                    <a href="../index.html" class="flex items-center justify-center md:justify-end space-x-2" aria-label="Graywolftek Home">
+                        <img src="../assets/images/logo.png" alt="Graywolftek Main Logo" class="h-8 w-auto" />
+                        <span class="text-xl font-extrabold tracking-wider text-white">
+                            <span class="text-primary-accent text-glow">GRAY</span>WOLFTEK
+                        </span>
+                    </a>
+
+                    <!-- Social Media Links -->
+                    <div class="flex items-center justify-center md:justify-end space-x-3 mt-4">
+                        <span class="social-icon-btn cursor-default" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <path
+                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                                </path>
+                            </svg>
+                        </span>
+                        <a href="https://www.linkedin.com/company/graywolftek/posts/?feedView=all" target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-icon-btn" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/graywolftek/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-icon-btn"
+                            aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <span class="social-icon-btn cursor-default" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </span>
+                    </div>
+
+                    <div class="flex items-center justify-center md:justify-end space-x-4 text-xs text-gray-400 mt-2">
+                        <a href="../founder/" class="text-primary-accent hover:underline font-medium">Founder Profile</a>
+                        <span>&bull;</span>
+                        <a href="../index.html#about" class="hover:text-primary-accent transition">About</a>
+                        <span>&bull;</span>
+                        <a href="../product.html" class="hover:text-primary-accent transition">Product</a>
+                        <span>&bull;</span>
+                        <a href="../projects.html" class="hover:text-primary-accent transition">Projects</a>
+                    </div>
+
+                    <p class="text-xs text-gray-500 mt-2">&copy; 2024 Graywolftek. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        if (window.lucide) {
+            lucide.createIcons();
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                const isExpanded = !mobileMenu.classList.contains('hidden');
+                if (isExpanded) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+                } else {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenuButton.innerHTML = '<i data-lucide="x" class="w-6 h-6"></i>';
+                }
+                if (window.lucide) lucide.createIcons();
+            });
+
+            // Hide mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+                    if (window.lucide) lucide.createIcons();
+                });
+            });
+        }
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 120;
+            revealElements.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        // Trigger once on load
+        revealOnScroll();
+    </script>
+    <!-- GooeyNav Component Script & Initialization -->
+    <script src="../assets/js/GooeyNav.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (document.getElementById('desktop-nav-container') && window.GooeyNav) {
+                new GooeyNav({
+                    target: '#desktop-nav-container',
+                    theme: 'dark',
+                    color: '#006466',
+                    activeTextColor: '#ffffff',
+                    colors: ['#006466', '#0B525B', '#1B3A4B', '#272640', '#3E1F47', '#4D194D'],
+                    size: 'md',
+                    frame: false,
+                    initialActiveIndex: 3,
+                    items: [
+                        { label: 'Home', href: '../index.html' },
+                        { label: 'Product', href: '../product.html' },
+                        { label: 'Projects', href: '../projects.html' },
+                        { label: 'Founder', href: '#' },
+                        { label: 'Blog', href: '../index.html#blog' },
+                        { label: 'About Us', href: '../index.html#about' },
+                        { label: 'Get Started', href: '../index.html#contact' }
+                    ]
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
+

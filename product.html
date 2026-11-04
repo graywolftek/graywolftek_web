@@ -32,11 +32,14 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #0f172a;
-            /* Fallback */
-            background-image: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
-                radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
-                radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+            background: #0b141d;
+            /* Deep Ocean Blue multi-point radial gradient */
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 100, 102, 0.45) 0, transparent 50%),
+                radial-gradient(at 50% 0%, rgba(27, 58, 75, 0.55) 0, transparent 55%),
+                radial-gradient(at 100% 0%, rgba(77, 25, 77, 0.45) 0, transparent 50%),
+                radial-gradient(at 85% 65%, rgba(62, 31, 71, 0.35) 0, transparent 50%),
+                radial-gradient(at 15% 85%, rgba(6, 90, 96, 0.35) 0, transparent 50%);
             background-attachment: fixed;
             color: #f3f4f6;
             min-height: 100vh;
@@ -45,48 +48,66 @@
 
         /* ORBAI-Style Variables */
         :root {
-            --color-primary-accent: #818cf8;
-            --color-secondary-accent: #c084fc;
+            /* Coolors Deep Ocean Blue Palette */
+            --c-006466: #006466;
+            --c-065a60: #065a60;
+            --c-0b525b: #0b525b;
+            --c-144552: #144552;
+            --c-1b3a4b: #1b3a4b;
+            --c-212f45: #212f45;
+            --c-272640: #272640;
+            --c-312244: #312244;
+            --c-3e1f47: #3e1f47;
+            --c-4d194d: #4d194d;
+
+            /* Continuous Deep Ocean Blue Gradients */
+            --gradient-ocean-full: linear-gradient(135deg, #006466 0%, #0b525b 22%, #1b3a4b 45%, #272640 68%, #4d194d 100%);
+            --gradient-ocean-horizontal: linear-gradient(90deg, #006466 0%, #0b525b 25%, #1b3a4b 50%, #3e1f47 75%, #4d194d 100%);
+            --gradient-ocean-accent: linear-gradient(135deg, #2dd4bf 0%, #38bdf8 50%, #c084fc 100%);
+
+            --color-primary-accent: #2dd4bf; /* Luminous Ocean Teal */
+            --color-secondary-accent: #c084fc; /* Orchid / Violet Accent */
             --color-dark-text: #f3f4f6;
-            --color-glass-border: rgba(255, 255, 255, 0.1);
-            --color-glass-bg: rgba(255, 255, 255, 0.03);
+            --color-glass-border: rgba(255, 255, 255, 0.08);
+            --color-glass-bg: rgba(27, 58, 75, 0.22);
         }
 
         /* Glassmorphism Utility */
         .glass-panel {
-            background: var(--color-glass-bg);
+            background: rgba(27, 58, 75, 0.22);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--color-glass-border);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
         }
 
         /* Glowing Text */
         .text-glow {
-            text-shadow: 0 0 20px rgba(129, 140, 248, 0.5), 0 0 40px rgba(129, 140, 248, 0.3);
+            text-shadow: 0 0 20px rgba(45, 212, 191, 0.5), 0 0 40px rgba(192, 132, 252, 0.35);
         }
 
         .section-separator::after {
             content: '';
             display: block;
-            width: 100px;
+            width: 140px;
             height: 3px;
-            background: linear-gradient(90deg, var(--color-primary-accent), var(--color-secondary-accent));
+            background: linear-gradient(90deg, #006466 0%, #0b525b 25%, #1b3a4b 50%, #3e1f47 75%, #4d194d 100%);
             margin: 1.5rem auto 3rem;
             border-radius: 9999px;
-            box-shadow: 0 0 10px var(--color-primary-accent);
+            box-shadow: 0 0 12px rgba(45, 212, 191, 0.5);
         }
 
         .cta-button {
             transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            box-shadow: 0 4px 20px rgba(0, 100, 102, 0.4);
+            background: linear-gradient(135deg, #006466 0%, #144552 35%, #272640 70%, #4d194d 100%);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .cta-button:hover {
-            transform: translateY(-2px) scale(1.03);
-            box-shadow: 0 0 30px rgba(124, 58, 237, 0.6);
+            transform: translateY(-2px) scale(1.05);
+            background: linear-gradient(135deg, #065a60 0%, #1b3a4b 35%, #312244 70%, #3e1f47 100%);
+            box-shadow: 0 6px 30px rgba(77, 25, 77, 0.6);
         }
 
         /* 3D Card Effect - Dark Mode */
@@ -131,108 +152,6 @@
         .beacon-pulse {
             animation: beacon 2s infinite ease-in-out;
         }
-    
-        /* From Uiverse.io by Saad3092003 */ 
-        .obj {
-          position: relative;
-          width: 200px;
-          height: 200px;
-            /* background-color: rgb(96, 96, 232); */
-          transform-style: preserve-3d;
-          transition: 0.5s all;
-          transform: rotateX(-25deg) rotateY(20deg);
-        }
-
-        .objchild {
-          animation: rotate 10s infinite linear;
-          transform-style: preserve-3d;
-          position: absolute;
-          width: 100%;
-          height: 100%;
-            /* background:linear-gradient( to top,rgb(11, 11, 102),rgb(96, 96, 232) ) ; */
-        }
-
-        .objchild::after {
-          content: "";
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          border-radius: 50%;
-          filter: blur(20px);
-          box-shadow: 0 0 70px 15px rgba(255, 255, 255, 0.45);
-          transform: rotateX(90deg) scale(1.1) translateZ(-120px);
-          pointer-events: none;
-        }
-
-        .logo-3d-shadow {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-          filter: brightness(0) blur(4px) drop-shadow(0 0 12px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.45));
-          opacity: 0.75;
-          transform: rotateX(90deg) scale(0.95) translateZ(-120px);
-          animation: shadowPulse 5s infinite ease-in-out;
-          pointer-events: none;
-        }
-
-        @keyframes shadowPulse {
-          0%, 100% {
-            transform: rotateX(90deg) scale(1.05) translateZ(-120px);
-            opacity: 0.65;
-            filter: brightness(0) blur(5px) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
-          }
-
-          20%, 35% {
-            transform: rotateX(90deg) scale(1.05) translateZ(-120px);
-            opacity: 0.65;
-            filter: brightness(0) blur(5px) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
-          }
-
-          65%, 75% {
-            transform: rotateX(90deg) scale(0.85) translateZ(-120px);
-            opacity: 0.85;
-            filter: brightness(0) blur(3px) drop-shadow(0 0 10px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.55));
-          }
-        }
-
-        .inn6 {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          background: transparent;
-          transform: translateY(10px) rotateX(20deg) translateZ(80px);
-          animation: updown 5s infinite ease-in-out;
-          transform-style: preserve-3d;
-          backface-visibility: visible;
-        }
-
-        @keyframes rotate {
-          0% {
-            transform: rotate3d(0,1,0,0deg);
-          }
-
-          100% {
-            transform: rotate3d(0,1,0,360deg);
-          }
-        }
-
-        @keyframes updown {
-          0%, 100% {
-            /* Upward: changes direction to the front so everyone clearly sees the logo */
-            transform: translateY(10px) rotateX(20deg) translateZ(80px) scale(1.1);
-          }
-
-          20%, 35% {
-            /* Pauses upright facing the front at the top */
-            transform: translateY(10px) rotateX(20deg) translateZ(80px) scale(1.1);
-          }
-
-          65%, 75% {
-            /* Downward: tilts back into the horizontal plane */
-            transform: translateY(135px) rotateX(85deg) translateZ(80px) scale(0.9);
-          }
-        }
 
     </style>
 </head>
@@ -262,6 +181,8 @@
                             class="text-sm font-medium text-primary-accent font-bold">Product</a>
                         <a href="projects.html"
                             class="text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">Projects</a>
+                        <a href="founder/"
+                            class="text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">Founder</a>
                         <a href="index.html#blog"
                             class="text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">Blog</a>
                         <a href="index.html#about"
@@ -290,6 +211,8 @@
                     class="block px-3 py-2.5 rounded-lg text-base font-medium text-primary-accent font-bold bg-white/10 border border-primary-accent/20">Product</a>
                 <a href="projects.html"
                     class="block px-3 py-2.5 rounded-lg text-base font-medium text-gray-200 hover:bg-white/10 transition">Projects</a>
+                <a href="founder/"
+                    class="block px-3 py-2.5 rounded-lg text-base font-medium text-gray-200 hover:bg-white/10 transition">Founder</a>
                 <a href="index.html#blog"
                     class="block px-3 py-2.5 rounded-lg text-base font-medium text-gray-200 hover:bg-white/10 transition">Blog</a>
                 <a href="index.html#about"
@@ -327,7 +250,7 @@
             <h1
                 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 text-glow reveal leading-tight">
                 Helping Students Learn <br class="hidden sm:inline" />
-                <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary-accent via-purple-400 to-pink-400">Without Financial Barriers</span>
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 via-sky-300 to-[#e879f9]">Without Financial Barriers</span>
             </h1>
 
             <p class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8 reveal">
@@ -494,7 +417,7 @@
                 <!-- Module 1: Find Books -->
                 <div class="card-3d-effect p-6 glass-panel rounded-2xl reveal flex flex-col justify-between">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-primary-accent mb-5">
+                        <div class="w-12 h-12 rounded-xl bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-primary-accent mb-5">
                             <i data-lucide="search" class="w-6 h-6"></i>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">Find Books</h3>
@@ -639,7 +562,7 @@
 
                         <div class="space-y-4">
                             <div class="flex items-start space-x-3">
-                                <div class="w-8 h-8 rounded-lg bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-primary-accent flex-shrink-0 mt-0.5">
+                                <div class="w-8 h-8 rounded-lg bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-primary-accent flex-shrink-0 mt-0.5">
                                     <i data-lucide="code" class="w-4 h-4"></i>
                                 </div>
                                 <div>
@@ -677,9 +600,9 @@
                         </h3>
 
                         <div class="flex flex-wrap gap-2.5 mb-8">
-                            <span class="px-3 py-1.5 text-xs bg-indigo-500/15 text-indigo-300 rounded-lg border border-indigo-500/25 font-semibold">Next.js</span>
-                            <span class="px-3 py-1.5 text-xs bg-indigo-500/15 text-indigo-300 rounded-lg border border-indigo-500/25 font-semibold">React</span>
-                            <span class="px-3 py-1.5 text-xs bg-indigo-500/15 text-indigo-300 rounded-lg border border-indigo-500/25 font-semibold">TypeScript</span>
+                            <span class="px-3 py-1.5 text-xs bg-indigo-500/15 text-teal-300 rounded-lg border border-indigo-500/25 font-semibold">Next.js</span>
+                            <span class="px-3 py-1.5 text-xs bg-indigo-500/15 text-teal-300 rounded-lg border border-indigo-500/25 font-semibold">React</span>
+                            <span class="px-3 py-1.5 text-xs bg-indigo-500/15 text-teal-300 rounded-lg border border-indigo-500/25 font-semibold">TypeScript</span>
                             <span class="px-3 py-1.5 text-xs bg-purple-500/15 text-purple-300 rounded-lg border border-purple-500/25 font-semibold">PostgreSQL</span>
                             <span class="px-3 py-1.5 text-xs bg-purple-500/15 text-purple-300 rounded-lg border border-purple-500/25 font-semibold">PLpgSQL</span>
                             <span class="px-3 py-1.5 text-xs bg-white/10 text-gray-200 rounded-lg border border-white/15 font-semibold">Tailwind CSS</span>
@@ -725,17 +648,6 @@
     <footer id="contact" class="py-20 bg-gray-900/50 border-t border-gray-800 backdrop-blur-sm relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="relative mb-12">
-                <!-- 3D Animated Logo on Top Left Blank Space -->
-                <div class="flex justify-center lg:justify-start lg:absolute lg:-left-16 xl:-left-28 2xl:-left-36 lg:-top-6 xl:-top-10 mb-8 lg:mb-0 z-10 pointer-events-none" style="perspective: 1000px;">
-                    <div class="obj">
-                        <div class="objchild">
-                            <!-- Exact Silhouette Shadow of the Logo on the floor -->
-                            <img src="assets/images/logo.png" alt="" aria-hidden="true" class="logo-3d-shadow pointer-events-none select-none">
-                            <!-- Floating 3D Logo -->
-                            <img src="assets/images/logo.png" alt="Graywolftek Logo" class="inn6 object-contain pointer-events-none select-none drop-shadow-[0_0_20px_rgba(255,255,255,0.7)]">
-                        </div>
-                    </div>
-                </div>
 
                 <div class="text-center">
                     <h2 class="text-4xl font-extrabold text-white mb-4 text-glow">Ready to Build Your Elite Team?</h2>
@@ -896,9 +808,9 @@
                 new GooeyNav({
                     target: '#desktop-nav-container',
                     theme: 'dark',
-                    color: '#818cf8',
+                    color: '#006466',
                     activeTextColor: '#ffffff',
-                    colors: ['#818cf8', '#a855f7', '#c084fc'],
+                    colors: ['#006466', '#0B525B', '#1B3A4B', '#272640', '#3E1F47', '#4D194D'],
                     size: 'md',
                     frame: false,
                     initialActiveIndex: 1,
@@ -906,6 +818,7 @@
                         { label: 'Home', href: 'index.html' },
                         { label: 'Product', href: '#' },
                         { label: 'Projects', href: 'projects.html' },
+                        { label: 'Founder', href: 'founder/' },
                         { label: 'Blog', href: 'index.html#blog' },
                         { label: 'About Us', href: 'index.html#about' },
                         { label: 'Get Started', href: '#contact' }

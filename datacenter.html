@@ -17,13 +17,15 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #0f172a;
-            /* Fallback */
-            background-image: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
-                radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
-                radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+            background: #0b141d;
+            /* Deep Ocean Blue multi-point radial gradient */
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 100, 102, 0.45) 0, transparent 50%),
+                radial-gradient(at 50% 0%, rgba(27, 58, 75, 0.55) 0, transparent 55%),
+                radial-gradient(at 100% 0%, rgba(77, 25, 77, 0.45) 0, transparent 50%),
+                radial-gradient(at 85% 65%, rgba(62, 31, 71, 0.35) 0, transparent 50%),
+                radial-gradient(at 15% 85%, rgba(6, 90, 96, 0.35) 0, transparent 50%);
             background-attachment: fixed;
-            /* Parallax-like background */
             color: #f3f4f6;
             min-height: 100vh;
             overflow-x: hidden;
@@ -31,51 +33,66 @@
 
         /* ORBAI-Style Variables */
         :root {
-            --color-primary-accent: #818cf8;
-            /* Lighter Indigo for dark mode */
-            --color-secondary-accent: #c084fc;
-            /* Purple */
+            /* Coolors Deep Ocean Blue Palette */
+            --c-006466: #006466;
+            --c-065a60: #065a60;
+            --c-0b525b: #0b525b;
+            --c-144552: #144552;
+            --c-1b3a4b: #1b3a4b;
+            --c-212f45: #212f45;
+            --c-272640: #272640;
+            --c-312244: #312244;
+            --c-3e1f47: #3e1f47;
+            --c-4d194d: #4d194d;
+
+            /* Continuous Deep Ocean Blue Gradients */
+            --gradient-ocean-full: linear-gradient(135deg, #006466 0%, #0b525b 22%, #1b3a4b 45%, #272640 68%, #4d194d 100%);
+            --gradient-ocean-horizontal: linear-gradient(90deg, #006466 0%, #0b525b 25%, #1b3a4b 50%, #3e1f47 75%, #4d194d 100%);
+            --gradient-ocean-accent: linear-gradient(135deg, #2dd4bf 0%, #38bdf8 50%, #c084fc 100%);
+
+            --color-primary-accent: #2dd4bf; /* Luminous Ocean Teal */
+            --color-secondary-accent: #c084fc; /* Orchid / Violet Accent */
             --color-dark-text: #f3f4f6;
-            /* Light text for dark mode */
-            --color-glass-border: rgba(255, 255, 255, 0.1);
-            --color-glass-bg: rgba(255, 255, 255, 0.03);
+            --color-glass-border: rgba(255, 255, 255, 0.08);
+            --color-glass-bg: rgba(27, 58, 75, 0.22);
         }
 
         /* Glassmorphism Utility */
         .glass-panel {
-            background: var(--color-glass-bg);
+            background: rgba(27, 58, 75, 0.22);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--color-glass-border);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
         }
 
         /* Glowing Text */
         .text-glow {
-            text-shadow: 0 0 20px rgba(129, 140, 248, 0.5), 0 0 40px rgba(129, 140, 248, 0.3);
+            text-shadow: 0 0 20px rgba(45, 212, 191, 0.5), 0 0 40px rgba(192, 132, 252, 0.35);
         }
 
         .section-separator::after {
             content: '';
             display: block;
-            width: 100px;
+            width: 140px;
             height: 3px;
-            background: linear-gradient(90deg, var(--color-primary-accent), var(--color-secondary-accent));
-            margin: 1rem auto 3rem;
+            background: linear-gradient(90deg, #006466 0%, #0b525b 25%, #1b3a4b 50%, #3e1f47 75%, #4d194d 100%);
+            margin: 1.5rem auto 3rem;
             border-radius: 9999px;
-            box-shadow: 0 0 10px var(--color-primary-accent);
+            box-shadow: 0 0 12px rgba(45, 212, 191, 0.5);
         }
 
         .cta-button {
             transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            box-shadow: 0 4px 20px rgba(0, 100, 102, 0.4);
+            background: linear-gradient(135deg, #006466 0%, #144552 35%, #272640 70%, #4d194d 100%);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .cta-button:hover {
             transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 0 30px rgba(124, 58, 237, 0.6);
+            background: linear-gradient(135deg, #065a60 0%, #1b3a4b 35%, #312244 70%, #3e1f47 100%);
+            box-shadow: 0 6px 30px rgba(77, 25, 77, 0.6);
         }
 
         /* 3D Card Effect - Dark Mode */
@@ -151,108 +168,6 @@
             height: 100%;
             object-fit: cover;
         }
-    
-        /* From Uiverse.io by Saad3092003 */ 
-        .obj {
-          position: relative;
-          width: 200px;
-          height: 200px;
-            /* background-color: rgb(96, 96, 232); */
-          transform-style: preserve-3d;
-          transition: 0.5s all;
-          transform: rotateX(-25deg) rotateY(20deg);
-        }
-
-        .objchild {
-          animation: rotate 10s infinite linear;
-          transform-style: preserve-3d;
-          position: absolute;
-          width: 100%;
-          height: 100%;
-            /* background:linear-gradient( to top,rgb(11, 11, 102),rgb(96, 96, 232) ) ; */
-        }
-
-        .objchild::after {
-          content: "";
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          border-radius: 50%;
-          filter: blur(20px);
-          box-shadow: 0 0 70px 15px rgba(255, 255, 255, 0.45);
-          transform: rotateX(90deg) scale(1.1) translateZ(-120px);
-          pointer-events: none;
-        }
-
-        .logo-3d-shadow {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-          filter: brightness(0) blur(4px) drop-shadow(0 0 12px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.45));
-          opacity: 0.75;
-          transform: rotateX(90deg) scale(0.95) translateZ(-120px);
-          animation: shadowPulse 5s infinite ease-in-out;
-          pointer-events: none;
-        }
-
-        @keyframes shadowPulse {
-          0%, 100% {
-            transform: rotateX(90deg) scale(1.05) translateZ(-120px);
-            opacity: 0.65;
-            filter: brightness(0) blur(5px) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
-          }
-
-          20%, 35% {
-            transform: rotateX(90deg) scale(1.05) translateZ(-120px);
-            opacity: 0.65;
-            filter: brightness(0) blur(5px) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
-          }
-
-          65%, 75% {
-            transform: rotateX(90deg) scale(0.85) translateZ(-120px);
-            opacity: 0.85;
-            filter: brightness(0) blur(3px) drop-shadow(0 0 10px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.55));
-          }
-        }
-
-        .inn6 {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          background: transparent;
-          transform: translateY(10px) rotateX(20deg) translateZ(80px);
-          animation: updown 5s infinite ease-in-out;
-          transform-style: preserve-3d;
-          backface-visibility: visible;
-        }
-
-        @keyframes rotate {
-          0% {
-            transform: rotate3d(0,1,0,0deg);
-          }
-
-          100% {
-            transform: rotate3d(0,1,0,360deg);
-          }
-        }
-
-        @keyframes updown {
-          0%, 100% {
-            /* Upward: changes direction to the front so everyone clearly sees the logo */
-            transform: translateY(10px) rotateX(20deg) translateZ(80px) scale(1.1);
-          }
-
-          20%, 35% {
-            /* Pauses upright facing the front at the top */
-            transform: translateY(10px) rotateX(20deg) translateZ(80px) scale(1.1);
-          }
-
-          65%, 75% {
-            /* Downward: tilts back into the horizontal plane */
-            transform: translateY(135px) rotateX(85deg) translateZ(80px) scale(0.9);
-          }
-        }
 
     </style>
 </head>
@@ -283,6 +198,8 @@
                         class="text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">Product</a>
                     <a href="projects.html"
                         class="text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">Projects</a>
+                    <a href="founder/"
+                        class="text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">Founder</a>
                     <a href="index.html#blog"
                         class="text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">Blog</a>
                     <a href="index.html#about"
@@ -313,6 +230,8 @@
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Product</a>
                 <a href="projects.html"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Projects</a>
+                <a href="founder/"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Founder</a>
                 <a href="index.html#blog"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Blog</a>
                 <a href="index.html#about"
@@ -329,7 +248,7 @@
         <!-- Hero Section -->
         <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
             <span
-                class="inline-block px-3 py-1 text-sm font-semibold text-indigo-600 bg-indigo-100 rounded-full mb-3">Performance.
+                class="inline-block px-3 py-1 text-sm font-semibold text-teal-400 bg-teal-500/15 rounded-full mb-3">Performance.
                 Reliability. Scalability.</span>
             <h1
                 class="text-5xl font-extrabold tracking-tight text-white sm:text-6xl section-title-shadow mb-4 text-glow reveal">
@@ -444,23 +363,23 @@
                     <h3 class="text-2xl font-bold text-white mb-4">Industries & Use Cases</h3>
                     <ul class="space-y-3 text-lg text-gray-300">
                         <li class="flex items-center"><i data-lucide="check-circle"
-                                class="w-5 h-5 text-indigo-600 mr-3"></i> Enterprise IT & Private Cloud</li>
+                                class="w-5 h-5 text-teal-400 mr-3"></i> Enterprise IT & Private Cloud</li>
                         <li class="flex items-center"><i data-lucide="check-circle"
-                                class="w-5 h-5 text-indigo-600 mr-3"></i> Financial services & low-latency trading
+                                class="w-5 h-5 text-teal-400 mr-3"></i> Financial services & low-latency trading
                             systems</li>
                         <li class="flex items-center"><i data-lucide="check-circle"
-                                class="w-5 h-5 text-indigo-600 mr-3"></i> Healthcare & regulatory-compliant environments
+                                class="w-5 h-5 text-teal-400 mr-3"></i> Healthcare & regulatory-compliant environments
                         </li>
                         <li class="flex items-center"><i data-lucide="check-circle"
-                                class="w-5 h-5 text-indigo-600 mr-3"></i> SaaS providers and high-scale web platforms
+                                class="w-5 h-5 text-teal-400 mr-3"></i> SaaS providers and high-scale web platforms
                         </li>
                         <li class="flex items-center"><i data-lucide="check-circle"
-                                class="w-5 h-5 text-indigo-600 mr-3"></i> Education and research institutions</li>
+                                class="w-5 h-5 text-teal-400 mr-3"></i> Education and research institutions</li>
                     </ul>
                 </div>
 
                 <!-- Quick Case Snapshot -->
-                <div class="card-3d-effect p-8 border-l-4 border-indigo-500 reveal">
+                <div class="card-3d-effect p-8 border-l-4 border-teal-400 reveal">
                     <h3 class="text-2xl font-bold text-white mb-3">Quick Case Snapshot</h3>
                     <p class="text-lg font-medium text-primary-accent mb-2">Large Financial Services Firm - Hybrid Cloud
                         Rollout</p>
@@ -481,7 +400,7 @@
             <p class="text-lg text-gray-300 mb-6">Let's talk about how GrayWolfTek can modernize your data center and
                 cloud operations.</p>
             <a href="mailto:contact@graywolftek.com"
-                class="hover-3d inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-xl text-white bg-indigo-600 hover:bg-indigo-700 transition duration-300">
+                class="hover-3d inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-xl text-white cta-button transition duration-300">
                 Contact Us Today
             </a>
         </section>
@@ -491,17 +410,6 @@
     <footer id="contact" class="py-20 bg-gray-900/50 border-t border-gray-800 backdrop-blur-sm relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="relative mb-12">
-                <!-- 3D Animated Logo on Top Left Blank Space -->
-                <div class="flex justify-center lg:justify-start lg:absolute lg:-left-16 xl:-left-28 2xl:-left-36 lg:-top-6 xl:-top-10 mb-8 lg:mb-0 z-10 pointer-events-none" style="perspective: 1000px;">
-                    <div class="obj">
-                        <div class="objchild">
-                            <!-- Exact Silhouette Shadow of the Logo on the floor -->
-                            <img src="assets/images/logo.png" alt="" aria-hidden="true" class="logo-3d-shadow pointer-events-none select-none">
-                            <!-- Floating 3D Logo -->
-                            <img src="assets/images/logo.png" alt="Graywolftek Logo" class="inn6 object-contain pointer-events-none select-none drop-shadow-[0_0_20px_rgba(255,255,255,0.7)]">
-                        </div>
-                    </div>
-                </div>
 
                 <div class="text-center">
                     <h2 class="text-4xl font-extrabold text-white mb-4 text-glow">Ready to Build Your Elite Team?</h2>

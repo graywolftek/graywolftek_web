@@ -5,7 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Graywolftek | Leading IT & Remote Engineering Solutions</title>
+    <meta name="description" content="Graywolftek is an IT and technology solutions company providing software development, cloud infrastructure, engineering, and remote talent solutions.">
+    <link rel="canonical" href="https://graywolftek.com/">
     <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+    <!-- Organization Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://graywolftek.com/#organization",
+      "name": "Graywolftek",
+      "url": "https://graywolftek.com/",
+      "logo": "https://graywolftek.com/assets/images/logo.png",
+      "description": "Graywolftek is an IT and technology solutions company focused on engineering, software, and technology-led business initiatives.",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://graywolftek.com/founder/#vishal-maurya",
+        "name": "Vishal Maurya",
+        "jobTitle": "Founder and CEO",
+        "url": "https://graywolftek.com/founder/"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/graywolftek/posts/?feedView=all",
+        "https://www.instagram.com/graywolftek/"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-7559185780",
+        "contactType": "customer service",
+        "email": "graywolftek@gmail.com"
+      }
+    }
+    </script>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Load Vanilla Tilt for 3D Effects -->
@@ -28,13 +60,15 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #0f172a;
-            /* Fallback */
-            background-image: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
-                radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
-                radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+            background: #0b141d;
+            /* Deep Ocean Blue multi-point radial gradient */
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 100, 102, 0.45) 0, transparent 50%),
+                radial-gradient(at 50% 0%, rgba(27, 58, 75, 0.55) 0, transparent 55%),
+                radial-gradient(at 100% 0%, rgba(77, 25, 77, 0.45) 0, transparent 50%),
+                radial-gradient(at 85% 65%, rgba(62, 31, 71, 0.35) 0, transparent 50%),
+                radial-gradient(at 15% 85%, rgba(6, 90, 96, 0.35) 0, transparent 50%);
             background-attachment: fixed;
-            /* Parallax-like background */
             color: #f3f4f6;
             min-height: 100vh;
             overflow-x: hidden;
@@ -42,140 +76,296 @@
 
         /* ORBAI-Style Variables */
         :root {
-            --color-primary-accent: #818cf8;
-            /* Lighter Indigo for dark mode */
-            --color-secondary-accent: #c084fc;
-            /* Purple */
+            /* Coolors Deep Ocean Blue Palette */
+            --c-006466: #006466;
+            --c-065a60: #065a60;
+            --c-0b525b: #0b525b;
+            --c-144552: #144552;
+            --c-1b3a4b: #1b3a4b;
+            --c-212f45: #212f45;
+            --c-272640: #272640;
+            --c-312244: #312244;
+            --c-3e1f47: #3e1f47;
+            --c-4d194d: #4d194d;
+
+            /* Continuous Deep Ocean Blue Gradients */
+            --gradient-ocean-full: linear-gradient(135deg, #006466 0%, #0b525b 22%, #1b3a4b 45%, #272640 68%, #4d194d 100%);
+            --gradient-ocean-horizontal: linear-gradient(90deg, #006466 0%, #0b525b 25%, #1b3a4b 50%, #3e1f47 75%, #4d194d 100%);
+            --gradient-ocean-accent: linear-gradient(135deg, #2dd4bf 0%, #38bdf8 50%, #c084fc 100%);
+
+            --color-primary-accent: #2dd4bf; /* Luminous Ocean Teal */
+            --color-secondary-accent: #c084fc; /* Orchid / Violet Accent */
             --color-dark-text: #f3f4f6;
-            /* Light text for dark mode */
-            --color-glass-border: rgba(255, 255, 255, 0.1);
-            --color-glass-bg: rgba(255, 255, 255, 0.03);
+            --color-glass-border: rgba(255, 255, 255, 0.08);
+            --color-glass-bg: rgba(27, 58, 75, 0.22);
         }
 
         /* Glassmorphism Utility */
         .glass-panel {
-            background: var(--color-glass-bg);
+            background: rgba(27, 58, 75, 0.22);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--color-glass-border);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
         }
 
         /* Glowing Text */
         .text-glow {
-            text-shadow: 0 0 20px rgba(129, 140, 248, 0.5), 0 0 40px rgba(129, 140, 248, 0.3);
+            text-shadow: 0 0 20px rgba(45, 212, 191, 0.5), 0 0 40px rgba(192, 132, 252, 0.35);
         }
 
         .section-separator::after {
             content: '';
             display: block;
-            width: 100px;
+            width: 140px;
             height: 3px;
-            background: linear-gradient(90deg, var(--color-primary-accent), var(--color-secondary-accent));
-            margin: 1rem auto 3rem;
+            background: linear-gradient(90deg, #006466 0%, #0b525b 25%, #1b3a4b 50%, #3e1f47 75%, #4d194d 100%);
+            margin: 1.5rem auto 3rem;
             border-radius: 9999px;
-            box-shadow: 0 0 10px var(--color-primary-accent);
+            box-shadow: 0 0 12px rgba(45, 212, 191, 0.5);
         }
 
         .cta-button {
             transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            box-shadow: 0 4px 20px rgba(0, 100, 102, 0.4);
+            background: linear-gradient(135deg, #006466 0%, #144552 35%, #272640 70%, #4d194d 100%);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .cta-button:hover {
             transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 0 30px rgba(124, 58, 237, 0.6);
+            background: linear-gradient(135deg, #065a60 0%, #1b3a4b 35%, #312244 70%, #3e1f47 100%);
+            box-shadow: 0 6px 30px rgba(77, 25, 77, 0.6);
         }
 
-        /* 3D Card Effect - Dark Mode */
-        /* Flip Card Base CSS */
-        .flip-card {
-            background-color: transparent;
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            perspective: 1000px;
-            -webkit-perspective: 1000px;
-        }
-
-        .flip-card-inner {
+        /* ================================================================
+           From Uiverse.io by Smit-Prajapati - Staff Cards
+           ================================================================ */
+        .card {
+            --card-accent: #0b525b;
+            --card-accent-hover: #4d194d;
+            width: 280px;
+            height: 280px;
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 3px;
             position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            transform-style: preserve-3d;
-            -webkit-transform-style: preserve-3d;
-            border-radius: 1.5rem;
+            box-shadow: rgba(0, 100, 102, 0.25) 0px 50px 30px -35px, rgba(77, 25, 77, 0.2) 0px 40px 30px -30px;
+            transition: all 0.5s ease-in-out;
+            margin: 0 auto;
         }
 
-        .flip-card:hover .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-
-        .flip-card-front, .flip-card-back {
+        .card .mail {
             position: absolute;
+            right: 2rem;
+            top: 1.4rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .card .mail svg {
+            stroke: var(--card-accent, #fbb9b6);
+            stroke-width: 3px;
+            width: 24px;
+            height: 24px;
+            transition: stroke 0.2s ease;
+        }
+
+        .card .mail svg:hover {
+            stroke: var(--card-accent-hover, #f55d56);
+        }
+
+        .card .profile-pic {
+            position: absolute;
+            width: calc(100% - 6px);
+            height: calc(100% - 6px);
+            top: 3px;
+            left: 3px;
+            border-radius: 29px;
+            z-index: 1;
+            border: 0px solid var(--card-accent, #fbb9b6);
+            overflow: hidden;
+            transition: all 0.5s ease-in-out 0.2s, z-index 0.5s ease-in-out 0.2s;
+        }
+
+        .card .profile-pic img {
+            -o-object-fit: cover;
+            object-fit: cover;
             width: 100%;
             height: 100%;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            border-radius: 1.5rem;
+            -o-object-position: center;
+            object-position: center;
+            transition: all 0.5s ease-in-out 0s;
+        }
+
+        .card .profile-pic svg {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+            -o-object-position: 0px 0px;
+            object-position: 0px 0px;
+            transform-origin: 45% 20%;
+            transition: all 0.5s ease-in-out 0s;
+        }
+
+        .card .bottom {
+            position: absolute;
+            bottom: 3px;
+            left: 3px;
+            right: 3px;
+            background: linear-gradient(135deg, #006466 0%, #144552 35%, #272640 70%, #4d194d 100%);
+            top: 80%;
+            border-radius: 29px;
+            z-index: 2;
+            box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px inset;
             overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
         }
 
-        .flip-card-front {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transform: rotateY(0deg);
-            -webkit-transform: rotateY(0deg);
+        .card .bottom .content {
+            position: absolute;
+            bottom: 0;
+            left: 1.5rem;
+            right: 1.5rem;
+            height: 160px;
         }
 
-        .flip-card-back {
-            transform: rotateY(180deg);
-            -webkit-transform: rotateY(180deg);
+        .card .bottom .content .name {
+            display: block;
+            font-size: 1.15rem;
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+        }
+
+        .card .bottom .content .about-me {
+            display: block;
+            font-size: 0.8rem;
+            color: white;
+            margin-top: 0.5rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+        }
+
+        .card .bottom .bottom-bottom {
+            position: absolute;
+            bottom: 1rem;
+            left: 1.5rem;
+            right: 1.5rem;
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card .bottom .bottom-bottom .social-links-container {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .card .bottom .bottom-bottom .social-links-container a {
+            display: inline-flex;
+            align-items: center;
             justify-content: center;
-            align-items: flex-start;
-            padding: 2rem;
-            background: #0f172a !important; /* Opaque slate background */
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 5;
+            cursor: pointer;
         }
 
-        /* Tier specific overrides for borders, glows and hover effects */
-        .card-alpha .flip-card-front, .card-alpha .flip-card-back {
-            border: 1px solid rgba(245, 158, 11, 0.4) !important;
-        }
-        .card-alpha:hover .flip-card-inner {
-            box-shadow: 0 0 30px rgba(245, 158, 11, 0.4), 0 0 50px rgba(129, 140, 248, 0.25);
-            transform: rotateY(180deg) translateY(-5px);
-        }
-
-        .card-beta .flip-card-front, .card-beta .flip-card-back {
-            border: 1px solid rgba(192, 132, 252, 0.4) !important;
-        }
-        .card-beta:hover .flip-card-inner {
-            box-shadow: 0 0 30px rgba(192, 132, 252, 0.4), 0 0 50px rgba(129, 140, 248, 0.2);
-            transform: rotateY(180deg) translateY(-5px);
+        .card .bottom .bottom-bottom .social-links-container svg {
+            height: 20px;
+            width: 20px;
+            fill: white;
+            filter: drop-shadow(0 5px 5px rgba(165, 132, 130, 0.1333333333));
+            transition: all 0.2s ease;
         }
 
-        .card-delta .flip-card-front, .card-delta .flip-card-back {
-            border: 1px solid rgba(96, 165, 250, 0.4) !important;
-        }
-        .card-delta:hover .flip-card-inner {
-            box-shadow: 0 0 25px rgba(96, 165, 250, 0.3);
-            transform: rotateY(180deg) translateY(-5px);
+        .card .bottom .bottom-bottom .social-links-container a:hover svg,
+        .card .bottom .bottom-bottom .social-links-container svg:hover {
+            fill: var(--card-accent-hover, #f55d56);
+            transform: scale(1.2);
         }
 
-        .card-omega .flip-card-front, .card-omega .flip-card-back {
-            border: 1px solid rgba(255, 255, 255, 0.15) !important;
-        }
-        .card-omega:hover .flip-card-inner {
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
-            transform: rotateY(180deg) translateY(-5px);
+        .card .bottom .bottom-bottom .button {
+            background: white;
+            color: #0b525b;
+            border: none;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 0.4rem 0.65rem;
+            box-shadow: rgba(165, 132, 130, 0.1333333333) 0px 5px 5px 0px;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
 
+        .card .bottom .bottom-bottom .button:hover {
+            background: #2dd4bf; color: #0b141d;
+        }
+
+        .card:hover {
+            border-top-left-radius: 55px;
+        }
+
+        
+        .card-beta .bottom {
+            background: linear-gradient(135deg, #006466 0%, #065a60 50%, #0b525b 100%);
+        }
+        .card-delta .bottom {
+            background: linear-gradient(135deg, #144552 0%, #1b3a4b 50%, #212f45 100%);
+        }
+        .card-omega .bottom {
+            background: linear-gradient(135deg, #272640 0%, #312244 50%, #4d194d 100%);
+        }
+        .card-beta:hover .profile-pic { border-color: #065a60; }
+        .card-delta:hover .profile-pic { border-color: #1b3a4b; }
+        .card-omega:hover .profile-pic { border-color: #3e1f47; }
+        
+        .card:hover .bottom {
+            top: 20%;
+            border-radius: 80px 29px 29px 29px;
+            transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+        }
+
+        .card:hover .profile-pic {
+            width: 100px;
+            height: 100px;
+            aspect-ratio: 1;
+            top: 10px;
+            left: 10px;
+            border-radius: 50%;
+            z-index: 3;
+            border: 6px solid #144552;
+            box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px;
+            transition: all 0.5s ease-in-out, z-index 0.5s ease-in-out 0.1s;
+        }
+
+        .card:hover .profile-pic:hover {
+            transform: scale(1.3);
+            border-radius: 0px;
+        }
+
+        .card:hover .profile-pic img {
+            transform: scale(1.25);
+            -o-object-position: center;
+            object-position: center;
+            transition: all 0.5s ease-in-out 0.5s;
+        }
+
+        .card:hover .profile-pic svg {
+            transform: scale(2.5);
+            transition: all 0.5s ease-in-out 0.5s;
+        }
 
         /* Book Hover Effect Base */
         .book {
@@ -337,108 +527,6 @@
             /* Fills the container, cropping the edges if the source image aspect ratio is different */
             object-fit: cover;
         }
-    
-        /* From Uiverse.io by Saad3092003 */ 
-        .obj {
-          position: relative;
-          width: 200px;
-          height: 200px;
-            /* background-color: rgb(96, 96, 232); */
-          transform-style: preserve-3d;
-          transition: 0.5s all;
-          transform: rotateX(-25deg) rotateY(20deg);
-        }
-
-        .objchild {
-          animation: rotate 10s infinite linear;
-          transform-style: preserve-3d;
-          position: absolute;
-          width: 100%;
-          height: 100%;
-            /* background:linear-gradient( to top,rgb(11, 11, 102),rgb(96, 96, 232) ) ; */
-        }
-
-        .objchild::after {
-          content: "";
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          border-radius: 50%;
-          filter: blur(20px);
-          box-shadow: 0 0 70px 15px rgba(255, 255, 255, 0.45);
-          transform: rotateX(90deg) scale(1.1) translateZ(-120px);
-          pointer-events: none;
-        }
-
-        .logo-3d-shadow {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-          filter: brightness(0) blur(4px) drop-shadow(0 0 12px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.45));
-          opacity: 0.75;
-          transform: rotateX(90deg) scale(0.95) translateZ(-120px);
-          animation: shadowPulse 5s infinite ease-in-out;
-          pointer-events: none;
-        }
-
-        @keyframes shadowPulse {
-          0%, 100% {
-            transform: rotateX(90deg) scale(1.05) translateZ(-120px);
-            opacity: 0.65;
-            filter: brightness(0) blur(5px) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
-          }
-
-          20%, 35% {
-            transform: rotateX(90deg) scale(1.05) translateZ(-120px);
-            opacity: 0.65;
-            filter: brightness(0) blur(5px) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
-          }
-
-          65%, 75% {
-            transform: rotateX(90deg) scale(0.85) translateZ(-120px);
-            opacity: 0.85;
-            filter: brightness(0) blur(3px) drop-shadow(0 0 10px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.55));
-          }
-        }
-
-        .inn6 {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          background: transparent;
-          transform: translateY(10px) rotateX(20deg) translateZ(80px);
-          animation: updown 5s infinite ease-in-out;
-          transform-style: preserve-3d;
-          backface-visibility: visible;
-        }
-
-        @keyframes rotate {
-          0% {
-            transform: rotate3d(0,1,0,0deg);
-          }
-
-          100% {
-            transform: rotate3d(0,1,0,360deg);
-          }
-        }
-
-        @keyframes updown {
-          0%, 100% {
-            /* Upward: changes direction to the front so everyone clearly sees the logo */
-            transform: translateY(10px) rotateX(20deg) translateZ(80px) scale(1.1);
-          }
-
-          20%, 35% {
-            /* Pauses upright facing the front at the top */
-            transform: translateY(10px) rotateX(20deg) translateZ(80px) scale(1.1);
-          }
-
-          65%, 75% {
-            /* Downward: tilts back into the horizontal plane */
-            transform: translateY(135px) rotateX(85deg) translateZ(80px) scale(0.9);
-          }
-        }
 
     </style>
     <!-- Lucide icons for a modern look -->
@@ -470,6 +558,8 @@
                             class="text-sm font-medium text-gray-200 hover:text-primary-accent">Product</a>
                         <a href="projects.html"
                             class="text-sm font-medium text-gray-200 hover:text-primary-accent">Projects</a>
+                        <a href="founder/"
+                            class="text-sm font-medium text-gray-200 hover:text-primary-accent">Founder</a>
                         <a href="#blog" class="text-sm font-medium text-gray-200 hover:text-primary-accent">Blog</a>
                         <a href="#about" class="text-sm font-medium text-gray-200 hover:text-primary-accent">About
                             Us</a>
@@ -497,6 +587,8 @@
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Product</a>
                 <a href="projects.html"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Projects</a>
+                <a href="founder/"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Founder</a>
                 <a href="#blog"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-white/10">Blog</a>
                 <a href="#about"
@@ -823,67 +915,6 @@
         </div>
     </section>
 
-    <!-- The Alpha Circle (Team Section) - Team images now use assets/team/ -->
-    <section id="teams" class="py-24 section-separator">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="text-sm font-semibold uppercase text-primary-accent">Leadership</span>
-            <!-- Enhanced 3D Text Shadow Applied Here -->
-            <h2 class="text-4xl font-bold text-white mb-10 text-shadow-3d text-glow">Alpha — Senior Leadership / Core
-                Decision Makers</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <!-- Team Member 1: Vishal Maurya -->
-                <div class="flip-card card-alpha">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="assets/team/vishal.png" alt="Vishal Maurya - Founder and CEO"
-                                class="w-full h-full object-cover"
-                                onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Vishal+Placeholder'" />
-                        </div>
-                        <div class="flip-card-back">
-                            <h3 class="team-name">Vishal Maurya</h3>
-                            <p class="team-title">FOUNDER / CEO</p>
-
-                            <!-- Social Links -->
-                            <div class="flex space-x-3 mt-4">
-                                <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <path
-                                            d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
-                                        </path>
-                                    </svg>
-                                </span>
-                                <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                    </svg>
-                                </span>
-                                <a href="https://www.linkedin.com/in/vishal-maurya-aba607243/" target="_blank"
-                                    class="social-icon-btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <path
-                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                        </path>
-                                        <rect x="2" y="9" width="4" height="12"></rect>
-                                        <circle cx="4" cy="4" r="2"></circle>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- BETA Section (Mid-Level Managers / Experienced Professionals) -->
     <section id="beta-team" class="py-24 section-separator">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -892,105 +923,52 @@
             <h2 class="text-4xl font-bold text-white mb-10 text-shadow-3d text-glow">Beta — Mid-Level Managers /
                 Experienced Professionals</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-3xl mx-auto justify-items-center">
 
                 <!-- Team Member 1: Akshay Nandanwar -->
-                <div class="flip-card card-beta">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="assets/team/akshay.JPG" alt="Akshay Nandanwar - Senior DevOps Consultant"
-                                class="w-full h-full object-cover"
-                                onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Akshay+Placeholder'" />
+                <div class="card card-beta">
+                    <div class="profile-pic">
+                        <img src="assets/team/akshay.JPG" alt="Akshay Nandanwar - Senior DevOps Consultant"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Akshay+Placeholder'" />
+                    </div>
+                    <div class="bottom">
+                        <div class="content">
+                            <span class="name">Akshay Nandanwar</span>
+                            <span class="about-me">SENIOR DEVOPS CONSULTANT</span>
                         </div>
-                        <div class="flip-card-back">
-                            <h3 class="team-name">Akshay Nandanwar</h3>
-                            <p class="team-title">SENIOR DEVOPS CONSULTANT</p>
-
-                            <!-- Social Links -->
-                            <div class="flex space-x-3 mt-4">
-                                <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <path
-                                            d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
-                                        </path>
-                                    </svg>
-                                </span>
-                                <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                    </svg>
-                                </span>
-                                <a href="https://www.linkedin.com/in/akshay-nandanwar-29ba8255/" target="_blank"
-                                    class="social-icon-btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <path
-                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                        </path>
-                                        <rect x="2" y="9" width="4" height="12"></rect>
-                                        <circle cx="4" cy="4" r="2"></circle>
-                                    </svg>
+                        <div class="bottom-bottom">
+                            <div class="social-links-container">
+                                <a href="https://www.linkedin.com/in/akshay-nandanwar-29ba8255/" target="_blank" rel="noopener noreferrer" aria-label="Akshay Nandanwar LinkedIn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                                 </a>
                             </div>
+                            <a href="#contact" class="button">Contact Me</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Team Member 2: Anudeep Kankipati -->
-                <div class="flip-card card-beta">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="assets/team/anudeep.JPG" alt="Anudeep Kankipati - Data Center Expert"
-                                class="w-full h-full object-cover"
-                                onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Anudeep+Placeholder'" />
+                <div class="card card-beta">
+                    <div class="profile-pic">
+                        <img src="assets/team/anudeep.JPG" alt="Anudeep Kankipati - Data Center Expert"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Anudeep+Placeholder'" />
+                    </div>
+                    <div class="bottom">
+                        <div class="content">
+                            <span class="name">Anudeep Kankipati</span>
+                            <span class="about-me">DATA CENTER EXPERT</span>
                         </div>
-                        <div class="flip-card-back">
-                            <h3 class="team-name">Anudeep Kankipati</h3>
-                            <p class="team-title">DATA CENTER EXPERT</p>
-
-                            <!-- Social Links -->
-                            <div class="flex space-x-3 mt-4">
-                                <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <path
-                                            d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
-                                        </path>
-                                    </svg>
-                                </span>
-                                <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                    </svg>
-                                </span>
-                                <a href="https://www.linkedin.com/in/anudeep29ak/" target="_blank"
-                                    class="social-icon-btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <path
-                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                        </path>
-                                        <rect x="2" y="9" width="4" height="12"></rect>
-                                        <circle cx="4" cy="4" r="2"></circle>
-                                    </svg>
+                        <div class="bottom-bottom">
+                            <div class="social-links-container">
+                                <a href="https://www.linkedin.com/in/anudeep29ak/" target="_blank" rel="noopener noreferrer" aria-label="Anudeep Kankipati LinkedIn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                                 </a>
                             </div>
+                            <a href="#contact" class="button">Contact Me</a>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -998,61 +976,38 @@
     <!-- DELTA Section (Skilled Contributors) -->
     <section id="delta-team" class="py-24 section-separator">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="text-sm font-semibold uppercase text-blue-400">Skilled Contributors</span>
+            <span class="text-sm font-semibold uppercase text-blue-400">Technical Execution</span>
             <!-- Enhanced 3D Text Shadow Applied Here -->
-            <h2 class="text-4xl font-bold text-white mb-10 text-shadow-3d text-glow">DELTA — Skilled Contributors /
-                Regular Team Members</h2>
+            <h2 class="text-4xl font-bold text-white mb-10 text-shadow-3d text-glow">Delta — Specialized Contributors /
+                Core Developers</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="flex justify-center">
 
                 <!-- Team Member 1: Utkarsh Maurya -->
-                <div class="flip-card card-delta">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="assets/team/utkarsh.png" alt="Utkarsh Maurya - Developer"
-                                class="w-full h-full object-cover"
-                                onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Utkarsh+Placeholder'" />
+                <div class="card card-delta">
+                    <div class="profile-pic">
+                        <img src="assets/team/utkarsh.png" alt="Utkarsh Maurya - Developer"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Utkarsh+Placeholder'" />
+                    </div>
+                    <div class="bottom">
+                        <div class="content">
+                            <span class="name">Utkarsh Maurya</span>
+                            <span class="about-me">DEVELOPER</span>
                         </div>
-                        <div class="flip-card-back">
-                            <h3 class="team-name">Utkarsh Maurya</h3>
-                            <p class="team-title">DEVELOPER</p>
-
-                            <!-- Social Links -->
-                            <div class="flex space-x-3 mt-4">
-                                <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <path
-                                            d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
-                                        </path>
-                                    </svg>
-                                </span>
-                                <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                    </svg>
-                                </span>
-                                <a href="https://linkedin.com/in/utkarsh-maurya-822a3832a" target="_blank"
-                                    class="social-icon-btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <path
-                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                        </path>
-                                        <rect x="2" y="9" width="4" height="12"></rect>
-                                        <circle cx="4" cy="4" r="2"></circle>
-                                    </svg>
+                        <div class="bottom-bottom">
+                            <div class="social-links-container">
+                                <a href="https://linkedin.com/in/utkarsh-maurya-822a3832a" target="_blank" rel="noopener noreferrer" aria-label="Utkarsh Maurya LinkedIn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                </a>
+                                <a href="https://github.com/buntuu-2" target="_blank" rel="noopener noreferrer" aria-label="Utkarsh Maurya GitHub">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                                 </a>
                             </div>
+                            <a href="#contact" class="button">Contact Me</a>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -1065,154 +1020,74 @@
             <h2 class="text-4xl font-bold text-white mb-10 text-shadow-3d text-glow">OMEGA — Junior Members / New Talent
             </h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto justify-items-center">
 
                 <!-- Team Member 1: Aakash Maurya -->
-                <div class="flip-card card-omega">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="assets/team/Aakash Maurya.jpg" alt="Aakash Maurya - Junior Marketing Executive"
-                                class="w-full h-full object-cover"
-                                onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Aakash+Placeholder'" />
+                <div class="card card-omega">
+                    <div class="profile-pic">
+                        <img src="assets/team/Aakash Maurya.jpg" alt="Aakash Maurya - Junior Marketing Executive"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Aakash+Placeholder'" />
+                    </div>
+                    <div class="bottom">
+                        <div class="content">
+                            <span class="name">Aakash Maurya</span>
+                            <span class="about-me">JUNIOR MARKETING EXECUTIVE</span>
                         </div>
-                        <div class="flip-card-back">
-                            <h3 class="team-name">Aakash Maurya</h3>
-                            <p class="team-title">JUNIOR MARKETING EXECUTIVE</p>
-
-                            <!-- Social Links -->
-                            <div class="flex space-x-3 mt-4">
-                                <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <path
-                                            d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
-                                        </path>
-                                    </svg>
-                                </span>
-                                <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                    </svg>
-                                </span>
-                                <a href="https://www.linkedin.com/in/aakash-maurya-36a544278/" target="_blank"
-                                    class="social-icon-btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <path
-                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                        </path>
-                                        <rect x="2" y="9" width="4" height="12"></rect>
-                                        <circle cx="4" cy="4" r="2"></circle>
-                                    </svg>
+                        <div class="bottom-bottom">
+                            <div class="social-links-container">
+                                <a href="https://www.linkedin.com/in/aakash-maurya-36a544278/" target="_blank" rel="noopener noreferrer" aria-label="Aakash Maurya LinkedIn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                                 </a>
                             </div>
+                            <a href="#contact" class="button">Contact Me</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Team Member 2: Aryan Maurya -->
-                <div class="flip-card card-omega">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="assets/team/Aryan Maurya.jpg" alt="Aryan Maurya - Developer"
-                                class="w-full h-full object-cover"
-                                onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Aryan+Placeholder'" />
+                <div class="card card-omega">
+                    <div class="profile-pic">
+                        <img src="assets/team/Aryan Maurya.jpg" alt="Aryan Maurya - Developer"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Aryan+Placeholder'" />
+                    </div>
+                    <div class="bottom">
+                        <div class="content">
+                            <span class="name">Aryan Maurya</span>
+                            <span class="about-me">DEVELOPER</span>
                         </div>
-                        <div class="flip-card-back">
-                            <h3 class="team-name">Aryan Maurya</h3>
-                            <p class="team-title">DEVELOPER</p>
-
-                            <!-- Social Links -->
-                            <div class="flex space-x-3 mt-4">
-                                <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <path
-                                            d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
-                                        </path>
-                                    </svg>
-                                </span>
-                                <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                    </svg>
-                                </span>
-                                <a href="https://www.linkedin.com/in/aryan-maurya-0b68a732a/" target="_blank"
-                                    class="social-icon-btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <path
-                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                        </path>
-                                        <rect x="2" y="9" width="4" height="12"></rect>
-                                        <circle cx="4" cy="4" r="2"></circle>
-                                    </svg>
+                        <div class="bottom-bottom">
+                            <div class="social-links-container">
+                                <a href="https://www.linkedin.com/in/aryan-maurya-0b68a732a/" target="_blank" rel="noopener noreferrer" aria-label="Aryan Maurya LinkedIn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                                 </a>
                             </div>
+                            <a href="#contact" class="button">Contact Me</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Team Member 3: Shreyansh Yadav -->
-                <div class="flip-card card-omega">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="assets/team/Shreyansh Yadav.jpg" alt="Shreyansh Yadav - Developer"
-                                class="w-full h-full object-cover"
-                                onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Shreyansh+Placeholder'" />
+                <div class="card card-omega">
+                    <div class="profile-pic">
+                        <img src="assets/team/Shreyansh Yadav.jpg" alt="Shreyansh Yadav - Developer"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x600/f3f4f6/4f46e5?text=Shreyansh+Placeholder'" />
+                    </div>
+                    <div class="bottom">
+                        <div class="content">
+                            <span class="name">Shreyansh Yadav</span>
+                            <span class="about-me">DEVELOPER</span>
                         </div>
-                        <div class="flip-card-back">
-                            <h3 class="team-name">Shreyansh Yadav</h3>
-                            <p class="team-title">DEVELOPER</p>
-
-                            <!-- Social Links -->
-                            <div class="flex space-x-3 mt-4">
-                                <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <path
-                                            d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
-                                        </path>
-                                    </svg>
-                                </span>
-                                <span class="social-icon-btn cursor-default">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                    </svg>
-                                </span>
-                                <a href="https://www.linkedin.com/in/shreyansh-yadav-a9b72b384/" target="_blank"
-                                    class="social-icon-btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                        <path
-                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                        </path>
-                                        <rect x="2" y="9" width="4" height="12"></rect>
-                                        <circle cx="4" cy="4" r="2"></circle>
-                                    </svg>
+                        <div class="bottom-bottom">
+                            <div class="social-links-container">
+                                <a href="https://www.linkedin.com/in/shreyansh-yadav-a9b72b384/" target="_blank" rel="noopener noreferrer" aria-label="Shreyansh Yadav LinkedIn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                                 </a>
                             </div>
+                            <a href="#contact" class="button">Contact Me</a>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -1229,6 +1104,15 @@
                 exceptional technology solutions. Just as wolves collaborate seamlessly, we bring a unified approach to
                 organizing and elevating your technology requirements.
             </p>
+            <div class="mt-6 flex justify-center">
+                <a href="founder/" class="inline-flex items-center px-4 py-2 text-sm font-medium text-teal-200 bg-gradient-to-r from-[#006466]/40 via-[#1B3A4B]/40 to-[#4D194D]/40 border border-teal-500/30 rounded-full hover:border-teal-400 transition duration-200">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 mr-2.5 animate-pulse"></span>
+                    Meet our Founder & CEO, Vishal Maurya
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 text-primary-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
 
             <div class="mt-12 flex justify-center">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl w-full">
@@ -1326,17 +1210,6 @@
     <footer id="contact" class="py-20 bg-gray-900/50 border-t border-gray-800 backdrop-blur-sm relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="relative mb-12">
-                <!-- 3D Animated Logo on Top Left Blank Space -->
-                <div class="flex justify-center lg:justify-start lg:absolute lg:-left-16 xl:-left-28 2xl:-left-36 lg:-top-6 xl:-top-10 mb-8 lg:mb-0 z-10 pointer-events-none" style="perspective: 1000px;">
-                    <div class="obj">
-                        <div class="objchild">
-                            <!-- Exact Silhouette Shadow of the Logo on the floor -->
-                            <img src="assets/images/logo.png" alt="" aria-hidden="true" class="logo-3d-shadow pointer-events-none select-none">
-                            <!-- Floating 3D Logo -->
-                            <img src="assets/images/logo.png" alt="Graywolftek Logo" class="inn6 object-contain pointer-events-none select-none drop-shadow-[0_0_20px_rgba(255,255,255,0.7)]">
-                        </div>
-                    </div>
-                </div>
 
                 <div class="text-center">
                     <h2 class="text-4xl font-extrabold text-white mb-4 text-glow">Ready to Build Your Elite Team?</h2>
@@ -1432,7 +1305,16 @@
                         </span>
                     </div>
 
-                    <p class="text-sm text-gray-500">&copy; 2024 Graywolftek. All Rights Reserved.</p>
+                    <div class="flex items-center justify-center md:justify-end space-x-3 text-xs text-gray-400 mt-3">
+                        <a href="founder/" class="text-primary-accent hover:underline font-medium">Founder Profile</a>
+                        <span>&bull;</span>
+                        <a href="#about" class="hover:text-primary-accent transition">About</a>
+                        <span>&bull;</span>
+                        <a href="product.html" class="hover:text-primary-accent transition">Product</a>
+                        <span>&bull;</span>
+                        <a href="projects.html" class="hover:text-primary-accent transition">Projects</a>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">&copy; 2024 Graywolftek. All Rights Reserved.</p>
                 </div>
             </div>
         </div>
@@ -1548,16 +1430,16 @@
             if (document.getElementById('desktop-nav-container') && window.GooeyNav) {
                 const hash = window.location.hash;
                 let initialIdx = 0;
-                if (hash === '#blog') initialIdx = 3;
-                else if (hash === '#about') initialIdx = 4;
-                else if (hash === '#contact') initialIdx = 5;
+                if (hash === '#blog') initialIdx = 4;
+                else if (hash === '#about') initialIdx = 5;
+                else if (hash === '#contact') initialIdx = 6;
 
                 const nav = new GooeyNav({
                     target: '#desktop-nav-container',
                     theme: 'dark',
-                    color: '#818cf8',
+                    color: '#006466',
                     activeTextColor: '#ffffff',
-                    colors: ['#818cf8', '#a855f7', '#c084fc'],
+                    colors: ['#006466', '#0B525B', '#1B3A4B', '#272640', '#3E1F47', '#4D194D'],
                     size: 'md',
                     frame: false,
                     initialActiveIndex: initialIdx,
@@ -1565,6 +1447,7 @@
                         { label: 'Home', href: '#' },
                         { label: 'Product', href: 'product.html' },
                         { label: 'Projects', href: 'projects.html' },
+                        { label: 'Founder', href: 'founder/' },
                         { label: 'Blog', href: '#blog' },
                         { label: 'About Us', href: '#about' },
                         { label: 'Get Started', href: '#contact' }
@@ -1575,9 +1458,9 @@
                 let isClicking = false;
                 const sections = [
                     { id: '', index: 0 },
-                    { id: 'blog', index: 3 },
-                    { id: 'about', index: 4 },
-                    { id: 'contact', index: 5 }
+                    { id: 'blog', index: 4 },
+                    { id: 'about', index: 5 },
+                    { id: 'contact', index: 6 }
                 ];
 
                 document.getElementById('desktop-nav-container')?.addEventListener('click', () => {
