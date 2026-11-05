@@ -43,8 +43,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Load Vanilla Tilt for 3D Effects -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <!-- Three.js for 3D Model & Interactive Logo Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <!-- SplitFlapText Mechanical Departure Board Stylesheet -->
     <!-- GooeyNav Liquid Navigation Stylesheet -->
+    <!-- Volumetric Studio 3D Stage Stylesheet -->
+    <!-- Radial Orbital Timeline Stylesheet -->
     <!-- Use Inter font family -->
     <style type="text/tailwindcss">
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
@@ -553,7 +557,7 @@
     </style>
     <!-- Lucide icons for a modern look -->
     <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CTwURWsr.css">
+  <link rel="stylesheet" crossorigin href="/assets/index-DiJCMIw9.css">
 </head>
 
 <body class="antialiased">
@@ -566,15 +570,15 @@
                 <div class="flex items-center flex-1 justify-start">
                     <a href="index.html" class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0 group">
                         <img src="/assets/logo-CFY-FBGN.png" alt="Graywolftek Main Logo"
-                            class="h-10 sm:h-12 w-auto flex-shrink-0 group-hover:scale-105 transition duration-300" />
-                        <span class="text-lg sm:text-xl font-extrabold tracking-wider text-white whitespace-nowrap">
+                            class="h-14 sm:h-[68px] lg:h-[72px] w-auto max-h-[76px] flex-shrink-0 object-contain drop-shadow-[0_0_12px_rgba(56,189,248,0.4)] group-hover:scale-110 transition duration-300" />
+                        <span class="text-xl sm:text-2xl font-black tracking-wider text-white whitespace-nowrap">
                             <span class="text-primary-accent text-glow">GRAY</span>WOLFTEK
                         </span>
                     </a>
                 </div>
 
                 <!-- Desktop Navigation: Home, R&D, Services, Story (Centered in Header) -->
-                <nav class="hidden md:flex space-x-6 lg:space-x-8 items-center justify-center flex-shrink-0"
+                <nav class="hidden md:flex space-x-5 lg:space-x-7 items-center justify-center flex-shrink-0"
                     aria-label="Main Navigation">
                     <!-- 1. Home -->
                     <a href="index.html"
@@ -614,7 +618,7 @@
                         </div>
                     </div>
 
-                                        <!-- 3. Services Dropdown -->
+                    <!-- 3. Services Dropdown -->
                     <div class="nav-dropdown-item relative">
                         <button type="button"
                             class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
@@ -685,7 +689,30 @@
                         </div>
                     </div>
 
-                    <!-- 4. Story Dropdown -->
+                                        <!-- 4. Our Partner Dropdown -->
+                    <div class="nav-dropdown-item relative">
+                        <button type="button"
+                            class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
+                            aria-expanded="false" aria-haspopup="true">
+                            <span>Our Partner</span>
+                            <i data-lucide="chevron-down"
+                                class="w-3.5 h-3.5 nav-chevron opacity-70 transition-transform duration-200"></i>
+                        </button>
+                        <div
+                            class="nav-dropdown-menu hidden absolute left-0 mt-3 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                            <a href="skitre.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="sparkles"
+                                    class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Skitre AI</div>
+                                    <div class="text-[11px] text-gray-400">AI Learning & Interview Intelligence</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 5. Story Dropdown -->
                     <div class="nav-dropdown-item relative">
                         <button type="button"
                             class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
@@ -714,7 +741,7 @@
                                     <div class="text-[11px] text-gray-400">Beta, Delta & Omega Squads</div>
                                 </div>
                             </a>
-                            <a href="index.html#about"
+                            <a href="about.html"
                                 class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
                                 <i data-lucide="compass"
                                     class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
@@ -777,7 +804,7 @@
                 </div>
             </div>
 
-                        <!-- 3. Services Mobile Accordion -->
+            <!-- 3. Services Mobile Accordion -->
             <div class="border-t border-white/10 pt-1">
                 <button type="button"
                     class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
@@ -801,7 +828,8 @@
                         <div class="pl-4 pr-1 py-1 space-y-1 hidden">
                             <a href="datacenter.html"
                                 class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/10 transition">
-                                <i data-lucide="server" class="w-4 h-4 mr-2.5 text-gray-400"></i> Data Centre Infrastructure
+                                <i data-lucide="server" class="w-4 h-4 mr-2.5 text-gray-400"></i> Data Centre
+                                Infrastructure
                             </a>
                             <a href="staffing.html"
                                 class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/10 transition">
@@ -809,7 +837,8 @@
                             </a>
                             <a href="software.html"
                                 class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/10 transition">
-                                <i data-lucide="code" class="w-4 h-4 mr-2.5 text-gray-400"></i> Software & App Development
+                                <i data-lucide="code" class="w-4 h-4 mr-2.5 text-gray-400"></i> Software & App
+                                Development
                             </a>
                         </div>
                     </div>
@@ -821,7 +850,24 @@
                 </div>
             </div>
 
-            <!-- 4. Story Mobile Accordion -->
+                        <!-- 4. Our Partner Mobile Accordion -->
+            <div class="border-t border-white/10 pt-1">
+                <button type="button"
+                    class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
+                    <span class="flex items-center">
+                        <i data-lucide="handshake" class="w-4 h-4 mr-2"></i> Our Partner
+                    </span>
+                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
+                </button>
+                <div class="pl-4 pr-1 py-1 space-y-1">
+                    <a href="skitre.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="sparkles" class="w-4 h-4 mr-2.5 text-gray-400"></i> Skitre AI
+                    </a>
+                </div>
+            </div>
+
+            <!-- 5. Story Mobile Accordion -->
             <div class="border-t border-white/10 pt-1">
                 <button type="button"
                     class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
@@ -840,7 +886,7 @@
                         class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
                         <i data-lucide="users" class="w-4 h-4 mr-2.5 text-gray-400"></i> Our Team
                     </a>
-                    <a href="index.html#about"
+                    <a href="about.html"
                         class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
                         <i data-lucide="compass" class="w-4 h-4 mr-2.5 text-gray-400"></i> About Us
                     </a>
@@ -857,304 +903,231 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <!-- Hero Section -->
-    <section class="relative pt-20 pb-28 text-center overflow-hidden">
+    <!-- Hero Section: Volumetric Studio 3D Stage -->
+    <section class="volumetric-studio-container flex items-center justify-center">
+        <!-- 3D Volumetric Stage Environment -->
+        <div class="vs-room" aria-hidden="true">
+            <!-- Perspective Wall Polygons -->
+            <div class="vs-wall-back"></div>
+            <div class="vs-wall-ceiling"></div>
+            <div class="vs-wall-left"></div>
+            <div class="vs-wall-right"></div>
+            <div class="vs-wall-floor"></div>
 
-        <div class="max-w-5xl mx-auto px-4 relative z-20">
-            <!-- Split-Flap Headline: Both 'FORGE YOUR' and cycling phrases animated with SplitFlap motion, completely merged into background with NO UI border -->
-            <h1 class="my-6 flex flex-col items-center justify-center gap-3 sm:gap-4 max-w-full">
-                <!-- Line 1: Forge Your with SplitFlap motion -->
-                <div id="hero-split-flap-line1" class="flex justify-center items-center"></div>
-                <!-- Line 2: Value proposition with SplitFlap motion -->
-                <div id="hero-split-flap-line2" class="flex justify-center items-center"></div>
-            </h1>
-            <p class="mt-6 text-xl text-gray-300 max-w-2xl mx-auto">
-                Graywolftek is the strategic partner for building, setting up, and managing elite remote engineering
-                teams in India, enabling sustained growth and innovation.
-            </p>
-            <div class="mt-10 flex justify-center space-x-4">
-                <a href="insights.html" class="px-8 py-3 text-lg font-medium rounded-lg text-white cta-button">
-                    Explore Solutions
-                </a>
-                <a href="#contact"
-                    class="px-8 py-3 text-lg font-medium rounded-lg text-white bg-white/10 border border-white/20 hover:bg-white/20 transition duration-150">
-                    Schedule a Call
-                </a>
+            <!-- Architectural Edge Vectors -->
+            <svg class="vs-wireframes" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="vsBaseGrad" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stop-color="white" stop-opacity="0"></stop>
+                        <stop offset="20%" stop-color="white" stop-opacity="0.5"></stop>
+                        <stop offset="80%" stop-color="white" stop-opacity="0.5"></stop>
+                        <stop offset="100%" stop-color="white" stop-opacity="0"></stop>
+                    </linearGradient>
+                    <linearGradient id="vsVGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="white" stop-opacity="0"></stop>
+                        <stop offset="50%" stop-color="white" stop-opacity="0.18"></stop>
+                        <stop offset="100%" stop-color="white" stop-opacity="0"></stop>
+                    </linearGradient>
+                </defs>
+                <line x1="22%" y1="70%" x2="78%" y2="70%" stroke="rgba(255,255,255,0.2)" stroke-width="5" style="filter: blur(3px);"></line>
+                <line x1="22%" y1="70%" x2="78%" y2="70%" stroke="url(#vsBaseGrad)" stroke-width="1"></line>
+                <line x1="22%" y1="10%" x2="22%" y2="70%" stroke="url(#vsVGrad)" stroke-width="1"></line>
+                <line x1="78%" y1="10%" x2="78%" y2="70%" stroke="url(#vsVGrad)" stroke-width="1"></line>
+            </svg>
+
+            <!-- Light Pools -->
+            <div class="vs-light-pools">
+                <div class="vs-pool-back"></div>
+                <div class="vs-pool-left"></div>
+                <div class="vs-pool-right"></div>
+                <div class="vs-pool-floor"></div>
             </div>
-        </div>
-    </section>
 
-    <!-- HR & Management Solutions -->
-    <section id="management" class="py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-separator">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-sm font-semibold uppercase text-primary-accent">Streamline Operations</span>
-                <!-- Enhanced 3D Text Shadow Applied Here -->
-                <h2 class="text-4xl font-bold text-white mb-6 text-shadow-3d text-glow">Hassle-Free HR and Agile
-                    Management
-                </h2>
-                <p class="text-lg text-gray-400">
-                    We handle the people, so you can focus on growth. Graywolftek takes the stress out of managing
-                    remote teams with end-to-end, streamlined solutions.
+            <!-- Volumetric Light Cones (at 35%, 50%, 65%) -->
+            <div class="vs-volumetric-beams">
+                <div class="vs-beam-cone" style="left: 35%;">
+                    <div class="vs-beam-inner"></div>
+                    <div class="vs-beam-core"></div>
+                </div>
+                <div class="vs-beam-cone" style="left: 50%;">
+                    <div class="vs-beam-inner"></div>
+                    <div class="vs-beam-core"></div>
+                </div>
+                <div class="vs-beam-cone" style="left: 65%;">
+                    <div class="vs-beam-inner"></div>
+                    <div class="vs-beam-core"></div>
+                </div>
+            </div>
+
+            <!-- Industrial Overhead Ceiling Gantry Rail -->
+            <div class="vs-gantry-rail"></div>
+
+            <!-- Spotlight Fixtures (at 35%, 50%, 65%) -->
+            <div class="vs-fixtures-layer">
+                <!-- Spot 1: 35% -->
+                <div class="vs-fixture" style="left: 35%;">
+                    <div class="vs-mount-bracket">
+                        <div class="vs-mount-bolt top"></div>
+                        <div class="vs-mount-bolt bottom"></div>
+                    </div>
+                    <div class="vs-swivel-arm">
+                        <div class="vs-swivel-ball"></div>
+                    </div>
+                    <div class="vs-lamp-assembly">
+                        <div class="vs-lamp-housing">
+                            <div class="vs-vent-slat"></div>
+                            <div class="vs-vent-slat"></div>
+                            <div class="vs-vent-slat"></div>
+                            <div class="vs-vent-slat"></div>
+                        </div>
+                        <div class="vs-lamp-lens-rim">
+                            <div class="vs-lamp-bulb"></div>
+                        </div>
+                        <div class="vs-barn-door-bottom"></div>
+                        <div class="vs-barn-door-top"></div>
+                        <div class="vs-barn-door-left"></div>
+                        <div class="vs-barn-door-right"></div>
+                    </div>
+                </div>
+
+                <!-- Spot 2: 50% -->
+                <div class="vs-fixture" style="left: 50%;">
+                    <div class="vs-mount-bracket">
+                        <div class="vs-mount-bolt top"></div>
+                        <div class="vs-mount-bolt bottom"></div>
+                    </div>
+                    <div class="vs-swivel-arm">
+                        <div class="vs-swivel-ball"></div>
+                    </div>
+                    <div class="vs-lamp-assembly">
+                        <div class="vs-lamp-housing">
+                            <div class="vs-vent-slat"></div>
+                            <div class="vs-vent-slat"></div>
+                            <div class="vs-vent-slat"></div>
+                            <div class="vs-vent-slat"></div>
+                        </div>
+                        <div class="vs-lamp-lens-rim">
+                            <div class="vs-lamp-bulb"></div>
+                        </div>
+                        <div class="vs-barn-door-bottom"></div>
+                        <div class="vs-barn-door-top"></div>
+                        <div class="vs-barn-door-left"></div>
+                        <div class="vs-barn-door-right"></div>
+                    </div>
+                </div>
+
+                <!-- Spot 3: 65% -->
+                <div class="vs-fixture" style="left: 65%;">
+                    <div class="vs-mount-bracket">
+                        <div class="vs-mount-bolt top"></div>
+                        <div class="vs-mount-bolt bottom"></div>
+                    </div>
+                    <div class="vs-swivel-arm">
+                        <div class="vs-swivel-ball"></div>
+                    </div>
+                    <div class="vs-lamp-assembly">
+                        <div class="vs-lamp-housing">
+                            <div class="vs-vent-slat"></div>
+                            <div class="vs-vent-slat"></div>
+                            <div class="vs-vent-slat"></div>
+                            <div class="vs-vent-slat"></div>
+                        </div>
+                        <div class="vs-lamp-lens-rim">
+                            <div class="vs-lamp-bulb"></div>
+                        </div>
+                        <div class="vs-barn-door-bottom"></div>
+                        <div class="vs-barn-door-top"></div>
+                        <div class="vs-barn-door-left"></div>
+                        <div class="vs-barn-door-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vignette & Grain Overlay -->
+            <div class="vs-vignette"></div>
+            <div class="vs-grain"></div>
+        </div>
+
+        <!-- Hero Content Layer: Dual Dimension Hero UI -->
+        <div class="vs-content-layer">
+            <div class="max-w-5xl mx-auto px-4 relative z-30 pointer-events-none">
+                <!-- Split-Flap Headline: Animated Line 1 and Line 2 -->
+                <h1 class="vs-anim-title my-6 flex flex-col items-center justify-center gap-3 sm:gap-4 max-w-full">
+                    <!-- Line 1: Forge Your with SplitFlap motion -->
+                    <div id="hero-split-flap-line1" class="flex justify-center items-center"></div>
+                    <!-- Line 2: Value proposition with SplitFlap motion -->
+                    <div id="hero-split-flap-line2" class="flex justify-center items-center"></div>
+                </h1>
+                
+                <!-- Subtitle -->
+                <p class="vs-anim-subtitle mt-6 text-base sm:text-lg lg:text-xl text-gray-300 max-w-4xl lg:max-w-5xl mx-auto font-normal leading-relaxed sm:leading-loose tracking-wide drop-shadow-md px-2 sm:px-4">
+                    Graywolftek is a technology and engineering company delivering solutions across software development, data center infrastructure, technical staffing, and HR and management services, while building digital products and strategic partnerships that support business growth and innovation.
                 </p>
-            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- HR Management - NEW STYLING -->
-                <div class="flex items-start p-6 rounded-3xl card-3d-effect">
-                    <i data-lucide="shield-check" class="w-6 h-6 text-primary-accent flex-shrink-0 mt-1"></i>
-                    <div class="ml-4">
-                        <h3 class="text-xl font-semibold text-white">End-to-End HR Management</h3>
-                        <p class="text-gray-400 text-sm mt-2">Payroll, benefits, compliance, engagement, and
-                            performance tracking—all tailored for remote engineering teams.</p>
-                    </div>
-                </div>
-
-                <!-- Staff Management - NEW STYLING -->
-                <div class="flex items-start p-6 rounded-3xl card-3d-effect">
-                    <i data-lucide="bar-chart-2" class="w-6 h-6 text-primary-accent flex-shrink-0 mt-1"></i>
-                    <div class="ml-4">
-                        <h3 class="text-xl font-semibold text-white">Agile & Staff Management</h3>
-                        <p class="text-gray-400 text-sm mt-2">Implementing Agile practices for flexibility and
-                            efficiency, plus simplified recruitment, onboarding, and HR operations.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section id="about" class="py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center section-separator">
-            <span class="text-sm font-semibold uppercase text-primary-accent">Our Foundation</span>
-            <!-- Enhanced 3D Text Shadow Applied Here -->
-            <h2 class="text-4xl font-bold text-white mb-6 text-shadow-3d text-glow">The Graywolftek Philosophy</h2>
-
-            <p class="text-lg text-gray-400 max-w-4xl mx-auto">
-                Inspired by the astute and collaborative nature of gray wolves, Graywolftek leads the pack in providing
-                exceptional technology solutions. Just as wolves collaborate seamlessly, we bring a unified approach to
-                organizing and elevating your technology requirements.
-            </p>
-            <div class="mt-6 flex justify-center">
-                <a href="founder/"
-                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-teal-200 bg-gradient-to-r from-[#006466]/40 via-[#1B3A4B]/40 to-[#4D194D]/40 border border-teal-500/30 rounded-full hover:border-teal-400 transition duration-200">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 mr-2.5 animate-pulse"></span>
-                    Meet our Founder & CEO, Vishal Maurya
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 text-primary-accent" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </a>
-            </div>
-
-            <div class="mt-12 flex justify-center">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl w-full">
-
-                    <!-- Feature 1 -->
-                    <div class="book reveal">
-                        <div class="cover">
-                            <div class="h-12 w-12 bg-indigo-500/20 rounded-lg flex items-center justify-center mb-4">
-                                <i data-lucide="target" class="w-6 h-6 text-primary-accent"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-white text-center leading-snug">Strategic Partnership</h3>
-
-                        </div>
-                        <div class="w-full text-left">
-                            <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">Strategy</h4>
-                            <p class="text-gray-300 text-sm leading-relaxed">
-                                We don't just provide services—we become an extension of your team, understanding your
-                                vision and working collaboratively to achieve your goals.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Feature 2 -->
-                    <div class="book reveal">
-                        <div class="cover">
-                            <div class="h-12 w-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4">
-                                <i data-lucide="zap" class="w-6 h-6 text-purple-400"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-white text-center leading-snug">Innovation First</h3>
-
-                        </div>
-                        <div class="w-full text-left">
-                            <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">Innovation
-                            </h4>
-                            <p class="text-gray-300 text-sm leading-relaxed">
-                                Leveraging cutting-edge technologies and agile methodologies to deliver solutions that
-                                keep
-                                you ahead of the competition.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Feature 3 -->
-                    <div class="book reveal">
-                        <div class="cover">
-                            <div class="h-12 w-12 bg-pink-500/20 rounded-lg flex items-center justify-center mb-4">
-                                <i data-lucide="shield-check" class="w-6 h-6 text-pink-400"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-white text-center leading-snug">Quality Assured</h3>
-
-                        </div>
-                        <div class="w-full text-left">
-                            <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">Quality</h4>
-                            <p class="text-gray-300 text-sm leading-relaxed">
-                                Rigorous quality standards and transparent processes ensure reliable, scalable solutions
-                                that stand the test of time.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-    </section>
-
-    <!-- Strategic Growth Partner Section -->
-    <section class="py-12">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass-panel rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 card-3d-effect"
-                data-tilt data-tilt-max="3" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
-
-                <!-- Logo Side -->
-                <div class="flex-shrink-0 text-center md:text-left">
-                    <span
-                        class="text-xs font-semibold uppercase text-primary-accent tracking-wider block mb-3">Strategic
-                        Growth Partner</span>
-                    <img src="/assets/skitreai-rkUwXWyG.svg" alt="Skitre.ai Logo"
-                        class="h-12 md:h-16 w-auto mx-auto md:mx-0 opacity-90 hover:opacity-100 transition duration-300">
-                </div>
-
-                <!-- Content Side -->
-                <div class="text-center md:text-left md:border-l md:border-white/10 md:pl-8">
-                    <p class="text-gray-300 text-lg leading-relaxed">
-                        "GrayWolfTek partners with <span class="text-white font-semibold">Skitre.ai</span> to drive
-                        significant impact in the education and skilling ecosystem. Our focus areas—Business Strategy,
-                        Business Development, and Education—are applied to expand skills training, enhance
-                        employability, and build the strategic relationships necessary to accelerate Skitre.ai’s mission
-                        and deliver real-world difference."
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action / Contact Footer -->
-    <footer id="contact"
-        class="py-20 bg-gray-900/50 border-t border-gray-800 backdrop-blur-sm relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="relative mb-12">
-
-                <div class="text-center">
-                    <h2 class="text-4xl font-extrabold text-white mb-4 text-glow">Ready to Build Your Elite Team?</h2>
-                    <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-                        Let Graywolftek be the alpha in streamlining your business processes. Schedule your free
-                        consulting
-                        call today.
-                    </p>
-                    <div class="mt-8">
-                        <a href="mailto:graywolftek@gmail.com"
-                            class="px-10 py-4 text-lg font-medium rounded-lg text-white cta-button">
-                            Start the Conversation
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div
-                class="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-gray-800 pt-10 text-center md:text-left reveal">
-
-                <!-- Contact Info -->
-                <div class="space-y-4">
-                    <h4 class="text-xl font-semibold text-white">Connect with Us</h4>
-                    <div class="flex items-center justify-center md:justify-start text-gray-400">
-                        <i data-lucide="mail" class="w-5 h-5 mr-3 text-primary-accent"></i>
-                        <a href="mailto:graywolftek@gmail.com"
-                            class="hover:text-primary-accent transition">graywolftek@gmail.com</a>
-                    </div>
-                    <div class="flex items-center justify-center md:justify-start text-gray-400">
-                        <i data-lucide="phone" class="w-5 h-5 mr-3 text-primary-accent"></i>
-                        <a href="tel:+917559185780" class="hover:text-primary-accent transition">+91-7559185780</a>
-                    </div>
-                </div>
-
-                <!-- Location -->
-                <div class="space-y-4">
-                    <h4 class="text-xl font-semibold text-white">Visit Our Office</h4>
-                    <p class="text-gray-400">
-                        Usmanpur, Jalalpur Ambedkar Nagar <br>
-                        224149, India
-                    </p>
-                </div>
-
-                <!-- Logo & Copyright -->
-                <div class="space-y-4 md:text-right">
-                    <!-- Logo in footer for consistency -->
-                    <a href="index.html" class="flex items-center justify-center md:justify-end space-x-2">
-                        <!-- LOGO PATH: assets/images/logo.png -->
-                        <img src="/assets/logo-CFY-FBGN.png" alt="Graywolftek Main Logo" class="h-8 w-auto" />
-                        <span class="text-xl font-extrabold tracking-wider text-white">
-                            <span class="text-primary-accent text-glow">GRAY</span>WOLFTEK
-                        </span>
+                <!-- Action CTAs -->
+                <div class="vs-anim-ctas mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 pointer-events-auto w-full max-w-md sm:max-w-none mx-auto">
+                    <a href="insights.html" class="w-full sm:w-auto px-8 py-3.5 text-base sm:text-lg font-semibold rounded-xl text-white cta-button shadow-lg transition-transform hover:scale-105 active:scale-95 text-center">
+                        Explore Solutions
                     </a>
-
-                    <!-- Social Media Links -->
-                    <div class="flex items-center justify-center md:justify-end space-x-3 mt-4">
-                        <span class="social-icon-btn cursor-default" aria-label="Twitter">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                <path
-                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
-                                </path>
-                            </svg>
-                        </span>
-                        <a href="https://www.linkedin.com/company/graywolftek/posts/?feedView=all" target="_blank"
-                            class="social-icon-btn" aria-label="LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                </path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg>
-                        </a>
-                        <a href="https://www.instagram.com/graywolftek/" target="_blank" class="social-icon-btn"
-                            aria-label="Instagram">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                            </svg>
-                        </a>
-                        <span class="social-icon-btn cursor-default" aria-label="Facebook">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                            </svg>
-                        </span>
-                    </div>
-
-                    <div class="flex items-center justify-center md:justify-end space-x-3 text-xs text-gray-400 mt-3">
-                        <a href="founder/" class="text-primary-accent hover:underline font-medium">Founder Profile</a>
-                        <span>&bull;</span>
-                        <a href="#about" class="hover:text-primary-accent transition">About</a>
-                        <span>&bull;</span>
-                        <a href="product.html" class="hover:text-primary-accent transition">Product</a>
-                        <span>&bull;</span>
-                        <a href="projects.html" class="hover:text-primary-accent transition">Projects</a>
-                    </div>
-                    <p class="text-sm text-gray-500 mt-2">&copy; 2024 Graywolftek. All Rights Reserved.</p>
+                    <a href="#contact"
+                        class="w-full sm:w-auto px-8 py-3.5 text-base sm:text-lg font-semibold rounded-xl text-white bg-white/10 border border-white/20 hover:bg-white/20 transition-all hover:scale-105 active:scale-95 shadow-md text-center">
+                        Schedule a Call
+                    </a>
                 </div>
             </div>
         </div>
-    </footer>
+    </section>
+
+    <!-- Radial Orbital Ecosystem Section (Interactive 5-Pillar Navigation) -->
+    <section id="radial-orbital-timeline-section" class="orbital-timeline-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 mb-8">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase text-cyan-400 bg-cyan-950/60 border border-cyan-800/60 shadow-sm mb-4">
+                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                Graywolftek Ecosystem
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+                Explore Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-300 to-purple-400">Ecosystem</span>
+            </h2>
+            <p class="mt-4 text-base sm:text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                Click any node to pause orbital rotation, explore core practices, and navigate directly to dedicated pages.
+            </p>
+        </div>
+
+        <!-- 3D Orbital Stage Container -->
+        <div class="orbital-stage-container">
+            <div id="orbital-stage" class="orbital-stage">
+                <!-- Orbit Track Rings -->
+                <div class="orbital-outer-track-ring"></div>
+                <div class="orbital-track-ring"></div>
+
+                <!-- Central 3D Graywolftek Logo (Big, Exact Cutout with ModelViewer Physics) -->
+                <div id="orbital-logo-center" class="orbital-logo-center">
+                    <div class="orbital-logo-ambient-glow"></div>
+                    <div id="model-viewer-container" class="model-viewer-container"></div>
+                    <div class="orbital-logo-contact-shadow"></div>
+                </div>
+
+                <!-- Orbit Nodes are dynamically populated and animated by radial-orbital-timeline.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Pre-Footer Call to Action -->
+    <section class="py-16 text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4 text-glow">Ready to Build Your Elite Team?</h2>
+            <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+                Let Graywolftek be the alpha in streamlining your business processes. Schedule your free consulting call today.
+            </p>
+            <a href="mailto:graywolftek@gmail.com" class="px-8 py-3.5 text-base font-semibold rounded-xl text-white cta-button inline-flex items-center">
+                <span>Start the Conversation</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Pushpin Tear Footer (Torn Poster in Deep Ocean & Midnight Theme) -->
+    <footer id="contact"></footer>
 
     <!-- JavaScript for Mobile Menu Toggle and Lucide Icons -->
     <script>
@@ -1211,9 +1184,12 @@
     <!-- SplitFlapText Component Script & Initialization -->
     <script src="assets/js/SplitFlapText.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        window.startHeroSplitFlap = function() {
+            if (window._splitFlapStarted) return;
+            window._splitFlapStarted = true;
+
             if (window.SplitFlapText) {
-                // Line 1: FORGE YOUR with same mechanical flip motion
+                // Line 1: FORGE YOUR with mechanical flip motion
                 if (document.getElementById('hero-split-flap-line1')) {
                     new SplitFlapText({
                         target: '#hero-split-flap-line1',
@@ -1233,7 +1209,7 @@
                     });
                 }
 
-                // Line 2: Value propositions with same mechanical flip motion
+                // Line 2: Value propositions with mechanical flip motion
                 if (document.getElementById('hero-split-flap-line2')) {
                     new SplitFlapText({
                         target: '#hero-split-flap-line2',
@@ -1257,10 +1233,25 @@
                     });
                 }
             }
-        });
+        };
+
+        // Fallback: trigger after 3s if lights sequence didn't invoke it
+        setTimeout(() => {
+            if (!window._splitFlapStarted && typeof window.startHeroSplitFlap === 'function') {
+                window.startHeroSplitFlap();
+            }
+        }, 3000);
     </script>
     <!-- Dropdown Menu Script -->
     <script src="assets/js/menu-dropdown.js"></script>
+    <!-- Pushpin Tear Footer Interactive Script -->
+    <script src="assets/js/pushpin-footer.js"></script>
+    <!-- Volumetric Studio 3D Stage & Lighting Script -->
+    <script src="assets/js/volumetric-studio.js"></script>
+    <!-- Radial Orbital Timeline Script -->
+    <script src="assets/js/radial-orbital-timeline.js"></script>
+    <!-- 3D ModelViewer Center Logo Interactive Animation -->
+    <script src="assets/js/model-viewer-logo.js"></script>
 </body>
 
 </html>

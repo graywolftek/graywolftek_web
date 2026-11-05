@@ -1,0 +1,564 @@
+/* ==========================================================================
+   Radial Orbital Timeline Stylesheet - Graywolftek Homepage
+   Faithful recreation of 21st.dev Radial Orbital Timeline component
+   ========================================================================== */
+
+.orbital-timeline-section {
+  position: relative;
+  width: 100%;
+  background-color: #030712;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(59, 130, 246, 0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 50% 120%, rgba(168, 85, 247, 0.12), transparent);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 5rem 1rem 6rem;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Background Subtle Grid */
+.orbital-timeline-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Central Stage Container */
+.orbital-stage-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 560px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+@media (max-width: 640px) {
+  .orbital-stage-container {
+    height: 480px;
+  }
+}
+
+/* 3D Orbit Stage */
+.orbital-stage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Central 3D Graywolftek Logo Assembly (No Enclosing Circle) */
+.orbital-logo-center {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 22;
+  pointer-events: auto;
+}
+
+/* Ambient Backlight Glow Behind Logo */
+.orbital-logo-ambient-glow {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.45) 0%, rgba(168, 85, 247, 0.25) 50%, transparent 75%);
+  filter: blur(28px);
+  animation: orbital-core-pulse 4s infinite ease-in-out;
+  pointer-events: none;
+}
+
+/* 3D ModelViewer Container */
+.model-viewer-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  z-index: 25;
+  user-select: none;
+  touch-action: none;
+}
+
+.model-viewer-container:active {
+  cursor: grabbing;
+}
+
+/* Dynamic Contact Shadow Underneath Logo */
+.orbital-logo-contact-shadow {
+  position: absolute;
+  bottom: 8px;
+  width: 140px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.45) 50%, transparent 80%);
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: 10;
+  transform-origin: center;
+  transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+}
+
+/* Big Exact Logo in CSS 3D */
+.model-logo-3d-wrapper {
+  width: 100%;
+  height: 100%;
+  perspective: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.model-logo-3d-tilt {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.model-logo-3d-spin {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.big-exact-logo {
+  width: 165px;
+  height: 165px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 25px rgba(56, 189, 248, 0.65)) drop-shadow(0 15px 35px rgba(0, 0, 0, 0.9));
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 640px) {
+  .orbital-logo-center {
+    width: 170px;
+    height: 170px;
+  }
+  .model-viewer-container {
+    width: 160px;
+    height: 160px;
+  }
+  .big-exact-logo {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+@keyframes orbital-ping {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.8;
+  }
+  75%, 100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+@keyframes orbital-core-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.4), 0 0 60px rgba(168, 85, 247, 0.2);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 45px rgba(59, 130, 246, 0.7), 0 0 80px rgba(20, 184, 166, 0.35);
+  }
+}
+
+/* Orbit Track Rings */
+.orbital-track-ring {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.orbital-outer-track-ring {
+  position: absolute;
+  width: 540px;
+  height: 540px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Responsive Orbit Dimensions for Mobile, Tablet, and PC */
+@media (max-width: 420px) {
+  .orbital-stage-container {
+    height: 440px;
+  }
+  .orbital-track-ring {
+    width: 250px;
+    height: 250px;
+  }
+  .orbital-outer-track-ring {
+    width: 320px;
+    height: 320px;
+  }
+  .orbital-node-circle {
+    width: 36px;
+    height: 36px;
+  }
+  .orbital-node-label {
+    font-size: 9.5px;
+    top: 44px;
+  }
+  .orbital-expanded-card {
+    width: 275px;
+    max-width: 92vw;
+    padding: 0.85rem;
+    top: 66px;
+  }
+  .orbital-logo-center {
+    width: 130px;
+    height: 130px;
+  }
+  .model-viewer-container {
+    width: 120px;
+    height: 120px;
+  }
+  .big-exact-logo {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+@media (min-width: 421px) and (max-width: 640px) {
+  .orbital-stage-container {
+    height: 480px;
+  }
+  .orbital-track-ring {
+    width: 290px;
+    height: 290px;
+  }
+  .orbital-outer-track-ring {
+    width: 370px;
+    height: 370px;
+  }
+  .orbital-node-circle {
+    width: 39px;
+    height: 39px;
+  }
+  .orbital-node-label {
+    font-size: 10px;
+    top: 47px;
+  }
+  .orbital-expanded-card {
+    width: 295px;
+    max-width: 90vw;
+    padding: 0.95rem;
+    top: 72px;
+  }
+  .orbital-logo-center {
+    width: 155px;
+    height: 155px;
+  }
+  .model-viewer-container {
+    width: 145px;
+    height: 145px;
+  }
+  .big-exact-logo {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .orbital-stage-container {
+    height: 520px;
+  }
+  .orbital-track-ring {
+    width: 360px;
+    height: 360px;
+  }
+  .orbital-outer-track-ring {
+    width: 460px;
+    height: 460px;
+  }
+  .orbital-node-circle {
+    width: 42px;
+    height: 42px;
+  }
+  .orbital-node-label {
+    font-size: 10.5px;
+    top: 50px;
+  }
+  .orbital-expanded-card {
+    width: 310px;
+    max-width: 88vw;
+    top: 76px;
+  }
+  .orbital-logo-center {
+    width: 185px;
+    height: 185px;
+  }
+  .model-viewer-container {
+    width: 175px;
+    height: 175px;
+  }
+  .big-exact-logo {
+    width: 155px;
+    height: 155px;
+  }
+}
+
+/* Orbit Nodes */
+.orbital-node {
+  position: absolute;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  user-select: none;
+  will-change: transform, opacity;
+}
+
+/* Energy Halo */
+.orbital-energy-halo {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 70%);
+  transition: opacity 0.4s ease;
+}
+
+.orbital-energy-halo.is-pulsing {
+  animation: orbital-halo-pulse 1s infinite alternate ease-in-out;
+}
+
+@keyframes orbital-halo-pulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+}
+
+/* Node Icon Circle */
+.orbital-node-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #090d16;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 12;
+}
+
+.orbital-node.is-expanded .orbital-node-circle {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  transform: scale(1.35);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.7), 0 0 50px rgba(59, 130, 246, 0.5);
+}
+
+.orbital-node.is-related .orbital-node-circle {
+  background: rgba(255, 255, 255, 0.7);
+  color: #000000;
+  border-color: #ffffff;
+  animation: orbital-related-pulse 1.2s infinite ease-in-out;
+}
+
+@keyframes orbital-related-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Node Title Label */
+.orbital-node-label {
+  position: absolute;
+  top: 52px;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.orbital-node.is-expanded .orbital-node-label {
+  color: #ffffff;
+  transform: scale(1.15);
+  font-weight: 800;
+  top: 56px;
+}
+
+/* Expanded Card Modal */
+.orbital-expanded-card {
+  position: absolute;
+  top: 78px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  max-width: 90vw;
+  background: rgba(10, 14, 26, 0.96);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 14px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9), 0 0 35px rgba(59, 130, 246, 0.15);
+  padding: 1.1rem;
+  z-index: 250;
+  cursor: default;
+  animation: orbital-card-in 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes orbital-card-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+/* Pin Connector Line */
+.orbital-card-pin {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Badge Styles */
+.orbital-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-family: monospace;
+  font-weight: 700;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+
+.orbital-badge.completed {
+  color: #ffffff;
+  background-color: #000000;
+  border: 1px solid #ffffff;
+}
+
+.orbital-badge.in-progress {
+  color: #000000;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+}
+
+/* Service Item in Solutions Card */
+.orbital-service-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.orbital-service-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(59, 130, 246, 0.5);
+  transform: translateX(3px);
+}
+
+.orbital-service-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+}
+
+/* Primary Action Link Button inside Card */
+.orbital-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 9px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.orbital-action-btn:hover {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.5);
+  transform: translateY(-1px);
+}
+
+.orbital-action-btn:active {
+  transform: translateY(1px);
+}

@@ -1,0 +1,540 @@
+/* ==========================================================================
+   Volumetric Studio 3D Stage & Lighting CSS - Graywolftek Hero
+   Faithful implementation of 21st.dev Volumetric Studio component.
+   ========================================================================== */
+
+.volumetric-studio-container {
+  position: relative;
+  width: 100%;
+  min-height: 680px;
+  height: 85vh;
+  max-height: 900px;
+  background-color: #000000;
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+}
+
+@media (min-width: 640px) {
+  .volumetric-studio-container {
+    min-height: 780px;
+  }
+}
+
+/* Perspective Room Boundaries */
+.vs-room {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background-color: #000000;
+  pointer-events: none;
+}
+
+/* Room Polygons */
+.vs-wall-back {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(22% 10%, 78% 10%, 78% 70%, 22% 70%);
+  background: linear-gradient(to bottom, rgba(20, 20, 22, 1) 0%, rgba(8, 8, 10, 1) 100%);
+}
+
+.vs-wall-ceiling {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0% 0%, 100% 0%, 78% 10%, 22% 10%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.85) 100%);
+}
+
+.vs-wall-left {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0% 0%, 22% 10%, 22% 70%, 0% 100%);
+  background: linear-gradient(to right, rgba(8, 8, 10, 1) 0%, rgba(18, 18, 20, 1) 70%, rgba(26, 26, 28, 1) 100%);
+}
+
+.vs-wall-right {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(100% 0%, 78% 10%, 78% 70%, 100% 100%);
+  background: linear-gradient(to left, rgba(8, 8, 10, 1) 0%, rgba(18, 18, 20, 1) 70%, rgba(26, 26, 28, 1) 100%);
+}
+
+.vs-wall-floor {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0% 100%, 100% 100%, 78% 70%, 22% 70%);
+  background: linear-gradient(to top, rgba(15, 15, 17, 1) 0%, rgba(6, 6, 8, 1) 100%);
+}
+
+/* Corner Wireframes */
+.vs-wireframes {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Light Pools on Walls & Floor */
+.vs-light-pools {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 15;
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
+}
+
+.vs-room.lights-on .vs-light-pools {
+  opacity: 1;
+}
+
+.vs-room.flickering .vs-light-pools {
+  transition: none !important;
+}
+
+.vs-pool-back {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(22% 10%, 78% 10%, 78% 70%, 22% 70%);
+  background: radial-gradient(ellipse 25% 40% at 35% 68%, rgba(255, 255, 255, 0.12) 0%, transparent 70%),
+              radial-gradient(ellipse 25% 40% at 50% 68%, rgba(255, 255, 255, 0.15) 0%, transparent 70%),
+              radial-gradient(ellipse 25% 40% at 65% 68%, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
+}
+
+.vs-pool-left {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0% 0%, 22% 10%, 22% 70%, 0% 100%);
+  background: radial-gradient(ellipse 40% 50% at 15% 75%, rgba(255, 255, 255, 0.06) 0%, transparent 60%);
+}
+
+.vs-pool-right {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(100% 0%, 78% 10%, 78% 70%, 100% 100%);
+  background: radial-gradient(ellipse 40% 50% at 85% 75%, rgba(255, 255, 255, 0.06) 0%, transparent 60%);
+}
+
+.vs-pool-floor {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0% 100%, 100% 100%, 78% 70%, 22% 70%);
+  background: radial-gradient(ellipse 35% 30% at 35% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 60%),
+              radial-gradient(ellipse 40% 32% at 50% 80%, rgba(255, 255, 255, 0.11) 0%, transparent 60%),
+              radial-gradient(ellipse 35% 30% at 65% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+}
+
+/* Volumetric Light Cones */
+.vs-volumetric-beams {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 18;
+  mix-blend-mode: screen;
+}
+
+.vs-beam-cone {
+  position: absolute;
+  top: calc(3% + 78px);
+  height: 82vh;
+  width: 320px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.vs-room.lights-on .vs-beam-cone {
+  opacity: 1;
+}
+
+.vs-room.flickering .vs-beam-cone {
+  transition: none !important;
+}
+
+/* Top Lens Flare Circle right at the fixture bottom */
+.vs-beam-flare {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 32px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.4) 45%, transparent 75%);
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+/* Volumetric Light Cone Outer Body - Seamless, Pure White Gaussian Falloff */
+.vs-beam-inner {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(46% 0%, 54% 0%, 95% 100%, 5% 100%);
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.60) 0%, 
+    rgba(255, 255, 255, 0.42) 16%, 
+    rgba(255, 255, 255, 0.26) 36%, 
+    rgba(255, 255, 255, 0.12) 62%, 
+    rgba(255, 255, 255, 0.03) 85%, 
+    transparent 100%
+  );
+  filter: blur(14px);
+}
+
+/* Volumetric Light Cone Soft Inner Core - Pure White, Softly Diffused to Eliminate Any Visible Boundary */
+.vs-beam-core {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(47.5% 0%, 52.5% 0%, 86% 100%, 14% 100%);
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.50) 0%, 
+    rgba(255, 255, 255, 0.32) 18%, 
+    rgba(255, 255, 255, 0.14) 45%, 
+    rgba(255, 255, 255, 0.03) 72%, 
+    transparent 100%
+  );
+  filter: blur(24px);
+  opacity: 0.3; /* Decreased opacity by 70% to eliminate the two-effect light disparity */
+}
+
+/* Overhead Gantry Rail Bar */
+.vs-gantry-rail {
+  position: absolute;
+  top: 3%;
+  left: 0;
+  width: 100%;
+  height: 26px;
+  z-index: 30;
+  pointer-events: none;
+  background: linear-gradient(to bottom, #111 0%, #3a3a3a 30%, #555 50%, #2a2a2a 80%, #000 100%);
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), inset 0 -1px 2px rgba(0,0,0,0.9), 0 10px 20px -5px rgba(0,0,0,0.8);
+}
+
+.vs-gantry-rail::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Spotlight Fixtures */
+.vs-fixtures-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 31;
+}
+
+.vs-fixture {
+  position: absolute;
+  top: 3%;
+  transform: translate(-50%, -4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Mounting Bracket */
+.vs-mount-bracket {
+  width: 14px;
+  height: 34px;
+  border-radius: 2px;
+  border: 1px solid #18181b;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to right, #666 0%, #ffffff 40%, #999 60%, #333 100%);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.9), inset 0 0 4px rgba(255,255,255,0.5);
+}
+
+.vs-mount-bolt {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: #18181b;
+  border-radius: 50%;
+  box-shadow: inset 0 1px 1px #000;
+}
+
+.vs-mount-bolt.top { top: 4px; }
+.vs-mount-bolt.bottom { bottom: 4px; }
+
+/* Swivel Arm */
+.vs-swivel-arm {
+  width: 8px;
+  height: 18px;
+  background: linear-gradient(to right, #18181b, #52525b, #09090b);
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  position: relative;
+}
+
+.vs-swivel-ball {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #18181b;
+  background: radial-gradient(circle at top left, #777, #111);
+  box-shadow: 0 4px 8px rgba(0,0,0,1), inset 0 1px 2px rgba(255,255,255,0.3);
+}
+
+/* Fixture Head Assembly */
+.vs-lamp-assembly {
+  position: relative;
+  margin-top: 6px;
+  width: 54px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  perspective: 400px;
+}
+
+/* Ribbed Cylinder Housing */
+.vs-lamp-housing {
+  position: absolute;
+  inset: 0;
+  border-radius: 2px 2px 16px 16px;
+  border: 1px solid black;
+  box-shadow: 0 20px 30px rgba(0,0,0,0.9);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background: linear-gradient(to right, #111 0%, #3a3a3a 30%, #555 50%, #2a2a2a 80%, #000 100%);
+}
+
+.vs-lamp-housing::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.vs-vent-slat {
+  width: 100%;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15);
+  z-index: 10;
+}
+
+/* Spotlight Glowing Lens Rim */
+.vs-lamp-lens-rim {
+  position: absolute;
+  bottom: -6px;
+  width: 58px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #18181b;
+  box-shadow: 0 10px 15px rgba(0,0,0,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, #222, #000);
+}
+
+.vs-lamp-bulb {
+  width: 34px;
+  height: 10px;
+  border-radius: 50%;
+  background: #111;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.9), inset 0 -1px 1px rgba(255,255,255,0.05);
+  transition: all 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vs-room.lights-on .vs-lamp-bulb {
+  background: #ffffff;
+  box-shadow: 0 0 24px 10px rgba(255,255,255,0.95), 0 0 50px 20px rgba(255,255,255,0.45), inset 0 0 8px #fff;
+}
+
+.vs-room.flickering .vs-lamp-bulb {
+  transition: none !important;
+}
+
+/* Barn Doors & Perspective Panels */
+.vs-barn-door-bottom {
+  position: absolute;
+  bottom: -18px;
+  width: 46px;
+  height: 20px;
+  border: 1px solid black;
+  box-shadow: 0 15px 15px rgba(0,0,0,0.8);
+  transform-origin: top;
+  transform: rotateX(-45deg);
+  background: linear-gradient(to bottom, #222, #050505);
+  z-index: 20;
+}
+
+.vs-barn-door-top {
+  position: absolute;
+  bottom: 6px;
+  width: 46px;
+  height: 20px;
+  border: 1px solid black;
+  transform-origin: bottom;
+  transform: rotateX(45deg);
+  background: linear-gradient(to top, #111, #000);
+  z-index: 0;
+}
+
+.vs-barn-door-left {
+  position: absolute;
+  bottom: -6px;
+  left: -6px;
+  width: 14px;
+  height: 22px;
+  background: #18181b;
+  border: 1px solid black;
+  transform-origin: right;
+  transform: rotateY(-55deg) skewY(15deg);
+  box-shadow: 5px 0 10px rgba(0,0,0,0.5);
+  z-index: 10;
+}
+
+.vs-barn-door-right {
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  width: 14px;
+  height: 22px;
+  background: #18181b;
+  border: 1px solid black;
+  transform-origin: left;
+  transform: rotateY(55deg) skewY(-15deg);
+  box-shadow: -5px 0 10px rgba(0,0,0,0.5);
+  z-index: 10;
+}
+
+/* Vignette & Grain */
+.vs-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  background: radial-gradient(ellipse 90% 80% at 50% 45%, transparent 55%, rgba(0,0,0,0.65) 100%);
+}
+
+.vs-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 25;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+/* Hero Content Layer in Volumetric Studio */
+.vs-content-layer {
+  position: relative;
+  z-index: 35;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 1.5rem 5rem;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Staggered Entrance Animation (Exact match to Framer Motion in user video)
+   ========================================================================== */
+
+.vs-anim-title {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.vs-anim-subtitle {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.vs-anim-ctas {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* Triggered once electrical warm-up completes and spotlights snap full on */
+.vs-content-layer.revealed .vs-anim-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vs-content-layer.revealed .vs-anim-subtitle {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.vs-content-layer.revealed .vs-anim-ctas {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+
+/* ==========================================================================
+   Responsive Viewport Scaling for Mobile, Tablet & PC
+   ========================================================================== */
+@media (max-width: 640px) {
+  .volumetric-studio-container {
+    min-height: 580px;
+    height: 85vh;
+  }
+  .vs-content-layer {
+    padding: 3.5rem 1rem 2.5rem;
+  }
+  .vs-beam-cone {
+    width: 210px;
+    top: calc(3% + 64px);
+  }
+  .vs-fixture {
+    transform: translate(-50%, -4px) scale(0.8);
+    transform-origin: top center;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .volumetric-studio-container {
+    min-height: 700px;
+    height: 80vh;
+  }
+  .vs-content-layer {
+    padding: 5rem 1.5rem 4rem;
+  }
+  .vs-beam-cone {
+    width: 270px;
+  }
+  .vs-fixture {
+    transform: translate(-50%, -4px) scale(0.9);
+    transform-origin: top center;
+  }
+}

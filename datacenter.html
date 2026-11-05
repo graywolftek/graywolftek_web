@@ -192,15 +192,15 @@
                 <div class="flex items-center flex-1 justify-start">
                     <a href="index.html" class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0 group">
                         <img src="assets/images/logo.png" alt="Graywolftek Main Logo"
-                            class="h-10 sm:h-12 w-auto flex-shrink-0 group-hover:scale-105 transition duration-300" />
-                        <span class="text-lg sm:text-xl font-extrabold tracking-wider text-white whitespace-nowrap">
+                            class="h-14 sm:h-[68px] lg:h-[72px] w-auto max-h-[76px] flex-shrink-0 object-contain drop-shadow-[0_0_12px_rgba(56,189,248,0.4)] group-hover:scale-110 transition duration-300" />
+                        <span class="text-xl sm:text-2xl font-black tracking-wider text-white whitespace-nowrap">
                             <span class="text-primary-accent text-glow">GRAY</span>WOLFTEK
                         </span>
                     </a>
                 </div>
 
                 <!-- Desktop Navigation: Home, R&D, Services, Story (Centered in Header) -->
-                <nav class="hidden md:flex space-x-6 lg:space-x-8 items-center justify-center flex-shrink-0" aria-label="Main Navigation">
+                <nav class="hidden md:flex space-x-5 lg:space-x-7 items-center justify-center flex-shrink-0" aria-label="Main Navigation">
                     <!-- 1. Home -->
                     <a href="index.html"
                         class="nav-link text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">
@@ -306,7 +306,30 @@
                         </div>
                     </div>
 
-                    <!-- 4. Story Dropdown -->
+                                        <!-- 4. Our Partner Dropdown -->
+                    <div class="nav-dropdown-item relative">
+                        <button type="button"
+                            class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
+                            aria-expanded="false" aria-haspopup="true">
+                            <span>Our Partner</span>
+                            <i data-lucide="chevron-down"
+                                class="w-3.5 h-3.5 nav-chevron opacity-70 transition-transform duration-200"></i>
+                        </button>
+                        <div
+                            class="nav-dropdown-menu hidden absolute left-0 mt-3 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                            <a href="skitre.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="sparkles"
+                                    class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Skitre AI</div>
+                                    <div class="text-[11px] text-gray-400">AI Learning & Interview Intelligence</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 5. Story Dropdown -->
                     <div class="nav-dropdown-item relative">
                         <button type="button"
                             class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
@@ -435,7 +458,24 @@
                 </div>
             </div>
 
-            <!-- 4. Story Mobile Accordion -->
+                        <!-- 4. Our Partner Mobile Accordion -->
+            <div class="border-t border-white/10 pt-1">
+                <button type="button"
+                    class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
+                    <span class="flex items-center">
+                        <i data-lucide="handshake" class="w-4 h-4 mr-2"></i> Our Partner
+                    </span>
+                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
+                </button>
+                <div class="pl-4 pr-1 py-1 space-y-1">
+                    <a href="skitre.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="sparkles" class="w-4 h-4 mr-2.5 text-gray-400"></i> Skitre AI
+                    </a>
+                </div>
+            </div>
+
+            <!-- 5. Story Mobile Accordion -->
             <div class="border-t border-white/10 pt-1">
                 <button type="button"
                     class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
@@ -633,91 +673,8 @@
     </main>
 
     <!-- Call to Action / Contact Footer -->
-    <footer id="contact" class="py-12 sm:py-16 bg-gray-900/50 border-t border-gray-800 backdrop-blur-sm relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left reveal">
-
-                <!-- Contact Info -->
-                <div class="space-y-4">
-                    <h4 class="text-xl font-semibold text-white">Connect with Us</h4>
-                    <div class="flex items-center justify-center md:justify-start text-gray-400">
-                        <i data-lucide="mail" class="w-5 h-5 mr-3 text-primary-accent"></i>
-                        <a href="mailto:graywolftek@gmail.com"
-                            class="hover:text-primary-accent transition">graywolftek@gmail.com</a>
-                    </div>
-                    <div class="flex items-center justify-center md:justify-start text-gray-400">
-                        <i data-lucide="phone" class="w-5 h-5 mr-3 text-primary-accent"></i>
-                        <a href="tel:+917559185780" class="hover:text-primary-accent transition">+91-7559185780</a>
-                    </div>
-                </div>
-
-                <!-- Location -->
-                <div class="space-y-4">
-                    <h4 class="text-xl font-semibold text-white">Visit Our Office</h4>
-                    <p class="text-gray-400">
-                        Usmanpur, Jalalpur Ambedkar Nagar <br>
-                        224149, India
-                    </p>
-                </div>
-
-                <!-- Logo & Copyright -->
-                <div class="space-y-4 md:text-right">
-                    <!-- Logo in footer for consistency -->
-                    <a href="index.html" class="flex items-center justify-center md:justify-end space-x-2">
-                        <!-- LOGO PATH: assets/images/logo.png -->
-                        <img src="assets/images/logo.png" alt="Graywolftek Main Logo" class="h-8 w-auto" />
-                        <span class="text-xl font-extrabold tracking-wider text-white">
-                            <span class="text-primary-accent text-glow">GRAY</span>WOLFTEK
-                        </span>
-                    </a>
-
-                    <!-- Social Media Links -->
-                    <div class="flex items-center justify-center md:justify-end space-x-3 mt-4">
-                        <span class="social-icon-btn cursor-default" aria-label="Twitter">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                <path
-                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
-                                </path>
-                            </svg>
-                        </span>
-                        <a href="https://www.linkedin.com/company/graywolftek/posts/?feedView=all" target="_blank"
-                            class="social-icon-btn" aria-label="LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                </path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg>
-                        </a>
-                        <a href="https://www.instagram.com/graywolftek/" target="_blank" class="social-icon-btn"
-                            aria-label="Instagram">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                            </svg>
-                        </a>
-                        <span class="social-icon-btn cursor-default" aria-label="Facebook">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                            </svg>
-                        </span>
-                    </div>
-
-                    <p class="text-sm text-gray-500">&copy; 2024 Graywolftek. All Rights Reserved.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+        <!-- Pushpin Tear Footer (Torn Poster in Deep Ocean & Midnight Theme) -->
+    <footer id="contact"></footer>
 
     <!-- JavaScript for Mobile Menu Toggle and Lucide Icons -->
     <script>
@@ -772,6 +729,8 @@
         revealOnScroll();
     </script>
     <script src="assets/js/menu-dropdown.js"></script>
+    <!-- Pushpin Tear Footer Interactive Script -->
+    <script src="assets/js/pushpin-footer.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skitre AI - AI Workplace Simulations & Interview Intelligence | Graywolftek Partner</title>
+    <meta name="description"
+        content="Skitre.ai is an AI-powered workplace simulation, speech analytics, and automated video interview platform. Strategic growth partner with Graywolftek.">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Vanilla Tilt for 3D Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- GooeyNav Liquid Navigation Stylesheet -->
+    <link rel="stylesheet" href="assets/css/GooeyNav.css">
+
+    <!-- Use Inter font family -->
+    <style type="text/tailwindcss">
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section[id], footer[id] {
+            scroll-margin-top: 5.5rem;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0b141d;
+            /* Deep Ocean Blue multi-point radial gradient */
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 100, 102, 0.45) 0, transparent 50%),
+                radial-gradient(at 50% 0%, rgba(27, 58, 75, 0.55) 0, transparent 55%),
+                radial-gradient(at 100% 0%, rgba(77, 25, 77, 0.45) 0, transparent 50%),
+                radial-gradient(at 85% 65%, rgba(62, 31, 71, 0.35) 0, transparent 50%),
+                radial-gradient(at 15% 85%, rgba(6, 90, 96, 0.35) 0, transparent 50%);
+            background-attachment: fixed;
+            color: #f3f4f6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ORBAI-Style Variables */
+        :root {
+            /* Coolors Deep Ocean Blue Palette */
+            --c-006466: #006466;
+            --c-065a60: #065a60;
+            --c-0b525b: #0b525b;
+            --c-144552: #144552;
+            --c-1b3a4b: #1b3a4b;
+            --c-212f45: #212f45;
+            --c-272640: #272640;
+            --c-312244: #312244;
+            --c-3e1f47: #3e1f47;
+            --c-4d194d: #4d194d;
+
+            /* Continuous Deep Ocean Blue Gradients */
+            --gradient-ocean-full: linear-gradient(135deg, #006466 0%, #0b525b 22%, #1b3a4b 45%, #272640 68%, #4d194d 100%);
+            --gradient-ocean-horizontal: linear-gradient(90deg, #006466 0%, #0b525b 25%, #1b3a4b 50%, #3e1f47 75%, #4d194d 100%);
+            --gradient-ocean-accent: linear-gradient(135deg, #2dd4bf 0%, #38bdf8 50%, #c084fc 100%);
+
+            --color-primary-accent: #2dd4bf; /* Luminous Ocean Teal */
+            --color-secondary-accent: #c084fc; /* Orchid / Violet Accent */
+            --color-dark-text: #f3f4f6;
+            --color-glass-border: rgba(255, 255, 255, 0.08);
+            --color-glass-bg: rgba(27, 58, 75, 0.22);
+        }
+
+        /* Glassmorphism Utility */
+        .menu-dropdown-panel {
+            background: #0b141d !important;
+            background: linear-gradient(165deg, rgba(11, 20, 29, 0.98) 0%, rgba(18, 38, 52, 0.98) 55%, rgba(35, 25, 48, 0.98) 100%) !important;
+            backdrop-filter: blur(28px) !important;
+            -webkit-backdrop-filter: blur(28px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.16) !important;
+            box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.92), 0 0 35px rgba(0, 100, 102, 0.25) !important;
+        }
+
+        .glass-panel {
+            background: rgba(27, 58, 75, 0.22);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--color-glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+        }
+
+        /* Glowing Text */
+        .text-glow {
+            text-shadow: 0 0 20px rgba(45, 212, 191, 0.5), 0 0 40px rgba(192, 132, 252, 0.35);
+        }
+
+        .section-separator::after {
+            content: '';
+            display: block;
+            width: 140px;
+            height: 3px;
+            background: linear-gradient(90deg, #006466 0%, #0b525b 25%, #1b3a4b 50%, #3e1f47 75%, #4d194d 100%);
+            margin: 1.5rem auto 3rem;
+            border-radius: 9999px;
+            box-shadow: 0 0 12px rgba(45, 212, 191, 0.5);
+        }
+
+        .cta-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 100, 102, 0.4);
+            background: linear-gradient(135deg, #006466 0%, #144552 35%, #272640 70%, #4d194d 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px) scale(1.05);
+            background: linear-gradient(135deg, #065a60 0%, #1b3a4b 35%, #312244 70%, #3e1f47 100%);
+            box-shadow: 0 6px 30px rgba(77, 25, 77, 0.6);
+        }
+
+        /* 3D Card Effect - Dark Mode */
+        .card-3d-effect {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .card-3d-effect:hover {
+            border-color: rgba(129, 140, 248, 0.35);
+            box-shadow: 0 12px 40px 0 rgba(79, 70, 229, 0.2);
+        }
+
+        /* Scroll Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.7s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Style for the small social icons */
+        .social-icon-btn {
+            @apply w-8 h-8 flex items-center justify-center bg-white/10 border border-white/20 rounded-lg hover:bg-white/20 transition duration-150;
+            transition: all 0.3s ease;
+        }
+
+        /* Pulse Beacon */
+        @keyframes beacon {
+            0% { transform: scale(0.95); opacity: 0.9; }
+            50% { transform: scale(1.3); opacity: 0.4; }
+            100% { transform: scale(0.95); opacity: 0.9; }
+        }
+        .beacon-pulse {
+            animation: beacon 2s infinite ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <!-- Header Navigation with Dropdowns -->
+    <header class="sticky top-0 z-50 glass-panel shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Company Logo and Name (Left) -->
+                <div class="flex items-center flex-1 justify-start">
+                    <a href="index.html" class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0 group">
+                        <img src="assets/images/logo.png" alt="Graywolftek Main Logo"
+                            class="h-14 sm:h-[68px] lg:h-[72px] w-auto max-h-[76px] flex-shrink-0 object-contain drop-shadow-[0_0_12px_rgba(56,189,248,0.4)] group-hover:scale-110 transition duration-300" />
+                        <span class="text-xl sm:text-2xl font-black tracking-wider text-white whitespace-nowrap">
+                            <span class="text-primary-accent text-glow">GRAY</span>WOLFTEK
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation: Home, R&D, Services, Our Partner, Story -->
+                <nav class="hidden md:flex space-x-5 lg:space-x-7 items-center justify-center flex-shrink-0" aria-label="Main Navigation">
+                    <!-- 1. Home -->
+                    <a href="index.html"
+                        class="nav-link text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">
+                        Home
+                    </a>
+
+                    <!-- 2. R&D Dropdown -->
+                    <div class="nav-dropdown-item relative">
+                        <button type="button"
+                            class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
+                            aria-expanded="false" aria-haspopup="true">
+                            <span>R&D</span>
+                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 nav-chevron opacity-70 transition-transform duration-200"></i>
+                        </button>
+                        <div class="nav-dropdown-menu hidden absolute left-0 mt-3 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                            <a href="projects.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="code-2" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Project</div>
+                                    <div class="text-[11px] text-gray-400">Innovation Lab & Prototypes</div>
+                                </div>
+                            </a>
+                            <a href="product.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="box" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Product</div>
+                                    <div class="text-[11px] text-gray-400">Shelfly & Platforms</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 3. Services Dropdown -->
+                    <div class="nav-dropdown-item relative">
+                        <button type="button"
+                            class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
+                            aria-expanded="false" aria-haspopup="true">
+                            <span>Services</span>
+                            <i data-lucide="chevron-down"
+                                class="w-3.5 h-3.5 nav-chevron opacity-70 transition-transform duration-200"></i>
+                        </button>
+                        <div
+                            class="nav-dropdown-menu hidden absolute left-0 mt-3 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                            <!-- Core Solutions Sub-Dropdown -->
+                            <div class="nav-subdropdown-item relative group/sub">
+                                <button type="button"
+                                    class="nav-subdropdown-trigger w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group text-left cursor-pointer"
+                                    aria-expanded="false" aria-haspopup="true">
+                                    <div class="flex items-center">
+                                        <i data-lucide="layers"
+                                            class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                        <div>
+                                            <div class="font-semibold text-sm">Core Solutions</div>
+                                            <div class="text-[11px] text-gray-400">Infrastructure, Staffing & Apps</div>
+                                        </div>
+                                    </div>
+                                    <i data-lucide="chevron-right"
+                                        class="w-3.5 h-3.5 nav-subchevron text-gray-400 opacity-70 group-hover/sub:translate-x-0.5 transition-transform duration-150"></i>
+                                </button>
+                                <div
+                                    class="nav-subdropdown-menu hidden md:group-hover/sub:block absolute left-full top-0 ml-1.5 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                                    <a href="datacenter.html"
+                                        class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                        <i data-lucide="server"
+                                            class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                        <div>
+                                            <div class="font-semibold text-sm">Data Centre Infrastructure</div>
+                                            <div class="text-[11px] text-gray-400">Turnkey Deployments & Cloud</div>
+                                        </div>
+                                    </a>
+                                    <a href="staffing.html"
+                                        class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                        <i data-lucide="users"
+                                            class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                        <div>
+                                            <div class="font-semibold text-sm">Staffing Firm</div>
+                                            <div class="text-[11px] text-gray-400">High-Performing Tech Squads</div>
+                                        </div>
+                                    </a>
+                                    <a href="software.html"
+                                        class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                        <i data-lucide="code"
+                                            class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                        <div>
+                                            <div class="font-semibold text-sm">Software & App Development</div>
+                                            <div class="text-[11px] text-gray-400">Full-Stack Scalable Solutions</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <a href="insights.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="trending-up"
+                                    class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Insights</div>
+                                    <div class="text-[11px] text-gray-400">Industry Research & Analysis</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 4. Our Partner Dropdown -->
+                    <div class="nav-dropdown-item relative">
+                        <button type="button"
+                            class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-white hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
+                            aria-expanded="false" aria-haspopup="true">
+                            <span class="text-primary-accent">Our Partner</span>
+                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 nav-chevron opacity-70 transition-transform duration-200"></i>
+                        </button>
+                        <div class="nav-dropdown-menu hidden absolute left-0 mt-3 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                            <a href="skitre.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-white bg-white/10 transition group">
+                                <i data-lucide="sparkles" class="w-4 h-4 mr-3 text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Skitre AI</div>
+                                    <div class="text-[11px] text-gray-300">AI Learning & Interview Intelligence</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 5. Story Dropdown -->
+                    <div class="nav-dropdown-item relative">
+                        <button type="button"
+                            class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
+                            aria-expanded="false" aria-haspopup="true">
+                            <span>Story</span>
+                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 nav-chevron opacity-70 transition-transform duration-200"></i>
+                        </button>
+                        <div class="nav-dropdown-menu hidden absolute right-0 md:left-0 lg:right-auto mt-3 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                            <a href="founder/"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="user" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Founder</div>
+                                    <div class="text-[11px] text-gray-400">Vishal Maurya – Founder & CEO</div>
+                                </div>
+                            </a>
+                            <a href="team.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="users" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Our Team</div>
+                                    <div class="text-[11px] text-gray-400">Beta, Delta & Omega Squads</div>
+                                </div>
+                            </a>
+                            <a href="about.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="compass" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">About Us</div>
+                                    <div class="text-[11px] text-gray-400">Company Vision & Squads</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Right Action: CTA & Mobile Button (Right) -->
+                <div class="flex items-center flex-1 justify-end space-x-4">
+                    <a href="index.html#contact"
+                        class="hidden sm:inline-flex items-center px-5 py-2.5 text-sm font-medium rounded-xl text-white cta-button shadow-sm">
+                        Get Started
+                    </a>
+
+                    <!-- Mobile Hamburger Button -->
+                    <button id="mobile-menu-btn" type="button"
+                        class="md:hidden inline-flex items-center justify-center p-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition focus:outline-none cursor-pointer"
+                        aria-expanded="false" aria-label="Toggle Navigation">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Drawer with Same Dropdowns/Accordions -->
+        <div id="mobile-nav-drawer" class="hidden md:hidden menu-dropdown-panel border-t border-white/10 px-4 pt-3 pb-6 space-y-2">
+            <!-- 1. Home -->
+            <a href="index.html"
+                class="flex items-center px-3.5 py-2.5 rounded-xl text-sm font-semibold text-white hover:bg-white/10 transition">
+                <i data-lucide="home" class="w-4 h-4 mr-2.5 text-primary-accent"></i>
+                Home
+            </a>
+
+            <!-- 2. R&D Mobile Accordion -->
+            <div class="border-t border-white/10 pt-1">
+                <button type="button"
+                    class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
+                    <span class="flex items-center">
+                        <i data-lucide="flask-conical" class="w-4 h-4 mr-2"></i> R&D
+                    </span>
+                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
+                </button>
+                <div class="pl-4 pr-1 py-1 space-y-1">
+                    <a href="projects.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="code-2" class="w-4 h-4 mr-2.5 text-gray-400"></i> Project
+                    </a>
+                    <a href="product.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="box" class="w-4 h-4 mr-2.5 text-gray-400"></i> Product
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. Services Mobile Accordion -->
+            <div class="border-t border-white/10 pt-1">
+                <button type="button"
+                    class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
+                    <span class="flex items-center">
+                        <i data-lucide="briefcase" class="w-4 h-4 mr-2"></i> Services
+                    </span>
+                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
+                </button>
+                <div class="pl-4 pr-1 py-1 space-y-1">
+                    <div class="pl-2 border-l border-white/10 my-1 space-y-1">
+                        <span class="text-[10px] uppercase font-bold text-gray-400 tracking-wider px-2 block">Core Solutions</span>
+                        <div class="pl-2 space-y-1">
+                            <a href="datacenter.html"
+                                class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                                <i data-lucide="server" class="w-4 h-4 mr-2.5 text-gray-400"></i> Data Centre Infrastructure
+                            </a>
+                            <a href="staffing.html"
+                                class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                                <i data-lucide="users" class="w-4 h-4 mr-2.5 text-gray-400"></i> Staffing Firm
+                            </a>
+                            <a href="software.html"
+                                class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                                <i data-lucide="code" class="w-4 h-4 mr-2.5 text-gray-400"></i> Software & App Development
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="insights.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="trending-up" class="w-4 h-4 mr-2.5 text-gray-400"></i> Insights
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4. Our Partner Mobile Accordion -->
+            <div class="border-t border-white/10 pt-1">
+                <button type="button"
+                    class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
+                    <span class="flex items-center">
+                        <i data-lucide="handshake" class="w-4 h-4 mr-2"></i> Our Partner
+                    </span>
+                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
+                </button>
+                <div class="pl-4 pr-1 py-1 space-y-1">
+                    <a href="skitre.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-white bg-white/10 transition">
+                        <i data-lucide="sparkles" class="w-4 h-4 mr-2.5 text-primary-accent"></i> Skitre AI
+                    </a>
+                </div>
+            </div>
+
+            <!-- 5. Story Mobile Accordion -->
+            <div class="border-t border-white/10 pt-1">
+                <button type="button"
+                    class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
+                    <span class="flex items-center">
+                        <i data-lucide="book-open" class="w-4 h-4 mr-2"></i> Story
+                    </span>
+                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
+                </button>
+                <div class="pl-4 pr-1 py-1 space-y-1">
+                    <a href="founder/"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="user" class="w-4 h-4 mr-2.5 text-gray-400"></i> Founder
+                    </a>
+                    <a href="team.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="users" class="w-4 h-4 mr-2.5 text-gray-400"></i> Our Team
+                    </a>
+                    <a href="about.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="compass" class="w-4 h-4 mr-2.5 text-gray-400"></i> About Us
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile CTA -->
+            <div class="pt-3 border-t border-white/10">
+                <a href="index.html#contact"
+                    class="flex items-center justify-center w-full px-4 py-2.5 rounded-xl text-xs font-semibold text-white cta-button tracking-wide">
+                    <i data-lucide="mail" class="w-3.5 h-3.5 mr-2"></i> Get Started
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-12 sm:py-16">
+        <!-- Breadcrumb -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+            <div class="flex items-center text-xs font-medium text-gray-400 space-x-2">
+                <a href="index.html" class="hover:text-primary-accent transition flex items-center">
+                    <i data-lucide="home" class="w-3.5 h-3.5 mr-1"></i> Home
+                </a>
+                <span>/</span>
+                <span class="text-gray-400">Our Partner</span>
+                <span>/</span>
+                <span class="text-primary-accent font-semibold">Skitre AI</span>
+            </div>
+        </div>
+
+        <!-- Product Hero Section -->
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+            <span
+                class="inline-flex items-center space-x-2 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary-accent bg-primary-accent/10 rounded-full mb-5 border border-primary-accent/20 backdrop-blur-md shadow-sm">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-primary-accent"></i>
+                <span>AI Simulation & Interview Intelligence — Strategic Partner</span>
+            </span>
+
+            <h1
+                class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 text-glow reveal leading-tight">
+                Workplace Readiness Through <br class="hidden sm:inline" />
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 via-sky-300 to-[#e879f9]">Interactive AI Simulations</span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8 reveal">
+                Moving beyond passive video courses. Skitre.ai delivers dynamic, voice-enabled scenario simulations, face-rendered video interview bots, and speech analytics that bridge academic learning with enterprise job execution.
+            </p>
+
+            <!-- Partnership Trust Banner (Matching Shelfly Style) -->
+            <div class="max-w-3xl mx-auto mb-10 p-5 rounded-xl glass-panel bg-teal-500/10 border border-teal-500/25 text-left flex items-start space-x-3.5 reveal">
+                <i data-lucide="handshake" class="w-5 h-5 text-teal-400 flex-shrink-0 mt-0.5"></i>
+                <div class="text-xs sm:text-sm text-gray-200 leading-relaxed">
+                    <strong class="text-teal-300 font-semibold block mb-0.5">Graywolftek & Skitre.ai Strategic Partnership</strong>
+                    Graywolftek partners with Skitre.ai to drive scalable impact in the education and skilling ecosystem—applying Business Strategy, Business Development, and Education frameworks to build key institutional relationships, expand training access, and deliver real-world employability.
+                </div>
+            </div>
+
+            <!-- CTA Buttons linking to real Skitre.ai resources -->
+            <div class="flex flex-wrap items-center justify-center gap-4 reveal">
+                <a href="https://skitre.ai" target="_blank" rel="noopener noreferrer"
+                    class="px-8 py-3.5 text-base font-semibold rounded-lg text-white cta-button inline-flex items-center">
+                    <span>Visit Skitre.ai Platform</span>
+                    <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                </a>
+                <a href="mailto:graywolftek@gmail.com"
+                    class="px-8 py-3.5 text-base font-semibold rounded-lg text-white bg-white/10 border border-white/20 hover:bg-white/20 transition duration-150 inline-flex items-center">
+                    <i data-lucide="mail" class="w-4 h-4 mr-2 text-primary-accent"></i>
+                    <span>Partner with Us</span>
+                </a>
+            </div>
+
+            <!-- Platform Impact Metrics Strip -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-14 max-w-4xl mx-auto reveal">
+                <div class="glass-panel p-5 rounded-2xl border border-teal-500/20 text-center">
+                    <div class="w-12 h-12 rounded-xl bg-teal-500/10 text-primary-accent flex items-center justify-center mx-auto mb-3">
+                        <i data-lucide="message-square" class="w-6 h-6"></i>
+                    </div>
+                    <div class="text-xl sm:text-2xl font-extrabold text-white text-glow">Real-Time Voice AI</div>
+                    <div class="text-xs text-gray-400 mt-1">Spontaneous conversational dialogue</div>
+                </div>
+
+                <div class="glass-panel p-5 rounded-2xl border border-sky-500/20 text-center">
+                    <div class="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center mx-auto mb-3">
+                        <i data-lucide="video" class="w-6 h-6"></i>
+                    </div>
+                    <div class="text-xl sm:text-2xl font-extrabold text-white text-glow">Face-Rendered Bots</div>
+                    <div class="text-xs text-gray-400 mt-1">Realistic mock interview agents</div>
+                </div>
+
+                <div class="glass-panel p-5 rounded-2xl border border-emerald-500/20 text-center">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mx-auto mb-3">
+                        <i data-lucide="mic" class="w-6 h-6"></i>
+                    </div>
+                    <div class="text-xl sm:text-2xl font-extrabold text-white text-glow">Speech Analytics</div>
+                    <div class="text-xs text-gray-400 mt-1">Pronunciation, pace & filler tracking</div>
+                </div>
+
+                <div class="glass-panel p-5 rounded-2xl border border-purple-500/20 text-center">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mx-auto mb-3">
+                        <i data-lucide="award" class="w-6 h-6"></i>
+                    </div>
+                    <div class="text-xl sm:text-2xl font-extrabold text-white text-glow">Skillometer Rubric</div>
+                    <div class="text-xs text-gray-400 mt-1">Standardized objective scoring</div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- The Skitre.ai Core Philosophy: Active Practice over Passive Consumption -->
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 text-center">
+            <div class="glass-panel p-8 sm:p-14 rounded-3xl reveal border border-white/10">
+                <span class="text-xs font-semibold uppercase tracking-wider text-primary-accent">Product Philosophy</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-6 text-glow">
+                    Replacing Passive Theory with Conversational Muscle Memory
+                </h2>
+                <p class="text-base sm:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto mb-8">
+                    Traditional e-learning relies on passive video lectures and multiple-choice quizzes that fail to evaluate how a candidate communicates, negotiates, or handles stress in the workplace. Skitre.ai immerses learners in interactive conversational reps so they build instinctive competence before entering high-stakes interviews or client meetings.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="https://skitre.ai" target="_blank" rel="noopener noreferrer"
+                        class="px-6 py-3 rounded-lg text-sm font-semibold text-white bg-primary-accent/20 border border-primary-accent/30 hover:bg-primary-accent/30 transition inline-flex items-center">
+                        <span>Explore Platform on skitre.ai</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        
+
+        
+
+        
+
+        <!-- Cross-Link to Products & Contact -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <div class="glass-panel p-8 sm:p-10 rounded-2xl border border-white/10 text-center max-w-4xl mx-auto reveal">
+                <span class="text-xs font-semibold uppercase tracking-wider text-primary-accent">Graywolftek Strategic Ecosystem</span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-1 mb-3">Partner with Us on Transformative Technology</h3>
+                <p class="text-gray-300 text-sm max-w-2xl mx-auto mb-6">
+                    Interested in adopting Skitre.ai across your institution, exploring our proprietary R&D product Shelfly, or building high-performing remote technology squads?
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-4">
+                    <a href="product.html"
+                        class="inline-flex items-center px-6 py-3 rounded-lg text-sm font-semibold text-white bg-white/10 border border-white/20 hover:bg-white/20 transition duration-150">
+                        <i data-lucide="box" class="w-4 h-4 mr-2 text-primary-accent"></i>
+                        <span>Explore Shelfly Product</span>
+                    </a>
+                    <a href="https://skitre.ai" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center px-6 py-3 rounded-lg text-sm font-semibold text-white cta-button">
+                        <span>Visit skitre.ai Platform</span>
+                        <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Call to Action / Contact Footer -->
+        <!-- Pre-Footer Call to Action -->
+    <section class="py-16 text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4 text-glow">Ready to Build Your Elite Team?</h2>
+            <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+                Let Graywolftek be the alpha in streamlining your business processes. Schedule your free consulting call today.
+            </p>
+            <a href="mailto:graywolftek@gmail.com" class="px-8 py-3.5 text-base font-semibold rounded-xl text-white cta-button inline-flex items-center">
+                <span>Start the Conversation</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Pushpin Tear Footer (Torn Poster in Deep Ocean & Midnight Theme) -->
+    <footer id="contact"></footer>
+
+    <!-- JavaScript for Mobile Menu, Lucide Icons, and Scroll Reveal -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 120;
+
+            revealElements.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    </script>
+
+    <!-- Menu Dropdowns Script -->
+    <script src="assets/js/menu-dropdown.js"></script>
+    <!-- Pushpin Tear Footer Interactive Script -->
+    <script src="assets/js/pushpin-footer.js"></script>
+</body>
+
+</html>
+

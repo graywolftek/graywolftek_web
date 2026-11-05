@@ -1,0 +1,74 @@
+/* Graywolftek Team Lanyard Rail Component Styles */
+:root {
+  --lanyard-bg: #07151e;
+  --lanyard-fg: #f8fafc;
+  --lanyard-card: #0b222d;
+  --lanyard-card-fg: #f1f5f9;
+  --lanyard-muted: rgba(255, 255, 255, 0.08);
+  --lanyard-muted-fg: #94a3b8;
+  --lanyard-border: rgba(20, 184, 166, 0.25);
+  --lanyard-ring: #14b8a6;
+}
+
+[data-slot="team-lanyard-rail"] {
+  --color-background: var(--lanyard-bg);
+  --color-foreground: var(--lanyard-fg);
+  --color-card: var(--lanyard-card);
+  --color-card-foreground: var(--lanyard-card-fg);
+  --color-muted: var(--lanyard-muted);
+  --color-muted-foreground: var(--lanyard-muted-fg);
+  --color-border: var(--lanyard-border);
+  --color-ring: var(--lanyard-ring);
+  color-scheme: dark;
+}
+
+/* Tone Colors for Badges and Straps */
+.text-chart-1 { color: #14b8a6; }
+.text-chart-2 { color: #0ea5e9; }
+.text-chart-3 { color: #a855f7; }
+.text-chart-4 { color: #ec4899; }
+.text-chart-5 { color: #f59e0b; }
+
+.bg-chart-1 { background-color: #14b8a6; }
+.bg-chart-2 { background-color: #0ea5e9; }
+.bg-chart-3 { background-color: #a855f7; }
+.bg-chart-4 { background-color: #ec4899; }
+.bg-chart-5 { background-color: #f59e0b; }
+
+/* 3D and Face Preservations */
+.preserve-3d {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Lanyard Stage & Rail */
+[data-slot="team-lanyard-rail"] [data-stage] {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+[data-slot="team-lanyard-rail"] button:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 4px;
+}
+
+[data-slot="team-lanyard-rail"] a {
+  text-decoration: none;
+}
+
+[data-slot="team-lanyard-rail"] a:hover {
+  background-color: var(--color-muted);
+}
+
