@@ -180,6 +180,129 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* From Uiverse.io by vinodjangid07 */ 
+        .cardContainer {
+            width: 250px;
+            height: 310px;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition-duration: .5s;
+            cursor: pointer;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .profileDiv {
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(24, 24, 24);
+            transition-duration: .5s;
+            color: rgb(155, 155, 155);
+            font-family: Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .cardContainer:hover .profileDiv {
+            transform: translateX(-25%) translateY(-20%);
+            transition-duration: .5s;
+            box-shadow: -8px -8px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(45, 212, 191, 0.25);
+        }
+
+        .infoDiv {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: aliceblue;
+            z-index: 1;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .nameDiv {
+            width: 75%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            background-color: aliceblue;
+            font-family: Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+            gap: 2px;
+            padding-bottom: 12px;
+            padding-left: 8px;
+        }
+
+        .name {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            font-weight: 700;
+            color: black;
+            text-align: center;
+        }
+
+        .role {
+            margin: 0;
+            padding: 0;
+            font-size: 13px;
+            font-weight: 500;
+            color: rgb(48, 48, 48);
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .socialDiv {
+            width: 25%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: rgb(14, 14, 14);
+            gap: 20px;
+        }
+
+        .infoDiv a {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease;
+        }
+
+        .infoDiv a:hover {
+            transform: scale(1.25);
+        }
+
+        .socials {
+            width: 100%;
+            max-width: 22px;
+            max-height: 22px;
+            fill: rgb(14, 14, 14);
+            color: rgb(14, 14, 14);
+            transition: fill 0.2s ease, color 0.2s ease;
+        }
+
+        .infoDiv a:hover .socials {
+            fill: #006466;
+            color: #006466;
+        }
     </style>
 
     <!-- Structured Data (JSON-LD) connecting Person Vishal Maurya with Organization Graywolftek -->
@@ -307,18 +430,69 @@
                         </div>
                     </div>
 
-                    <!-- 3. Services Dropdown -->
+                                        <!-- 3. Services Dropdown -->
                     <div class="nav-dropdown-item relative">
                         <button type="button"
                             class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
                             aria-expanded="false" aria-haspopup="true">
                             <span>Services</span>
-                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 nav-chevron opacity-70 transition-transform duration-200"></i>
+                            <i data-lucide="chevron-down"
+                                class="w-3.5 h-3.5 nav-chevron opacity-70 transition-transform duration-200"></i>
                         </button>
-                        <div class="nav-dropdown-menu hidden absolute left-0 mt-3 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                        <div
+                            class="nav-dropdown-menu hidden absolute left-0 mt-3 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                            <!-- Core Solutions Sub-Dropdown -->
+                            <div class="nav-subdropdown-item relative group/sub">
+                                <button type="button"
+                                    class="nav-subdropdown-trigger w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group text-left cursor-pointer"
+                                    aria-expanded="false" aria-haspopup="true">
+                                    <div class="flex items-center">
+                                        <i data-lucide="layers"
+                                            class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                        <div>
+                                            <div class="font-semibold text-sm">Core Solutions</div>
+                                            <div class="text-[11px] text-gray-400">Infrastructure, Staffing & Apps</div>
+                                        </div>
+                                    </div>
+                                    <i data-lucide="chevron-right"
+                                        class="w-3.5 h-3.5 nav-subchevron text-gray-400 opacity-70 group-hover/sub:translate-x-0.5 transition-transform duration-150"></i>
+                                </button>
+                                <div
+                                    class="nav-subdropdown-menu hidden md:group-hover/sub:block absolute left-full top-0 ml-1.5 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                                    <a href="../datacenter.html"
+                                        class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                        <i data-lucide="server"
+                                            class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                        <div>
+                                            <div class="font-semibold text-sm">Data Centre Infrastructure</div>
+                                            <div class="text-[11px] text-gray-400">Turnkey Deployments & Cloud</div>
+                                        </div>
+                                    </a>
+                                    <a href="../staffing.html"
+                                        class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                        <i data-lucide="users"
+                                            class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                        <div>
+                                            <div class="font-semibold text-sm">Staffing Firm</div>
+                                            <div class="text-[11px] text-gray-400">High-Performing Tech Squads</div>
+                                        </div>
+                                    </a>
+                                    <a href="../software.html"
+                                        class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                        <i data-lucide="code"
+                                            class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                        <div>
+                                            <div class="font-semibold text-sm">Software & App Development</div>
+                                            <div class="text-[11px] text-gray-400">Full-Stack Scalable Solutions</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
                             <a href="../insights.html"
                                 class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
-                                <i data-lucide="trending-up" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <i data-lucide="trending-up"
+                                    class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
                                 <div>
                                     <div class="font-semibold text-sm">Insights</div>
                                     <div class="text-[11px] text-gray-400">Industry Research & Analysis</div>
@@ -352,15 +526,7 @@
                                     <div class="text-[11px] text-gray-400">Beta, Delta & Omega Squads</div>
                                 </div>
                             </a>
-                            <a href="../index.html#blog"
-                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
-                                <i data-lucide="newspaper" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
-                                <div>
-                                    <div class="font-semibold text-sm">Blog</div>
-                                    <div class="text-[11px] text-gray-400">Articles & Perspectives</div>
-                                </div>
-                            </a>
-                            <a href="../index.html#about"
+                            <a href="../about.html"
                                 class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
                                 <i data-lucide="compass" class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
                                 <div>
@@ -420,16 +586,43 @@
                 </div>
             </div>
 
-            <!-- 3. Services Mobile Accordion -->
+                        <!-- 3. Services Mobile Accordion -->
             <div class="border-t border-white/10 pt-1">
                 <button type="button"
                     class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
                     <span class="flex items-center">
                         <i data-lucide="briefcase" class="w-4 h-4 mr-2"></i> Services
                     </span>
-                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
+                    <i data-lucide="chevron-down"
+                        class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
                 </button>
                 <div class="pl-4 pr-1 py-1 space-y-1">
+                    <!-- Core Solutions Nested Accordion -->
+                    <div>
+                        <button type="button"
+                            class="mobile-accordion-btn flex items-center justify-between w-full px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition cursor-pointer">
+                            <span class="flex items-center">
+                                <i data-lucide="layers" class="w-4 h-4 mr-2.5 text-gray-400"></i> Core Solutions
+                            </span>
+                            <i data-lucide="chevron-down"
+                                class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
+                        </button>
+                        <div class="pl-4 pr-1 py-1 space-y-1 hidden">
+                            <a href="../datacenter.html"
+                                class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/10 transition">
+                                <i data-lucide="server" class="w-4 h-4 mr-2.5 text-gray-400"></i> Data Centre Infrastructure
+                            </a>
+                            <a href="../staffing.html"
+                                class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/10 transition">
+                                <i data-lucide="users" class="w-4 h-4 mr-2.5 text-gray-400"></i> Staffing Firm
+                            </a>
+                            <a href="../software.html"
+                                class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/10 transition">
+                                <i data-lucide="code" class="w-4 h-4 mr-2.5 text-gray-400"></i> Software & App Development
+                            </a>
+                        </div>
+                    </div>
+
                     <a href="../insights.html"
                         class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
                         <i data-lucide="trending-up" class="w-4 h-4 mr-2.5 text-gray-400"></i> Insights
@@ -455,11 +648,7 @@
                         class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
                         <i data-lucide="users" class="w-4 h-4 mr-2.5 text-gray-400"></i> Our Team
                     </a>
-                    <a href="../index.html#blog"
-                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
-                        <i data-lucide="newspaper" class="w-4 h-4 mr-2.5 text-gray-400"></i> Blog
-                    </a>
-                    <a href="../index.html#about"
+                    <a href="../about.html"
                         class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
                         <i data-lucide="compass" class="w-4 h-4 mr-2.5 text-gray-400"></i> About Us
                     </a>
@@ -504,25 +693,30 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
 
                     <!-- Profile Image Column (Left on Desktop) -->
-                    <div class="lg:col-span-5 flex flex-col items-center">
-                        <div class="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden border-2 border-teal-500/30 shadow-2xl bg-slate-900"
-                            data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
-                            <img src="../assets/team/vishal.png"
-                                alt="Vishal Maurya – Founder and CEO of Graywolftek"
-                                class="w-full h-full object-cover"
-                                onerror="this.onerror=null; this.src='https://placehold.co/600x600/0f172a/818cf8?text=Vishal+Maurya'" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
-                            <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs text-gray-300">
-                                <span class="flex items-center font-semibold text-white">
-                                    <span class="w-2 h-2 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>
-                                    Founder & CEO
-                                </span>
-                                <span class="text-gray-400 font-mono text-[11px]">Graywolftek</span>
+                    <div class="lg:col-span-5 flex flex-col items-center justify-center pt-8 pr-2 sm:pr-4">
+                        <!-- From Uiverse.io by vinodjangid07 -->
+                        <div class="cardContainer">
+                            <div class="profileDiv">
+                                <img src="../assets/team/vishal.png"
+                                    alt="Vishal Maurya – Founder and CEO of Graywolftek"
+                                    class="w-full h-full object-cover"
+                                    onerror="this.onerror=null; this.src='https://placehold.co/600x600/0f172a/818cf8?text=Vishal+Maurya'" />
+                            </div>
+                            <div class="infoDiv">
+                                <div class="nameDiv">
+                                    <p class="name">Vishal Maurya</p>
+                                    <p class="role">Founder & CEO</p>
+                                </div>
+                                <div class="socialDiv">
+                                    <a href="#github" aria-label="GitHub"><svg viewBox="0 0 496 512" class="socials github"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a>
+                                    <a href="https://www.linkedin.com/in/vishal-maurya-aba607243/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 448 512" class="socials linkdin"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg></a>
+                                    <a href="https://www.instagram.com/graywolftek/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg class="socials instagram" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg></a>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Verified Profiles Pill Box -->
-                        <div class="mt-6 w-full max-w-xs flex flex-col gap-2 text-center">
+                        <div class="mt-8 w-full max-w-xs flex flex-col gap-2 text-center">
                             <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Verified Professional Profile</span>
                             <div class="flex items-center justify-center space-x-3">
                                 <a href="https://www.linkedin.com/in/vishal-maurya-aba607243/"
@@ -834,7 +1028,7 @@
                     <div class="flex items-center justify-center md:justify-end space-x-4 text-xs text-gray-400 mt-2">
                         <a href="../founder/" class="text-primary-accent hover:underline font-medium">Founder Profile</a>
                         <span>&bull;</span>
-                        <a href="../index.html#about" class="hover:text-primary-accent transition">About</a>
+                        <a href="../about.html" class="hover:text-primary-accent transition">About</a>
                         <span>&bull;</span>
                         <a href="../product.html" class="hover:text-primary-accent transition">Product</a>
                         <span>&bull;</span>

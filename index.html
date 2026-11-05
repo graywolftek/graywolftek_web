@@ -613,6 +613,54 @@
                         </button>
                         <div
                             class="nav-dropdown-menu hidden absolute left-0 mt-3 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                            <!-- Core Solutions Sub-Dropdown -->
+                            <div class="nav-subdropdown-item relative group/sub">
+                                <button type="button"
+                                    class="nav-subdropdown-trigger w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group text-left cursor-pointer"
+                                    aria-expanded="false" aria-haspopup="true">
+                                    <div class="flex items-center">
+                                        <i data-lucide="layers"
+                                            class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                        <div>
+                                            <div class="font-semibold text-sm">Core Solutions</div>
+                                            <div class="text-[11px] text-gray-400">Infrastructure, Staffing & Apps</div>
+                                        </div>
+                                    </div>
+                                    <i data-lucide="chevron-right"
+                                        class="w-3.5 h-3.5 nav-subchevron text-gray-400 opacity-70 group-hover/sub:translate-x-0.5 transition-transform duration-150"></i>
+                                </button>
+                                <div
+                                    class="nav-subdropdown-menu hidden md:group-hover/sub:block absolute left-full top-0 ml-1.5 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                                    <a href="datacenter.html"
+                                        class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                        <i data-lucide="server"
+                                            class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                        <div>
+                                            <div class="font-semibold text-sm">Data Centre Infrastructure</div>
+                                            <div class="text-[11px] text-gray-400">Turnkey Deployments & Cloud</div>
+                                        </div>
+                                    </a>
+                                    <a href="staffing.html"
+                                        class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                        <i data-lucide="users"
+                                            class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                        <div>
+                                            <div class="font-semibold text-sm">Staffing Firm</div>
+                                            <div class="text-[11px] text-gray-400">High-Performing Tech Squads</div>
+                                        </div>
+                                    </a>
+                                    <a href="software.html"
+                                        class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                        <i data-lucide="code"
+                                            class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                        <div>
+                                            <div class="font-semibold text-sm">Software & App Development</div>
+                                            <div class="text-[11px] text-gray-400">Full-Stack Scalable Solutions</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
                             <a href="insights.html"
                                 class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
                                 <i data-lucide="trending-up"
@@ -654,16 +702,7 @@
                                     <div class="text-[11px] text-gray-400">Beta, Delta & Omega Squads</div>
                                 </div>
                             </a>
-                            <a href="index.html#blog"
-                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
-                                <i data-lucide="newspaper"
-                                    class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
-                                <div>
-                                    <div class="font-semibold text-sm">Blog</div>
-                                    <div class="text-[11px] text-gray-400">Articles & Perspectives</div>
-                                </div>
-                            </a>
-                            <a href="index.html#about"
+                            <a href="about.html"
                                 class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
                                 <i data-lucide="compass"
                                     class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
@@ -737,6 +776,34 @@
                         class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
                 </button>
                 <div class="pl-4 pr-1 py-1 space-y-1">
+                    <!-- Core Solutions Nested Accordion -->
+                    <div>
+                        <button type="button"
+                            class="mobile-accordion-btn flex items-center justify-between w-full px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition cursor-pointer">
+                            <span class="flex items-center">
+                                <i data-lucide="layers" class="w-4 h-4 mr-2.5 text-gray-400"></i> Core Solutions
+                            </span>
+                            <i data-lucide="chevron-down"
+                                class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
+                        </button>
+                        <div class="pl-4 pr-1 py-1 space-y-1 hidden">
+                            <a href="datacenter.html"
+                                class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/10 transition">
+                                <i data-lucide="server" class="w-4 h-4 mr-2.5 text-gray-400"></i> Data Centre
+                                Infrastructure
+                            </a>
+                            <a href="staffing.html"
+                                class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/10 transition">
+                                <i data-lucide="users" class="w-4 h-4 mr-2.5 text-gray-400"></i> Staffing Firm
+                            </a>
+                            <a href="software.html"
+                                class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/10 transition">
+                                <i data-lucide="code" class="w-4 h-4 mr-2.5 text-gray-400"></i> Software & App
+                                Development
+                            </a>
+                        </div>
+                    </div>
+
                     <a href="insights.html"
                         class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
                         <i data-lucide="trending-up" class="w-4 h-4 mr-2.5 text-gray-400"></i> Insights
@@ -763,11 +830,7 @@
                         class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
                         <i data-lucide="users" class="w-4 h-4 mr-2.5 text-gray-400"></i> Our Team
                     </a>
-                    <a href="index.html#blog"
-                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
-                        <i data-lucide="newspaper" class="w-4 h-4 mr-2.5 text-gray-400"></i> Blog
-                    </a>
-                    <a href="index.html#about"
+                    <a href="about.html"
                         class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
                         <i data-lucide="compass" class="w-4 h-4 mr-2.5 text-gray-400"></i> About Us
                     </a>
@@ -801,7 +864,7 @@
                 teams in India, enabling sustained growth and innovation.
             </p>
             <div class="mt-10 flex justify-center space-x-4">
-                <a href="#services" class="px-8 py-3 text-lg font-medium rounded-lg text-white cta-button">
+                <a href="insights.html" class="px-8 py-3 text-lg font-medium rounded-lg text-white cta-button">
                     Explore Solutions
                 </a>
                 <a href="#contact"
@@ -809,191 +872,6 @@
                     Schedule a Call
                 </a>
             </div>
-        </div>
-    </section>
-
-
-    <!-- Blog Section -->
-    <section id="blog" class="py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center section-separator">
-            <span class="text-sm font-semibold uppercase text-primary-accent">Insights</span>
-            <!-- Enhanced 3D Text Shadow Applied Here -->
-            <h2 class="text-4xl font-bold text-white mb-4 text-shadow-3d text-glow">Latest from the Graywolftek Blog
-            </h2>
-            <p class="text-lg text-gray-400 max-w-3xl mx-auto mb-16">
-                Stay updated on remote team building, DevOps trends, and data center infrastructure best practices.
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-                <!-- Blog Post 1 - Remote Teams -->
-                <div class="book">
-                    <div class="cover">
-                        <img src="assets/images/remoteteam.gif" alt="Remote Team Strategy"
-                            class="w-16 h-16 mx-auto mb-4 object-contain">
-                        <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Remote Teams</span>
-                        <h3 class="text-lg font-bold text-white mt-3 text-center leading-snug">5 Keys to Scaling
-                            Engineering Teams in India</h3>
-
-                    </div>
-                    <div class="w-full text-left">
-                        <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">Remote Teams</h4>
-                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
-                            Discover the essential strategies for successful talent sourcing, cultural integration, and
-                            infrastructure setup when building your remote presence.
-                        </p>
-                        <a href="blog-remote-teams.html"
-                            class="inline-flex items-center text-primary-accent hover:opacity-80 font-medium text-sm mt-2">
-                            Read More <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Blog Post 2 - Infrastructure -->
-                <div class="book">
-                    <div class="cover">
-                        <img src="assets/images/devopsteam.png" alt="DevOps and Infrastructure"
-                            class="w-16 h-16 mx-auto mb-4 object-contain">
-                        <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Infrastructure</span>
-                        <h3 class="text-lg font-bold text-white mt-3 text-center leading-snug">The Future of Data Center
-                            Infrastructure</h3>
-
-                    </div>
-                    <div class="w-full text-left">
-                        <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">Infrastructure
-                        </h4>
-                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
-                            An analysis of turnkey deployment models, cloud integration, and the role of technologies
-                            like Red Hat CloudForms and Satellite in modernizing infrastructure.
-                        </p>
-                        <a href="blog-infrastructure.html"
-                            class="inline-flex items-center text-primary-accent hover:opacity-80 font-medium text-sm mt-2">
-                            Read More <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Blog Post 3 - HR Management -->
-                <div class="book">
-                    <div class="cover">
-                        <img src="assets/images/agilehr.gif" alt="Agile HR Management"
-                            class="w-16 h-16 mx-auto mb-4 object-contain">
-                        <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">HR &
-                            Management</span>
-                        <h3 class="text-lg font-bold text-white mt-3 text-center leading-snug">Simplifying HR for Global
-                            Remote Teams</h3>
-
-                    </div>
-                    <div class="w-full text-left">
-                        <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">HR & Management
-                        </h4>
-                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
-                            How to handle compliance, payroll, and benefits efficiently across borders to keep your
-                            remote staff focused and productive.
-                        </p>
-                        <a href="blog-hr-management.html"
-                            class="inline-flex items-center text-primary-accent hover:opacity-80 font-medium text-sm mt-2">
-                            Read More <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Services Section (GIFs use assets/images/) -->
-    <section id="services" class="py-24 section-separator">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <!-- Enhanced 3D Text Shadow Applied Here -->
-            <h2 class="text-4xl font-bold text-white mb-4 text-shadow-3d text-glow">Our Core Solutions</h2>
-            <p class="text-lg text-gray-400 max-w-3xl mx-auto">
-                We provide comprehensive services from talent acquisition to full-stack infrastructure and development.
-            </p>
-
-            <!-- Grid for Service Cards -->
-            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- Service Card 1: Data Center Infrastructure -->
-                <div class="book">
-                    <div class="cover">
-                        <!-- GIF Icon PATH: assets/images/datacenter.gif -->
-                        <img src="assets/images/datacenter.gif" alt="Data Center Infrastructure Icon"
-                            class="w-16 h-16 mx-auto mb-4 object-contain">
-                        <h3 class="text-xl font-bold text-white text-center leading-snug">Data Center Infrastructure
-                        </h3>
-
-                    </div>
-                    <div class="w-full text-left">
-                        <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">Infrastructure
-                        </h4>
-                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
-                            GrayWolfTek delivers complete data center infrastructure solutions—from planning to
-                            execution—with a focus on performance, reliability, and scalability. We specialize in
-                            turnkey deployments using advanced technologies like Red Hat CloudForms and Satellite.
-                        </p>
-                        <a href="datacenter.html"
-                            class="inline-flex items-center text-sm font-medium text-white px-4 py-2 rounded-lg cta-button">
-                            LEARN MORE
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service Card 2: Staffing Firm -->
-                <div class="book">
-                    <div class="cover">
-                        <!-- GIF Icon PATH: assets/images/leadership.gif -->
-                        <img src="assets/images/leadership.gif" alt="Staffing and Leadership Icon"
-                            class="w-16 h-16 mx-auto mb-4 object-contain">
-                        <h3 class="text-xl font-bold text-white text-center leading-snug">Staffing Firm</h3>
-
-                    </div>
-                    <div class="w-full text-left">
-                        <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">Staffing Solutions
-                        </h4>
-                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
-                            GrayWolftek Staffing Firm is your strategic partner in building high-performing teams and
-                            managing recruitment from start to finish. We empower startups with tailored staffing
-                            solutions, helping them scale quickly and efficiently.
-                        </p>
-                        <a href="staffing.html"
-                            class="inline-flex items-center text-sm font-medium text-white px-4 py-2 rounded-lg cta-button">
-                            LEARN MORE
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service Card 3: Software and App Development -->
-                <div class="book">
-                    <div class="cover">
-                        <!-- GIF Icon PATH: assets/images/software.gif -->
-                        <img src="assets/images/software.gif" alt="Software Development Icon"
-                            class="w-16 h-16 mx-auto mb-4 object-contain">
-                        <h3 class="text-xl font-bold text-white text-center leading-snug">Software & App Development
-                        </h3>
-
-                    </div>
-                    <div class="w-full text-left">
-                        <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">Development</h4>
-                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
-                            GrayWolftek delivers end-to-end software and app development services, transforming your
-                            ideas into scalable, high-quality digital solutions. From concept to deployment, we guide
-                            you through a seamless and collaborative development journey.
-                        </p>
-                        <a href="software.html"
-                            class="inline-flex items-center text-sm font-medium text-white px-4 py-2 rounded-lg cta-button">
-                            LEARN MORE
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-            <a href="#management"
-                class="mt-12 inline-flex items-center text-primary-accent hover:opacity-80 font-medium">
-                View Management Solutions
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-            </a>
         </div>
     </section>
 
@@ -1034,93 +912,6 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section id="about" class="py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center section-separator">
-            <span class="text-sm font-semibold uppercase text-primary-accent">Our Foundation</span>
-            <!-- Enhanced 3D Text Shadow Applied Here -->
-            <h2 class="text-4xl font-bold text-white mb-6 text-shadow-3d text-glow">The Graywolftek Philosophy</h2>
-
-            <p class="text-lg text-gray-400 max-w-4xl mx-auto">
-                Inspired by the astute and collaborative nature of gray wolves, Graywolftek leads the pack in providing
-                exceptional technology solutions. Just as wolves collaborate seamlessly, we bring a unified approach to
-                organizing and elevating your technology requirements.
-            </p>
-            <div class="mt-6 flex justify-center">
-                <a href="founder/"
-                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-teal-200 bg-gradient-to-r from-[#006466]/40 via-[#1B3A4B]/40 to-[#4D194D]/40 border border-teal-500/30 rounded-full hover:border-teal-400 transition duration-200">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 mr-2.5 animate-pulse"></span>
-                    Meet our Founder & CEO, Vishal Maurya
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 text-primary-accent" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </a>
-            </div>
-
-            <div class="mt-12 flex justify-center">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl w-full">
-
-                    <!-- Feature 1 -->
-                    <div class="book reveal">
-                        <div class="cover">
-                            <div class="h-12 w-12 bg-indigo-500/20 rounded-lg flex items-center justify-center mb-4">
-                                <i data-lucide="target" class="w-6 h-6 text-primary-accent"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-white text-center leading-snug">Strategic Partnership</h3>
-
-                        </div>
-                        <div class="w-full text-left">
-                            <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">Strategy</h4>
-                            <p class="text-gray-300 text-sm leading-relaxed">
-                                We don't just provide services—we become an extension of your team, understanding your
-                                vision and working collaboratively to achieve your goals.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Feature 2 -->
-                    <div class="book reveal">
-                        <div class="cover">
-                            <div class="h-12 w-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4">
-                                <i data-lucide="zap" class="w-6 h-6 text-purple-400"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-white text-center leading-snug">Innovation First</h3>
-
-                        </div>
-                        <div class="w-full text-left">
-                            <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">Innovation
-                            </h4>
-                            <p class="text-gray-300 text-sm leading-relaxed">
-                                Leveraging cutting-edge technologies and agile methodologies to deliver solutions that
-                                keep
-                                you ahead of the competition.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Feature 3 -->
-                    <div class="book reveal">
-                        <div class="cover">
-                            <div class="h-12 w-12 bg-pink-500/20 rounded-lg flex items-center justify-center mb-4">
-                                <i data-lucide="shield-check" class="w-6 h-6 text-pink-400"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-white text-center leading-snug">Quality Assured</h3>
-
-                        </div>
-                        <div class="w-full text-left">
-                            <h4 class="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-2">Quality</h4>
-                            <p class="text-gray-300 text-sm leading-relaxed">
-                                Rigorous quality standards and transparent processes ensure reliable, scalable solutions
-                                that stand the test of time.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
     </section>
 
     <!-- Strategic Growth Partner Section -->
@@ -1256,7 +1047,7 @@
                     <div class="flex items-center justify-center md:justify-end space-x-3 text-xs text-gray-400 mt-3">
                         <a href="founder/" class="text-primary-accent hover:underline font-medium">Founder Profile</a>
                         <span>&bull;</span>
-                        <a href="#about" class="hover:text-primary-accent transition">About</a>
+                        <a href="about.html" class="hover:text-primary-accent transition">About</a>
                         <span>&bull;</span>
                         <a href="product.html" class="hover:text-primary-accent transition">Product</a>
                         <span>&bull;</span>

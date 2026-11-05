@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graywolftek | About Us — The Graywolftek Philosophy</title>
+    <meta name="description"
+        content="Inspired by the astute and collaborative nature of gray wolves, Graywolftek leads the pack in providing exceptional technology solutions, agile management, and engineering excellence.">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Font & Core Styles -->
+    <style type="text/tailwindcss">
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0b141d;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 100, 102, 0.45) 0, transparent 50%),
+                radial-gradient(at 50% 0%, rgba(27, 58, 75, 0.55) 0, transparent 55%),
+                radial-gradient(at 100% 0%, rgba(77, 25, 77, 0.45) 0, transparent 50%),
+                radial-gradient(at 85% 65%, rgba(62, 31, 71, 0.35) 0, transparent 50%),
+                radial-gradient(at 15% 85%, rgba(6, 90, 96, 0.35) 0, transparent 50%);
+            background-attachment: fixed;
+            color: #f3f4f6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --color-primary-accent: #2dd4bf;
+            --color-secondary-accent: #c084fc;
+            --color-dark-text: #f3f4f6;
+            --color-glass-border: rgba(255, 255, 255, 0.08);
+            --color-glass-bg: rgba(27, 58, 75, 0.22);
+        }
+
+        .glass-panel {
+            background: rgba(27, 58, 75, 0.22);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--color-glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(45, 212, 191, 0.5), 0 0 40px rgba(192, 132, 252, 0.35);
+        }
+
+        .text-shadow-3d {
+            text-shadow: 0 1px 0 #006466, 0 2px 0 #0b525b, 0 3px 0 #1b3a4b, 0 4px 0 #3e1f47, 0 5px 0 #4d194d, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-separator::after {
+            content: '';
+            display: block;
+            width: 140px;
+            height: 3px;
+            background: linear-gradient(90deg, #006466 0%, #0b525b 25%, #1b3a4b 50%, #3e1f47 75%, #4d194d 100%);
+            margin: 2rem auto 3.5rem;
+            border-radius: 9999px;
+            box-shadow: 0 0 12px rgba(45, 212, 191, 0.5);
+        }
+
+        .cta-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 100, 102, 0.4);
+            background: linear-gradient(135deg, #006466 0%, #144552 35%, #272640 70%, #4d194d 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px) scale(1.03);
+            background: linear-gradient(135deg, #065a60 0%, #1b3a4b 35%, #312244 70%, #3e1f47 100%);
+            box-shadow: 0 6px 30px rgba(77, 25, 77, 0.6);
+        }
+
+        .card-3d-effect {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-3d-effect:hover {
+            border-color: rgba(45, 212, 191, 0.4);
+            box-shadow: 0 16px 40px -10px rgba(0, 100, 102, 0.35);
+            transform: translateY(-4px);
+        }
+
+        /* 3D Flip Card - Book Styling */
+        .book {
+            position: relative;
+            border-radius: 12px;
+            width: 100%;
+            height: 340px;
+            background-color: rgba(11, 20, 29, 0.65);
+            -webkit-box-shadow: 1px 1px 12px #000;
+            box-shadow: 1px 1px 12px #000;
+            -webkit-transform: preserve-3d;
+            -ms-transform: preserve-3d;
+            transform: preserve-3d;
+            -webkit-perspective: 2000px;
+            perspective: 2000px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            color: #000;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cover {
+            top: 0;
+            position: absolute;
+            background: linear-gradient(135deg, #006466 0%, #0b525b 25%, #144552 50%, #1b3a4b 75%, #212f45 100%);
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            cursor: pointer;
+            -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            -webkit-transform-origin: 0;
+            -ms-transform-origin: 0;
+            transform-origin: 0;
+            -webkit-box-shadow: 1px 1px 12px #000;
+            box-shadow: 1px 1px 12px #000;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .book:hover .cover {
+            -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            -webkit-transform: rotatey(-85deg);
+            -ms-transform: rotatey(-85deg);
+            transform: rotatey(-85deg);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.7s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .social-icon-btn {
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(129, 140, 248, 0.6), 0 0 30px rgba(129, 140, 248, 0.4);
+            border-color: var(--color-primary-accent);
+            transform: translateY(-2px);
+        }
+
+        .social-icon-btn:hover i {
+            color: var(--color-primary-accent) !important;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+<header class="sticky top-0 z-50 glass-panel shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Company Logo and Name (Left) -->
+                <div class="flex items-center flex-1 justify-start">
+                    <a href="index.html" class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0 group">
+                        <img src="assets/images/logo.png" alt="Graywolftek Main Logo"
+                            class="h-10 sm:h-12 w-auto flex-shrink-0 group-hover:scale-105 transition duration-300" />
+                        <span class="text-lg sm:text-xl font-extrabold tracking-wider text-white whitespace-nowrap">
+                            <span class="text-primary-accent text-glow">GRAY</span>WOLFTEK
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation: Home, R&D, Services, Story (Centered in Header) -->
+                <nav class="hidden md:flex space-x-6 lg:space-x-8 items-center justify-center flex-shrink-0"
+                    aria-label="Main Navigation">
+                    <!-- 1. Home -->
+                    <a href="index.html"
+                        class="nav-link text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150">
+                        Home
+                    </a>
+
+                    <!-- 2. R&D Dropdown -->
+                    <div class="nav-dropdown-item relative">
+                        <button type="button"
+                            class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
+                            aria-expanded="false" aria-haspopup="true">
+                            <span>R&D</span>
+                            <i data-lucide="chevron-down"
+                                class="w-3.5 h-3.5 nav-chevron opacity-70 transition-transform duration-200"></i>
+                        </button>
+                        <div
+                            class="nav-dropdown-menu hidden absolute left-0 mt-3 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                            <a href="projects.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="code-2"
+                                    class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Project</div>
+                                    <div class="text-[11px] text-gray-400">Innovation Lab & Prototypes</div>
+                                </div>
+                            </a>
+                            <a href="product.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="box"
+                                    class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Product</div>
+                                    <div class="text-[11px] text-gray-400">Shelfly & Platforms</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                                        <!-- 3. Services Dropdown -->
+                    <div class="nav-dropdown-item relative">
+                        <button type="button"
+                            class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
+                            aria-expanded="false" aria-haspopup="true">
+                            <span>Services</span>
+                            <i data-lucide="chevron-down"
+                                class="w-3.5 h-3.5 nav-chevron opacity-70 transition-transform duration-200"></i>
+                        </button>
+                        <div
+                            class="nav-dropdown-menu hidden absolute left-0 mt-3 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                            <!-- Core Solutions Sub-Dropdown -->
+                            <div class="nav-subdropdown-item relative group/sub">
+                                <button type="button"
+                                    class="nav-subdropdown-trigger w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group text-left cursor-pointer"
+                                    aria-expanded="false" aria-haspopup="true">
+                                    <div class="flex items-center">
+                                        <i data-lucide="layers"
+                                            class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                        <div>
+                                            <div class="font-semibold text-sm">Core Solutions</div>
+                                            <div class="text-[11px] text-gray-400">Infrastructure, Staffing & Apps</div>
+                                        </div>
+                                    </div>
+                                    <i data-lucide="chevron-right"
+                                        class="w-3.5 h-3.5 nav-subchevron text-gray-400 opacity-70 group-hover/sub:translate-x-0.5 transition-transform duration-150"></i>
+                                </button>
+                                <div
+                                    class="nav-subdropdown-menu hidden md:group-hover/sub:block absolute left-full top-0 ml-1.5 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                                    <a href="datacenter.html"
+                                        class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                        <i data-lucide="server"
+                                            class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                        <div>
+                                            <div class="font-semibold text-sm">Data Centre Infrastructure</div>
+                                            <div class="text-[11px] text-gray-400">Turnkey Deployments & Cloud</div>
+                                        </div>
+                                    </a>
+                                    <a href="staffing.html"
+                                        class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                        <i data-lucide="users"
+                                            class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                        <div>
+                                            <div class="font-semibold text-sm">Staffing Firm</div>
+                                            <div class="text-[11px] text-gray-400">High-Performing Tech Squads</div>
+                                        </div>
+                                    </a>
+                                    <a href="software.html"
+                                        class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                        <i data-lucide="code"
+                                            class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                        <div>
+                                            <div class="font-semibold text-sm">Software & App Development</div>
+                                            <div class="text-[11px] text-gray-400">Full-Stack Scalable Solutions</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <a href="insights.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="trending-up"
+                                    class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Insights</div>
+                                    <div class="text-[11px] text-gray-400">Industry Research & Analysis</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 4. Story Dropdown -->
+                    <div class="nav-dropdown-item relative">
+                        <button type="button"
+                            class="nav-dropdown-trigger flex items-center space-x-1 text-sm font-medium text-gray-200 hover:text-primary-accent transition duration-150 focus:outline-none cursor-pointer py-1"
+                            aria-expanded="false" aria-haspopup="true">
+                            <span>Story</span>
+                            <i data-lucide="chevron-down"
+                                class="w-3.5 h-3.5 nav-chevron opacity-70 transition-transform duration-200"></i>
+                        </button>
+                        <div
+                            class="nav-dropdown-menu hidden absolute right-0 md:left-0 lg:right-auto mt-3 w-72 rounded-2xl menu-dropdown-panel p-2.5 shadow-2xl z-50">
+                            <a href="founder/"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="user"
+                                    class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Founder</div>
+                                    <div class="text-[11px] text-gray-400">Vishal Maurya – Founder & CEO</div>
+                                </div>
+                            </a>
+                            <a href="team.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="users"
+                                    class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Our Team</div>
+                                    <div class="text-[11px] text-gray-400">Beta, Delta & Omega Squads</div>
+                                </div>
+                            </a>
+                            <a href="about.html"
+                                class="flex items-center px-3 py-2.5 rounded-xl text-sm text-gray-200 hover:text-white hover:bg-white/10 transition group">
+                                <i data-lucide="compass"
+                                    class="w-4 h-4 mr-3 text-gray-400 group-hover:text-primary-accent transition-colors"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">About Us</div>
+                                    <div class="text-[11px] text-gray-400">Company Vision & Squads</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Right Action: CTA & Mobile Button (Right) -->
+                <div class="flex items-center flex-1 justify-end space-x-4">
+                    <a href="index.html#contact"
+                        class="hidden sm:inline-flex items-center px-5 py-2.5 text-sm font-medium rounded-xl text-white cta-button shadow-sm">
+                        Get Started
+                    </a>
+
+                    <!-- Mobile Hamburger Button -->
+                    <button id="mobile-menu-btn" type="button"
+                        class="md:hidden inline-flex items-center justify-center p-2 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition focus:outline-none cursor-pointer"
+                        aria-expanded="false" aria-label="Toggle Navigation">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Drawer with Same Dropdowns/Accordions -->
+        <div id="mobile-nav-drawer"
+            class="hidden md:hidden menu-dropdown-panel border-t border-white/10 px-4 pt-3 pb-6 space-y-2">
+            <!-- 1. Home -->
+            <a href="index.html"
+                class="flex items-center px-3.5 py-2.5 rounded-xl text-sm font-semibold text-white hover:bg-white/10 transition">
+                <i data-lucide="home" class="w-4 h-4 mr-2.5 text-primary-accent"></i>
+                Home
+            </a>
+
+            <!-- 2. R&D Mobile Accordion -->
+            <div class="border-t border-white/10 pt-1">
+                <button type="button"
+                    class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
+                    <span class="flex items-center">
+                        <i data-lucide="flask-conical" class="w-4 h-4 mr-2"></i> R&D
+                    </span>
+                    <i data-lucide="chevron-down"
+                        class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
+                </button>
+                <div class="pl-4 pr-1 py-1 space-y-1">
+                    <a href="projects.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="code-2" class="w-4 h-4 mr-2.5 text-gray-400"></i> Project
+                    </a>
+                    <a href="product.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="box" class="w-4 h-4 mr-2.5 text-gray-400"></i> Product
+                    </a>
+                </div>
+            </div>
+
+                        <!-- 3. Services Mobile Accordion -->
+            <div class="border-t border-white/10 pt-1">
+                <button type="button"
+                    class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
+                    <span class="flex items-center">
+                        <i data-lucide="briefcase" class="w-4 h-4 mr-2"></i> Services
+                    </span>
+                    <i data-lucide="chevron-down"
+                        class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
+                </button>
+                <div class="pl-4 pr-1 py-1 space-y-1">
+                    <!-- Core Solutions Nested Accordion -->
+                    <div>
+                        <button type="button"
+                            class="mobile-accordion-btn flex items-center justify-between w-full px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition cursor-pointer">
+                            <span class="flex items-center">
+                                <i data-lucide="layers" class="w-4 h-4 mr-2.5 text-gray-400"></i> Core Solutions
+                            </span>
+                            <i data-lucide="chevron-down"
+                                class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
+                        </button>
+                        <div class="pl-4 pr-1 py-1 space-y-1 hidden">
+                            <a href="datacenter.html"
+                                class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/10 transition">
+                                <i data-lucide="server" class="w-4 h-4 mr-2.5 text-gray-400"></i> Data Centre Infrastructure
+                            </a>
+                            <a href="staffing.html"
+                                class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/10 transition">
+                                <i data-lucide="users" class="w-4 h-4 mr-2.5 text-gray-400"></i> Staffing Firm
+                            </a>
+                            <a href="software.html"
+                                class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/10 transition">
+                                <i data-lucide="code" class="w-4 h-4 mr-2.5 text-gray-400"></i> Software & App Development
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="insights.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="trending-up" class="w-4 h-4 mr-2.5 text-gray-400"></i> Insights
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4. Story Mobile Accordion -->
+            <div class="border-t border-white/10 pt-1">
+                <button type="button"
+                    class="mobile-accordion-btn flex items-center justify-between w-full px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-accent hover:text-white transition cursor-pointer">
+                    <span class="flex items-center">
+                        <i data-lucide="book-open" class="w-4 h-4 mr-2"></i> Story
+                    </span>
+                    <i data-lucide="chevron-down"
+                        class="w-3.5 h-3.5 transition-transform duration-200 mobile-accordion-arrow"></i>
+                </button>
+                <div class="pl-4 pr-1 py-1 space-y-1">
+                    <a href="founder/"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="user" class="w-4 h-4 mr-2.5 text-gray-400"></i> Founder
+                    </a>
+                    <a href="team.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="users" class="w-4 h-4 mr-2.5 text-gray-400"></i> Our Team
+                    </a>
+                    <a href="about.html"
+                        class="flex items-center px-3 py-2 rounded-lg text-sm text-gray-200 hover:text-white hover:bg-white/10 transition">
+                        <i data-lucide="compass" class="w-4 h-4 mr-2.5 text-gray-400"></i> About Us
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile CTA -->
+            <div class="pt-3 border-t border-white/10">
+                <a href="index.html#contact"
+                    class="flex items-center justify-center w-full px-4 py-2.5 rounded-xl text-xs font-semibold text-white cta-button tracking-wide">
+                    <i data-lucide="mail" class="w-3.5 h-3.5 mr-2"></i> Get Started
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Breadcrumb Navigation -->
+        <nav class="flex items-center text-xs text-gray-400 space-x-2 mb-8" aria-label="Breadcrumb">
+            <a href="index.html" class="hover:text-primary-accent transition flex items-center">
+                <i data-lucide="home" class="w-3.5 h-3.5 mr-1"></i> Home
+            </a>
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            <span class="text-gray-300">Story</span>
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            <span class="text-primary-accent font-medium">About Us</span>
+        </nav>
+
+        <!-- Hero Header: The Graywolftek Philosophy -->
+        <section class="text-center max-w-4xl mx-auto mb-20 section-separator">
+            <div class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-primary-accent bg-teal-950/60 border border-teal-500/30 mb-5">
+                <span class="w-2 h-2 rounded-full bg-teal-400 mr-2 animate-ping"></span>
+                Our Foundation
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight text-shadow-3d text-glow mb-6">
+                The Graywolftek Philosophy
+            </h1>
+            <p class="text-base sm:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
+                Inspired by the astute and collaborative nature of gray wolves, Graywolftek leads the pack in providing exceptional technology solutions. Just as wolves collaborate seamlessly, we bring a unified approach to organizing and elevating your technology requirements.
+            </p>
+
+            <div class="mt-8 flex justify-center">
+                <a href="founder/"
+                    class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-teal-200 bg-gradient-to-r from-[#006466]/40 via-[#1B3A4B]/40 to-[#4D194D]/40 border border-teal-500/30 rounded-full hover:border-teal-400 transition duration-300 shadow-md">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 mr-2.5 animate-pulse"></span>
+                    Meet our Founder & CEO, Vishal Maurya
+                    <i data-lucide="arrow-right" class="w-4 h-4 ml-2 text-primary-accent"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Foundation Pillars (Interactive 3D Book Cards) -->
+        <section class="mb-24 section-separator">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-wider text-primary-accent">Core Principles</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 text-glow">How We Drive Engineering Impact</h2>
+                <p class="text-sm text-gray-400 mt-2">Hover over each pillar to explore our fundamental operating ethos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Feature 1: Strategic Partnership -->
+                <div class="book reveal">
+                    <div class="cover">
+                        <div class="h-14 w-14 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-4 border border-indigo-500/30">
+                            <i data-lucide="target" class="w-7 h-7 text-primary-accent"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white text-center leading-snug">Strategic Partnership</h3>
+                        <span class="text-xs text-teal-300 mt-2 font-mono">Hover to view</span>
+                    </div>
+                    <div class="w-full text-left">
+                        <h4 class="text-xs font-semibold uppercase text-gray-400 tracking-wider mb-2">Strategy & Alignment</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                            We don't just provide services—we become an organic extension of your engineering leadership. Understanding your commercial vision and working collaboratively to eliminate bottlenecks and hit key milestones.
+                        </p>
+                        <span class="text-xs text-primary-accent font-semibold inline-flex items-center">
+                            Long-Term Stewardship <i data-lucide="check" class="w-3.5 h-3.5 ml-1"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Feature 2: Innovation First -->
+                <div class="book reveal">
+                    <div class="cover">
+                        <div class="h-14 w-14 bg-purple-500/20 rounded-xl flex items-center justify-center mb-4 border border-purple-500/30">
+                            <i data-lucide="zap" class="w-7 h-7 text-purple-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white text-center leading-snug">Innovation First</h3>
+                        <span class="text-xs text-purple-300 mt-2 font-mono">Hover to view</span>
+                    </div>
+                    <div class="w-full text-left">
+                        <h4 class="text-xs font-semibold uppercase text-gray-400 tracking-wider mb-2">Modern Architecture</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                            Leveraging modern cloud infrastructure, event-driven architectures, and agile engineering practices. We engineer digital solutions that ensure high throughput, fault tolerance, and competitive technical edge.
+                        </p>
+                        <span class="text-xs text-purple-400 font-semibold inline-flex items-center">
+                            Cutting-Edge Tech Stack <i data-lucide="check" class="w-3.5 h-3.5 ml-1"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Feature 3: Quality Assured -->
+                <div class="book reveal">
+                    <div class="cover">
+                        <div class="h-14 w-14 bg-pink-500/20 rounded-xl flex items-center justify-center mb-4 border border-pink-500/30">
+                            <i data-lucide="shield-check" class="w-7 h-7 text-pink-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white text-center leading-snug">Quality Assured</h3>
+                        <span class="text-xs text-pink-300 mt-2 font-mono">Hover to view</span>
+                    </div>
+                    <div class="w-full text-left">
+                        <h4 class="text-xs font-semibold uppercase text-gray-400 tracking-wider mb-2">Reliability & Governance</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                            Rigorous quality assurance, automated CI/CD pipelines, and transparent operational protocols ensure that every line of code deployed into production is resilient, secure, and built to scale effortlessly.
+                        </p>
+                        <span class="text-xs text-pink-400 font-semibold inline-flex items-center">
+                            Zero-Friction Reliability <i data-lucide="check" class="w-3.5 h-3.5 ml-1"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership & Squads Bridge -->
+        <section class="max-w-5xl mx-auto mb-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <a href="founder/" class="card-3d-effect p-8 rounded-3xl flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-teal-500/20 text-primary-accent flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                            <i data-lucide="user" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs uppercase tracking-wider text-teal-400 font-semibold">Leadership</span>
+                        <h3 class="text-2xl font-bold text-white mt-1 mb-3 group-hover:text-primary-accent transition-colors">
+                            Founder & CEO Profile
+                        </h3>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Discover the visionary leadership and technical background of Vishal Maurya, driving Graywolftek's global vision and mission.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center text-xs font-semibold text-primary-accent">
+                        View Founder Profile <i data-lucide="arrow-right" class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <a href="team.html" class="card-3d-effect p-8 rounded-3xl flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-purple-500/20 text-secondary-accent flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                            <i data-lucide="users" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs uppercase tracking-wider text-purple-400 font-semibold">Our Squads</span>
+                        <h3 class="text-2xl font-bold text-white mt-1 mb-3 group-hover:text-secondary-accent transition-colors">
+                            The Graywolftek Team
+                        </h3>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Meet our specialized Beta, Delta, and Omega engineering squads structuring high-velocity execution for enterprise startups.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center text-xs font-semibold text-secondary-accent">
+                        Explore Squads <i data-lucide="arrow-right" class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+<footer id="contact"
+        class="py-20 bg-gray-900/50 border-t border-gray-800 backdrop-blur-sm relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="relative mb-12">
+
+                <div class="text-center">
+                    <h2 class="text-4xl font-extrabold text-white mb-4 text-glow">Ready to Build Your Elite Team?</h2>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                        Let Graywolftek be the alpha in streamlining your business processes. Schedule your free
+                        consulting
+                        call today.
+                    </p>
+                    <div class="mt-8">
+                        <a href="mailto:graywolftek@gmail.com"
+                            class="px-10 py-4 text-lg font-medium rounded-lg text-white cta-button">
+                            Start the Conversation
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-gray-800 pt-10 text-center md:text-left reveal">
+
+                <!-- Contact Info -->
+                <div class="space-y-4">
+                    <h4 class="text-xl font-semibold text-white">Connect with Us</h4>
+                    <div class="flex items-center justify-center md:justify-start text-gray-400">
+                        <i data-lucide="mail" class="w-5 h-5 mr-3 text-primary-accent"></i>
+                        <a href="mailto:graywolftek@gmail.com"
+                            class="hover:text-primary-accent transition">graywolftek@gmail.com</a>
+                    </div>
+                    <div class="flex items-center justify-center md:justify-start text-gray-400">
+                        <i data-lucide="phone" class="w-5 h-5 mr-3 text-primary-accent"></i>
+                        <a href="tel:+917559185780" class="hover:text-primary-accent transition">+91-7559185780</a>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="space-y-4">
+                    <h4 class="text-xl font-semibold text-white">Visit Our Office</h4>
+                    <p class="text-gray-400">
+                        Usmanpur, Jalalpur Ambedkar Nagar <br>
+                        224149, India
+                    </p>
+                </div>
+
+                <!-- Logo & Copyright -->
+                <div class="space-y-4 md:text-right">
+                    <!-- Logo in footer for consistency -->
+                    <a href="index.html" class="flex items-center justify-center md:justify-end space-x-2">
+                        <!-- LOGO PATH: assets/images/logo.png -->
+                        <img src="assets/images/logo.png" alt="Graywolftek Main Logo" class="h-8 w-auto" />
+                        <span class="text-xl font-extrabold tracking-wider text-white">
+                            <span class="text-primary-accent text-glow">GRAY</span>WOLFTEK
+                        </span>
+                    </a>
+
+                    <!-- Social Media Links -->
+                    <div class="flex items-center justify-center md:justify-end space-x-3 mt-4">
+                        <span class="social-icon-btn cursor-default" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <path
+                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                                </path>
+                            </svg>
+                        </span>
+                        <a href="https://www.linkedin.com/company/graywolftek/posts/?feedView=all" target="_blank"
+                            class="social-icon-btn" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/graywolftek/" target="_blank" class="social-icon-btn"
+                            aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <span class="social-icon-btn cursor-default" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-gray-300">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </span>
+                    </div>
+
+                    <div class="flex items-center justify-center md:justify-end space-x-3 text-xs text-gray-400 mt-3">
+                        <a href="founder/" class="text-primary-accent hover:underline font-medium">Founder Profile</a>
+                        <span>&bull;</span>
+                        <a href="about.html" class="hover:text-primary-accent transition">About</a>
+                        <span>&bull;</span>
+                        <a href="product.html" class="hover:text-primary-accent transition">Product</a>
+                        <span>&bull;</span>
+                        <a href="projects.html" class="hover:text-primary-accent transition">Projects</a>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">&copy; 2024 Graywolftek. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dropdown Menu Script -->
+    <script src="assets/js/menu-dropdown.js"></script>
+
+    <!-- Page Interaction Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) lucide.createIcons();
+
+            // Scroll reveal animation
+            const reveals = document.querySelectorAll('.reveal');
+            function reveal() {
+                reveals.forEach(el => {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = el.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 80) {
+                        el.classList.add('active');
+                    }
+                });
+            }
+            window.addEventListener('scroll', reveal);
+            reveal();
+        });
+    </script>
+</body>
+
+</html>

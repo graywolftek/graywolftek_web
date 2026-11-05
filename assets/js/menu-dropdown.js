@@ -1,6 +1,6 @@
 /**
  * Graywolftek - Header Navigation Dropdown Component
- * Handles Home, R&D, Services, Story dropdowns on desktop and mobile drawer
+ * Handles Home, R&D, Services, Story dropdowns and Core Solutions sub-dropdowns on desktop and mobile drawer
  */
 (function () {
     // Inject styling for high opacity dropdowns and hover bridge
@@ -36,13 +36,37 @@
             .nav-dropdown-item.active .nav-dropdown-menu {
                 display: block !important;
             }
+
+            /* Sub-dropdown (e.g. Core Solutions under Services) */
+            .nav-subdropdown-item {
+                position: relative;
+            }
+            .nav-subdropdown-item .nav-subdropdown-menu::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: -12px;
+                width: 14px;
+            }
+            .nav-subdropdown-item:hover .nav-subchevron,
+            .nav-subdropdown-item.active .nav-subchevron {
+                transform: rotate(90deg);
+                color: var(--color-primary-accent, #2dd4bf);
+            }
+            .nav-subdropdown-item:hover .nav-subdropdown-menu,
+            .nav-subdropdown-item.active .nav-subdropdown-menu {
+                display: block !important;
+            }
         `;
         document.head.appendChild(style);
     }
 
     function initNav() {
-        // Desktop Click Toggles (supports touch devices and explicit click)
+        // Desktop Main Dropdown Click Toggles (supports touch devices and explicit click)
         const dropdownItems = document.querySelectorAll('.nav-dropdown-item');
+        const subdropdownItems = document.querySelectorAll('.nav-subdropdown-item');
+
         dropdownItems.forEach(function (item) {
             const trigger = item.querySelector('.nav-dropdown-trigger');
             if (!trigger) return;
@@ -51,12 +75,38 @@
                 e.stopPropagation();
                 const isActive = item.classList.contains('active');
                 dropdownItems.forEach(function (other) {
-                    if (other !== item) other.classList.remove('active');
+                    if (other !== item) {
+                        other.classList.remove('active');
+                        // Close any open sub-dropdowns inside other
+                        const subs = other.querySelectorAll('.nav-subdropdown-item');
+                        subs.forEach(function (s) { s.classList.remove('active'); });
+                    }
                 });
                 if (isActive) {
                     item.classList.remove('active');
+                    const subs = item.querySelectorAll('.nav-subdropdown-item');
+                    subs.forEach(function (s) { s.classList.remove('active'); });
                 } else {
                     item.classList.add('active');
+                }
+            });
+        });
+
+        // Desktop Sub-dropdown Click / Touch Toggles
+        subdropdownItems.forEach(function (subitem) {
+            const subtrigger = subitem.querySelector('.nav-subdropdown-trigger');
+            if (!subtrigger) return;
+
+            subtrigger.addEventListener('click', function (e) {
+                e.stopPropagation();
+                const isSubActive = subitem.classList.contains('active');
+                subdropdownItems.forEach(function (other) {
+                    if (other !== subitem) other.classList.remove('active');
+                });
+                if (isSubActive) {
+                    subitem.classList.remove('active');
+                } else {
+                    subitem.classList.add('active');
                 }
             });
         });
@@ -66,6 +116,11 @@
             dropdownItems.forEach(function (item) {
                 if (!item.contains(e.target)) {
                     item.classList.remove('active');
+                }
+            });
+            subdropdownItems.forEach(function (subitem) {
+                if (!subitem.contains(e.target)) {
+                    subitem.classList.remove('active');
                 }
             });
             const mobileDrawer = document.getElementById('mobile-nav-drawer');
@@ -81,6 +136,9 @@
             if (e.key === 'Escape') {
                 dropdownItems.forEach(function (item) {
                     item.classList.remove('active');
+                });
+                subdropdownItems.forEach(function (subitem) {
+                    subitem.classList.remove('active');
                 });
                 const mobileDrawer = document.getElementById('mobile-nav-drawer');
                 if (mobileDrawer) mobileDrawer.classList.add('hidden');
@@ -104,7 +162,7 @@
             });
         }
 
-        // Mobile Accordion Toggles
+        // Mobile Accordion Toggles (Handles both level-1 and nested level-2 accordions)
         const mobileAccordions = document.querySelectorAll('.mobile-accordion-btn');
         mobileAccordions.forEach(function (btn) {
             btn.addEventListener('click', function (e) {
